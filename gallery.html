@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | IS Photography</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+                <li class="nav-item logo-item">
+                    <div class="logo">
+                        <i class="fas fa-camera-retro"></i>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    <!-- Gallery Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Photography Gallery</h1>
+            <p>Explore our collection of professional photography across different categories</p>
+        </div>
+    </section>
+
+    <!-- Gallery Filter -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="cars">Cars</button>
+                <button class="filter-btn" data-filter="nature">Nature</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid" id="gallery-grid">
+                
+                <!-- Category Overview Cards (shown when "All" is selected) -->
+                <div class="category-overview-item" data-category="overview" onclick="filterCategory('cars')">
+                    <img src="images/Cars/DSC05110.jpg" alt="Cars Category">
+                    <div class="category-overlay">
+                        <div class="category-content">
+                            <h3>Cars</h3>
+                            <p>12 Photos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-overview-item" data-category="overview" onclick="filterCategory('nature')">
+                    <img src="images/Nature/Copy of DSC06153.jpg" alt="Nature Category">
+                    <div class="category-overlay">
+                        <div class="category-content">
+                            <h3>Nature</h3>
+                            <p>17 Photos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Car Images -->
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/6November-0993.jpg" alt="Car 1">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/6November-1009.jpg" alt="Car 2">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/DSC05110.jpg" alt="Car 3">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/DSC05125.jpg" alt="Car 4">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/DSC06017 (2).jpg" alt="Car 5">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/DSC06023.jpg" alt="Car 6">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/DSC07379.jpg" alt="Car 7">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/DSC07383.jpg" alt="Car 8">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/DSC07386.jpg" alt="Car 9">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/DSC_0711.jpg" alt="Car 10">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/IMG_20220326_222103.jpg" alt="Car 11">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/M8-0573.jpg" alt="Car 12">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nature Images -->
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/12March22-1888.jpg" alt="Nature 1">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/Copy of DSC06153.jpg" alt="Nature 2">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/Copy of DSC06581.jpg" alt="Nature 3">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/Copy of DSC06685.jpg" alt="Nature 4">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/Copy of DSC06686.jpg" alt="Nature 5">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/Copy of DSC06799.jpg" alt="Nature 6">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/CWuXKXr.jpg" alt="Nature 7">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/DJI_0283-2.jpg" alt="Nature 8">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/DSC04541.jpg" alt="Nature 9">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/Копие на DJI_0197-2.jpg" alt="Nature 11">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/DSC_0869.jpg" alt="Nature 10">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/Копие на DJI_0210.jpg" alt="Nature 12">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/Копие на DJI_0383.jpg" alt="Nature 13">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/Копие на DJI_0393.jpg" alt="Nature 15">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/Копие на DJI_0388.jpg" alt="Nature 14">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/Копие на DJI_0397.jpg" alt="Nature 16">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/Копие на DJI_0402.jpg" alt="Nature 17">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Image Preview -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>IS Photography</h3>
+                    <p>Capturing life's beautiful moments with professional photography services.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/ideal_shotz/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> shotz.ideal@gmail.com</p>
+                        <p><i class="fas fa-location-dot"></i> Sofia, Bulgaria</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 IS Photography. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

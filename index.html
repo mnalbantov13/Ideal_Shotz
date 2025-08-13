@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IS Photography | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item logo-item">
+                    <div class="logo">
+                        <i class="fas fa-camera-retro"></i>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <img src="images/DJI_0349.jpg" alt="Photography Background" class="hero-bg-image">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            
+                <img src="images/Logo_Full.png" alt="Ideal Shotz Logo" class = "hero-logo">
+            
+            <h1 class="hero-title">
+                <span class="hero-title-line">Capturing Life's</span>
+                <span class="hero-title-line highlight">Beautiful Moments</span>
+            </h1>
+            <div class="hero-buttons">
+                <a href="gallery.html" class="btn btn-primary">
+                    <span>View Gallery</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="contact.html" class="btn btn-secondary">
+                    <span>Get In Touch</span>
+                    <i class="fas fa-camera"></i>
+                </a>
+            </div>
+            <div class="hero-scroll-indicator">
+                <div class="scroll-arrow">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <span>Scroll to explore</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About IS Photography</h2>
+                    <p>With over 8 years of experience in professional photography, I specialize in capturing the essence of every moment. From intimate portraits to grand landscapes, my work focuses on storytelling through visual artistry.</p>
+                </div>
+                <div class="about-visual">
+                    <div class="about-image-grid">
+                        <div class="about-image main-image">
+                            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Photographer at work">
+                            <div class="image-overlay">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Work Preview -->
+    <section class="featured-work">
+        <div class="container">
+            <h2 class="section-title">Featured Work</h2>
+            <div class="infinite-carousel">
+                <div class="carousel-wrapper">
+                    <div class="carousel-track">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Portrait">
+                            <div class="gallery-overlay">
+                                <h3>Portraits</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Wedding">
+                            <div class="gallery-overlay">
+                                <h3>Weddings</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Landscape">
+                            <div class="gallery-overlay">
+                                <h3>Landscapes</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Event">
+                            <div class="gallery-overlay">
+                                <h3>Events</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Architecture">
+                            <div class="gallery-overlay">
+                                <h3>Architecture</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1582979512210-99b6a53386f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Nature">
+                            <div class="gallery-overlay">
+                                <h3>Nature</h3>
+                            </div>
+                        </div>
+                        <!-- Duplicate items for seamless loop -->
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Portrait">
+                            <div class="gallery-overlay">
+                                <h3>Portraits</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Wedding">
+                            <div class="gallery-overlay">
+                                <h3>Weddings</h3>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Landscape">
+                            <div class="gallery-overlay">
+                                <h3>Landscapes</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-left"></div>
+                <div class="fade-right"></div>
+            </div>
+            <div class="text-center">
+                <a href="gallery.html" class="btn btn-primary">View Full Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>IS Photography</h3>
+                    <p>Capturing life's beautiful moments with professional photography services.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/ideal_shotz/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> shotz.ideal@gmail.com</p>
+                        <p><i class="fas fa-location-dot"></i> Sofia, Bulgaria</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 IS Photography. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
