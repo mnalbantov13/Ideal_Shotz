@@ -12,7 +12,37 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize gallery to show only overview cards
     if (document.querySelector('.gallery-grid')) {
-        applyFilter('all');
+        // Make sure the "All" button is active on page load
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.getAttribute('data-filter') === 'all') {
+                btn.classList.add('active');
+            }
+        });
+        
+        // Ensure proper initial state
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const overviewItems = document.querySelectorAll('.category-overview-item');
+        const galleryGrid = document.querySelector('.gallery-grid');
+        
+        // Force the correct initial state
+        galleryGrid.classList.add('gallery-grid--all-view');
+        
+        // Hide all gallery items explicitly
+        galleryItems.forEach(item => {
+            item.style.display = 'none';
+        });
+        
+        // Show overview items explicitly
+        overviewItems.forEach(item => {
+            item.style.display = 'block';
+        });
+        
+        // Apply the filter to handle animations
+        setTimeout(() => {
+            applyFilter('all');
+        }, 50);
     }
 });
 
@@ -108,8 +138,12 @@ function initGalleryFilter() {
 function applyFilter(filterValue) {
     const galleryItems = document.querySelectorAll('.gallery-item');
     const overviewItems = document.querySelectorAll('.category-overview-item');
+    const galleryGrid = document.querySelector('.gallery-grid');
 
     if (filterValue === 'all') {
+        // Add special class for 'All' view
+        if (galleryGrid) galleryGrid.classList.add('gallery-grid--all-view');
+        
         // Show overview items, hide gallery items
         overviewItems.forEach(item => {
             item.style.display = 'block';
@@ -126,6 +160,9 @@ function applyFilter(filterValue) {
             item.style.display = 'none';
         });
     } else {
+        // Remove special class for category views
+        if (galleryGrid) galleryGrid.classList.remove('gallery-grid--all-view');
+        
         // Hide overview items, show filtered gallery items
         overviewItems.forEach(item => {
             item.style.display = 'none';
@@ -169,6 +206,10 @@ function filterCategory(category) {
 }
 
 // Modal functionality for gallery
+let currentImages = [];
+let currentImageIndex = 0;
+let isNavigating = false; // Lock to prevent multiple rapid navigation
+
 function openModal(element) {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
@@ -182,34 +223,254 @@ function openModal(element) {
         galleryItem = element.closest('.gallery-item');
     }
     
-    const img = galleryItem.querySelector('img');
+    // Get current filter to determine which images to show
+    const activeFilter = document.querySelector('.filter-btn.active');
+    const currentFilter = activeFilter ? activeFilter.getAttribute('data-filter') : 'all';
     
-    modalImg.src = img.src;
-    modalImg.alt = img.alt;
+    // Get all visible images in current category
+    if (currentFilter === 'all') {
+        // Show category overview items instead of individual images
+        currentImages = Array.from(document.querySelectorAll('.category-overview-item[data-category="overview"]'));
+    } else {
+        // Get all gallery items for the current category (regardless of display state)
+        currentImages = Array.from(document.querySelectorAll(`.gallery-item[data-category="${currentFilter}"]`));
+    }
+    
+    // Find current image index
+    currentImageIndex = currentImages.indexOf(galleryItem);
+    
+    // Ensure valid index (fallback to 0 if not found)
+    if (currentImageIndex === -1) {
+        currentImageIndex = 0;
+    }
+    
+    // Display the image and modal
+    displayCurrentImage();
     modal.style.display = 'block';
     
     // Prevent body scroll
     document.body.style.overflow = 'hidden';
+    
+    // Initialize touch handling for swipe gestures
+    initModalTouchHandling(modalImg);
+    
+    // Update navigation buttons
+    updateNavigationButtons();
+}
+
+function displayCurrentImage() {
+    const modalImg = document.getElementById('modalImage');
+    const currentImageNumber = document.getElementById('currentImageNumber');
+    const totalImages = document.getElementById('totalImages');
+    
+    if (currentImages.length > 0 && currentImageIndex >= 0 && currentImageIndex < currentImages.length) {
+        const currentItem = currentImages[currentImageIndex];
+        const img = currentItem.querySelector('img');
+        
+        if (img) {
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+            
+            // Update counter with explicit DOM updates
+            if (currentImageNumber && totalImages) {
+                currentImageNumber.textContent = String(currentImageIndex + 1);
+                totalImages.textContent = String(currentImages.length);
+                
+                // Force DOM update for mobile
+                currentImageNumber.style.display = 'inline';
+                totalImages.style.display = 'inline';
+            }
+        }
+    }
+}
+
+function navigateImage(direction) {
+    if (currentImages.length <= 1 || isNavigating) return;
+    
+    // Lock navigation to prevent multiple rapid calls
+    isNavigating = true;
+    
+    currentImageIndex += direction;
+    
+    // Loop around if needed
+    if (currentImageIndex >= currentImages.length) {
+        currentImageIndex = 0;
+    } else if (currentImageIndex < 0) {
+        currentImageIndex = currentImages.length - 1;
+    }
+    
+    displayCurrentImage();
+    updateNavigationButtons();
+    
+    // Additional counter update for mobile reliability
+    setTimeout(() => {
+        forceCounterUpdate();
+        // Release navigation lock after update
+        isNavigating = false;
+    }, 150);
+}
+
+function forceCounterUpdate() {
+    const currentImageNumber = document.getElementById('currentImageNumber');
+    const totalImages = document.getElementById('totalImages');
+    
+    if (currentImageNumber && totalImages && currentImages.length > 0) {
+        currentImageNumber.innerHTML = String(currentImageIndex + 1);
+        totalImages.innerHTML = String(currentImages.length);
+    }
+}
+
+function updateNavigationButtons() {
+    const prevBtn = document.querySelector('.nav-btn-prev');
+    const nextBtn = document.querySelector('.nav-btn-next');
+    
+    // Hide navigation if only one image
+    if (currentImages.length <= 1) {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+        return;
+    }
+    
+    prevBtn.style.display = 'flex';
+    nextBtn.style.display = 'flex';
+    
+    // Optional: disable buttons at ends (remove if you want infinite loop)
+    // prevBtn.disabled = currentImageIndex === 0;
+    // nextBtn.disabled = currentImageIndex === currentImages.length - 1;
 }
 
 function closeModal() {
     const modal = document.getElementById('imageModal');
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
+    
+    // Reset variables
+    currentImages = [];
+    currentImageIndex = 0;
+    isNavigating = false; // Reset navigation lock
+}
+
+// Initialize touch handling for swipe gestures
+function initModalTouchHandling(modalImg) {
+    let startY = 0;
+    let startX = 0;
+    let startTime = 0;
+    let isDragging = false;
+    let hasTriggeredNavigation = false; // Prevent multiple navigation triggers
+    
+    modalImg.addEventListener('touchstart', function(e) {
+        if (isNavigating) return; // Don't start new gesture if navigating
+        
+        startY = e.touches[0].clientY;
+        startX = e.touches[0].clientX;
+        startTime = Date.now();
+        isDragging = true;
+        hasTriggeredNavigation = false;
+        modalImg.style.transition = 'none';
+    });
+    
+    modalImg.addEventListener('touchmove', function(e) {
+        if (!isDragging) return;
+        
+        const currentY = e.touches[0].clientY;
+        const currentX = e.touches[0].clientX;
+        const deltaY = currentY - startY;
+        const deltaX = currentX - startX;
+        
+        // Determine if this is primarily a vertical or horizontal swipe
+        const isVerticalSwipe = Math.abs(deltaY) > Math.abs(deltaX);
+        
+        if (isVerticalSwipe && deltaY > 0) {
+            // Vertical swipe down - close gesture
+            const opacity = Math.max(0.3, 1 - (deltaY / 300));
+            const scale = Math.max(0.8, 1 - (deltaY / 600));
+            
+            modalImg.style.transform = `translateY(${deltaY}px) scale(${scale})`;
+            modalImg.style.opacity = opacity;
+        } else if (!isVerticalSwipe && Math.abs(deltaX) > 50) {
+            // Horizontal swipe - navigation gesture
+            const opacity = Math.max(0.5, 1 - (Math.abs(deltaX) / 400));
+            modalImg.style.opacity = opacity;
+            modalImg.style.transform = `translateX(${deltaX * 0.3}px)`;
+        }
+    });
+    
+    modalImg.addEventListener('touchend', function(e) {
+        if (!isDragging || isNavigating) return;
+        
+        const endY = e.changedTouches[0].clientY;
+        const endX = e.changedTouches[0].clientX;
+        const deltaY = endY - startY;
+        const deltaX = endX - startX;
+        const deltaTime = Date.now() - startTime;
+        
+        isDragging = false;
+        modalImg.style.transition = 'all 0.1s ease';
+        
+        // Determine gesture type
+        const isVerticalSwipe = Math.abs(deltaY) > Math.abs(deltaX);
+        const velocity = isVerticalSwipe ? deltaY / deltaTime : deltaX / deltaTime;
+        
+        if (isVerticalSwipe && (deltaY > 100 || (deltaY > 50 && velocity > 0.3))) {
+            // Close on swipe down
+            closeModal();
+        } else if (!isVerticalSwipe && Math.abs(deltaX) > 100 && !hasTriggeredNavigation) {
+            // Navigate on horizontal swipe (increased threshold to 100px)
+            hasTriggeredNavigation = true; // Prevent multiple triggers
+            
+            if (deltaX > 0) {
+                navigateImage(-1); // Swipe right = previous image
+            } else {
+                navigateImage(1);  // Swipe left = next image
+            }
+            // Reset position after navigation and ensure counter is updated
+            setTimeout(() => {
+                modalImg.style.transform = 'translateX(0)';
+                modalImg.style.opacity = '1';
+                // Force counter update after navigation
+                updateNavigationButtons();
+            }, 10);
+        } else {
+            // Reset position if gesture wasn't strong enough
+            modalImg.style.transform = 'translateY(0) scale(1) translateX(0)';
+            modalImg.style.opacity = '1';
+        }
+    });
 }
 
 // Close modal when clicking outside
 window.addEventListener('click', function(event) {
     const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    
     if (event.target === modal) {
+        closeModal();
+    }
+    // Close when clicking on the image itself
+    else if (event.target === modalImg) {
         closeModal();
     }
 });
 
-// Close modal with escape key
+// Close modal with escape key and navigate with arrow keys
 document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        closeModal();
+    const modal = document.getElementById('imageModal');
+    
+    // Only handle keys when modal is open
+    if (modal.style.display === 'block') {
+        switch(event.key) {
+            case 'Escape':
+                closeModal();
+                break;
+            case 'ArrowLeft':
+                event.preventDefault();
+                navigateImage(-1);
+                break;
+            case 'ArrowRight':
+                event.preventDefault();
+                navigateImage(1);
+                break;
+        }
     }
 });
 
@@ -283,28 +544,6 @@ function showNotification(message, type) {
             }
         }, 300);
     }, 5000);
-}
-
-// FAQ functionality
-function initFAQ() {
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', function() {
-            const faqItem = this.parentElement;
-            const isActive = faqItem.classList.contains('active');
-            
-            // Close all FAQ items
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Open clicked item if it wasn't active
-            if (!isActive) {
-                faqItem.classList.add('active');
-            }
-        });
-    });
 }
 
 // Scroll effects
@@ -420,9 +659,11 @@ function optimizePerformance() {
     });
 }
 
+
 // Initialize performance optimizations
 document.addEventListener('DOMContentLoaded', optimizePerformance);
 
 // Export functions for global access
 window.openModal = openModal;
 window.closeModal = closeModal;
+window.navigateImage = navigateImage;

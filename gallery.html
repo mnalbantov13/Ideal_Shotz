@@ -16,7 +16,7 @@
                 <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
                 <li class="nav-item logo-item">
-                    <img src="images/Logo-04-1.png" alt="Ideal Shotz Logo" class="nav-logo">
+                    <a href = "index.html"><img src="images/Logo-04-1.png" alt="Ideal Shotz Logo" class="nav-logo"></a>
                 <li class="nav-item"><a href="gallery.html" class="nav-link active">Gallery</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
@@ -52,35 +52,62 @@
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="cars">Cars</button>
                 <button class="filter-btn" data-filter="nature">Nature</button>
+                <button class="filter-btn" data-filter="urban">Urban</button>
+                <button class="filter-btn" data-filter="event">Event</button>
+                <button class="filter-btn" data-filter="portrait">Portrait</button>
             </div>
 
             <!-- Gallery Grid -->
-            <div class="gallery-grid" id="gallery-grid">
-                
-                <!-- Category Overview Cards (shown when "All" is selected) -->
-                <div class="category-overview-item" data-category="overview" onclick="filterCategory('cars')">
-                    <img src="images/Cars/DSC05110.jpg" alt="Cars Category">
-                    <div class="category-overlay">
-                        <div class="category-content">
-                            <h3>Cars</h3>
-                            <p>12 Photos</p>
+            <div class="gallery-grid gallery-grid--all-view" id="gallery-grid">
+            
+                    <!-- Category Overview Cards (shown when "All" is selected) -->
+                    <div class="category-overview-item" data-category="overview" onclick="filterCategory('cars')">
+                        <img src="images/Cars/DSC05125.jpg" alt="Cars Category">
+                        <div class="category-overlay">
+                            <div class="category-content">
+                                <h3>Cars</h3>
+                                <p>12 Photos</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="category-overview-item" data-category="overview" onclick="filterCategory('nature')">
-                    <img src="images/Nature/Copy of DSC06153.jpg" alt="Nature Category">
-                    <div class="category-overlay">
-                        <div class="category-content">
-                            <h3>Nature</h3>
-                            <p>17 Photos</p>
+                    <div class="category-overview-item" data-category="overview" onclick="filterCategory('nature')">
+                        <img src="images/Nature/DSC03016.jpg" alt="Nature Category">
+                        <div class="category-overlay">
+                            <div class="category-content">
+                                <h3>Nature</h3>
+                                <p>18 Photos</p>
+                            </div>
                         </div>
+                
                     </div>
-                </div>
+
+                        <div class="category-overview-item" data-category="overview" onclick="filterCategory('urban')">
+                        <img src="images/Urban/DSC03553.jpg" alt="Nature Category">
+                        <div class="category-overlay">
+                            <div class="category-content">
+                                <h3>Urban</h3>
+                                <p> Photos</p>
+                            </div>
+                        </div>
+                
+                    </div>
 
                 <!-- Car Images -->
+
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
-                    <img src="images/Cars/6November-0993.jpg" alt="Car 1">
+                    <img src="images/Cars/DSC05110.jpg" alt="Car 3">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/DSC03712.jpg" alt="Car 1">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <button class="view-btn">
@@ -102,7 +129,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
-                    <img src="images/Cars/DSC05110.jpg" alt="Car 3">
+                    <img src="images/Cars/6November-0993.jpg" alt="Car 1">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <button class="view-btn">
@@ -125,6 +152,17 @@
 
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="images/Cars/DSC06017 (2).jpg" alt="Car 5">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/DSC03786.jpg" alt="Car 4">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <button class="view-btn">
@@ -224,7 +262,18 @@
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/Copy of DSC06153.jpg" alt="Nature 2">
+                    <img src="images/Nature/DSC08994.jpg" alt="Nature 2">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/DSC03016.jpg" alt="Nature 2">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <button class="view-btn">
@@ -290,7 +339,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/DJI_0283-2.jpg" alt="Nature 8">
+                    <img src="images/Nature/DSC09364.jpg" alt="Nature 8">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <button class="view-btn">
@@ -336,7 +385,7 @@
                 
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/Копие на DJI_0210.jpg" alt="Nature 12">
+                    <img src="images/Nature/DSC09372.jpg" alt="Nature 12">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <button class="view-btn">
@@ -382,7 +431,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/Копие на DJI_0397.jpg" alt="Nature 16">
+                    <img src="images/Nature/DSC02754.jpg" alt="Nature 16">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <button class="view-btn">
@@ -403,7 +452,50 @@
                     </div>
                 </div>
 
-            </div>
+                <!-- Urban Images -->
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/DSC02681.webp" alt="Urban 1">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/DSC03497.webp" alt="Urban 2">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/DSC02684.webp" alt="Urban 3">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/DSC03553.webp" alt="Urban 4">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
         </div>
     </section>
 
@@ -411,7 +503,18 @@
     <div id="imageModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
-            <img id="modalImage" src="" alt="">
+            <button class="nav-btn nav-btn-prev" onclick="navigateImage(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="nav-btn nav-btn-next" onclick="navigateImage(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="image-container">
+                <img id="modalImage" src="" alt="">
+                <div class="image-counter">
+                    <span id="currentImageNumber">1</span> / <span id="totalImages">1</span>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -426,7 +529,7 @@
                         <a href="https://www.instagram.com/ideal_shotz/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:shotz.ideal@gmail.com"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
