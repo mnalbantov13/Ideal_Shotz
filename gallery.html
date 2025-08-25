@@ -50,353 +50,1347 @@
         <div class="container">
             <div class="filter-tabs">
                 <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="abstract">Abstract</button>
+                <button class="filter-btn" data-filter="aerial">Aerial</button>
+                <button class="filter-btn" data-filter="bandw">B&W</button>
                 <button class="filter-btn" data-filter="cars">Cars</button>
+                <button class="filter-btn" data-filter="event">Events</button>
                 <button class="filter-btn" data-filter="nature">Nature</button>
+                <button class="filter-btn" data-filter="night">Night</button>
+                <button class="filter-btn" data-filter="people">People</button>
                 <button class="filter-btn" data-filter="urban">Urban</button>
-                <button class="filter-btn" data-filter="event">Event</button>
-                <button class="filter-btn" data-filter="portrait">Portrait</button>
             </div>
-
+            
             <!-- Gallery Grid -->
             <div class="gallery-grid gallery-grid--all-view" id="gallery-grid">
             
-                    <!-- Category Overview Cards (shown when "All" is selected) -->
-                    <div class="category-overview-item" data-category="overview" onclick="filterCategory('cars')">
-                        <img src="images/Cars/DSC05125.jpg" alt="Cars Category">
+                <!-- #region Category Overview Cards (shown when "All" is selected) -->
+                    <div class="category-overview-item" data-category="overview" onclick="filterCategory('abstract')">
+                        <img src="images/Album/Abstract.webp" alt="Abstract Category">
                         <div class="category-overlay">
                             <div class="category-content">
-                                <h3>Cars</h3>
-                                <p>12 Photos</p>
+                                <h3>Abstract</h3><p>Photos</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-overview-item" data-category="overview" onclick="filterCategory('aerial')">
+                        <img src="images/Album/Aerial.webp" alt="Aerial Category">
+                        <div class="category-overlay">
+                            <div class="category-content">
+                                <h3>Aerial</h3><p>Photos</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-overview-item" data-category="overview" onclick="filterCategory('bandw')">
+                        <img src="images/Album/BandW.webp" alt="B&W Category">
+                        <div class="category-overlay">
+                            <div class="category-content">
+                                <h3>B&W</h3><p>Photos</p>
+                             </div>
+                        </div>
+                    </div>
+
+                    <div class="category-overview-item" data-category="overview" onclick="filterCategory('cars')">
+                        <img src="images/Album/Car.webp" alt="Cars Category">
+                        <div class="category-overlay">
+                            <div class="category-content">
+                                <h3>Cars</h3><p>Photos</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-overview-item" data-category="overview" onclick="filterCategory('event')">
+                        <img src="images/Album/Events.webp" alt="Events Category">
+                        <div class="category-overlay">
+                            <div class="category-content">
+                                <h3>Events</h3><p>Photos</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="category-overview-item" data-category="overview" onclick="filterCategory('nature')">
-                        <img src="images/Nature/Busan.webp" alt="Nature Category">
+                        <img src="images/Album/Nature.webp" alt="Nature Category">
                         <div class="category-overlay">
                             <div class="category-content">
-                                <h3>Nature</h3>
-                                <p>18 Photos</p>
+                                <h3>Nature</h3><p>Photos</p>
                             </div>
                         </div>
-                
                     </div>
 
-                        <div class="category-overview-item" data-category="overview" onclick="filterCategory('urban')">
-                        <img src="images/Urban/DSC03553.webp" alt="Nature Category">
+                    <div class="category-overview-item" data-category="overview" onclick="filterCategory('night')">
+                        <img src="images/Album/Night.webp" alt="Night Category">
                         <div class="category-overlay">
                             <div class="category-content">
-                                <h3>Urban</h3>
-                                <p> Photos</p>
+                                <h3>Night</h3><p>Photos</p>
                             </div>
                         </div>
-                
                     </div>
 
-                <!-- Car Images -->
-
-                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
-                    <img src="images/Cars/DSC05110.jpg" alt="Car 3">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
+                    <div class="category-overview-item" data-category="overview" onclick="filterCategory('people')">
+                        <img src="images/Album/People.jpg" alt="People Category">
+                        <div class="category-overlay">
+                            <div class="category-content">
+                                <h3>People</h3><p>Photos</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
-                    <img src="images/Cars/RS6-Front-Straight.webp" alt="Car 1">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
+                    <div class="category-overview-item" data-category="overview" onclick="filterCategory('urban')">
+                        <img src="images/Album/Urban.webp" alt="Urban Category">
+                        <div class="category-overlay">
+                            <div class="category-content">
+                                <h3>Urban</h3><p>Photos</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
-                    <img src="images/Cars/6November-1009.jpg" alt="Car 2">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
-                    <img src="images/Cars/6November-0993.jpg" alt="Car 1">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
-                    <img src="images/Cars/DSC05125.jpg" alt="Car 4">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
-                    <img src="images/Cars/DSC06017 (2).jpg" alt="Car 5">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
-                    <img src="images/Cars/RS6-Back-Half.webp" alt="Car 4">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
-                    <img src="images/Cars/DSC06023.jpg" alt="Car 6">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
-                    <img src="images/Cars/DSC07379.jpg" alt="Car 7">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
-                    <img src="images/Cars/DSC07383.jpg" alt="Car 8">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
-                    <img src="images/Cars/DSC07386.jpg" alt="Car 9">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
-                    <img src="images/Cars/RS6-Front-Turned.webp" alt="Car 10">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
-                    <img src="images/Cars/DSC_0711.jpg" alt="Car 10">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
-                    <img src="images/Cars/IMG_20220326_222103.jpg" alt="Car 11">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
-                    <img src="images/Cars/M8-0573.jpg" alt="Car 12">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Nature Images -->
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/12March22-1888.jpg" alt="Nature 1">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/Rio-Beach.webp" alt="Nature 2">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/Busan.webp" alt="Nature 2">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/Montana-de-Oro.webp" alt="Nature 3">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/Deer-Monterey.webp" alt="Nature 4">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/Copy of DSC06686.jpg" alt="Nature 5">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/Sunset-Shell-Beach.webp" alt="Nature 6">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/CWuXKXr.jpg" alt="Nature 7">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/Perito-Moreno-Landscape.webp" alt="Nature 8">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/DSC04541.jpg" alt="Nature 9">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/Drone-Beach.webp" alt="Nature 11">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/DSC_0869.jpg" alt="Nature 10">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                    <!-- #endregion -->
 
                 
 
+                <!-- *? #region Abstract Images -->
+                <div class="gallery-item" data-category="abstract"  onclick="openModal(this)">
+                    <img src="images/Abstract/Abstract (1).webp" alt="Abstract 1">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="abstract"  onclick="openModal(this)">
+                    <img src="images/Abstract/Abstract (2).webp" alt="Abstract 2">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- #endregion Abstract Images -->
+
+                <!-- *? #region Aerial Images -->
+                <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
+                    <img src="images/Aerial/Aerial (1).webp" alt="Aerial 1">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
+                    <img src="images/Aerial/Aerial (2).webp" alt="Aerial 2">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
+                    <img src="images/Aerial/Aerial (3).webp" alt="Aerial 3">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
+                    <img src="images/Aerial/Aerial (4).webp" alt="Aerial 4">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
+                    <img src="images/Aerial/Aerial (5).webp" alt="Aerial 5">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
+                    <img src="images/Aerial/Aerial (6).webp" alt="Aerial 6">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
+                    <img src="images/Aerial/Aerial (7).webp" alt="Aerial 7">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
+                    <img src="images/Aerial/Aerial (8).webp" alt="Aerial 8">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
+                    <img src="images/Aerial/Aerial (9).webp" alt="Aerial 9">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
+                    <img src="images/Aerial/Aerial (10).webp" alt="Aerial 10">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
+                    <img src="images/Aerial/Aerial (11).webp" alt="Aerial 11">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
+                    <img src="images/Aerial/Aerial (12).webp" alt="Aerial 12">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
+                    <img src="images/Aerial/Aerial (13).webp" alt="Aerial 13">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
+                    <img src="images/Aerial/Aerial (14).webp" alt="Aerial 14">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
+                    <img src="images/Aerial/Aerial (15).webp" alt="Aerial 15">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
+                    <img src="images/Aerial/Aerial (16).webp" alt="Aerial 16">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
+                    <img src="images/Aerial/Aerial (17).webp" alt="Aerial 17">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
+                    <img src="images/Aerial/Aerial (18).webp" alt="Aerial 18">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
+                    <img src="images/Aerial/Aerial (19).webp" alt="Aerial 19">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- #endregion Aerial Images -->
+
+                <!-- *? #region BandW Images -->
+                <div class="gallery-item" data-category="bandw" onclick="openModal(this)">
+                    <img src="images/BandW/BandW (1).webp" alt="BandW 1">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="bandw" onclick="openModal(this)">
+                    <img src="images/BandW/BandW (2).webp" alt="BandW 2">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="bandw" onclick="openModal(this)">
+                    <img src="images/BandW/BandW (3).webp" alt="BandW 3">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="bandw" onclick="openModal(this)">
+                    <img src="images/BandW/BandW (4).webp" alt="BandW 4">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="bandw" onclick="openModal(this)">
+                    <img src="images/BandW/BandW (5).webp" alt="BandW 5">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="bandw" onclick="openModal(this)">
+                    <img src="images/BandW/BandW (6).webp" alt="BandW 6">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- #endregion BandW Images -->
+
+                <!-- *? #region Car Images -->
+
+                <h3 class="album-title" data-category="cars" >Audi A3</h3>
+
+                <div class="gallery-item" data-category="cars"  onclick="openModal(this)">
+                    <img src="images/Cars/Audi A3 (1).webp" alt="Car 1">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars"  onclick="openModal(this)">
+                    <img src="images/Cars/Audi A3 (2).webp" alt="Car 2">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars"  onclick="openModal(this)">
+                    <img src="images/Cars/Audi A3 (3).webp" alt="Car 3">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars"  onclick="openModal(this)">
+                    <img src="images/Cars/Audi A3 (4).webp" alt="Car 4">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="cars" >Audi RS6</h3>
+
+                <div class="gallery-item" data-category="cars"  onclick="openModal(this)">
+                    <img src="images/Cars/Audi RS6 (1).webp" alt="Car 5">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars"  onclick="openModal(this)">
+                    <img src="images/Cars/Audi RS6 (2).webp" alt="Car 6">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars"  onclick="openModal(this)">
+                    <img src="images/Cars/Audi RS6 (3).webp" alt="Car 7">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars"  onclick="openModal(this)">
+                    <img src="images/Cars/Audi RS6 (4).webp" alt="Car 8">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars"  onclick="openModal(this)">
+                    <img src="images/Cars/Audi RS6 (5).webp" alt="Car 9">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars"  onclick="openModal(this)">
+                    <img src="images/Cars/Audi RS6 (6).webp" alt="Car 10">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>                
+
+                <h3 class="album-title" data-category="cars">Audi SQ8</h3>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Audi SQ8 (1).webp" alt="Car 11">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Audi SQ8 (2).webp" alt="Car 12">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Audi SQ8 (3).webp" alt="Car 13">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Audi SQ8 (4).webp" alt="Car 14">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="cars">BMW 640D</h3>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW 640D (1).webp" alt="Car 15">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW 640D (2).webp" alt="Car 16">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW 640D (3).webp" alt="Car 17">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW 640D (4).webp" alt="Car 18">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="cars">BMW 325xi</h3>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW 325xi (1).webp" alt="Car 19">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW 325xi (2).webp" alt="Car 20">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW 325xi (3).webp" alt="Car 21">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW 325xi (4).webp" alt="Car 22">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="cars">BMW 335i</h3>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW 335i (1).webp" alt="Car 23">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW 335i (2).webp" alt="Car 24">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW 335i (3).webp" alt="Car 25">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW 335i (4).webp" alt="Car 26">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="cars">BMW M8</h3>                
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW M8 (1).webp" alt="Car 27">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW M8 (2).webp" alt="Car 28">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW M8 (3).webp" alt="Car 29">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW M8 (4).webp" alt="Car 30">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="cars">BMW X5</h3>                
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW X5 (1).webp" alt="Car 31">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW X5 (2).webp" alt="Car 32">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW X5 (3).webp" alt="Car 33">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/BMW X5 (4).webp" alt="Car 34">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="cars">Mercedes C63S</h3>                
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Mercedes C63S (1).webp" alt="Car 35">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Mercedes C63S (2).webp" alt="Car 36">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Mercedes C63S (3).webp" alt="Car 37">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Mercedes C63S (4).webp" alt="Car 38">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Mercedes C63S (5).webp" alt="Car 39">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Mercedes C63S (6).webp" alt="Car 40">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Mercedes C63S (7).webp" alt="Car 45">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="cars">Mercedes E63S</h3>  
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Mercedes E63S (1).webp" alt="Car 46">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Mercedes E63S (2).webp" alt="Car 47">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Mercedes E63S (3).webp" alt="Car 48">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Mercedes E63S (4).webp" alt="Car 49">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Mercedes E63S (5).webp" alt="Car 50">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="cars">Mini Cooper S</h3>  
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Mini Cooper S (1).webp" alt="Car 51">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Mini Cooper S (2).webp" alt="Car 52">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Mini Cooper S (3).webp" alt="Car 53">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="images/Cars/Mini Cooper S (4).webp" alt="Car 54">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- #endregion Car Images -->
+
+                <!-- *? #region Event Images -->
+
+                <h3 class="album-title" data-category="event">Born2Ride Fest 2025</h3>  
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/B2R (1).webp" alt="Events 7">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/B2R (2).webp" alt="Events 8">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/B2R (3).webp" alt="Events 9">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/B2R (4).webp" alt="Events 10">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/B2R (5).webp" alt="Events 11">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/B2R (6).webp" alt="Events 12">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="event">Prom 2024</h3>  
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Prom (1).webp" alt="Events 13">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Prom (2).webp" alt="Events 14">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Prom (3).webp" alt="Events 15">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Prom (4).webp" alt="Events 16">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Prom (5).webp" alt="Events 17">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Prom (6).webp" alt="Events 18">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Prom (7).webp" alt="Events 19">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="event">BMW Fest 2025</h3>  
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/BMW (1).webp" alt="Events 1">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/BMW (2).webp" alt="Events 2">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/BMW (3).webp" alt="Events 3">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/BMW (4).webp" alt="Events 4">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/BMW (5).webp" alt="Events 5">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/BMW (6).webp" alt="Events 6">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="event">Baptism</h3>  
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Baptism (1).webp" alt="Events 20">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Baptism (2).webp" alt="Events 21">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Baptism (3).webp" alt="Events 22">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Baptism (4).webp" alt="Events 23">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="event">Serres</h3>  
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Serres (1).webp" alt="Events 24">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Serres (2).webp" alt="Events 25">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Serres (3).webp" alt="Events 26">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Serres (4).webp" alt="Events 27">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="event">Sejong Culture Academy</h3>  
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Korea (1).webp" alt="Events 28">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Korea (2).webp" alt="Events 29">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Korea (3).webp" alt="Events 30">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Korea (4).webp" alt="Events 31">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- #endregion Event Images -->
+
+                <!-- *? #region Nature Images -->
+
+                <h3 class="album-title" data-category="nature" >Transfagarasan, Romania</h3>
+
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/Perito-Moreno-Portrait.webp" alt="Nature 12">
+                    <img src="images/Nature/Fag (1).webp" alt="Nature 1">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <button class="view-btn">
@@ -407,31 +1401,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/Копие на DJI_0383.jpg" alt="Nature 13">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/Копие на DJI_0393.jpg" alt="Nature 15">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <button class="view-btn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/Drone1.webp" alt="Nature 14">
+                    <img src="images/Nature/Fag (2).webp" alt="Nature 2">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <button class="view-btn">
@@ -442,7 +1412,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/DSC02754.jpg" alt="Nature 16">
+                    <img src="images/Nature/Fag (3).webp" alt="Nature 3">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <button class="view-btn">
@@ -453,7 +1423,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Nature/Копие на DJI_0402.jpg" alt="Nature 17">
+                    <img src="images/Nature/Fag (4).webp" alt="Nature 4">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <button class="view-btn">
@@ -463,9 +1433,687 @@
                     </div>
                 </div>
 
-                <!-- Urban Images -->
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/Fag (5).webp" alt="Nature 5">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="nature" >North America</h3>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/NA (1).webp" alt="Nature 6">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/NA (2).webp" alt="Nature 7">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/NA (3).webp" alt="Nature 8">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/NA (4).webp" alt="Nature 9">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/NA (5).webp" alt="Nature 10">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/NA (6).webp" alt="Nature 11">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/NA (7).webp" alt="Nature 12">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/NA (8).webp" alt="Nature 13">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="nature" >Bulgaria</h3>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/BG (1).webp" alt="Nature 14">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/BG (2).webp" alt="Nature 15">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/BG (3).webp" alt="Nature 16">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="nature" >South America</h3>
+                
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/SA (1).webp" alt="Nature 17">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/SA (2).webp" alt="Nature 18">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/SA (3).webp" alt="Nature 19">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/SA (4).webp" alt="Nature 20">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/SA (5).webp" alt="Nature 21">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/SA (6).webp" alt="Nature 22">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/SA (7).webp" alt="Nature 23">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/SA (8).webp" alt="Nature 24">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/SA (9).webp" alt="Nature 25">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="nature" >Transalpina, Romania</h3>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/Alpina (1).webp" alt="Nature 26">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/Alpina (2).webp" alt="Nature 27">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/Alpina (3).webp" alt="Nature 28">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/Alpina (4).webp" alt="Nature 29">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="nature" >Germany</h3>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/DE (1).webp" alt="Nature 30">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/DE (2).webp" alt="Nature 31">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/DE (3).webp" alt="Nature 32">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="images/Nature/DE (4).webp" alt="Nature 33">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- #endregion Nature Images-->
+
+                <!-- *? #region Night Images -->
+                <div class="gallery-item" data-category="night" onclick="openModal(this)">
+                    <img src="images/Night/Night (1).webp" alt="Night 1">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="night" onclick="openModal(this)">
+                    <img src="images/Night/Night (2).webp" alt="Night 2">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="night" onclick="openModal(this)">
+                    <img src="images/Night/Night (3).webp" alt="Night 3">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="night" onclick="openModal(this)">
+                    <img src="images/Night/Night (4).webp" alt="Night 4">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="night" onclick="openModal(this)">
+                    <img src="images/Night/Night (5).webp" alt="Night 5">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="night" onclick="openModal(this)">
+                    <img src="images/Night/Night (6).webp" alt="Night 6">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="night" onclick="openModal(this)">
+                    <img src="images/Night/Night (7).webp" alt="Night 7">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="night" onclick="openModal(this)">
+                    <img src="images/Night/Night (8).webp" alt="Night 8">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="night" onclick="openModal(this)">
+                    <img src="images/Night/Night (9).webp" alt="Night 9">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="night" onclick="openModal(this)">
+                    <img src="images/Night/Night (10).webp" alt="Night 10">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="night" onclick="openModal(this)">
+                    <img src="images/Night/Night (11).webp" alt="Night 11">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- #endregion Night Images -->
+
+                <!-- *? #region People Photos -->
+
+                <h3 class="album-title" data-category="people">Iva</h3>  
+
+                <div class="gallery-item" data-category="people" onclick="openModal(this)">
+                    <img src="images/People/Iva (1).jpg" alt="People 1">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="people" onclick="openModal(this)">
+                    <img src="images/People/Iva (2).jpg" alt="People 2">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="people" onclick="openModal(this)">
+                    <img src="images/People/Iva (3).jpg" alt="People 3">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="people" onclick="openModal(this)">
+                    <img src="images/People/Iva (4).jpg" alt="People 4">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="people" onclick="openModal(this)">
+                    <img src="images/People/Iva (5).jpg" alt="People 5">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="people" onclick="openModal(this)">
+                    <img src="images/People/Iva (6).jpg" alt="People 6">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="people">Lusi</h3>  
+
+                <div class="gallery-item" data-category="people" onclick="openModal(this)">
+                    <img src="images/People/Lusi (1).jpg" alt="People 7">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="people" onclick="openModal(this)">
+                    <img src="images/People/Lusi (2).jpg" alt="People 8">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="people" onclick="openModal(this)">
+                    <img src="images/People/Lusi (3).jpg" alt="People 9">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="people" onclick="openModal(this)">
+                    <img src="images/People/Lusi (4).jpg" alt="People 10">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="people" onclick="openModal(this)">
+                    <img src="images/People/Lusi (5).jpg" alt="People 11">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="people" onclick="openModal(this)">
+                    <img src="images/People/Lusi (6).jpg" alt="People 12">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="people">AsWarrior</h3>  
+
+                <div class="gallery-item" data-category="people" onclick="openModal(this)">
+                    <img src="images/People/ASW (1).jpg" alt="People 13">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="people" onclick="openModal(this)">
+                    <img src="images/People/ASW (2).jpg" alt="People 14">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="people" onclick="openModal(this)">
+                    <img src="images/People/ASW (3).jpg" alt="People 15">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="people" onclick="openModal(this)">
+                    <img src="images/People/ASW (4).jpg" alt="People 16">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="people" onclick="openModal(this)">
+                    <img src="images/People/ASW (5).jpg" alt="People 17">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="people" onclick="openModal(this)">
+                    <img src="images/People/ASW (6).jpg" alt="People 18">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- #endregion People Photos -->
+
+                <!-- *? #region Urban Images -->
+
+                <h3 class="album-title" data-category="urban">Berlin, Germany</h3> 
+
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Urban/DSC02681.webp" alt="Urban 1">
+                    <img src="images/Urban/Berlin.webp" alt="Urban 1">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="urban">Bucharest, Romania</h3> 
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Bucharest (1).webp" alt="Urban 2">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <button class="view-btn">
@@ -476,7 +2124,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Urban/DSC03497.webp" alt="Urban 2">
+                    <img src="images/Urban/Bucharest (2).webp" alt="Urban 3">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <button class="view-btn">
@@ -487,7 +2135,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Urban/DSC02684.webp" alt="Urban 3">
+                    <img src="images/Urban/Bucharest (3).webp" alt="Urban 4">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <button class="view-btn">
@@ -498,7 +2146,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Urban/DSC03553.webp" alt="Urban 4">
+                    <img src="images/Urban/Bucharest (4).webp" alt="Urban 5">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <button class="view-btn">
@@ -507,6 +2155,489 @@
                         </div>
                     </div>
                 </div>
+
+                <h3 class="album-title" data-category="urban">Budapest, Hungary</h3> 
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Budapest (1).webp" alt="Urban 6">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Budapest (2).webp" alt="Urban 7">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Budapest (3).webp" alt="Urban 8">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Budapest (4).webp" alt="Urban 9">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Budapest (5).webp" alt="Urban 10">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="urban">Corvin, Romania</h3> 
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Corvin (1).webp" alt="Urban 16">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Corvin (2).webp" alt="Urban 17">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Corvin (3).webp" alt="Urban 18">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Corvin (4).webp" alt="Urban 19">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Corvin (5).webp" alt="Urban 20">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="urban">Kyoto, Japan</h3> 
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Kyoto (1).webp" alt="Urban 11">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Kyoto (2).webp" alt="Urban 12">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Kyoto (3).webp" alt="Urban 13">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Kyoto (4).webp" alt="Urban 14">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Kyoto (5).webp" alt="Urban 15">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="urban">Mannheim, Germany</h3> 
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Mannheim (1).webp" alt="Urban 21">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Mannheim (2).webp" alt="Urban 22">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Mannheim (3).webp" alt="Urban 23">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Mannheim (4).webp" alt="Urban 24">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Mannheim (5).webp" alt="Urban 25">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="urban">Osaka, Japan</h3> 
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Osaka (1).webp" alt="Urban 26">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Osaka (2).webp" alt="Urban 27">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Osaka (3).webp" alt="Urban 28">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Osaka (4).webp" alt="Urban 29">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Osaka (5).webp" alt="Urban 30">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="urban">Rio de Janeiro, Brasil</h3> 
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Rio (1).webp" alt="Urban 31">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Rio (2).webp" alt="Urban 32">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Rio (3).webp" alt="Urban 33">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Rio (4).webp" alt="Urban 34">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Rio (5).webp" alt="Urban 35">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="urban">Rome, Italy</h3> 
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Rome (1).webp" alt="Urban 36">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Rome (2).webp" alt="Urban 37 ">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="urban">Sibiu, Romania</h3> 
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Sibiu (1).webp" alt="Urban 38">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Sibiu (2).webp" alt="Urban 39">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Sibiu (3).webp" alt="Urban 40">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Sibiu (4).webp" alt="Urban 41">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="album-title" data-category="urban">Vienna, Austria</h3> 
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Vienna (1).webp" alt="Urban 42">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Vienna (2).webp" alt="Urban 43">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Vienna (3).webp" alt="Urban 44">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Vienna (4).webp" alt="Urban 45">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Vienna (5).webp" alt="Urban 46">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="images/Urban/Vienna (6).webp" alt="Urban 47">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- #endregion Urban Images -->
+
         </div>
     </section>
 
