@@ -138,13 +138,14 @@ function initGalleryFilter() {
 function applyFilter(filterValue) {
     const galleryItems = document.querySelectorAll('.gallery-item');
     const overviewItems = document.querySelectorAll('.category-overview-item');
+    const albumTitles = document.querySelectorAll('.album-title');
     const galleryGrid = document.querySelector('.gallery-grid');
 
     if (filterValue === 'all') {
         // Add special class for 'All' view
         if (galleryGrid) galleryGrid.classList.add('gallery-grid--all-view');
         
-        // Show overview items, hide gallery items
+        // Show overview items, hide gallery items and album titles
         overviewItems.forEach(item => {
             item.style.display = 'block';
             item.style.opacity = '0';
@@ -159,13 +160,36 @@ function applyFilter(filterValue) {
         galleryItems.forEach(item => {
             item.style.display = 'none';
         });
+        
+        // Hide album titles on 'All' view
+        albumTitles.forEach(title => {
+            title.style.display = 'none';
+        });
     } else {
         // Remove special class for category views
         if (galleryGrid) galleryGrid.classList.remove('gallery-grid--all-view');
         
-        // Hide overview items, show filtered gallery items
+        // Hide overview items
         overviewItems.forEach(item => {
             item.style.display = 'none';
+        });
+
+        // Show/hide album titles based on filter
+        albumTitles.forEach(title => {
+            const titleCategory = title.getAttribute('data-category');
+            
+            if (titleCategory === filterValue) {
+                title.style.display = 'block';
+                title.style.opacity = '0';
+                title.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    title.style.transition = 'all 0.3s ease';
+                    title.style.opacity = '1';
+                    title.style.transform = 'translateY(0)';
+                }, 50);
+            } else {
+                title.style.display = 'none';
+            }
         });
 
         galleryItems.forEach(item => {
