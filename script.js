@@ -502,6 +502,9 @@ document.addEventListener('keydown', function(event) {
 function initContactForm() {
     const contactForm = document.getElementById('contactForm');
     
+    // Initialize EmailJS
+    emailjs.init("ypLtPGxmSdgzAI-mK"); // You'll need to replace this with your actual public key
+    
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -511,7 +514,7 @@ function initContactForm() {
             const data = Object.fromEntries(formData);
             
             // Basic validation
-            if (!data.firstName || !data.lastName || !data.email || !data.message) {
+            if (!data.firstName || !data.lastName || !data.email || !data.subject || !data.message) {
                 showNotification('Please fill in all required fields.', 'error');
                 return;
             }
@@ -523,9 +526,41 @@ function initContactForm() {
                 return;
             }
             
-            // Simulate form submission
-            showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
-            contactForm.reset();
+            // Show loading state
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Prepare email parameters
+            const emailParams = {
+                firstName: data.firstName,
+                lastName: data.lastName,
+                email: data.email,
+                first_name: data.firstName,  // Alternative naming
+                last_name: data.lastName,    // Alternative naming
+                user_email: data.email,      // Alternative naming
+                from_name: `${data.firstName} ${data.lastName}`, // Combined name
+                subject: data.subject,
+                message: data.message
+            };
+            
+            // Send email using EmailJS
+            emailjs.send('service_2l2impe', 'template_7n7xfvf', emailParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+                    contactForm.reset();
+                })
+                .catch(function(error) {
+                    console.log('FAILED...', error);
+                    showNotification('Failed to send message. Please try again or contact us directly.', 'error');
+                })
+                .finally(function() {
+                    // Reset button state
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                });
         });
     }
 }
