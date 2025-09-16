@@ -539,30 +539,14 @@ p {
 }
 
 .hero-title-line.highlight {
-    background: linear-gradient(135deg, #36454f 0%, #5a6b7a 25%, #ffffff 50%, #4a5962 75%, #36454f 100%);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradient-shift 3s ease infinite, slideUpFade 0.8s ease 0.8s forwards;
-    position: relative;
+    color: #ebe3e3;
     font-weight: 600;
-    text-shadow: none;
+    text-shadow: 0 2px 8px rgba(54, 69, 79, 0.3);
+    position: relative;
 }
 
 .hero-title-line.highlight::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(108, 117, 125, 0.1) 0%, rgba(73, 80, 87, 0.1) 50%, rgba(108, 117, 125, 0.1) 100%);
-    border-radius: 12px;
-    z-index: -1;
-    transform: scale(1.05);
-    opacity: 0;
-    animation: glowPulse 2s ease-in-out infinite;
+    display: none;
 }
 
 @keyframes slideUpFade {
