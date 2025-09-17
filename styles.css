@@ -1152,6 +1152,7 @@ p {
     padding: 5rem 0 10rem;
     background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
     position: relative;
+    scroll-margin-top: 25px;
 }
 
 .filter-tabs {

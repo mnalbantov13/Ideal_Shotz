@@ -1,7 +1,20 @@
 // Modern JavaScript for IS Photography Portfolio
 
+// Ensure page loads at top
+window.addEventListener('load', function() {
+    window.scrollTo(0, 0);
+});
+
+// Also scroll to top on page refresh/navigation
+window.addEventListener('beforeunload', function() {
+    window.scrollTo(0, 0);
+});
+
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Scroll to top immediately
+    window.scrollTo(0, 0);
+    
     // Initialize all functionality
     initNavigation();
     initGalleryFilter();
@@ -123,6 +136,12 @@ function initGalleryFilter() {
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
+            // Scroll to gallery section top when using filter buttons
+            const gallerySection = document.querySelector('.gallery-section');
+            if (gallerySection) {
+                gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            
             // Remove active class from all buttons
             filterBtns.forEach(b => b.classList.remove('active'));
             // Add active class to clicked button
@@ -215,6 +234,15 @@ function applyFilter(filterValue) {
 
 // Filter to specific category (called from overview cards)
 function filterCategory(category) {
+    // Scroll to gallery section top when filtering
+    const gallerySection = document.querySelector('.gallery-section');
+    if (gallerySection) {
+        gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+        // If on index page, scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
     const filterBtns = document.querySelectorAll('.filter-btn');
     
     // Update active button
@@ -722,7 +750,14 @@ function optimizePerformance() {
 // Initialize performance optimizations
 document.addEventListener('DOMContentLoaded', optimizePerformance);
 
+// Function to scroll to top before navigation
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 // Export functions for global access
 window.openModal = openModal;
 window.closeModal = closeModal;
 window.navigateImage = navigateImage;
+window.filterCategory = filterCategory;
+window.scrollToTop = scrollToTop;
