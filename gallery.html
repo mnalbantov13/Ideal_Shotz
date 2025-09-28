@@ -50,8 +50,8 @@
         <div class="container">
             <div class="filter-tabs">
                 <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="abstract">Abstract</button>
                 <button class="filter-btn" data-filter="aerial">Aerial</button>
+                <button class="filter-btn" data-filter="astro">Astro</button>
                 <button class="filter-btn" data-filter="bandw">B&W</button>
                 <button class="filter-btn" data-filter="cars">Cars</button>
                 <button class="filter-btn" data-filter="event">Events</button>
@@ -65,20 +65,21 @@
             <div class="gallery-grid gallery-grid--all-view" id="gallery-grid">
             
                 <!-- #region Category Overview Cards (shown when "All" is selected) -->
-                    <div class="category-overview-item" data-category="overview" onclick="filterCategory('abstract')">
-                        <img src="images/Album/Abstract.webp" alt="Abstract Category">
-                        <div class="category-overlay">
-                            <div class="category-content">
-                                <h3>Abstract</h3><p>Photos</p>
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="category-overview-item" data-category="overview" onclick="filterCategory('aerial')">
                         <img src="images/Album/Aerial.webp" alt="Aerial Category">
                         <div class="category-overlay">
                             <div class="category-content">
                                 <h3>Aerial</h3><p>Photos</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-overview-item" data-category="overview" onclick="filterCategory('aerial')">
+                        <img src="images/Album/Astro.webp" alt="Astro Category">
+                        <div class="category-overlay">
+                            <div class="category-content">
+                                <h3>Astro</h3><p>Photos</p>
                             </div>
                         </div>
                     </div>
@@ -149,9 +150,12 @@
 
                 
 
-                <!-- *? #region Abstract Images -->
-                <div class="gallery-item" data-category="abstract"  onclick="openModal(this)">
-                    <img src="images/Abstract/Abstract (1).webp" alt="Abstract 1">
+                    
+                
+                <!-- Astro Images -->
+
+                <div class="gallery-item" data-category="astro" onclick="openModal(this)">
+                    <img src="images/Astro/Astro (1).webp" alt="Astro 1">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <button class="view-btn">
@@ -161,8 +165,8 @@
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="abstract"  onclick="openModal(this)">
-                    <img src="images/Abstract/Abstract (2).webp" alt="Abstract 2">
+                <div class="gallery-item" data-category="astro" onclick="openModal(this)">
+                    <img src="images/Astro/Astro (2).webp" alt="Astro 2">
                     <div class="gallery-overlay">
                         <div class="overlay-content">
                             <button class="view-btn">
@@ -171,8 +175,19 @@
                         </div>
                     </div>
                 </div>
-                <!-- #endregion Abstract Images -->
 
+                <div class="gallery-item" data-category="astro" onclick="openModal(this)">
+                    <img src="images/Astro/Astro (3).webp" alt="Astro 3">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <button class="view-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                
                 <!-- *? #region Aerial Images -->
                 <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
                     <img src="images/Aerial/Aerial (1).webp" alt="Aerial 1">
