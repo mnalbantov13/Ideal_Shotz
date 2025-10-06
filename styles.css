@@ -350,22 +350,22 @@ p {
         rgba(245, 245, 245, 0.4) 100%);
 }
 
-/* Mobile hero overlay - more transparent */
+/* Mobile hero overlay - less overlay to show more background */
 @media (max-width: 768px) {
     .hero-overlay {
         background: linear-gradient(135deg, 
-            rgba(245, 245, 245, 0.05) 0%, 
-            rgba(224, 224, 224, 0.08) 50%,
-            rgba(245, 245, 245, 0.05) 100%);
+            rgba(245, 245, 245, 0.1) 0%, 
+            rgba(224, 224, 224, 0.15) 50%,
+            rgba(245, 245, 245, 0.1) 100%);
     }
 }
 
 @media (max-width: 480px) {
     .hero-overlay {
         background: linear-gradient(135deg, 
-            rgba(245, 245, 245, 0.03) 0%, 
-            rgba(224, 224, 224, 0.05) 50%,
-            rgba(245, 245, 245, 0.03) 100%);
+            rgba(245, 245, 245, 0.05) 0%, 
+            rgba(224, 224, 224, 0.1) 50%,
+            rgba(245, 245, 245, 0.05) 100%);
     }
 }
 
@@ -539,7 +539,7 @@ p {
 }
 
 .hero-title-line.highlight {
-    color: #ebe3e3;
+    color: #ffffff;
     font-weight: 600;
     text-shadow: 0 2px 8px rgba(54, 69, 79, 0.3);
     position: relative;
@@ -741,9 +741,7 @@ p {
 
 .about-image {
     position: absolute;
-    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(54, 69, 79, 0.15);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -798,10 +796,8 @@ p {
 }
 
 .about-image {
-    border-radius: 30px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.15);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     max-width: 400px;
     margin-top: 3rem;
@@ -809,24 +805,9 @@ p {
 
 .about-image:hover {
     transform: scale(1.02);
-    box-shadow: 0 40px 90px rgba(0, 0, 0, 0.2);
 }
 
-.about-image::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(44, 44, 44, 0.1) 0%, transparent 60%);
-    z-index: 1;
-    transition: opacity 0.3s ease;
-}
 
-.about-image:hover::before {
-    opacity: 0;
-}
 
 .about-image img {
     width: 100%;
@@ -1939,7 +1920,7 @@ p {
     }
     
     .hero-background .hero-bg-image {
-        opacity: 0.2;
+        opacity: 0.6;
     }
     
     .camera-icon {
