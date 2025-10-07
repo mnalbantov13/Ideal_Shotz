@@ -34,7 +34,7 @@ def compress_image_to_target(input_path, output_path, target_kb=500, max_dim=204
     print(f"Saved {output_path} at quality={quality}, size={size_kb:.1f} KB")
 
 # Example usage
-input_image = "1.jpg"
-output_image = "images/Album/Astro.webp"
+input_image = "images/DJI_0349.jpg"
+output_image = "images/DJI_0349.webp"
 
 compress_image_to_target(input_image, output_image, target_kb=350, max_dim=2048)
