@@ -20,7 +20,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
     initNavigation();
     initGalleryFilter();
-    initContactForm();
+    
+    // Initialize contact form with error handling
+    try {
+        initContactForm();
+    } catch (error) {
+        console.error('Failed to initialize contact form:', error);
+    }
+    
     // initFAQ(); // Function not defined - commented out
     initScrollEffects();
     initHeroImageRotation();
@@ -538,13 +545,20 @@ document.addEventListener('keydown', function(event) {
 
 // Contact form functionality
 function initContactForm() {
+    // Check if EmailJS is available first
+    if (typeof emailjs === 'undefined') {
+        console.log('EmailJS not loaded - contact form functionality disabled');
+        return; // Exit early if EmailJS is not available
+    }
+    
     const contactForm = document.getElementById('contactForm');
     
-    // Initialize EmailJS only if it's available
-    if (typeof emailjs !== 'undefined') {
+    // Initialize EmailJS
+    try {
         emailjs.init("ypLtPGxmSdgzAI-mK"); // You'll need to replace this with your actual public key
-    } else {
-        console.log('EmailJS not loaded - contact form will not send emails');
+    } catch (error) {
+        console.error('Failed to initialize EmailJS:', error);
+        return;
     }
     
     if (contactForm) {
