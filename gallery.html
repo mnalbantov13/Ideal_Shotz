@@ -2795,7 +2795,12 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+  const script = document.createElement('script');
+  script.src = 'script.js?v=' + new Date().getTime();
+  document.head.appendChild(script);
+</script>
+
 </body>
 </html>
 

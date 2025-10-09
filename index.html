@@ -171,6 +171,11 @@ Equipped with a diverse range of professional gear, we’re ready to meet any ch
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+  const version = new Date().getTime();
+  const script = document.createElement('script');
+  script.src = `script.js?v=${version}`;
+  document.head.appendChild(script);
+</script>
 </body>
 </html>
