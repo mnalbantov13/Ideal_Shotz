@@ -15,13 +15,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Scroll to top immediately
     window.scrollTo(0, 0);
     
+    console.log('Script loaded and DOM ready!');
+    
     // Initialize all functionality
     initNavigation();
     initGalleryFilter();
     initContactForm();
-    initFAQ();
+    // initFAQ(); // Function not defined - commented out
     initScrollEffects();
     initHeroImageRotation();
+    initLazyLoading(); // Initialize lazy loading
     
     // Initialize gallery to show only overview cards
     if (document.querySelector('.gallery-grid')) {
@@ -230,6 +233,13 @@ function applyFilter(filterValue) {
             }
         });
     }
+    
+    // Refresh lazy loading after filter changes
+    setTimeout(() => {
+        if (window.refreshLazyLoading) {
+            window.refreshLazyLoading();
+        }
+    }, 350); // Wait for animations to complete
 }
 
 // Filter to specific category (called from overview cards)
@@ -530,8 +540,12 @@ document.addEventListener('keydown', function(event) {
 function initContactForm() {
     const contactForm = document.getElementById('contactForm');
     
-    // Initialize EmailJS
-    emailjs.init("ypLtPGxmSdgzAI-mK"); // You'll need to replace this with your actual public key
+    // Initialize EmailJS only if it's available
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("ypLtPGxmSdgzAI-mK"); // You'll need to replace this with your actual public key
+    } else {
+        console.log('EmailJS not loaded - contact form will not send emails');
+    }
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -573,22 +587,29 @@ function initContactForm() {
                 message: data.message
             };
             
-            // Send email using EmailJS
-            emailjs.send('service_2l2impe', 'template_7n7xfvf', emailParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
-                    contactForm.reset();
-                })
-                .catch(function(error) {
-                    console.log('FAILED...', error);
-                    showNotification('Failed to send message. Please try again or contact us directly.', 'error');
-                })
-                .finally(function() {
-                    // Reset button state
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                });
+            // Send email using EmailJS (if available)
+            if (typeof emailjs !== 'undefined') {
+                emailjs.send('service_2l2impe', 'template_7n7xfvf', emailParams)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+                        contactForm.reset();
+                    })
+                    .catch(function(error) {
+                        console.log('FAILED...', error);
+                        showNotification('Failed to send message. Please try again or contact us directly.', 'error');
+                    })
+                    .finally(function() {
+                        // Reset button state
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    });
+            } else {
+                // EmailJS not available - just show a message
+                showNotification('EmailJS not configured. Contact form disabled.', 'error');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
         });
     }
 }
@@ -716,22 +737,7 @@ function debounce(func, wait) {
     };
 }
 
-// Lazy loading for images
-function initLazyLoading() {
-    const images = document.querySelectorAll('img[data-src]');
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-
-    images.forEach(img => imageObserver.observe(img));
-}
+// Duplicate function removed - using the enhanced version below
 
 // Performance optimization
 function optimizePerformance() {
@@ -753,6 +759,145 @@ document.addEventListener('DOMContentLoaded', optimizePerformance);
 // Function to scroll to top before navigation
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Custom Lazy Loading Function
+function initLazyLoading() {
+    // Get half screen height for the trigger distance
+    const halfScreenHeight = window.innerHeight / 2;
+    
+    // Create intersection observer with custom rootMargin (half screen away)
+    const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                const dataSrc = img.getAttribute('data-src');
+                const isAlreadyLoaded = img.getAttribute('data-loaded') === 'true';
+                
+                if (dataSrc && !isAlreadyLoaded) {
+                    // Add loading state
+                    img.classList.add('lazy-loading');
+                    
+                    // Create a new image to preload
+                    const imageLoader = new Image();
+                    
+                    imageLoader.onload = function() {
+                        // Image loaded successfully - replace src
+                        img.src = dataSrc;
+                        // Keep data-src for cache reference but mark as loaded
+                        img.setAttribute('data-loaded', 'true');
+                        
+                        // Add fade-in effect
+                        img.style.opacity = '0';
+                        setTimeout(() => {
+                            img.style.transition = 'opacity 0.3s ease-in-out';
+                            img.style.opacity = '1';
+                            img.classList.remove('lazy-loading');
+                            img.classList.add('lazy-loaded');
+                        }, 50);
+                    };
+                    
+                    imageLoader.onerror = function() {
+                        // Handle loading error
+                        img.classList.remove('lazy-loading');
+                        img.classList.add('lazy-error');
+                        console.warn('Failed to load image:', dataSrc);
+                        
+                        // Set a placeholder or default image if needed
+                        img.alt = 'Image failed to load';
+                    };
+                    
+                    // Start loading the image
+                    imageLoader.src = dataSrc;
+                    
+                    // Stop observing this image
+                    observer.unobserve(img);
+                } else if (isAlreadyLoaded) {
+                    // Image already loaded - just show it immediately
+                    img.style.opacity = '1';
+                    img.classList.remove('lazy-loading');
+                    img.classList.add('lazy-loaded');
+                    observer.unobserve(img);
+                }
+            }
+        });
+    }, {
+        // Load images when they're half a screen away
+        rootMargin: `${halfScreenHeight}px 0px ${halfScreenHeight}px 0px`,
+        threshold: 0
+    });
+
+    // Helper function to check if an element is visible
+    const isElementVisible = (element) => {
+        const style = window.getComputedStyle(element);
+        const parentElement = element.closest('.gallery-item, .category-overview-item');
+        const parentStyle = parentElement ? window.getComputedStyle(parentElement) : null;
+        
+        return style.display !== 'none' && 
+               style.visibility !== 'hidden' && 
+               (!parentStyle || (parentStyle.display !== 'none' && parentStyle.visibility !== 'hidden'));
+    };
+
+    // Find all images with data-src attribute and observe only visible ones
+    const observeVisibleImages = () => {
+        // First unobserve all currently observed images
+        const allImages = document.querySelectorAll('img[data-src]');
+        allImages.forEach(img => {
+            lazyImageObserver.unobserve(img);
+        });
+        
+        // Now observe only visible images
+        const visibleImages = Array.from(allImages).filter(isElementVisible);
+        let newImagesCount = 0;
+        let cachedImagesCount = 0;
+        
+        visibleImages.forEach(img => {
+            const isAlreadyLoaded = img.getAttribute('data-loaded') === 'true';
+            
+            if (isAlreadyLoaded) {
+                // Image is cached - show it immediately
+                img.style.opacity = '1';
+                img.classList.remove('lazy-loading');
+                img.classList.add('lazy-loaded');
+                cachedImagesCount++;
+            } else {
+                // Image not loaded yet - observe it for lazy loading
+                lazyImageObserver.observe(img);
+                newImagesCount++;
+            }
+        });
+        
+        console.log(`Lazy loading: ${cachedImagesCount} cached images shown immediately, ${newImagesCount} new images being observed (${visibleImages.length} total visible)`);
+        return visibleImages;
+    };
+
+    // Initial observation
+    const lazyImages = observeVisibleImages();
+
+    // Handle dynamic content (when filters change)
+    const refreshLazyLoading = () => {
+        // Re-observe only visible images when filters change
+        observeVisibleImages();
+    };
+
+    // Make refresh function available globally for filter changes
+    window.refreshLazyLoading = refreshLazyLoading;
+    
+    // Optional: Log lazy loading initialization
+    console.log(`Lazy loading initialized for ${lazyImages.length} images`);
+    
+    // Force load images that are immediately visible (for testing)
+    lazyImages.forEach(img => {
+        const rect = img.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+            console.log('Forcing load of visible image:', img.getAttribute('data-src'));
+            const dataSrc = img.getAttribute('data-src');
+            if (dataSrc) {
+                img.src = dataSrc;
+                img.removeAttribute('data-src');
+            }
+        }
+    });
 }
 
 // Export functions for global access

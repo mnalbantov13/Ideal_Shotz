@@ -922,6 +922,35 @@ p {
     object-fit: contain;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: block;
+    min-height: 200px;
+    background-color: var(--light-grey);
+}
+
+/* Lazy Loading States */
+.gallery-item img.lazy-loading {
+    opacity: 0.6;
+    filter: blur(1px);
+}
+
+.gallery-item img.lazy-loaded {
+    opacity: 1;
+    filter: none;
+}
+
+.gallery-item img.lazy-error {
+    opacity: 0.4;
+    background-color: var(--medium-grey);
+    position: relative;
+}
+
+.gallery-item img.lazy-error::after {
+    content: '⚠️ Failed to load';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.8rem;
+    color: var(--dark-grey);
 }
 
 .gallery-overlay {
