@@ -1252,10 +1252,10 @@ p {
         column-gap: 0.8rem;
     }
 
-    /* All view should also use 2 columns on mobile to show overview cards */
+    /* All view should use 1 column on mobile for better overview card display */
     .gallery-grid.gallery-grid--all-view {
-        columns: 2;
-        column-gap: 0.8rem;
+        columns: 1;
+        column-gap: 0;
     }
 }
 
@@ -2327,10 +2327,10 @@ p {
         display: block; /* Keep using columns */
     }
     
-    /* All view should use 2 columns to show overview cards properly */
+    /* All view should use 1 column on mobile */
     .gallery-grid.gallery-grid--all-view {
-        columns: 2;
-        column-gap: 0.8rem;
+        columns: 1;
+        column-gap: 0;
     }
     
     .gallery-grid .category-overview-item {
@@ -2385,10 +2385,10 @@ p {
         display: block; /* Keep using columns */
     }
     
-    /* All view should use 2 columns even on small screens for overview cards */
+    /* All view should use 1 column on small screens */
     .gallery-grid.gallery-grid--all-view {
-        columns: 2;
-        column-gap: 0.5rem;
+        columns: 1;
+        column-gap: 0;
     }
     
     .gallery-grid .category-overview-item {
@@ -2521,4 +2521,69 @@ p {
   break-inside: avoid;
   -webkit-column-break-inside: avoid;
   -moz-column-break-inside: avoid;
+}
+
+/* iOS-Specific Gallery Fixes */
+@supports (-webkit-touch-callout: none) {
+    /* This targets only iOS Safari */
+    
+    .gallery-item img {
+        /* Enhanced hardware acceleration for iOS */
+        -webkit-transform: translateZ(0) scale(1.0001);
+        transform: translateZ(0) scale(1.0001);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        /* Improve image rendering on iOS */
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        /* Force GPU compositing */
+        will-change: opacity, transform;
+    }
+    
+    .gallery-grid {
+        /* Improve column layout stability on iOS */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        contain: layout;
+        /* iOS Safari column fixes */
+        -webkit-column-fill: balance;
+        column-fill: balance;
+    }
+    
+    /* Optimize loading states for iOS */
+    .gallery-item img.lazy-loading {
+        opacity: 0.8;
+        /* Avoid filters on iOS as they can cause rendering issues */
+        filter: none;
+        transform: scale(0.99);
+        /* Faster transition for iOS */
+        transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    }
+    
+    .gallery-item img.lazy-loaded {
+        opacity: 1;
+        filter: none;
+        transform: scale(1);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    
+    .gallery-item img.lazy-error {
+        opacity: 0.5;
+        background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
+                    linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
+                    linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
+                    linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+        background-size: 20px 20px;
+        background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    }
+    
+    /* Fix iOS viewport issues */
+    .gallery-item {
+        /* Prevent iOS from collapsing items */
+        min-height: 100px;
+        /* Improve touch handling */
+        -webkit-tap-highlight-color: transparent;
+        /* Optimize for iOS scrolling */
+        -webkit-overflow-scrolling: touch;
+    }
 }

@@ -784,8 +784,29 @@ function addCacheBusting(url) {
 
 // Custom Lazy Loading Function
 function initLazyLoading() {
-    // Get half screen height for the trigger distance
-    const halfScreenHeight = window.innerHeight / 2;
+    // iOS Detection
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    
+    console.log('🔍 Device Detection:', {
+        isIOS: isIOS,
+        userAgent: navigator.userAgent,
+        platform: navigator.platform,
+        touchPoints: navigator.maxTouchPoints,
+        viewport: `${window.innerWidth}x${window.innerHeight}`,
+        devicePixelRatio: window.devicePixelRatio
+    });
+    
+    // iOS-specific configuration
+    const halfScreenHeight = isIOS ? window.innerHeight / 3 : window.innerHeight / 2; // Smaller trigger distance for iOS
+    const threshold = isIOS ? 0.1 : 0; // iOS needs a threshold to work reliably
+    const loadTimeout = isIOS ? 15000 : 10000; // Longer timeout for iOS
+    
+    console.log('⚙️ Lazy Loading Config:', {
+        halfScreenHeight,
+        threshold,
+        loadTimeout,
+        totalImages: document.querySelectorAll('img[data-src]').length
+    });
     
     // Create intersection observer with custom rootMargin (half screen away)
     const lazyImageObserver = new IntersectionObserver((entries, observer) => {
@@ -796,29 +817,64 @@ function initLazyLoading() {
                 const isAlreadyLoaded = img.getAttribute('data-loaded') === 'true';
                 
                 if (dataSrc && !isAlreadyLoaded) {
+                    console.log(`🖼️ Loading image:`, dataSrc);
+                    
                     // Add loading state
                     img.classList.add('lazy-loading');
+                    
+                    // iOS-specific loading timeout
+                    let loadingTimeout;
+                    if (isIOS) {
+                        loadingTimeout = setTimeout(() => {
+                            console.warn(`⏰ iOS loading timeout for:`, dataSrc);
+                            img.classList.remove('lazy-loading');
+                            img.classList.add('lazy-error');
+                        }, loadTimeout);
+                    }
                     
                     // Create a new image to preload
                     const imageLoader = new Image();
                     
                     imageLoader.onload = function() {
+                        console.log(`✅ Image loaded successfully:`, dataSrc);
+                        
+                        // Clear iOS timeout
+                        if (loadingTimeout) clearTimeout(loadingTimeout);
+                        
                         // Image loaded successfully - replace src with cache-busted version
                         img.src = addCacheBusting(dataSrc);
                         // Keep data-src for cache reference but mark as loaded
                         img.setAttribute('data-loaded', 'true');
                         
-                        // Add fade-in effect
-                        img.style.opacity = '0';
-                        setTimeout(() => {
-                            img.style.transition = 'opacity 0.3s ease-in-out';
-                            img.style.opacity = '1';
-                            img.classList.remove('lazy-loading');
-                            img.classList.add('lazy-loaded');
-                        }, 50);
+                        // iOS-specific fade-in handling
+                        if (isIOS) {
+                            // Force reflow for iOS Safari
+                            img.style.opacity = '0';
+                            img.offsetHeight; // Force reflow
+                            requestAnimationFrame(() => {
+                                img.style.transition = 'opacity 0.3s ease-in-out';
+                                img.style.opacity = '1';
+                                img.classList.remove('lazy-loading');
+                                img.classList.add('lazy-loaded');
+                            });
+                        } else {
+                            // Standard fade-in for other browsers
+                            img.style.opacity = '0';
+                            setTimeout(() => {
+                                img.style.transition = 'opacity 0.3s ease-in-out';
+                                img.style.opacity = '1';
+                                img.classList.remove('lazy-loading');
+                                img.classList.add('lazy-loaded');
+                            }, 50);
+                        }
                     };
                     
                     imageLoader.onerror = function() {
+                        console.error(`❌ Image load failed:`, dataSrc);
+                        
+                        // Clear iOS timeout
+                        if (loadingTimeout) clearTimeout(loadingTimeout);
+                        
                         // Handle loading error
                         img.classList.remove('lazy-loading');
                         img.classList.add('lazy-error');
@@ -843,9 +899,9 @@ function initLazyLoading() {
             }
         });
     }, {
-        // Load images when they're half a screen away
+        // Load images when they're half a screen away (closer for iOS)
         rootMargin: `${halfScreenHeight}px 0px ${halfScreenHeight}px 0px`,
-        threshold: 0
+        threshold: threshold
     });
 
     // Helper function to check if an element is visible
@@ -895,10 +951,107 @@ function initLazyLoading() {
     // Initial observation
     const lazyImages = observeVisibleImages();
 
+    // iOS-specific fallback mechanisms
+    if (isIOS) {
+        console.log('🍎 Enabling iOS-specific fallbacks');
+        
+        // Fallback 1: Force load visible images after delay
+        setTimeout(() => {
+            const visibleImages = Array.from(document.querySelectorAll('img[data-src]')).filter(img => {
+                const rect = img.getBoundingClientRect();
+                return rect.top < window.innerHeight * 1.5 && rect.bottom > -100 && img.getAttribute('data-loaded') !== 'true';
+            });
+            
+            if (visibleImages.length > 0) {
+                console.log(`🍎 iOS Fallback: Force loading ${visibleImages.length} visible images`);
+                visibleImages.forEach(img => {
+                    const dataSrc = img.getAttribute('data-src');
+                    if (dataSrc) {
+                        console.log('🍎 Force loading:', dataSrc);
+                        img.src = addCacheBusting(dataSrc);
+                        img.setAttribute('data-loaded', 'true');
+                        img.style.opacity = '1';
+                        img.classList.remove('lazy-loading');
+                        img.classList.add('lazy-loaded');
+                    }
+                });
+            }
+        }, 3000);
+        
+        // Fallback 2: Monitor viewport changes and reload stalled images
+        let viewportChangeTimer;
+        const handleViewportChange = () => {
+            clearTimeout(viewportChangeTimer);
+            viewportChangeTimer = setTimeout(() => {
+                console.log('🍎 iOS viewport changed, checking for stalled images');
+                const stalledImages = document.querySelectorAll('img.lazy-loading');
+                if (stalledImages.length > 0) {
+                    console.log(`🍎 Found ${stalledImages.length} stalled images, force loading`);
+                    stalledImages.forEach(img => {
+                        const dataSrc = img.getAttribute('data-src');
+                        if (dataSrc) {
+                            img.src = addCacheBusting(dataSrc);
+                            img.setAttribute('data-loaded', 'true');
+                            img.style.opacity = '1';
+                            img.classList.remove('lazy-loading');
+                            img.classList.add('lazy-loaded');
+                        }
+                    });
+                }
+            }, 1000);
+        };
+        
+        window.addEventListener('resize', handleViewportChange);
+        window.addEventListener('orientationchange', () => {
+            setTimeout(handleViewportChange, 500);
+        });
+        
+        // Fallback 3: Periodic check for failed loads
+        setInterval(() => {
+            const failedImages = document.querySelectorAll('img[data-src]:not([data-loaded="true"]):not(.lazy-loading):not(.lazy-error)');
+            if (failedImages.length > 0) {
+                console.log(`🍎 iOS periodic check: Found ${failedImages.length} unloaded images, retrying`);
+                failedImages.forEach(img => {
+                    if (img.getBoundingClientRect().top < window.innerHeight * 2) {
+                        lazyImageObserver.observe(img);
+                    }
+                });
+            }
+        }, 5000);
+    }
+
     // Handle dynamic content (when filters change)
     const refreshLazyLoading = () => {
         // Re-observe only visible images when filters change
         observeVisibleImages();
+        
+        // iOS-specific: Additional fallback after filter change
+        if (isIOS) {
+            setTimeout(() => {
+                const newVisibleImages = Array.from(document.querySelectorAll('img[data-src]')).filter(img => {
+                    const rect = img.getBoundingClientRect();
+                    const parentVisible = img.closest('.gallery-item, .category-overview-item');
+                    const parentStyle = parentVisible ? window.getComputedStyle(parentVisible) : null;
+                    return rect.top < window.innerHeight * 1.5 && rect.bottom > -100 && 
+                           img.getAttribute('data-loaded') !== 'true' &&
+                           parentStyle && parentStyle.display !== 'none';
+                });
+                
+                if (newVisibleImages.length > 0) {
+                    console.log(`🍎 iOS post-filter fallback: Loading ${newVisibleImages.length} images`);
+                    newVisibleImages.forEach(img => {
+                        const dataSrc = img.getAttribute('data-src');
+                        if (dataSrc) {
+                            img.src = addCacheBusting(dataSrc);
+                            img.setAttribute('data-loaded', 'true');
+                            img.style.opacity = '1';
+                            img.classList.remove('lazy-loading');
+                            img.classList.add('lazy-loaded');
+                        }
+                    });
+                }
+            }, 1500);
+        }
     };
 
     // Make refresh function available globally for filter changes
