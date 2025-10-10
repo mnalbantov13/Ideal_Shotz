@@ -1236,12 +1236,6 @@ p {
     column-gap: 1rem;
     position: relative;
     z-index: 2;
-    /* iOS Safari column fixes */
-    -webkit-column-count: 3;
-    column-count: 3;
-    -webkit-column-gap: 1rem;
-    -webkit-column-fill: auto;
-    column-fill: auto;
 }
 
 @media (max-width: 1024px) {
@@ -1258,10 +1252,10 @@ p {
         column-gap: 0.8rem;
     }
 
-    /* Special case: 1 column for the 'All' view */
+    /* All view should also use 2 columns on mobile to show overview cards */
     .gallery-grid.gallery-grid--all-view {
-        columns: 1;
-        column-gap: 0;
+        columns: 2;
+        column-gap: 0.8rem;
     }
 }
 
@@ -2333,10 +2327,10 @@ p {
         display: block; /* Keep using columns */
     }
     
-    /* When showing All view, switch to 1 column */
+    /* All view should use 2 columns to show overview cards properly */
     .gallery-grid.gallery-grid--all-view {
-        columns: 1;
-        column-gap: 0;
+        columns: 2;
+        column-gap: 0.8rem;
     }
     
     .gallery-grid .category-overview-item {
@@ -2391,10 +2385,10 @@ p {
         display: block; /* Keep using columns */
     }
     
-    /* When showing All view, switch to 1 column */
+    /* All view should use 2 columns even on small screens for overview cards */
     .gallery-grid.gallery-grid--all-view {
-        columns: 1;
-        column-gap: 0;
+        columns: 2;
+        column-gap: 0.5rem;
     }
     
     .gallery-grid .category-overview-item {
@@ -2492,6 +2486,9 @@ p {
         -webkit-transform: translateZ(0);
         transform: translateZ(0);
         contain: layout;
+        /* iOS Safari column fixes - only applied on iOS */
+        -webkit-column-fill: auto;
+        column-fill: auto;
     }
     
     /* Ensure proper image loading states on iOS */
