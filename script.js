@@ -775,6 +775,13 @@ function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// Cache busting function
+function addCacheBusting(url) {
+    const version = '1.0.1'; // Update this version when you want to clear cache
+    const separator = url.includes('?') ? '&' : '?';
+    return `${url}${separator}v=${version}`;
+}
+
 // Custom Lazy Loading Function
 function initLazyLoading() {
     // Get half screen height for the trigger distance
@@ -796,8 +803,8 @@ function initLazyLoading() {
                     const imageLoader = new Image();
                     
                     imageLoader.onload = function() {
-                        // Image loaded successfully - replace src
-                        img.src = dataSrc;
+                        // Image loaded successfully - replace src with cache-busted version
+                        img.src = addCacheBusting(dataSrc);
                         // Keep data-src for cache reference but mark as loaded
                         img.setAttribute('data-loaded', 'true');
                         
@@ -821,8 +828,8 @@ function initLazyLoading() {
                         img.alt = 'Image failed to load';
                     };
                     
-                    // Start loading the image
-                    imageLoader.src = dataSrc;
+                    // Start loading the image with cache busting
+                    imageLoader.src = addCacheBusting(dataSrc);
                     
                     // Stop observing this image
                     observer.unobserve(img);
@@ -907,7 +914,7 @@ function initLazyLoading() {
             console.log('Forcing load of visible image:', img.getAttribute('data-src'));
             const dataSrc = img.getAttribute('data-src');
             if (dataSrc) {
-                img.src = dataSrc;
+                img.src = addCacheBusting(dataSrc);
                 img.removeAttribute('data-src');
             }
         }
