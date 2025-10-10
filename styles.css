@@ -914,6 +914,11 @@ p {
     width: 100%;
     margin-bottom: 1rem;
     break-inside: avoid;
+    /* iOS Safari fixes */
+    -webkit-column-break-inside: avoid;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 .gallery-item img {
@@ -924,6 +929,11 @@ p {
     display: block;
     will-change: transform;
     transform: translateZ(0);
+    /* iOS Safari fixes */
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    image-rendering: -webkit-optimize-contrast;
 }
 
 /* Lazy Loading States */
@@ -1226,6 +1236,12 @@ p {
     column-gap: 1rem;
     position: relative;
     z-index: 2;
+    /* iOS Safari column fixes */
+    -webkit-column-count: 3;
+    column-count: 3;
+    -webkit-column-gap: 1rem;
+    -webkit-column-fill: auto;
+    column-fill: auto;
 }
 
 @media (max-width: 1024px) {
@@ -2456,6 +2472,41 @@ p {
 .fade-in-right.visible {
     opacity: 1;
     transform: translateX(0);
+}
+
+/* iOS Safari Specific Fixes */
+@supports (-webkit-touch-callout: none) {
+    /* This targets only iOS Safari */
+    .gallery-item img {
+        -webkit-transform: translateZ(0) scale(1.0001);
+        transform: translateZ(0) scale(1.0001);
+        image-rendering: -webkit-optimize-contrast;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        /* Force hardware acceleration */
+        will-change: opacity, transform;
+    }
+    
+    .gallery-grid {
+        /* Force reflow on iOS */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        contain: layout;
+    }
+    
+    /* Ensure proper image loading states on iOS */
+    .gallery-item img.lazy-loading {
+        opacity: 0.7;
+        filter: none; /* Remove blur on iOS as it can cause rendering issues */
+        transform: scale(0.98);
+    }
+    
+    .gallery-item img.lazy-loaded {
+        opacity: 1;
+        filter: none;
+        transform: scale(1);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
 }
 
 .album-title {
