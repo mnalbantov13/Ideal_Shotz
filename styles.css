@@ -2523,7 +2523,7 @@ p {
   -moz-column-break-inside: avoid;
 }
 
-/* iOS-Specific Gallery Fixes */
+/* Enhanced iOS-Specific Gallery Fixes */
 @supports (-webkit-touch-callout: none) {
     /* This targets only iOS Safari */
     
@@ -2533,11 +2533,30 @@ p {
         transform: translateZ(0) scale(1.0001);
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-        /* Improve image rendering on iOS */
+        /* Optimize image rendering for iOS */
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
-        /* Force GPU compositing */
+        /* Force GPU compositing with optimized properties */
         will-change: opacity, transform;
+        /* iOS-specific optimizations */
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+        /* Optimize for iOS memory */
+        contain: layout style paint;
+        /* Better subpixel rendering on iOS */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* iOS memory optimization for image containers */
+    .gallery-item {
+        /* Optimize compositing layers */
+        contain: layout style paint;
+        /* iOS-specific isolation */
+        isolation: isolate;
+        /* Better scroll performance */
+        -webkit-overflow-scrolling: touch;
     }
     
     .gallery-grid {
@@ -2552,19 +2571,48 @@ p {
     
     /* Optimize loading states for iOS */
     .gallery-item img.lazy-loading {
-        opacity: 0.8;
+        opacity: 0.7;
         /* Avoid filters on iOS as they can cause rendering issues */
         filter: none;
-        transform: scale(0.99);
-        /* Faster transition for iOS */
-        transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+        transform: scale(0.98);
+        /* Faster transition for iOS with GPU acceleration */
+        transition: opacity 0.15s ease-out, transform 0.15s ease-out;
+        /* Ensure hardware acceleration during loading */
+        -webkit-transform: translateZ(0) scale(0.98);
+        will-change: opacity, transform;
     }
     
     .gallery-item img.lazy-loaded {
         opacity: 1;
         filter: none;
         transform: scale(1);
-        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        -webkit-transform: translateZ(0) scale(1);
+        /* Smooth transition with optimized timing */
+        transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
+                    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Reset will-change after animation */
+        will-change: auto;
+    }
+    
+    /* iOS-specific lazy loading shimmer effect */
+    .gallery-item img.lazy-loading::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, 
+            transparent, 
+            rgba(255, 255, 255, 0.1), 
+            transparent);
+        animation: shimmer 1.5s infinite ease-in-out;
+        pointer-events: none;
+    }
+    
+    @keyframes shimmer {
+        0% { left: -100%; }
+        100% { left: 100%; }
     }
     
     .gallery-item img.lazy-error {
@@ -2587,6 +2635,26 @@ p {
         -webkit-overflow-scrolling: touch;
     }
     
+    /* iOS Performance Optimizations */
+    .gallery-grid {
+        /* Optimize scrolling performance on iOS */
+        -webkit-overflow-scrolling: touch;
+        /* Better compositing */
+        contain: layout style paint;
+        /* iOS-specific GPU optimization */
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
+    }
+    
+    /* iOS viewport optimizations */
+    @media screen and (-webkit-min-device-pixel-ratio: 2) {
+        .gallery-item img {
+            /* Optimize for retina displays */
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: pixelated;
+        }
+    }
+    
     /* Fix iOS album title and first image overlap issue */
     .album-title {
         /* iOS-specific fixes for column spanning */
@@ -2598,6 +2666,8 @@ p {
         /* Ensure title creates proper column break */
         break-after: column;
         -webkit-column-break-after: always;
+        /* iOS-specific optimizations */
+        contain: layout style;
         /* Add clear separation */
         position: relative;
         z-index: 10;

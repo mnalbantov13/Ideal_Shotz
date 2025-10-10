@@ -777,29 +777,49 @@ function scrollToTop() {
 
 // Cache busting function
 function addCacheBusting(url) {
-    const version = '1.0.1'; // Update this version when you want to clear cache
+    const version = '1.0.3'; // Update this version when you want to clear cache
     const separator = url.includes('?') ? '&' : '?';
     return `${url}${separator}v=${version}`;
 }
 
 // Custom Lazy Loading Function
 function initLazyLoading() {
-    // iOS Detection
+    // Enhanced iOS Detection
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    const isIOSSafari = isIOS && isSafari;
     
-    console.log('🔍 Device Detection:', {
+    // Detect iOS version for specific optimizations
+    const iOSVersion = isIOS ? parseFloat(
+        ('' + (/CPU.*OS ([0-9_]{1,5})|(CPU like).*AppleWebKit.*Mobile/i.exec(navigator.userAgent) || [0,''])[1])
+        .replace('undefined', '3_2').replace('_', '.').replace('_', '')
+    ) || false : false;
+    
+    console.log('🔍 Enhanced Device Detection:', {
         isIOS: isIOS,
+        isSafari: isSafari,
+        isIOSSafari: isIOSSafari,
+        iOSVersion: iOSVersion,
         userAgent: navigator.userAgent,
         platform: navigator.platform,
         touchPoints: navigator.maxTouchPoints,
         viewport: `${window.innerWidth}x${window.innerHeight}`,
-        devicePixelRatio: window.devicePixelRatio
+        devicePixelRatio: window.devicePixelRatio,
+        memoryInfo: performance.memory ? {
+            usedJSMemory: Math.round(performance.memory.usedJSHeapSize / 1024 / 1024) + 'MB',
+            totalJSMemory: Math.round(performance.memory.totalJSHeapSize / 1024 / 1024) + 'MB',
+            memoryLimit: Math.round(performance.memory.jsHeapSizeLimit / 1024 / 1024) + 'MB'
+        } : 'Not available'
     });
     
-    // iOS-specific configuration
-    const halfScreenHeight = isIOS ? window.innerHeight / 3 : window.innerHeight / 2; // Smaller trigger distance for iOS
-    const threshold = isIOS ? 0.1 : 0; // iOS needs a threshold to work reliably
-    const loadTimeout = isIOS ? 15000 : 10000; // Longer timeout for iOS
+    // iOS-optimized configuration
+    const halfScreenHeight = isIOS ? window.innerHeight / 4 : window.innerHeight / 2; // Even more aggressive for iOS
+    const threshold = isIOSSafari ? 0.2 : isIOS ? 0.1 : 0; // Higher threshold for iOS Safari
+    const loadTimeout = isIOSSafari ? 20000 : isIOS ? 15000 : 10000; // Longer timeout for iOS Safari
+    
+    // iOS memory management
+    const maxConcurrentLoads = isIOS ? 3 : 6; // Limit concurrent loads on iOS
+    let currentLoadingCount = 0;
     
     console.log('⚙️ Lazy Loading Config:', {
         halfScreenHeight,
@@ -817,9 +837,21 @@ function initLazyLoading() {
                 const isAlreadyLoaded = img.getAttribute('data-loaded') === 'true';
                 
                 if (dataSrc && !isAlreadyLoaded) {
-                    console.log(`🖼️ Loading image:`, dataSrc);
+                    // iOS memory management - limit concurrent loads
+                    if (isIOS && currentLoadingCount >= maxConcurrentLoads) {
+                        console.log(`🍎 iOS: Delaying load due to concurrent limit (${currentLoadingCount}/${maxConcurrentLoads}):`, dataSrc);
+                        setTimeout(() => {
+                            if (img.getAttribute('data-loaded') !== 'true') {
+                                lazyImageObserver.observe(img);
+                            }
+                        }, 1000);
+                        return;
+                    }
                     
-                    // Add loading state
+                    currentLoadingCount++;
+                    console.log(`🖼️ Loading image (${currentLoadingCount}/${maxConcurrentLoads}):`, dataSrc);
+                    
+                    // Add loading state with iOS-specific optimizations
                     img.classList.add('lazy-loading');
                     
                     // iOS-specific loading timeout
@@ -829,14 +861,22 @@ function initLazyLoading() {
                             console.warn(`⏰ iOS loading timeout for:`, dataSrc);
                             img.classList.remove('lazy-loading');
                             img.classList.add('lazy-error');
+                            currentLoadingCount = Math.max(0, currentLoadingCount - 1);
                         }, loadTimeout);
                     }
                     
-                    // Create a new image to preload
+                    // Create a new image to preload with iOS optimizations
                     const imageLoader = new Image();
+                    
+                    // iOS-specific image properties
+                    if (isIOS) {
+                        imageLoader.crossOrigin = 'anonymous'; // Help with iOS caching
+                        imageLoader.decoding = 'async'; // Async decode for better performance
+                    }
                     
                     imageLoader.onload = function() {
                         console.log(`✅ Image loaded successfully:`, dataSrc);
+                        currentLoadingCount = Math.max(0, currentLoadingCount - 1);
                         
                         // Clear iOS timeout
                         if (loadingTimeout) clearTimeout(loadingTimeout);
@@ -846,17 +886,34 @@ function initLazyLoading() {
                         // Keep data-src for cache reference but mark as loaded
                         img.setAttribute('data-loaded', 'true');
                         
-                        // iOS-specific fade-in handling
+                        // iOS-specific fade-in handling with memory optimization
                         if (isIOS) {
-                            // Force reflow for iOS Safari
-                            img.style.opacity = '0';
-                            img.offsetHeight; // Force reflow
-                            requestAnimationFrame(() => {
-                                img.style.transition = 'opacity 0.3s ease-in-out';
-                                img.style.opacity = '1';
-                                img.classList.remove('lazy-loading');
-                                img.classList.add('lazy-loaded');
-                            });
+                            // Use requestIdleCallback for better performance on iOS
+                            const fadeIn = () => {
+                                img.style.opacity = '0';
+                                img.offsetHeight; // Force reflow
+                                
+                                // Use requestAnimationFrame for smooth animation
+                                requestAnimationFrame(() => {
+                                    img.style.transition = isIOSSafari ? 'opacity 0.2s ease-out' : 'opacity 0.3s ease-in-out';
+                                    img.style.opacity = '1';
+                                    img.classList.remove('lazy-loading');
+                                    img.classList.add('lazy-loaded');
+                                    
+                                    // Clean up imageLoader reference for memory
+                                    setTimeout(() => {
+                                        imageLoader.onload = null;
+                                        imageLoader.onerror = null;
+                                    }, 100);
+                                });
+                            };
+                            
+                            // Use requestIdleCallback if available, fallback to setTimeout
+                            if (window.requestIdleCallback && !isIOSSafari) {
+                                requestIdleCallback(fadeIn, { timeout: 100 });
+                            } else {
+                                fadeIn();
+                            }
                         } else {
                             // Standard fade-in for other browsers
                             img.style.opacity = '0';
@@ -871,17 +928,39 @@ function initLazyLoading() {
                     
                     imageLoader.onerror = function() {
                         console.error(`❌ Image load failed:`, dataSrc);
+                        currentLoadingCount = Math.max(0, currentLoadingCount - 1);
                         
                         // Clear iOS timeout
                         if (loadingTimeout) clearTimeout(loadingTimeout);
                         
+                        // Enhanced iOS error handling with retry mechanism
+                        if (isIOS) {
+                            const retryCount = parseInt(img.getAttribute('data-retry-count') || '0');
+                            if (retryCount < 2) {
+                                console.log(`🍎 iOS: Retrying image load (attempt ${retryCount + 1}/3):`, dataSrc);
+                                img.setAttribute('data-retry-count', (retryCount + 1).toString());
+                                
+                                // Retry with exponential backoff
+                                setTimeout(() => {
+                                    if (img.getAttribute('data-loaded') !== 'true') {
+                                        lazyImageObserver.observe(img);
+                                    }
+                                }, Math.pow(2, retryCount) * 1000);
+                                return;
+                            }
+                        }
+                        
                         // Handle loading error
                         img.classList.remove('lazy-loading');
                         img.classList.add('lazy-error');
-                        console.warn('Failed to load image:', dataSrc);
+                        console.warn('Failed to load image after retries:', dataSrc);
                         
                         // Set a placeholder or default image if needed
                         img.alt = 'Image failed to load';
+                        
+                        // Clean up memory
+                        imageLoader.onload = null;
+                        imageLoader.onerror = null;
                     };
                     
                     // Start loading the image with cache busting
@@ -951,12 +1030,29 @@ function initLazyLoading() {
     // Initial observation
     const lazyImages = observeVisibleImages();
 
-    // iOS-specific fallback mechanisms
+    // Enhanced iOS-specific fallback mechanisms
     if (isIOS) {
-        console.log('🍎 Enabling iOS-specific fallbacks');
+        console.log('🍎 Enabling enhanced iOS-specific fallbacks');
         
-        // Fallback 1: Force load visible images after delay
+        // iOS Memory management - periodic cleanup
+        const iOSMemoryCleanup = () => {
+            if (performance.memory && performance.memory.usedJSHeapSize > performance.memory.jsHeapSizeLimit * 0.8) {
+                console.log('🍎 iOS: High memory usage detected, forcing garbage collection');
+                // Force garbage collection by creating temporary stress
+                if (window.gc) {
+                    window.gc();
+                } else {
+                    // Fallback memory cleanup
+                    const temp = new Array(1000).fill(0);
+                    temp.length = 0;
+                }
+            }
+        };
+        
+        // Fallback 1: Enhanced force load visible images with memory management
         setTimeout(() => {
+            iOSMemoryCleanup();
+            
             const visibleImages = Array.from(document.querySelectorAll('img[data-src]')).filter(img => {
                 const rect = img.getBoundingClientRect();
                 return rect.top < window.innerHeight * 1.5 && rect.bottom > -100 && img.getAttribute('data-loaded') !== 'true';
@@ -964,19 +1060,34 @@ function initLazyLoading() {
             
             if (visibleImages.length > 0) {
                 console.log(`🍎 iOS Fallback: Force loading ${visibleImages.length} visible images`);
-                visibleImages.forEach(img => {
-                    const dataSrc = img.getAttribute('data-src');
-                    if (dataSrc) {
-                        console.log('🍎 Force loading:', dataSrc);
-                        img.src = addCacheBusting(dataSrc);
-                        img.setAttribute('data-loaded', 'true');
-                        img.style.opacity = '1';
-                        img.classList.remove('lazy-loading');
-                        img.classList.add('lazy-loaded');
+                
+                // Load images in batches for iOS memory management
+                const batchSize = isIOSSafari ? 2 : 3;
+                let batchIndex = 0;
+                
+                const loadBatch = () => {
+                    const batch = visibleImages.slice(batchIndex, batchIndex + batchSize);
+                    batch.forEach(img => {
+                        const dataSrc = img.getAttribute('data-src');
+                        if (dataSrc) {
+                            console.log('🍎 Force loading:', dataSrc);
+                            img.src = addCacheBusting(dataSrc);
+                            img.setAttribute('data-loaded', 'true');
+                            img.style.opacity = '1';
+                            img.classList.remove('lazy-loading');
+                            img.classList.add('lazy-loaded');
+                        }
+                    });
+                    
+                    batchIndex += batchSize;
+                    if (batchIndex < visibleImages.length) {
+                        setTimeout(loadBatch, 500); // Delay between batches
                     }
-                });
+                };
+                
+                loadBatch();
             }
-        }, 3000);
+        }, isIOSSafari ? 2000 : 3000);
         
         // Fallback 2: Monitor viewport changes and reload stalled images
         let viewportChangeTimer;
@@ -1006,18 +1117,81 @@ function initLazyLoading() {
             setTimeout(handleViewportChange, 500);
         });
         
-        // Fallback 3: Periodic check for failed loads
-        setInterval(() => {
+        // Fallback 3: Enhanced periodic check with iOS optimizations
+        const periodicCheck = setInterval(() => {
+            // Memory cleanup every check
+            iOSMemoryCleanup();
+            
             const failedImages = document.querySelectorAll('img[data-src]:not([data-loaded="true"]):not(.lazy-loading):not(.lazy-error)');
             if (failedImages.length > 0) {
                 console.log(`🍎 iOS periodic check: Found ${failedImages.length} unloaded images, retrying`);
-                failedImages.forEach(img => {
-                    if (img.getBoundingClientRect().top < window.innerHeight * 2) {
-                        lazyImageObserver.observe(img);
-                    }
+                
+                // Only retry visible images to avoid memory issues
+                const visibleFailedImages = Array.from(failedImages).filter(img => {
+                    const rect = img.getBoundingClientRect();
+                    return rect.top < window.innerHeight * 2 && rect.bottom > -window.innerHeight;
+                });
+                
+                console.log(`🍎 iOS periodic check: Retrying ${visibleFailedImages.length} visible failed images`);
+                visibleFailedImages.forEach(img => {
+                    lazyImageObserver.observe(img);
                 });
             }
-        }, 5000);
+            
+            // Stop periodic checks after 5 minutes to save battery
+            if (Date.now() - window.performance.timing.navigationStart > 300000) {
+                console.log('🍎 iOS: Stopping periodic checks after 5 minutes');
+                clearInterval(periodicCheck);
+            }
+        }, isIOSSafari ? 7000 : 5000);
+        
+        // iOS-specific connection monitoring
+        if (navigator.connection) {
+            const connection = navigator.connection;
+            console.log('🍎 iOS Network Info:', {
+                effectiveType: connection.effectiveType,
+                downlink: connection.downlink,
+                rtt: connection.rtt,
+                saveData: connection.saveData
+            });
+            
+            // Adjust loading behavior based on connection
+            connection.addEventListener('change', () => {
+                console.log('🍎 iOS: Network changed to:', connection.effectiveType);
+                if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+                    // Reduce concurrent loads on slow connections
+                    maxConcurrentLoads = 1;
+                } else if (connection.effectiveType === '3g') {
+                    maxConcurrentLoads = 2;
+                } else {
+                    maxConcurrentLoads = isIOS ? 3 : 6;
+                }
+            });
+        }
+        
+        // iOS battery API optimization
+        if (navigator.getBattery) {
+            navigator.getBattery().then(battery => {
+                console.log('🍎 iOS Battery Info:', {
+                    level: Math.round(battery.level * 100) + '%',
+                    charging: battery.charging
+                });
+                
+                // Reduce loading aggressiveness on low battery
+                if (battery.level < 0.2 && !battery.charging) {
+                    console.log('🍎 iOS: Low battery detected, reducing image loading aggressiveness');
+                    maxConcurrentLoads = 1;
+                }
+                
+                battery.addEventListener('levelchange', () => {
+                    if (battery.level < 0.15 && !battery.charging) {
+                        maxConcurrentLoads = 1;
+                    } else {
+                        maxConcurrentLoads = isIOS ? 3 : 6;
+                    }
+                });
+            });
+        }
     }
 
     // Handle dynamic content (when filters change)
