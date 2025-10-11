@@ -2692,49 +2692,16 @@ p {
         transform: translateZ(0);
     }
     
-    /* Ensure album titles appear first and establish layout */
-    .album-title {
-        /* Force immediate visibility and layout calculation */
-        animation: title-appear 0.2s ease-out;
-        animation-fill-mode: both;
-    }
-    
-    /* Handle fast-loading images with longer delay after titles */
+    /* Subtle margin for first image after title to prevent overlap */
     .album-title + .gallery-item {
-        /* Longer delay to ensure titles are fully positioned first */
-        animation: ios-layout-fix 0.5s ease-out;
-        animation-delay: 0.3s;
-        animation-fill-mode: both;
-        /* Ensure proper positioning without extra margins */
+        /* Small margin that prevents overlap but maintains alignment */
+        margin-top: 0.01rem !important;
+        /* Ensure proper positioning */
         break-inside: avoid;
         -webkit-column-break-inside: avoid;
         contain: layout;
         position: relative;
         z-index: 1;
-    }
-    
-    /* Animation for titles to appear first */
-    @keyframes title-appear {
-        0% {
-            opacity: 0;
-            transform: translateZ(0);
-        }
-        100% {
-            opacity: 1;
-            transform: translateZ(0);
-        }
-    }
-    
-    /* Animation to delay positioning of fast-loading images */
-    @keyframes ios-layout-fix {
-        0% {
-            opacity: 0;
-            transform: translateY(-2rem);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
     }
     
     /* Gallery item positioning for iOS - maintain normal spacing */
