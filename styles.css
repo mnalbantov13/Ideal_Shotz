@@ -1246,37 +1246,16 @@ p {
 }
 
 @media (max-width: 768px) {
-    /* Use CSS Grid for all mobile devices (Android/iOS) for consistent alignment */
+    /* Default to 2 columns on mobile for category views */
     .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 0.8rem;
-        grid-auto-rows: min-content;
-        /* Ensure items align to grid start */
-        align-items: start;
-        justify-items: stretch;
-        /* Override column properties */
-        columns: initial;
-        column-gap: initial;
+        columns: 2;
+        column-gap: 0.8rem;
     }
 
     /* All view should use 1 column on mobile for better overview card display */
     .gallery-grid.gallery-grid--all-view {
-        grid-template-columns: 1fr;
-        grid-gap: 0;
-    }
-    
-    /* Album titles span full width in grid */
-    .album-title {
-        grid-column: 1 / -1;
-        justify-self: stretch;
-    }
-    
-    /* Gallery items align to start */
-    .gallery-item {
-        display: block;
-        width: 100%;
-        align-self: start;
+        columns: 1;
+        column-gap: 0;
     }
 }
 
@@ -2658,11 +2637,6 @@ p {
     
     /* iOS Performance Optimizations */
     .gallery-grid {
-        /* Use CSS Grid instead of columns for better control on iOS */
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 2rem;
-        grid-auto-rows: min-content;
         /* Optimize scrolling performance on iOS */
         -webkit-overflow-scrolling: touch;
         /* Better compositing */
@@ -2670,15 +2644,11 @@ p {
         /* iOS-specific GPU optimization */
         -webkit-perspective: 1000px;
         perspective: 1000px;
-        /* Ensure items align to grid start */
-        align-items: start;
-        justify-items: stretch;
-    }
-    
-    /* Override column properties on iOS since we're using grid */
-    .gallery-grid {
-        columns: initial;
-        column-gap: initial;
+        /* Prevent automatic column balancing that causes uneven alignment */
+        column-fill: auto;
+        -webkit-column-fill: auto;
+        /* Align columns to top instead of balancing */
+        vertical-align: top;
     }
     
     /* iOS viewport optimizations */
@@ -2692,11 +2662,15 @@ p {
     
     /* Fix iOS album title and first image overlap issue - maintain Android spacing */
     .album-title {
-        /* iOS-specific fixes for grid spanning */
-        grid-column: 1 / -1;
+        /* iOS-specific fixes for column spanning */
+        -webkit-column-span: all;
+        column-span: all;
         /* Keep same spacing as Android but ensure proper rendering */
         margin: 2rem 0 1rem 0 !important;
         padding-bottom: 0.3rem !important;
+        /* Ensure title creates proper column break */
+        break-after: column;
+        -webkit-column-break-after: always;
         /* iOS-specific optimizations for proper rendering */
         contain: layout style;
         /* Add clear separation with higher z-index */
@@ -2708,8 +2682,6 @@ p {
         /* Ensure proper flow */
         display: block;
         width: 100%;
-        /* Grid item properties */
-        justify-self: stretch;
     }
     
     .album-title::after {
@@ -2737,7 +2709,7 @@ p {
         z-index: 1;
     }
     
-    /* Gallery item positioning for iOS - grid layout */
+    /* Gallery item positioning for iOS - maintain normal spacing */
     .gallery-item {
         position: relative;
         z-index: 1;
@@ -2745,10 +2717,8 @@ p {
         margin-bottom: 1rem !important;
         /* Force layout containment for proper rendering */
         contain: layout style;
-        /* Grid item properties */
-        display: block;
+        /* Ensure proper flow */
+        display: inline-block;
         width: 100%;
-        /* Ensure consistent alignment */
-        align-self: start;
     }
 }
