@@ -246,6 +246,30 @@ function applyFilter(filterValue) {
         if (window.refreshLazyLoading) {
             window.refreshLazyLoading();
         }
+        
+        // iOS-specific: Force column layout recalculation after category change
+        if (isIOSDevice()) {
+            const galleryGrid = document.querySelector('.gallery-grid');
+            if (galleryGrid) {
+                // Force layout recalculation by temporarily changing column properties
+                const originalColumns = galleryGrid.style.columnCount;
+                galleryGrid.style.columnCount = '1';
+                
+                // Use requestAnimationFrame to ensure the change is applied
+                requestAnimationFrame(() => {
+                    galleryGrid.style.columnCount = originalColumns || '';
+                    
+                    // Additional forced reflow for iOS
+                    setTimeout(() => {
+                        const titles = document.querySelectorAll('.album-title[style*="display: block"]');
+                        titles.forEach(title => {
+                            // Force reflow by accessing offsetHeight
+                            title.offsetHeight;
+                        });
+                    }, 50);
+                });
+            }
+        }
     }, 350); // Wait for animations to complete
 }
 
