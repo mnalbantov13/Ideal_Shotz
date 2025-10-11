@@ -2694,8 +2694,8 @@ p {
     
     /* Subtle margin for first image after title to prevent overlap */
     .album-title + .gallery-item {
-        /* Small margin that prevents overlap but maintains alignment */
-        margin-top: 0.01rem !important;
+        /* Small but effective margin that prevents overlap and column issues */
+        margin-top: 0.2rem !important;
         /* Ensure proper positioning */
         break-inside: avoid;
         -webkit-column-break-inside: avoid;
