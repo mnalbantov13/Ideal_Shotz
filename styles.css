@@ -2655,34 +2655,59 @@ p {
         }
     }
     
-    /* Fix iOS album title and first image overlap issue */
+    /* Fix iOS album title and first image overlap issue - maintain Android spacing */
     .album-title {
         /* iOS-specific fixes for column spanning */
         -webkit-column-span: all;
         column-span: all;
-        /* Force proper spacing after titles on iOS */
-        margin-bottom: 2rem !important;
-        padding-bottom: 1rem !important;
+        /* Keep same spacing as Android but ensure proper rendering */
+        margin: 2rem 0 1rem 0 !important;
+        padding-bottom: 0.3rem !important;
         /* Ensure title creates proper column break */
         break-after: column;
         -webkit-column-break-after: always;
-        /* iOS-specific optimizations */
+        /* iOS-specific optimizations for proper rendering */
         contain: layout style;
-        /* Add clear separation */
+        /* Add clear separation with higher z-index */
         position: relative;
         z-index: 10;
+        /* Force layout recalculation to prevent overlap */
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        /* Ensure proper flow */
+        display: block;
+        width: 100%;
     }
     
     .album-title::after {
-        /* Create invisible spacer after title on iOS */
+        /* Minimal spacer to ensure proper column break without huge gaps */
         content: '';
         display: block;
         width: 100%;
-        height: 1rem;
-        margin-bottom: 1rem;
+        height: 0.5rem;
+        clear: both;
+        /* Force column break but keep spacing minimal */
+        break-inside: avoid;
+        -webkit-column-break-inside: avoid;
     }
     
-    /* Prevent first image after title from shifting up on iOS */
+    /* Specific selector for gallery items that immediately follow album titles */
+    .album-title + .gallery-item {
+        /* Minimal margin to prevent overlap while maintaining normal spacing */
+        margin-top: 1rem !important;
+        /* Ensure it starts in a new column context */
+        break-inside: avoid;
+        -webkit-column-break-inside: avoid;
+        /* Force layout isolation */
+        contain: layout;
+        /* Additional iOS-specific positioning */
+        position: relative;
+        z-index: 1;
+        /* Ensure proper flow without huge gaps */
+        clear: both;
+    }
+    
+    /* Prevent gallery items from shifting up on iOS while keeping normal spacing */
     .gallery-item:first-of-type,
     .gallery-item[data-category] + .gallery-item {
         margin-top: 1rem !important;
@@ -2691,9 +2716,16 @@ p {
         -webkit-column-break-inside: avoid;
     }
     
-    /* Ensure proper stacking order */
+    /* Gallery item positioning for iOS - maintain normal spacing */
     .gallery-item {
         position: relative;
         z-index: 1;
+        /* Keep normal spacing between items */
+        margin-bottom: 1rem !important;
+        /* Force layout containment for proper rendering */
+        contain: layout style;
+        /* Ensure proper flow */
+        display: inline-block;
+        width: 100%;
     }
 }

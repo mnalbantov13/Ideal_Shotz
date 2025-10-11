@@ -777,7 +777,7 @@ function scrollToTop() {
 
 // Cache busting function
 function addCacheBusting(url) {
-    const version = '1.0.3'; // Update this version when you want to clear cache
+    const version = '1.0.4'; // Update this version when you want to clear cache
     const separator = url.includes('?') ? '&' : '?';
     return `${url}${separator}v=${version}`;
 }
