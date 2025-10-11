@@ -2693,8 +2693,8 @@ p {
     
     /* Specific selector for gallery items that immediately follow album titles */
     .album-title + .gallery-item {
-        /* Minimal margin to prevent overlap while maintaining normal spacing */
-        margin-top: 1rem !important;
+        /* Remove extra margin to align with adjacent images */
+        margin-top: 0 !important;
         /* Ensure it starts in a new column context */
         break-inside: avoid;
         -webkit-column-break-inside: avoid;
@@ -2703,14 +2703,14 @@ p {
         /* Additional iOS-specific positioning */
         position: relative;
         z-index: 1;
-        /* Ensure proper flow without huge gaps */
-        clear: both;
+        /* Remove clear to prevent downward shift */
     }
     
     /* Prevent gallery items from shifting up on iOS while keeping normal spacing */
     .gallery-item:first-of-type,
     .gallery-item[data-category] + .gallery-item {
-        margin-top: 1rem !important;
+        /* Remove extra top margin for consistent alignment */
+        margin-top: 0 !important;
         /* Force new column context */
         break-inside: avoid;
         -webkit-column-break-inside: avoid;
