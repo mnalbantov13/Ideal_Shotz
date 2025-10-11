@@ -2663,9 +2663,13 @@ p {
         /* Keep same spacing as Android but ensure proper rendering */
         margin: 2rem 0 1rem 0 !important;
         padding-bottom: 0.3rem !important;
-        /* Ensure title creates proper column break */
+        /* Ensure title creates proper column break and prevents rebalancing */
         break-after: column;
         -webkit-column-break-after: always;
+        page-break-after: always;
+        /* Prevent column balancing from affecting title position */
+        column-fill: auto;
+        -webkit-column-fill: auto;
         /* iOS-specific optimizations for proper rendering */
         contain: layout style;
         /* Add clear separation with higher z-index */
@@ -2674,7 +2678,7 @@ p {
         /* Force layout recalculation to prevent overlap */
         transform: translateZ(0);
         -webkit-transform: translateZ(0);
-        /* Ensure proper flow */
+        /* Ensure proper flow and prevent rebalancing */
         display: block;
         width: 100%;
     }
@@ -2692,16 +2696,20 @@ p {
         transform: translateZ(0);
     }
     
-    /* Subtle margin for first image after title to prevent overlap */
+    /* Fix column balancing issues that cause overlap with uneven image distribution */
     .album-title + .gallery-item {
-        /* Small but effective margin that prevents overlap and column issues */
-        margin-top: 0.2rem !important;
-        /* Ensure proper positioning */
+        /* Prevent column rebalancing from moving images up into titles */
         break-inside: avoid;
         -webkit-column-break-inside: avoid;
+        /* Force this item to stay below the title */
+        page-break-inside: avoid;
+        /* Ensure proper positioning without column balancing interference */
         contain: layout;
         position: relative;
         z-index: 1;
+        /* Prevent column balancing algorithm from repositioning */
+        orphans: 1;
+        widows: 1;
     }
     
     /* Gallery item positioning for iOS - maintain normal spacing */
