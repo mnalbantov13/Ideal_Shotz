@@ -2680,21 +2680,19 @@ p {
     }
     
     .album-title::after {
-        /* Minimal spacer to ensure proper column break without huge gaps */
+        /* Invisible spacer that creates proper separation */
         content: '';
         display: block;
         width: 100%;
-        height: 0.5rem;
-        clear: both;
-        /* Force column break but keep spacing minimal */
+        height: 1rem;
+        /* Force column break but keep spacing normal */
         break-inside: avoid;
         -webkit-column-break-inside: avoid;
     }
     
-    /* Specific selector for gallery items that immediately follow album titles */
+    /* Remove special treatment for first image after title - let it flow naturally */
     .album-title + .gallery-item {
-        /* Remove extra margin to align with adjacent images */
-        margin-top: 0 !important;
+        /* Let it use normal gallery-item margins */
         /* Ensure it starts in a new column context */
         break-inside: avoid;
         -webkit-column-break-inside: avoid;
@@ -2703,17 +2701,6 @@ p {
         /* Additional iOS-specific positioning */
         position: relative;
         z-index: 1;
-        /* Remove clear to prevent downward shift */
-    }
-    
-    /* Prevent gallery items from shifting up on iOS while keeping normal spacing */
-    .gallery-item:first-of-type,
-    .gallery-item[data-category] + .gallery-item {
-        /* Remove extra top margin for consistent alignment */
-        margin-top: 0 !important;
-        /* Force new column context */
-        break-inside: avoid;
-        -webkit-column-break-inside: avoid;
     }
     
     /* Gallery item positioning for iOS - maintain normal spacing */
