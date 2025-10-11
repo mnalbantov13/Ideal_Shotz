@@ -2680,27 +2680,32 @@ p {
     }
     
     .album-title::after {
-        /* Invisible spacer that creates proper separation */
+        /* Stronger spacer to handle fast-loading Cloudinary images */
         content: '';
         display: block;
         width: 100%;
-        height: 1rem;
-        /* Force column break but keep spacing normal */
+        height: 1.5rem;
+        /* Force column break and ensure separation */
         break-inside: avoid;
         -webkit-column-break-inside: avoid;
+        /* Additional layout isolation */
+        clear: both;
+        transform: translateZ(0);
     }
     
-    /* Remove special treatment for first image after title - let it flow naturally */
+    /* Specific handling for images that immediately follow album titles */
     .album-title + .gallery-item {
-        /* Let it use normal gallery-item margins */
-        /* Ensure it starts in a new column context */
+        /* Force significant top margin to prevent overlap with fast-loading images */
+        margin-top: 1.5rem !important;
+        /* Ensure proper positioning */
         break-inside: avoid;
         -webkit-column-break-inside: avoid;
-        /* Force layout isolation */
         contain: layout;
-        /* Additional iOS-specific positioning */
         position: relative;
         z-index: 1;
+        /* Force layout recalculation after title */
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
     }
     
     /* Gallery item positioning for iOS - maintain normal spacing */
