@@ -2692,10 +2692,18 @@ p {
         transform: translateZ(0);
     }
     
-    /* Handle fast-loading images without affecting alignment */
+    /* Ensure album titles appear first and establish layout */
+    .album-title {
+        /* Force immediate visibility and layout calculation */
+        animation: title-appear 0.2s ease-out;
+        animation-fill-mode: both;
+    }
+    
+    /* Handle fast-loading images with longer delay after titles */
     .album-title + .gallery-item {
-        /* Use animation delay to ensure layout stability before positioning */
-        animation: ios-layout-fix 0.1s ease-out;
+        /* Longer delay to ensure titles are fully positioned first */
+        animation: ios-layout-fix 0.5s ease-out;
+        animation-delay: 0.3s;
         animation-fill-mode: both;
         /* Ensure proper positioning without extra margins */
         break-inside: avoid;
@@ -2705,11 +2713,23 @@ p {
         z-index: 1;
     }
     
+    /* Animation for titles to appear first */
+    @keyframes title-appear {
+        0% {
+            opacity: 0;
+            transform: translateZ(0);
+        }
+        100% {
+            opacity: 1;
+            transform: translateZ(0);
+        }
+    }
+    
     /* Animation to delay positioning of fast-loading images */
     @keyframes ios-layout-fix {
         0% {
             opacity: 0;
-            transform: translateY(-1rem);
+            transform: translateY(-2rem);
         }
         100% {
             opacity: 1;
