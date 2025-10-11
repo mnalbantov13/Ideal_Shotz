@@ -248,7 +248,7 @@ function applyFilter(filterValue) {
         }
         
         // iOS-specific: Force column layout recalculation after category change
-        if (isIOSDevice()) {
+        if (typeof isIOS !== 'undefined' && isIOS) {
             const galleryGrid = document.querySelector('.gallery-grid');
             if (galleryGrid) {
                 // Force layout recalculation by temporarily changing column properties

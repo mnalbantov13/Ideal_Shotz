@@ -2644,6 +2644,11 @@ p {
         /* iOS-specific GPU optimization */
         -webkit-perspective: 1000px;
         perspective: 1000px;
+        /* Prevent automatic column balancing that causes uneven alignment */
+        column-fill: auto;
+        -webkit-column-fill: auto;
+        /* Align columns to top instead of balancing */
+        vertical-align: top;
     }
     
     /* iOS viewport optimizations */
