@@ -2419,41 +2419,16 @@ p {
     transform: translateX(0);
 }
 
-/* iOS Safari Specific Fixes */
+/* Basic iOS Safari Performance Optimizations */
 @supports (-webkit-touch-callout: none) {
-    /* This targets only iOS Safari */
+    /* Minimal iOS-specific optimizations */
     .gallery-item img {
-        -webkit-transform: translateZ(0) scale(1.0001);
-        transform: translateZ(0) scale(1.0001);
-        image-rendering: -webkit-optimize-contrast;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-        /* Force hardware acceleration */
-        will-change: opacity, transform;
     }
     
     .gallery-grid {
-        /* Force reflow on iOS */
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        contain: layout;
-        /* iOS Safari column fixes - only applied on iOS */
-        -webkit-column-fill: auto;
-        column-fill: auto;
-    }
-    
-    /* Ensure proper image loading states on iOS */
-    .gallery-item img.lazy-loading {
-        opacity: 0.7;
-        filter: none; /* Remove blur on iOS as it can cause rendering issues */
-        transform: scale(0.98);
-    }
-    
-    .gallery-item img.lazy-loaded {
-        opacity: 1;
-        filter: none;
-        transform: scale(1);
-        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        -webkit-overflow-scrolling: touch;
     }
 }
 
@@ -2466,202 +2441,9 @@ p {
   color: var(--charcoal);
   border-bottom: 2px solid var(--medium-grey);
   padding-bottom: 0.3rem;
-
-  /* make sure they span across all columns */
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-  -moz-column-break-inside: avoid;
 }
 
-/* Enhanced iOS-Specific Gallery Fixes */
-@supports (-webkit-touch-callout: none) {
-    /* This targets only iOS Safari */
-    
-    .gallery-item img {
-        /* Enhanced hardware acceleration for iOS */
-        -webkit-transform: translateZ(0) scale(1.0001);
-        transform: translateZ(0) scale(1.0001);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        /* Optimize image rendering for iOS */
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-        /* Force GPU compositing with optimized properties */
-        will-change: opacity, transform;
-        /* iOS-specific optimizations */
-        -webkit-user-select: none;
-        user-select: none;
-        -webkit-touch-callout: none;
-        /* Optimize for iOS memory */
-        contain: layout style paint;
-        /* Better subpixel rendering on iOS */
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
-    
-    /* iOS memory optimization for image containers */
-    .gallery-item {
-        /* Optimize compositing layers */
-        contain: layout style paint;
-        /* iOS-specific isolation */
-        isolation: isolate;
-        /* Better scroll performance */
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    .gallery-grid {
-        /* Improve column layout stability on iOS */
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        contain: layout;
-        /* iOS Safari column fixes */
-        -webkit-column-fill: balance;
-        column-fill: balance;
-    }
-    
-    /* Optimize loading states for iOS */
-    .gallery-item img.lazy-loading {
-        opacity: 0.7;
-        /* Avoid filters on iOS as they can cause rendering issues */
-        filter: none;
-        transform: scale(0.98);
-        /* Faster transition for iOS with GPU acceleration */
-        transition: opacity 0.15s ease-out, transform 0.15s ease-out;
-        /* Ensure hardware acceleration during loading */
-        -webkit-transform: translateZ(0) scale(0.98);
-        will-change: opacity, transform;
-    }
-    
-    .gallery-item img.lazy-loaded {
-        opacity: 1;
-        filter: none;
-        transform: scale(1);
-        -webkit-transform: translateZ(0) scale(1);
-        /* Smooth transition with optimized timing */
-        transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
-                    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        /* Reset will-change after animation */
-        will-change: auto;
-    }
-    
-    /* iOS-specific lazy loading shimmer effect */
-    .gallery-item img.lazy-loading::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, 
-            transparent, 
-            rgba(255, 255, 255, 0.1), 
-            transparent);
-        animation: shimmer 1.5s infinite ease-in-out;
-        pointer-events: none;
-    }
-    
-    @keyframes shimmer {
-        0% { left: -100%; }
-        100% { left: 100%; }
-    }
-    
-    .gallery-item img.lazy-error {
-        opacity: 0.5;
-        background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
-                    linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
-                    linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
-                    linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
-        background-size: 20px 20px;
-        background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-    }
-    
-    /* Fix iOS viewport issues */
-    .gallery-item {
-        /* Prevent iOS from collapsing items */
-        min-height: 100px;
-        /* Improve touch handling */
-        -webkit-tap-highlight-color: transparent;
-        /* Optimize for iOS scrolling */
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    /* iOS Performance Optimizations */
-    .gallery-grid {
-        /* Optimize scrolling performance on iOS */
-        -webkit-overflow-scrolling: touch;
-        /* Better compositing */
-        contain: layout style;
-        /* Prevent automatic column balancing that causes uneven alignment */
-        column-fill: auto;
-        -webkit-column-fill: auto;
-        /* Remove column balancing completely */
-        -webkit-column-break-inside: avoid-column;
-    }
-    
-    /* iOS viewport optimizations */
-    @media screen and (-webkit-min-device-pixel-ratio: 2) {
-        .gallery-item img {
-            /* Optimize for retina displays */
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: pixelated;
-        }
-    }
-    
-    /* Fix iOS album title and first image overlap issue - maintain Android spacing */
-    .album-title {
-        /* iOS-specific fixes for column spanning */
-        -webkit-column-span: all;
-        column-span: all;
-        /* Keep same spacing as Android but ensure proper rendering */
-        margin: 2rem 0 1rem 0 !important;
-        padding-bottom: 0.3rem !important;
-        /* Ensure title creates proper column break */
-        break-after: column;
-        -webkit-column-break-after: always;
-        /* Simple positioning without GPU layers */
-        position: relative;
-        z-index: 10;
-        display: block;
-        width: 100%;
-    }
-    
-    .album-title::after {
-        /* Simple spacer for proper separation */
-        content: '';
-        display: block;
-        width: 100%;
-        height: 1rem;
-        clear: both;
-    }
-    
-    /* Simple fix for first image after title */
-    .album-title + .gallery-item {
-        /* Minimal margin to prevent overlap */
-        margin-top: 0.1rem !important;
-        /* Ensure proper positioning */
-        break-inside: avoid;
-        -webkit-column-break-inside: avoid;
-        contain: layout;
-        position: relative;
-        z-index: 1;
-    }
-    
-    /* Gallery item positioning for iOS - prevent column shifting */
-    .gallery-item {
-        position: relative;
-        /* Keep normal spacing between items */
-        margin-bottom: 1rem !important;
-        /* Prevent items from being moved by column balancing */
-        break-inside: avoid-column;
-        -webkit-column-break-inside: avoid;
-        page-break-inside: avoid;
-        /* Natural flow */
-        display: inline-block;
-        width: 100%;
-        /* Force items to respect column boundaries */
-        box-sizing: border-box;
-    }
-}
+
 
 /* Language Switcher Styles - Only for Index Page */
 .language-switcher {
