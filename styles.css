@@ -2468,7 +2468,6 @@ p {
   padding-bottom: 0.3rem;
 
   /* make sure they span across all columns */
-  column-span: all;
   break-inside: avoid;
   -webkit-column-break-inside: avoid;
   -moz-column-break-inside: avoid;

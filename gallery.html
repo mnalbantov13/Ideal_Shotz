@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery | Ideal Shotz</title>
-    <link rel="stylesheet" href="styles.css?v=1.0.24">
+    <link rel="stylesheet" href="styles.css?v=1.0.25">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -23,18 +23,18 @@
             <!-- Language Switcher -->
             <div class="language-switcher">
                 <div class="lang-toggle" onclick="toggleLanguageMenu()">
-                    <span class="flag">????</span>
+                    <span class="flag">üá¨üáß</span>
                     <span class="lang-text">EN</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="lang-menu" id="langMenu">
                     <a href="gallery.html" class="lang-option active">
-                        <span class="flag">????</span>
+                        <span class="flag">üá¨üáß</span>
                         <span class="lang-name">English</span>
                     </a>
                     <a href="bg/gallery.html" class="lang-option">
-                        <span class="flag">????</span>
-                        <span class="lang-name">¡˙Î„‡ÒÍË</span>
+                        <span class="flag">üáßüá¨</span>
+                        <span class="lang-name">–ë—ä–ª–≥–∞—Ä—Å–∫–∏</span>
                     </a>
                 </div>
             </div>
@@ -80,7 +80,7 @@
             </div>
             
             <!-- Gallery Grid -->
-            <div class="gallery-grid gallery-grid--all-view" id="gallery-grid">
+            <div class="gallery-grid" id="gallery-grid">
             
                 <!-- #region Category Overview Cards (shown when "All" is selected) -->
 
@@ -166,10 +166,10 @@
                     </div>
                     <!-- #endregion -->
 
-                
+            </div>
 
                     
-                
+            <div class="gallery-grid" id="gallery-grid">
                 <!-- Astro Images -->
 
                 <div class="gallery-item" data-category="astro" onclick="openModal(this)">
@@ -187,8 +187,9 @@
                 <div class="gallery-item" data-category="astro" onclick="openModal(this)">
                     <img src="images/Blur/Astro/Astro (2).webp" data-src="images/Astro/Astro (2).webp" alt="Astro 2">
                 </div>
+            </div>
 
-                
+            <div class="gallery-grid" id="gallery-grid">
                 <!-- *? #region Aerial Images -->
                 <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
                     <img src="images/Blur/Aerial/Aerial (1).webp" data-src="images/Aerial/Aerial (1).webp" alt="Aerial 1">
@@ -258,7 +259,9 @@
                     <img src="images/Blur/Aerial/Aerial (19).webp" data-src="images/Aerial/Aerial (19).webp" alt="Aerial 19">
                 </div>
                 <!-- #endregion Aerial Images -->
+            </div>
 
+            <div class="gallery-grid" id="gallery-grid">
                 <!-- *? #region BandW Images -->
                 <div class="gallery-item" data-category="bandw" onclick="openModal(this)">
                     <img src="images/Blur/BandW/BandW (1).webp" data-src="images/BandW/BandW (1).webp" alt="BandW 1">
@@ -284,10 +287,12 @@
                     <img src="images/Blur/BandW/BandW (6).webp" data-src="images/BandW/BandW (6).webp" alt="BandW 6">
                 </div>
                 <!-- #endregion BandW Images -->
+            </div>
 
+            <h3 class="album-title" data-category="cars">Audi RS6</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <!-- *? #region Car Images -->
-                <h3 class="album-title" data-category="cars">Audi RS6</h3>
-
+                
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_RS6_1.webp" alt="Car 1">
                 </div>
@@ -310,9 +315,12 @@
 
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_RS6_6.webp" alt="Car 6">
-                </div>    
+                </div>
+            </div>    
                 
-                <h3 class="album-title" data-category="cars">Mclaren 720S</h3>
+
+            <h3 class="album-title" data-category="cars">Mclaren 720S</h3>
+            <div class="gallery-grid" id="gallery-grid">
 
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mclaren_1.webp" alt="Car 7">
@@ -329,11 +337,12 @@
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mclaren_4.webp" alt="Car 10">
                 </div>
+            </div>
 
 
 
-                <h3 class="album-title" data-category="cars">Audi SQ8</h3>
-
+            <h3 class="album-title" data-category="cars">Audi SQ8</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_SQ8_1.webp" alt="Car 11">
                 </div>
@@ -349,9 +358,10 @@
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_SQ8_4.webp" alt="Car 14">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="cars">BMW 640D</h3>
-
+            <h3 class="album-title" data-category="cars">BMW 640D</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_640D_1.webp" alt="Car 15">
                 </div>
@@ -367,9 +377,10 @@
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_640D_4.webp" alt="Car 18">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="cars">BMW 325xi</h3>
-
+            <h3 class="album-title" data-category="cars">BMW 325xi</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_325xi_1.webp" alt="Car 19">
                 </div>
@@ -385,9 +396,10 @@
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_325xi_4.webp" alt="Car 22">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="cars">BMW 328i</h3>
-
+            <h3 class="album-title" data-category="cars">BMW 328i</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/E46_1.webp" alt="Car 23">
                 </div>
@@ -403,8 +415,9 @@
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/E46_4.webp" alt="Car 26">
                 </div>
-                <h3 class="album-title" data-category="cars">BMW 335i</h3>
-
+            </div>
+            <h3 class="album-title" data-category="cars">BMW 335i</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_335i_1.webp" alt="Car 27">
                 </div>
@@ -420,9 +433,10 @@
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_335i_4.webp" alt="Car 30">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="cars">BMW M8</h3>
-
+            <h3 class="album-title" data-category="cars">BMW M8</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_M8_1.webp" alt="Car 31">
                 </div>
@@ -438,9 +452,10 @@
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_M8_4.webp" alt="Car 34">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="cars">BMW X5</h3>
-
+            <h3 class="album-title" data-category="cars">BMW X5</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_X5_1.webp" alt="Car 35">
                 </div>
@@ -456,9 +471,10 @@
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_X5_4.webp" alt="Car 38">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="cars">Mercedes C63S</h3>
-
+            <h3 class="album-title" data-category="cars">Mercedes C63S</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_C63S_1.webp" alt="Car 39">
                 </div>
@@ -486,9 +502,10 @@
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_C63S_7.webp" alt="Car 45">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="cars">Mercedes E63S</h3>
-
+            <h3 class="album-title" data-category="cars">Mercedes E63S</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_E63S_3.webp" alt="Car 46">
                 </div>
@@ -508,9 +525,10 @@
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_E63S_5.webp" alt="Car 50">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="cars">Mini Cooper S</h3>
-
+            <h3 class="album-title" data-category="cars">Mini Cooper S</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mini_Cooper_S_1.webp" alt="Car 51">
                 </div>
@@ -526,13 +544,14 @@
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
                     <img src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mini_Cooper_S_4.webp" alt="Car 54">
                 </div>
+            </div>
 
                 <!-- #endregion Car Images -->
 
                 <!-- *? #region Event Images -->
 
-                <h3 class="album-title" data-category="event">Born2Ride Fest 2025</h3>  
-
+            <h3 class="album-title" data-category="event">Born2Ride Fest 2025</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
                     <img src="images/Blur/Events/B2R (1).webp" data-src="images/Events/B2R (1).webp" alt="Events 1">
                 </div>
@@ -556,9 +575,10 @@
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
                     <img src="images/Blur/Events/B2R (6).webp" data-src="images/Events/B2R (6).webp" alt="Events 6">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="event">Prom 2024</h3>  
-
+            <h3 class="album-title" data-category="event">Prom 2024</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
                     <img src="images/Blur/Events/Prom (1).webp" data-src="images/Events/Prom (1).webp" alt="Events 7">
                 </div>
@@ -586,9 +606,10 @@
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
                     <img src="images/Blur/Events/Prom (7).webp" data-src="images/Events/Prom (7).webp" alt="Events 13">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="event">BMW Fest 2025</h3>  
-
+            <h3 class="album-title" data-category="event">BMW Fest 2025</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
                     <img src="images/Blur/Events/BMW (1).webp" data-src="images/Events/BMW (1).webp" alt="Events 14">
                 </div>
@@ -612,9 +633,10 @@
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
                     <img src="images/Blur/Events/BMW (6).webp" data-src="images/Events/BMW (6).webp" alt="Events 19">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="event">Baptism</h3>  
-
+            <h3 class="album-title" data-category="event">Baptism</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
                     <img src="images/Blur/Events/Baptism (1).webp" data-src="images/Events/Baptism (1).webp" alt="Events 20">
                 </div>
@@ -630,9 +652,10 @@
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
                     <img src="images/Blur/Events/Baptism (4).webp" data-src="images/Events/Baptism (4).webp" alt="Events 23">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="event">Serres</h3>  
-
+            <h3 class="album-title" data-category="event">Serres</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
                     <img src="images/Blur/Events/Serres (1).webp" data-src="images/Events/Serres (1).webp" alt="Events 24">
                 </div>
@@ -648,9 +671,10 @@
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
                     <img src="images/Blur/Events/Serres (4).webp" data-src="images/Events/Serres (4).webp" alt="Events 27">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="event">Sejong Culture Academy</h3>  
-
+            <h3 class="album-title" data-category="event">Sejong Culture Academy</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
                     <img src="images/Blur/Events/Korea (1).webp" data-src="images/Events/Korea (1).webp" alt="Events 28">
                 </div>
@@ -666,13 +690,14 @@
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
                     <img src="images/Blur/Events/Korea (4).webp" data-src="images/Events/Korea (4).webp" alt="Events 31">
                 </div>
+            </div>
 
                 <!-- #endregion Event Images -->
 
                 <!-- *? #region Nature Images -->
 
-                <h3 class="album-title" data-category="nature" >Transfagarasan, Romania</h3>
-
+            <h3 class="album-title" data-category="nature" >Transfagarasan, Romania</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
                     <img src="images/Blur/Nature/Fag (1).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Fag_1.webp" alt="Nature 1">
                 </div>
@@ -684,9 +709,10 @@
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
                     <img src="images/Blur/Nature/Fag (5).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Fag_5.webp" alt="Nature 5">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="nature" >North America</h3>
-
+            <h3 class="album-title" data-category="nature" >North America</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
                     <img src="images/Blur/Nature/NA (1).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_1.webp" alt="Nature 6">
                 </div>
@@ -722,11 +748,12 @@
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
                     <img src="images/Blur/Nature/NA (8).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_8.webp" alt="Nature 14">
                 </div>
+            </div>
 
 
 
-                <h3 class="album-title" data-category="nature" >Bulgaria</h3>
-
+            <h3 class="album-title" data-category="nature" >Bulgaria</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
                     <img src="images/Blur/Nature/BG (1).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BG_1.webp" alt="Nature 15">
                 </div>
@@ -742,11 +769,12 @@
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
                     <img src="images/Blur/Nature/BG (2).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BG_2.webp" alt="Nature 16">
                 </div>
+            </div>
                 
                 
 
-                <h3 class="album-title" data-category="nature" >South America</h3>
-                
+            <h3 class="album-title" data-category="nature" >South America</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
                     <img src="images/Blur/Nature/SA (1).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/SA_1.webp" alt="Nature 18">
                 </div>
@@ -774,9 +802,10 @@
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
                     <img src="images/Blur/Nature/SA (9).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/SA_9.webp" alt="Nature 24">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="nature" >Transalpina, Romania</h3>
-
+            <h3 class="album-title" data-category="nature" >Transalpina, Romania</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
                     <img src="images/Blur/Nature/Alpina (2).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Alpina_2.webp" alt="Nature 25">
                 </div>
@@ -785,8 +814,6 @@
                     <img src="images/Blur/Nature/Alpina (1).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Alpina_1.webp" alt="Nature 26">
                 </div>
 
-                
-
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
                     <img src="images/Blur/Nature/Alpina (3).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Alpina_3.webp" alt="Nature 27">
                 </div>
@@ -794,9 +821,10 @@
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
                     <img src="images/Blur/Nature/Alpina (4).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Alpina_4.webp" alt="Nature 28">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="nature" >Germany</h3>
-
+            <h3 class="album-title" data-category="nature" >Germany</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
                     <img src="images/Blur/Nature/DE (1).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/DE_1.webp" alt="Nature 29">
                 </div>
@@ -808,11 +836,13 @@
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
                     <img src="images/Blur/Nature/DE (3).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/DE_3.webp" alt="Nature 31">
                 </div>
+            </div>
 
 
                 <!-- #endregion Nature Images-->
 
                 <!-- *? #region Night Images -->
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="night" onclick="openModal(this)">
                     <img src="images/Blur/Night/Night (1).webp" data-src="images/Night/Night (1).webp" alt="Night 1">
                 </div>
@@ -860,12 +890,13 @@
                 <div class="gallery-item" data-category="night" onclick="openModal(this)">
                     <img src="images/Blur/Night/Night (11).webp" data-src="images/Night/Night (11).webp" alt="Night 12">
                 </div>
+            </div>
                 <!-- #endregion Night Images -->
 
                 <!-- *? #region People Photos -->
 
-                <h3 class="album-title" data-category="people">Iva</h3>  
-
+            <h3 class="album-title" data-category="people">Iva</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
                     <img src="images/Blur/People/Iva (1).webp" data-src="images/People/Iva (1).webp" alt="People 1">
                 </div>
@@ -889,9 +920,10 @@
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
                     <img src="images/Blur/People/Iva (6).webp" data-src="images/People/Iva (6).webp" alt="People 6">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="people">Lusi</h3>  
-
+            <h3 class="album-title" data-category="people">Lusi</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
                     <img src="images/Blur/People/Lusi (1).webp" data-src="images/People/Lusi (1).webp" alt="People 7">
                 </div>
@@ -915,9 +947,10 @@
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
                     <img src="images/Blur/People/Lusi (6).webp" data-src="images/People/Lusi (6).webp" alt="People 12">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="people">AsWarrior</h3>  
-
+            <h3 class="album-title" data-category="people">AsWarrior</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
                     <img src="images/Blur/People/ASW (1).webp" data-src="images/People/ASW (1).webp" alt="People 13">
                 </div>
@@ -941,13 +974,14 @@
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
                     <img src="images/Blur/People/ASW (6).webp" data-src="images/People/ASW (6).webp" alt="People 18">
                 </div>
+            </div>
 
                 <!-- #endregion People Photos -->
 
                 <!-- *? #region Urban Images -->
 
-                <h3 class="album-title" data-category="urban">Berlin, Germany</h3> 
-
+            <h3 class="album-title" data-category="urban">Berlin, Germany</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Berlin (1).webp" data-src="images/Urban/Berlin (1).webp" alt="Urban 1">
                 </div>
@@ -959,9 +993,10 @@
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Berlin (3).webp" data-src="images/Urban/Berlin (3).webp" alt="Urban 1">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="urban">Bucharest, Romania</h3> 
-
+            <h3 class="album-title" data-category="urban">Bucharest, Romania</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Bucharest (1).webp" data-src="images/Urban/Bucharest (1).webp" alt="Urban 2">
                 </div>
@@ -973,9 +1008,10 @@
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Bucharest (4).webp" data-src="images/Urban/Bucharest (4).webp" alt="Urban 5">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="urban">Budapest, Hungary</h3> 
-
+            <h3 class="album-title" data-category="urban">Budapest, Hungary</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Budapest (1).webp" data-src="images/Urban/Budapest (1).webp" alt="Urban 6">
                 </div>
@@ -999,9 +1035,10 @@
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Budapest (6).webp" data-src="images/Urban/Budapest (6).webp" alt="Urban 10">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="urban">Corvin, Romania</h3> 
-
+            <h3 class="album-title" data-category="urban">Corvin, Romania</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Corvin (1).webp" data-src="images/Urban/Corvin (1).webp" alt="Urban 11">
                 </div>
@@ -1009,7 +1046,6 @@
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Corvin (5).webp" data-src="images/Urban/Corvin (5).webp" alt="Urban 15">
                 </div>
-
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Corvin (2).webp" data-src="images/Urban/Corvin (2).webp" alt="Urban 12">
@@ -1026,10 +1062,11 @@
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Corvin (6).webp" data-src="images/Urban/Corvin (6).webp" alt="Urban 11">
                 </div>
+            </div>
 
                 
-                <h3 class="album-title" data-category="urban">Kyoto, Japan</h3> 
-
+            <h3 class="album-title" data-category="urban">Kyoto, Japan</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Kyoto (1).webp" data-src="images/Urban/Kyoto (1).webp" alt="Urban 16">
                 </div>
@@ -1053,9 +1090,10 @@
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Kyoto (6).webp" data-src="images/Urban/Kyoto (6).webp" alt="Urban 21">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="urban">Mannheim, Germany</h3> 
-
+            <h3 class="album-title" data-category="urban">Mannheim, Germany</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Mannheim (1).webp" data-src="images/Urban/Mannheim (1).webp" alt="Urban 22">
                 </div>
@@ -1079,9 +1117,10 @@
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Mannheim (6).webp" data-src="images/Urban/Mannheim (6).webp" alt="Urban 22">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="urban">Osaka, Japan</h3> 
-
+            <h3 class="album-title" data-category="urban">Osaka, Japan</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Osaka (1).webp" data-src="images/Urban/Osaka (1).webp" alt="Urban 27">
                 </div>
@@ -1105,9 +1144,10 @@
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Osaka (6).webp" data-src="images/Urban/Osaka (6).webp" alt="Urban 32">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="urban">Rio de Janeiro, Brasil</h3> 
-
+            <h3 class="album-title" data-category="urban">Rio de Janeiro, Brasil</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Rio (1).webp" data-src="images/Urban/Rio (1).webp" alt="Urban 33">
                 </div>
@@ -1123,12 +1163,13 @@
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Rio (4).webp" data-src="images/Urban/Rio (4).webp" alt="Urban 36">
                 </div>
+            </div>
 
 
 
 
-                <h3 class="album-title" data-category="urban">Rome, Italy</h3> 
-
+            <h3 class="album-title" data-category="urban">Rome, Italy</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Rome (1).webp" data-src="images/Urban/Rome (1).webp" alt="Urban 37">
                 </div>
@@ -1140,9 +1181,10 @@
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Rome (3).webp" data-src="images/Urban/Rome (3).webp" alt="Urban 39 ">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="urban">Sibiu, Romania</h3> 
-
+            <h3 class="album-title" data-category="urban">Sibiu, Romania</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Sibiu (1).webp" data-src="images/Urban/Sibiu (1).webp" alt="Urban 40">
                 </div>
@@ -1154,9 +1196,10 @@
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Sibiu (3).webp" data-src="images/Urban/Sibiu (3).webp" alt="Urban 42">
                 </div>
+            </div>
 
-                <h3 class="album-title" data-category="urban">Vienna, Austria</h3>
-
+            <h3 class="album-title" data-category="urban">Vienna, Austria</h3>
+            <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Vienna (1).webp" data-src="images/Urban/Vienna (1).webp" alt="Urban 43">
                 </div>
@@ -1180,6 +1223,7 @@
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
                     <img src="images/Blur/Urban/Vienna (6).webp" data-src="images/Urban/Vienna (6).webp" alt="Urban 48">
                 </div>
+            </div>
 
                 <!-- #endregion Urban Images -->
 
@@ -1241,7 +1285,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=1.0.24"></script>
+    <script src="script.js?v=1.0.25"></script>
 </body>
 </html>
 
