@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="bg">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery | Ideal Shotz</title>
-    <link rel="stylesheet" href="styles.css?v=1.0.18">
+    <title>Галерия | Ideal Shotz</title>
+    <link rel="stylesheet" href="../styles.css?v=1.0.18">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -13,26 +13,27 @@
     <nav class="navbar">
         <div class="nav-container">
             <ul class="nav-list">
-                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link">Начало</a></li>
+                <li class="nav-item"><a href="index.html#about" class="nav-link">За нас</a></li>
                 <li class="nav-item logo-item">
-                    <a href = "index.html"><img src="images/Logo-04-1.png" alt="Ideal Shotz Logo" class="nav-logo"></a>
-                <li class="nav-item"><a href="gallery.html" class="nav-link active">Gallery</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <a href="index.html"><img src="../images/Logo-04-1.png" alt="Ideal Shotz Logo" class="nav-logo"></a>
+                </li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link active">Галерия</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Контакти</a></li>
             </ul>
             <!-- Language Switcher -->
             <div class="language-switcher">
                 <div class="lang-toggle" onclick="toggleLanguageMenu()">
-                    <span class="flag">🇬🇧</span>
-                    <span class="lang-text">EN</span>
+                    <span class="flag">🇧🇬</span>
+                    <span class="lang-text">BG</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="lang-menu" id="langMenu">
-                    <a href="gallery.html" class="lang-option active">
+                    <a href="../gallery.html" class="lang-option">
                         <span class="flag">🇬🇧</span>
                         <span class="lang-name">English</span>
                     </a>
-                    <a href="bg/gallery.html" class="lang-option">
+                    <a href="gallery.html" class="lang-option active">
                         <span class="flag">🇧🇬</span>
                         <span class="lang-name">Български</span>
                     </a>
@@ -45,6 +46,7 @@
             </div>
         </div>
     </nav>
+
     <!-- Gallery Header -->
     <section class="page-header gallery-hero">
         <div class="gallery-hero-background">
@@ -53,9 +55,9 @@
         <div class="container">
             <div class="gallery-hero-content">
                 <h1 class="gallery-title">
-                    <span class="gallery-title-line highlight">Gallery</span>
+                    <span class="gallery-title-line highlight">Галерия</span>
                 </h1>
-                <span class="gallery-subtitle">Explore Our Work</span>
+                <span class="gallery-subtitle">Разгледай нашата работа</span>
                 <div class="scroll-arrow">
                     <i class="fas fa-chevron-down"></i>
                 </div>
@@ -67,16 +69,16 @@
     <section class="gallery-section">
         <div class="container">
             <div class="filter-tabs">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="aerial">Aerial</button>
-                <button class="filter-btn" data-filter="astro">Astro</button>
-                <button class="filter-btn" data-filter="bandw">B&W</button>
-                <button class="filter-btn" data-filter="cars">Cars</button>
-                <button class="filter-btn" data-filter="event">Events</button>
-                <button class="filter-btn" data-filter="nature">Nature</button>
-                <button class="filter-btn" data-filter="night">Night</button>
-                <button class="filter-btn" data-filter="people">People</button>
-                <button class="filter-btn" data-filter="urban">Urban</button>
+                <button class="filter-btn active" data-filter="all">Всички</button>
+                <button class="filter-btn" data-filter="aerial">Въздушни</button>
+                <button class="filter-btn" data-filter="astro">Астро</button>
+                <button class="filter-btn" data-filter="bandw">Черно-бели</button>
+                <button class="filter-btn" data-filter="cars">Коли</button>
+                <button class="filter-btn" data-filter="event">Събития</button>
+                <button class="filter-btn" data-filter="nature">Природа</button>
+                <button class="filter-btn" data-filter="night">Нощни</button>
+                <button class="filter-btn" data-filter="people">Хора</button>
+                <button class="filter-btn" data-filter="urban">Градски</button>
             </div>
             
             <!-- Gallery Grid -->
@@ -85,203 +87,202 @@
                 <!-- #region Category Overview Cards (shown when "All" is selected) -->
 
                     <div class="category-overview-item" data-category="overview" onclick="filterCategory('aerial')">
-                        <img src="images/Album/Aerial.webp" alt="Aerial Category">
+                        <img src="../images/Album/Aerial.webp" alt="Въздушни снимки">
                         <div class="category-overlay">
                             <div class="category-content">
-                                <h3>Aerial</h3>
+                                <h3>Въздушни</h3>
                             </div>
                         </div>
                     </div>
 
                     <div class="category-overview-item" data-category="overview" onclick="filterCategory('astro')">
-                        <img src="images/Album/Astro.webp" alt="Astro Category">
+                        <img src="../images/Album/Astro.webp" alt="Астрофотография">
                         <div class="category-overlay">
                             <div class="category-content">
-                                <h3>Astro</h3>
+                                <h3>Астро</h3>
                             </div>
                         </div>
                     </div>
 
                     <div class="category-overview-item" data-category="overview" onclick="filterCategory('bandw')">
-                        <img src="images/Album/BandW.webp" alt="B&W Category">
+                        <img src="../images/Album/BandW.webp" alt="Черно-бели снимки">
                         <div class="category-overlay">
                             <div class="category-content">
-                                <h3>B&W</h3>
+                                <h3>Черно-бели</h3>
                              </div>
                         </div>
                     </div>
 
                     <div class="category-overview-item" data-category="overview" onclick="filterCategory('cars')">
-                        <img src="images/Album/Car.webp" alt="Cars Category">
+                        <img src="../images/Album/Car.webp" alt="Автомобили">
                         <div class="category-overlay">
                             <div class="category-content">
-                                <h3>Cars</h3>
+                                <h3>Коли</h3>
                             </div>
                         </div>
                     </div>
 
                     <div class="category-overview-item" data-category="overview" onclick="filterCategory('event')">
-                        <img src="images/Album/Events.webp" alt="Events Category">
+                        <img src="../images/Album/Events.webp" alt="Събития">
                         <div class="category-overlay">
                             <div class="category-content">
-                                <h3>Events</h3>
+                                <h3>Събития</h3>
                             </div>
                         </div>
                     </div>
 
                     <div class="category-overview-item" data-category="overview" onclick="filterCategory('nature')">
-                        <img src="images/Album/Nature.webp" alt="Nature Category">
+                        <img src="../images/Album/Nature.webp" alt="Природа">
                         <div class="category-overlay">
                             <div class="category-content">
-                                <h3>Nature</h3>
+                                <h3>Природа</h3>
                             </div>
                         </div>
                     </div>
 
                     <div class="category-overview-item" data-category="overview" onclick="filterCategory('night')">
-                        <img src="images/Album/Night.webp" alt="Night Category">
+                        <img src="../images/Album/Night.webp" alt="Нощни снимки">
                         <div class="category-overlay">
                             <div class="category-content">
-                                <h3>Night</h3>
+                                <h3>Нощни</h3>
                             </div>
                         </div>
                     </div>
 
                     <div class="category-overview-item" data-category="overview" onclick="filterCategory('people')">
-                        <img src="images/Album/People.webp" alt="People Category">
+                        <img src="../images/Album/People.webp" alt="Портрети">
                         <div class="category-overlay">
                             <div class="category-content">
-                                <h3>People</h3>
+                                <h3>Хора</h3>
                             </div>
                         </div>
                     </div>
 
                     <div class="category-overview-item" data-category="overview" onclick="filterCategory('urban')">
-                        <img src="images/Album/Urban.webp" alt="Urban Category">
+                        <img src="../images/Album/Urban.webp" alt="Градски снимки">
                         <div class="category-overlay">
                             <div class="category-content">
-                                <h3>Urban</h3>
+                                <h3>Градски</h3>
                             </div>
                         </div>
                     </div>
+                    
                     <!-- #endregion -->
 
-                
+                <!-- Individual gallery items will be added here later -->
 
-                    
-                
-                <!-- Astro Images -->
+                     <!-- Astro Images -->
 
                 <div class="gallery-item" data-category="astro" onclick="openModal(this)">
-                    <img src="images/Blur/Astro/Astro (1).webp" data-src="images/Astro/Astro (1).webp" alt="Astro 1">
+                    <img src="../images/Blur/Astro/Astro (1).webp" data-src="../images/Astro/Astro (1).webp" alt="Astro 1">
                 </div>
 
                 <div class="gallery-item" data-category="astro" onclick="openModal(this)">
-                    <img src="images/Blur/Astro/Astro (3).webp" data-src="images/Astro/Astro (3).webp" alt="Astro 3">
+                    <img src="../images/Blur/Astro/Astro (3).webp" data-src="../images/Astro/Astro (3).webp" alt="Astro 3">
                 </div>
 
                 <div class="gallery-item" data-category="astro" onclick="openModal(this)">
-                    <img src="images/Blur/Astro/Astro (4).webp" data-src="images/Astro/Astro (4).webp" alt="Astro 4">
+                    <img src="../images/Blur/Astro/Astro (4).webp" data-src="../images/Astro/Astro (4).webp" alt="Astro 4">
                 </div>
 
                 <div class="gallery-item" data-category="astro" onclick="openModal(this)">
-                    <img src="images/Blur/Astro/Astro (2).webp" data-src="images/Astro/Astro (2).webp" alt="Astro 2">
+                    <img src="../images/Blur/Astro/Astro (2).webp" data-src="../images/Astro/Astro (2).webp" alt="Astro 2">
                 </div>
 
                 
                 <!-- *? #region Aerial Images -->
                 <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
-                    <img src="images/Blur/Aerial/Aerial (1).webp" data-src="images/Aerial/Aerial (1).webp" alt="Aerial 1">
+                    <img src="../images/Blur/Aerial/Aerial (1).webp" data-src="../images/Aerial/Aerial (1).webp" alt="Aerial 1">
                 </div>
 
                 <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
-                    <img src="images/Blur/Aerial/Aerial (2).webp" data-src="images/Aerial/Aerial (2).webp" alt="Aerial 2">
+                    <img src="../images/Blur/Aerial/Aerial (2).webp" data-src="../images/Aerial/Aerial (2).webp" alt="Aerial 2">
                 </div>
 
                 <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
-                    <img src="images/Blur/Aerial/Aerial (4).webp" data-src="images/Aerial/Aerial (4).webp" alt="Aerial 4">
+                    <img src="../images/Blur/Aerial/Aerial (4).webp" data-src="../images/Aerial/Aerial (4).webp" alt="Aerial 4">
                 </div>
 
                 <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
-                    <img src="images/Blur/Aerial/Aerial (5).webp" data-src="images/Aerial/Aerial (5).webp" alt="Aerial 5">
+                    <img src="../images/Blur/Aerial/Aerial (5).webp" data-src="../images/Aerial/Aerial (5).webp" alt="Aerial 5">
                 </div>
 
                 <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
-                    <img src="images/Blur/Aerial/Aerial (6).webp" data-src="images/Aerial/Aerial (6).webp" alt="Aerial 6">
+                    <img src="../images/Blur/Aerial/Aerial (6).webp" data-src="../images/Aerial/Aerial (6).webp" alt="Aerial 6">
                 </div>
 
                 <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
-                    <img src="images/Blur/Aerial/Aerial (8).webp" data-src="images/Aerial/Aerial (8).webp" alt="Aerial 8">
+                    <img src="../images/Blur/Aerial/Aerial (8).webp" data-src="../images/Aerial/Aerial (8).webp" alt="Aerial 8">
                 </div>
 
                 <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
-                    <img src="images/Blur/Aerial/Aerial (9).webp" data-src="images/Aerial/Aerial (9).webp" alt="Aerial 9">
+                    <img src="../images/Blur/Aerial/Aerial (9).webp" data-src="../images/Aerial/Aerial (9).webp" alt="Aerial 9">
                 </div>
 
                 <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
-                    <img src="images/Blur/Aerial/Aerial (10).webp" data-src="images/Aerial/Aerial (10).webp" alt="Aerial 10">
+                    <img src="../images/Blur/Aerial/Aerial (10).webp" data-src="../images/Aerial/Aerial (10).webp" alt="Aerial 10">
                 </div>
 
                 <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
-                    <img src="images/Blur/Aerial/Aerial (11).webp" data-src="images/Aerial/Aerial (11).webp" alt="Aerial 11">
+                    <img src="../images/Blur/Aerial/Aerial (11).webp" data-src="../images/Aerial/Aerial (11).webp" alt="Aerial 11">
                 </div>
 
                 <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
-                    <img src="images/Blur/Aerial/Aerial (12).webp" data-src="images/Aerial/Aerial (12).webp" alt="Aerial 12">
+                    <img src="../images/Blur/Aerial/Aerial (12).webp" data-src="../images/Aerial/Aerial (12).webp" alt="Aerial 12">
                 </div>
 
                 <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
-                    <img src="images/Blur/Aerial/Aerial (13).webp" data-src="images/Aerial/Aerial (13).webp" alt="Aerial 13">
+                    <img src="../images/Blur/Aerial/Aerial (13).webp" data-src="../images/Aerial/Aerial (13).webp" alt="Aerial 13">
                 </div>
 
                 <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
-                    <img src="images/Blur/Aerial/Aerial (14).webp" data-src="images/Aerial/Aerial (14).webp" alt="Aerial 14">
+                    <img src="../images/Blur/Aerial/Aerial (14).webp" data-src="../images/Aerial/Aerial (14).webp" alt="Aerial 14">
                 </div>
 
                 <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
-                    <img src="images/Blur/Aerial/Aerial (15).webp" data-src="images/Aerial/Aerial (15).webp" alt="Aerial 15">
+                    <img src="../images/Blur/Aerial/Aerial (15).webp" data-src="../images/Aerial/Aerial (15).webp" alt="Aerial 15">
                 </div>
 
                 <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
-                    <img src="images/Blur/Aerial/Aerial (16).webp" data-src="images/Aerial/Aerial (16).webp" alt="Aerial 16">
+                    <img src="../images/Blur/Aerial/Aerial (16).webp" data-src="../images/Aerial/Aerial (16).webp" alt="Aerial 16">
                 </div>
 
                 <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
-                    <img src="images/Blur/Aerial/Aerial (17).webp" data-src="images/Aerial/Aerial (17).webp" alt="Aerial 17">
+                    <img src="../images/Blur/Aerial/Aerial (17).webp" data-src="../images/Aerial/Aerial (17).webp" alt="Aerial 17">
                 </div>
 
                 <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
-                    <img src="images/Blur/Aerial/Aerial (18).webp" data-src="images/Aerial/Aerial (18).webp" alt="Aerial 18">
+                    <img src="../images/Blur/Aerial/Aerial (18).webp" data-src="../images/Aerial/Aerial (18).webp" alt="Aerial 18">
                 </div>
 
                 <div class="gallery-item" data-category="aerial" onclick="openModal(this)">
-                    <img src="images/Blur/Aerial/Aerial (19).webp" data-src="images/Aerial/Aerial (19).webp" alt="Aerial 19">
+                    <img src="../images/Blur/Aerial/Aerial (19).webp" data-src="../images/Aerial/Aerial (19).webp" alt="Aerial 19">
                 </div>
                 <!-- #endregion Aerial Images -->
 
                 <!-- *? #region BandW Images -->
                 <div class="gallery-item" data-category="bandw" onclick="openModal(this)">
-                    <img src="images/Blur/BandW/BandW (1).webp" data-src="images/BandW/BandW (1).webp" alt="BandW 1">
+                    <img src="../images/Blur/BandW/BandW (1).webp" data-src="../images/BandW/BandW (1).webp" alt="BandW 1">
                 </div>
 
                 <div class="gallery-item" data-category="bandw" onclick="openModal(this)">
-                    <img src="images/Blur/BandW/BandW (2).webp" data-src="images/BandW/BandW (2).webp" alt="BandW 2">
+                    <img src="../images/Blur/BandW/BandW (2).webp" data-src="../images/BandW/BandW (2).webp" alt="BandW 2">
                 </div>
 
                 <div class="gallery-item" data-category="bandw" onclick="openModal(this)">
-                    <img src="images/Blur/BandW/BandW (4).webp" data-src="images/BandW/BandW (4).webp" alt="BandW 3">
+                    <img src="../images/Blur/BandW/BandW (4).webp" data-src="../images/BandW/BandW (4).webp" alt="BandW 3">
                 </div>
 
                 <div class="gallery-item" data-category="bandw" onclick="openModal(this)">
-                    <img src="images/Blur/BandW/BandW (3).webp" data-src="images/BandW/BandW (3).webp" alt="BandW 4">
+                    <img src="../images/Blur/BandW/BandW (3).webp" data-src="../images/BandW/BandW (3).webp" alt="BandW 4">
                 </div>
 
                 <div class="gallery-item" data-category="bandw" onclick="openModal(this)">
-                    <img src="images/Blur/BandW/BandW (5).webp" data-src="images/BandW/BandW (5).webp" alt="BandW 5">
+                    <img src="../images/Blur/BandW/BandW (5).webp" data-src="../images/BandW/BandW (5).webp" alt="BandW 5">
                 </div>
 
                 <div class="gallery-item" data-category="bandw" onclick="openModal(this)">
-                    <img src="images/Blur/BandW/BandW (6).webp" data-src="images/BandW/BandW (6).webp" alt="BandW 6">
+                    <img src="../images/Blur/BandW/BandW (6).webp" data-src="../images/BandW/BandW (6).webp" alt="BandW 6">
                 </div>
                 <!-- #endregion BandW Images -->
 
@@ -534,279 +535,279 @@
                 <h3 class="album-title" data-category="event">Born2Ride Fest 2025</h3>  
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/B2R (1).webp" data-src="images/Events/B2R (1).webp" alt="Events 1">
+                    <img src="../images/Blur/Events/B2R (1).webp" data-src="../images/Events/B2R (1).webp" alt="Events 1">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/B2R (2).webp" data-src="images/Events/B2R (2).webp" alt="Events 2">
+                    <img src="../images/Blur/Events/B2R (2).webp" data-src="../images/Events/B2R (2).webp" alt="Events 2">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/B2R (3).webp" data-src="images/Events/B2R (3).webp" alt="Events 3">
+                    <img src="../images/Blur/Events/B2R (3).webp" data-src="../images/Events/B2R (3).webp" alt="Events 3">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/B2R (4).webp" data-src="images/Events/B2R (4).webp" alt="Events 4">
+                    <img src="../images/Blur/Events/B2R (4).webp" data-src="../images/Events/B2R (4).webp" alt="Events 4">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/B2R (5).webp" data-src="images/Events/B2R (5).webp" alt="Events 5">
+                    <img src="../images/Blur/Events/B2R (5).webp" data-src="../images/Events/B2R (5).webp" alt="Events 5">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/B2R (6).webp" data-src="images/Events/B2R (6).webp" alt="Events 6">
+                    <img src="../images/Blur/Events/B2R (6).webp" data-src="../images/Events/B2R (6).webp" alt="Events 6">
                 </div>
 
-                <h3 class="album-title" data-category="event">Prom 2024</h3>  
+                <h3 class="album-title" data-category="event">Балове 2024</h3>  
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/Prom (1).webp" data-src="images/Events/Prom (1).webp" alt="Events 7">
-                </div>
-
-                <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/Prom (2).webp" data-src="images/Events/Prom (2).webp" alt="Events 8">
+                    <img src="../images/Blur/Events/Prom (1).webp" data-src="../images/Events/Prom (1).webp" alt="Events 7">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/Prom (3).webp" data-src="images/Events/Prom (3).webp" alt="Events 9">
+                    <img src="../images/Blur/Events/Prom (2).webp" data-src="../images/Events/Prom (2).webp" alt="Events 8">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/Prom (4).webp" data-src="images/Events/Prom (4).webp" alt="Events 10">
+                    <img src="../images/Blur/Events/Prom (3).webp" data-src="../images/Events/Prom (3).webp" alt="Events 9">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/Prom (5).webp" data-src="images/Events/Prom (5).webp" alt="Events 11">
+                    <img src="../images/Blur/Events/Prom (4).webp" data-src="../images/Events/Prom (4).webp" alt="Events 10">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/Prom (6).webp" data-src="images/Events/Prom (6).webp" alt="Events 12">
+                    <img src="../images/Blur/Events/Prom (5).webp" data-src="../images/Events/Prom (5).webp" alt="Events 11">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/Prom (7).webp" data-src="images/Events/Prom (7).webp" alt="Events 13">
-                </div>
-
-                <h3 class="album-title" data-category="event">BMW Fest 2025</h3>  
-
-                <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/BMW (1).webp" data-src="images/Events/BMW (1).webp" alt="Events 14">
+                    <img src="../images/Blur/Events/Prom (6).webp" data-src="../images/Events/Prom (6).webp" alt="Events 12">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/BMW (2).webp" data-src="images/Events/BMW (2).webp" alt="Events 15">
+                    <img src="../images/Blur/Events/Prom (7).webp" data-src="../images/Events/Prom (7).webp" alt="Events 13">
+                </div>
+
+                <h3 class="album-title" data-category="event">БМВ Събор 2025</h3>  
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="../images/Blur/Events/BMW (1).webp" data-src="../images/Events/BMW (1).webp" alt="Events 14">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/BMW (3).webp" data-src="images/Events/BMW (3).webp" alt="Events 16">
+                    <img src="../images/Blur/Events/BMW (2).webp" data-src="../images/Events/BMW (2).webp" alt="Events 15">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/BMW (4).webp" data-src="images/Events/BMW (4).webp" alt="Events 17">
+                    <img src="../images/Blur/Events/BMW (3).webp" data-src="../images/Events/BMW (3).webp" alt="Events 16">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/BMW (5).webp" data-src="images/Events/BMW (5).webp" alt="Events 18">
+                    <img src="../images/Blur/Events/BMW (4).webp" data-src="../images/Events/BMW (4).webp" alt="Events 17">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/BMW (6).webp" data-src="images/Events/BMW (6).webp" alt="Events 19">
-                </div>
-
-                <h3 class="album-title" data-category="event">Baptism</h3>  
-
-                <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/Baptism (1).webp" data-src="images/Events/Baptism (1).webp" alt="Events 20">
+                    <img src="../images/Blur/Events/BMW (5).webp" data-src="../images/Events/BMW (5).webp" alt="Events 18">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/Baptism (2).webp" data-src="images/Events/Baptism (2).webp" alt="Events 21">
+                    <img src="../images/Blur/Events/BMW (6).webp" data-src="../images/Events/BMW (6).webp" alt="Events 19">
+                </div>
+
+                <h3 class="album-title" data-category="event">Кръщене</h3>  
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="../images/Blur/Events/Baptism (1).webp" data-src="../images/Events/Baptism (1).webp" alt="Events 20">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/Baptism (3).webp" data-src="images/Events/Baptism (3).webp" alt="Events 22">
+                    <img src="../images/Blur/Events/Baptism (2).webp" data-src="../images/Events/Baptism (2).webp" alt="Events 21">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/Baptism (4).webp" data-src="images/Events/Baptism (4).webp" alt="Events 23">
-                </div>
-
-                <h3 class="album-title" data-category="event">Serres</h3>  
-
-                <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/Serres (1).webp" data-src="images/Events/Serres (1).webp" alt="Events 24">
+                    <img src="../images/Blur/Events/Baptism (3).webp" data-src="../images/Events/Baptism (3).webp" alt="Events 22">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/Serres (2).webp" data-src="images/Events/Serres (2).webp" alt="Events 25">
+                    <img src="../images/Blur/Events/Baptism (4).webp" data-src="../images/Events/Baptism (4).webp" alt="Events 23">
+                </div>
+
+                <h3 class="album-title" data-category="event">Серес, Гърция</h3>  
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="../images/Blur/Events/Serres (1).webp" data-src="../images/Events/Serres (1).webp" alt="Events 24">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/Serres (3).webp" data-src="images/Events/Serres (3).webp" alt="Events 26">
+                    <img src="../images/Blur/Events/Serres (2).webp" data-src="../images/Events/Serres (2).webp" alt="Events 25">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/Serres (4).webp" data-src="images/Events/Serres (4).webp" alt="Events 27">
+                    <img src="../images/Blur/Events/Serres (3).webp" data-src="../images/Events/Serres (3).webp" alt="Events 26">
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="../images/Blur/Events/Serres (4).webp" data-src="../images/Events/Serres (4).webp" alt="Events 27">
                 </div>
 
                 <h3 class="album-title" data-category="event">Sejong Culture Academy</h3>  
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/Korea (1).webp" data-src="images/Events/Korea (1).webp" alt="Events 28">
+                    <img src="../images/Blur/Events/Korea (1).webp" data-src="../images/Events/Korea (1).webp" alt="Events 28">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/Korea (2).webp" data-src="images/Events/Korea (2).webp" alt="Events 29">
+                    <img src="../images/Blur/Events/Korea (2).webp" data-src="../images/Events/Korea (2).webp" alt="Events 29">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/Korea (3).webp" data-src="images/Events/Korea (3).webp" alt="Events 30">
+                    <img src="../images/Blur/Events/Korea (3).webp" data-src="../images/Events/Korea (3).webp" alt="Events 30">
                 </div>
 
                 <div class="gallery-item" data-category="event" onclick="openModal(this)">
-                    <img src="images/Blur/Events/Korea (4).webp" data-src="images/Events/Korea (4).webp" alt="Events 31">
+                    <img src="../images/Blur/Events/Korea (4).webp" data-src="../images/Events/Korea (4).webp" alt="Events 31">
                 </div>
 
                 <!-- #endregion Event Images -->
 
                 <!-- *? #region Nature Images -->
 
-                <h3 class="album-title" data-category="nature" >Transfagarasan, Romania</h3>
+                <h3 class="album-title" data-category="nature" >Трансфъгарашан, Румъния</h3>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/Fag (1).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Fag_1.webp" alt="Nature 1">
+                    <img src="../images/Blur/Nature/Fag (1).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Fag_1.webp" alt="Nature 1">
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/Fag (3).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Fag_3.webp" alt="Nature 3">
+                    <img src="../images/Blur/Nature/Fag (3).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Fag_3.webp" alt="Nature 3">
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/Fag (5).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Fag_5.webp" alt="Nature 5">
+                    <img src="../images/Blur/Nature/Fag (5).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Fag_5.webp" alt="Nature 5">
                 </div>
 
-                <h3 class="album-title" data-category="nature" >North America</h3>
+                <h3 class="album-title" data-category="nature" >Северна Америка</h3>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/NA (1).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_1.webp" alt="Nature 6">
-                </div>
-
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/NA (2).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_2.webp" alt="Nature 7">
+                    <img src="../images/Blur/Nature/NA (1).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_1.webp" alt="Nature 6">
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/NA (4).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_4.webp" alt="Nature 8">
+                    <img src="../images/Blur/Nature/NA (2).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_2.webp" alt="Nature 7">
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/NA (3).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_3.webp" alt="Nature 9">
+                    <img src="../images/Blur/Nature/NA (4).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_4.webp" alt="Nature 8">
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/NA (9).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_9.webp" alt="Nature 10">
+                    <img src="../images/Blur/Nature/NA (3).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_3.webp" alt="Nature 9">
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/NA (5).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_5.webp" alt="Nature 11">
+                    <img src="../images/Blur/Nature/NA (9).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_9.webp" alt="Nature 10">
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/NA (6).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_6.webp" alt="Nature 12">
+                    <img src="../images/Blur/Nature/NA (5).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_5.webp" alt="Nature 11">
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/NA (7).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_7.webp" alt="Nature 13">
+                    <img src="../images/Blur/Nature/NA (6).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_6.webp" alt="Nature 12">
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/NA (8).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_8.webp" alt="Nature 14">
+                    <img src="../images/Blur/Nature/NA (7).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_7.webp" alt="Nature 13">
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="../images/Blur/Nature/NA (8).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_8.webp" alt="Nature 14">
                 </div>
 
 
 
-                <h3 class="album-title" data-category="nature" >Bulgaria</h3>
+                <h3 class="album-title" data-category="nature" >България</h3>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/BG (1).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BG_1.webp" alt="Nature 15">
+                    <img src="../images/Blur/Nature/BG (1).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BG_1.webp" alt="Nature 15">
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/BG (3).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BG_3.webp" alt="Nature 17">
+                    <img src="../images/Blur/Nature/BG (3).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BG_3.webp" alt="Nature 17">
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/BG (4).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BG_4.webp" alt="Nature 17">
+                    <img src="../images/Blur/Nature/BG (4).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BG_4.webp" alt="Nature 17">
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/BG (2).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BG_2.webp" alt="Nature 16">
-                </div>
-                
-                
-
-                <h3 class="album-title" data-category="nature" >South America</h3>
-                
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/SA (1).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/SA_1.webp" alt="Nature 18">
-                </div>
-
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/SA (2).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/SA_2.webp" alt="Nature 19">
-                </div>
-
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/SA (3).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/SA_3.webp" alt="Nature 20">
-                </div>
-
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/SA (4).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/SA_4.webp" alt="Nature 21">
-                </div>
-
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/SA (5).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/SA_5.webp" alt="Nature 22">
-                </div>
-
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/SA (6).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/SA_6.webp" alt="Nature 23">
+                    <img src="../images/Blur/Nature/BG (2).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BG_2.webp" alt="Nature 16">
                 </div>
                 
+                
+
+                <h3 class="album-title" data-category="nature" >Южна Америка</h3>
+                
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/SA (9).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/SA_9.webp" alt="Nature 24">
+                    <img src="../images/Blur/Nature/SA (1).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/SA_1.webp" alt="Nature 18">
                 </div>
 
-                <h3 class="album-title" data-category="nature" >Transalpina, Romania</h3>
-
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/Alpina (2).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Alpina_2.webp" alt="Nature 25">
+                    <img src="../images/Blur/Nature/SA (2).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/SA_2.webp" alt="Nature 19">
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/Alpina (1).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Alpina_1.webp" alt="Nature 26">
+                    <img src="../images/Blur/Nature/SA (3).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/SA_3.webp" alt="Nature 20">
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="../images/Blur/Nature/SA (4).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/SA_4.webp" alt="Nature 21">
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="../images/Blur/Nature/SA (5).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/SA_5.webp" alt="Nature 22">
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="../images/Blur/Nature/SA (6).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/SA_6.webp" alt="Nature 23">
+                </div>
+                
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="../images/Blur/Nature/SA (9).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/SA_9.webp" alt="Nature 24">
+                </div>
+
+                <h3 class="album-title" data-category="nature" >Трансалпина, Румъния</h3>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="../images/Blur/Nature/Alpina (2).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Alpina_2.webp" alt="Nature 25">
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="../images/Blur/Nature/Alpina (1).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Alpina_1.webp" alt="Nature 26">
                 </div>
 
                 
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/Alpina (3).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Alpina_3.webp" alt="Nature 27">
+                    <img src="../images/Blur/Nature/Alpina (3).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Alpina_3.webp" alt="Nature 27">
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/Alpina (4).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Alpina_4.webp" alt="Nature 28">
+                    <img src="../images/Blur/Nature/Alpina (4).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Alpina_4.webp" alt="Nature 28">
                 </div>
 
-                <h3 class="album-title" data-category="nature" >Germany</h3>
+                <h3 class="album-title" data-category="nature" >Германия</h3>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/DE (1).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/DE_1.webp" alt="Nature 29">
-                </div>
-
-                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/DE (2).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/DE_2.webp" alt="Nature 30">
+                    <img src="../images/Blur/Nature/DE (1).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/DE_1.webp" alt="Nature 29">
                 </div>
 
                 <div class="gallery-item" data-category="nature" onclick="openModal(this)">
-                    <img src="images/Blur/Nature/DE (3).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/DE_3.webp" alt="Nature 31">
+                    <img src="../images/Blur/Nature/DE (2).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/DE_2.webp" alt="Nature 30">
+                </div>
+
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="../images/Blur/Nature/DE (3).webp" data-src="https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/DE_3.webp" alt="Nature 31">
                 </div>
 
 
@@ -814,376 +815,380 @@
 
                 <!-- *? #region Night Images -->
                 <div class="gallery-item" data-category="night" onclick="openModal(this)">
-                    <img src="images/Blur/Night/Night (1).webp" data-src="images/Night/Night (1).webp" alt="Night 1">
+                    <img src="../images/Blur/Night/Night (1).webp" data-src="../images/Night/Night (1).webp" alt="Night 1">
                 </div>
 
                 <div class="gallery-item" data-category="night" onclick="openModal(this)">
-                    <img src="images/Blur/Night/Night (2).webp" data-src="images/Night/Night (2).webp" alt="Night 2">
+                    <img src="../images/Blur/Night/Night (2).webp" data-src="../images/Night/Night (2).webp" alt="Night 2">
                 </div>
 
                 <div class="gallery-item" data-category="night" onclick="openModal(this)">
-                    <img src="images/Blur/Night/Night (3).webp" data-src="images/Night/Night (3).webp" alt="Night 3">
+                    <img src="../images/Blur/Night/Night (3).webp" data-src="../images/Night/Night (3).webp" alt="Night 3">
                 </div>
 
                 <div class="gallery-item" data-category="night" onclick="openModal(this)">
-                    <img src="images/Blur/Night/Night (4).webp" data-src="images/Night/Night (4).webp" alt="Night 4">
+                    <img src="../images/Blur/Night/Night (4).webp" data-src="../images/Night/Night (4).webp" alt="Night 4">
                 </div>
 
                 <div class="gallery-item" data-category="night" onclick="openModal(this)">
-                    <img src="images/Blur/Night/Night (5).webp" data-src="images/Night/Night (5).webp" alt="Night 5">
+                    <img src="../images/Blur/Night/Night (5).webp" data-src="../images/Night/Night (5).webp" alt="Night 5">
                 </div>
 
                 <div class="gallery-item" data-category="night" onclick="openModal(this)">
-                    <img src="images/Blur/Night/Night (6).webp" data-src="images/Night/Night (6).webp" alt="Night 6">
+                    <img src="../images/Blur/Night/Night (6).webp" data-src="../images/Night/Night (6).webp" alt="Night 6">
                 </div>
 
                 <div class="gallery-item" data-category="night" onclick="openModal(this)">
-                    <img src="images/Blur/Night/Night (7).webp" data-src="images/Night/Night (7).webp" alt="Night 7">
+                    <img src="../images/Blur/Night/Night (7).webp" data-src="../images/Night/Night (7).webp" alt="Night 7">
                 </div>
 
                 <div class="gallery-item" data-category="night" onclick="openModal(this)">
-                    <img src="images/Blur/Night/Night (8).webp" data-src="images/Night/Night (8).webp" alt="Night 8">
+                    <img src="../images/Blur/Night/Night (8).webp" data-src="../images/Night/Night (8).webp" alt="Night 8">
                 </div>
 
                 <div class="gallery-item" data-category="night" onclick="openModal(this)">
-                    <img src="images/Blur/Night/Night (12).webp" data-src="images/Night/Night (12).webp" alt="Night 9">
+                    <img src="../images/Blur/Night/Night (12).webp" data-src="../images/Night/Night (12).webp" alt="Night 9">
                 </div>
 
                 <div class="gallery-item" data-category="night" onclick="openModal(this)">
-                    <img src="images/Blur/Night/Night (9).webp" data-src="images/Night/Night (9).webp" alt="Night 10">
+                    <img src="../images/Blur/Night/Night (9).webp" data-src="../images/Night/Night (9).webp" alt="Night 10">
                 </div>
 
                 <div class="gallery-item" data-category="night" onclick="openModal(this)">
-                    <img src="images/Blur/Night/Night (10).webp" data-src="images/Night/Night (10).webp" alt="Night 11">
+                    <img src="../images/Blur/Night/Night (10).webp" data-src="../images/Night/Night (10).webp" alt="Night 11">
                 </div>
 
                 <div class="gallery-item" data-category="night" onclick="openModal(this)">
-                    <img src="images/Blur/Night/Night (11).webp" data-src="images/Night/Night (11).webp" alt="Night 12">
+                    <img src="../images/Blur/Night/Night (11).webp" data-src="../images/Night/Night (11).webp" alt="Night 12">
                 </div>
                 <!-- #endregion Night Images -->
 
                 <!-- *? #region People Photos -->
 
-                <h3 class="album-title" data-category="people">Iva</h3>  
+                <h3 class="album-title" data-category="people">Ива</h3>  
 
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
-                    <img src="images/Blur/People/Iva (1).webp" data-src="images/People/Iva (1).webp" alt="People 1">
+                    <img src="../images/Blur/People/Iva (1).webp" data-src="../images/People/Iva (1).webp" alt="People 1">
                 </div>
 
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
-                    <img src="images/Blur/People/Iva (2).webp" data-src="images/People/Iva (2).webp" alt="People 2">
+                    <img src="../images/Blur/People/Iva (2).webp" data-src="../images/People/Iva (2).webp" alt="People 2">
                 </div>
 
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
-                    <img src="images/Blur/People/Iva (3).webp" data-src="images/People/Iva (3).webp" alt="People 3">
+                    <img src="../images/Blur/People/Iva (3).webp" data-src="../images/People/Iva (3).webp" alt="People 3">
                 </div>
 
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
-                    <img src="images/Blur/People/Iva (4).webp" data-src="images/People/Iva (4).webp" alt="People 4">
+                    <img src="../images/Blur/People/Iva (4).webp" data-src="../images/People/Iva (4).webp" alt="People 4">
                 </div>
 
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
-                    <img src="images/Blur/People/Iva (5).webp" data-src="images/People/Iva (5).webp" alt="People 5">
+                    <img src="../images/Blur/People/Iva (5).webp" data-src="../images/People/Iva (5).webp" alt="People 5">
                 </div>
 
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
-                    <img src="images/Blur/People/Iva (6).webp" data-src="images/People/Iva (6).webp" alt="People 6">
+                    <img src="../images/Blur/People/Iva (6).webp" data-src="../images/People/Iva (6).webp" alt="People 6">
                 </div>
 
-                <h3 class="album-title" data-category="people">Lusi</h3>  
+                <h3 class="album-title" data-category="people">Люси</h3>  
 
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
-                    <img src="images/Blur/People/Lusi (1).webp" data-src="images/People/Lusi (1).webp" alt="People 7">
-                </div>
-
-                <div class="gallery-item" data-category="people" onclick="openModal(this)">
-                    <img src="images/Blur/People/Lusi (2).webp" data-src="images/People/Lusi (2).webp" alt="People 8">
+                    <img src="../images/Blur/People/Lusi (1).webp" data-src="../images/People/Lusi (1).webp" alt="People 7">
                 </div>
 
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
-                    <img src="images/Blur/People/Lusi (3).webp" data-src="images/People/Lusi (3).webp" alt="People 9">
+                    <img src="../images/Blur/People/Lusi (2).webp" data-src="../images/People/Lusi (2).webp" alt="People 8">
                 </div>
 
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
-                    <img src="images/Blur/People/Lusi (4).webp" data-src="images/People/Lusi (4).webp" alt="People 10">
+                    <img src="../images/Blur/People/Lusi (3).webp" data-src="../images/People/Lusi (3).webp" alt="People 9">
                 </div>
 
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
-                    <img src="images/Blur/People/Lusi (5).webp" data-src="images/People/Lusi (5).webp" alt="People 11">
+                    <img src="../images/Blur/People/Lusi (4).webp" data-src="../images/People/Lusi (4).webp" alt="People 10">
                 </div>
 
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
-                    <img src="images/Blur/People/Lusi (6).webp" data-src="images/People/Lusi (6).webp" alt="People 12">
+                    <img src="../images/Blur/People/Lusi (5).webp" data-src="../images/People/Lusi (5).webp" alt="People 11">
+                </div>
+
+                <div class="gallery-item" data-category="people" onclick="openModal(this)">
+                    <img src="../images/Blur/People/Lusi (6).webp" data-src="../images/People/Lusi (6).webp" alt="People 12">
                 </div>
 
                 <h3 class="album-title" data-category="people">AsWarrior</h3>  
 
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
-                    <img src="images/Blur/People/ASW (1).webp" data-src="images/People/ASW (1).webp" alt="People 13">
+                    <img src="../images/Blur/People/ASW (1).webp" data-src="../images/People/ASW (1).webp" alt="People 13">
                 </div>
 
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
-                    <img src="images/Blur/People/ASW (2).webp" data-src="images/People/ASW (2).webp" alt="People 14">
+                    <img src="../images/Blur/People/ASW (2).webp" data-src="../images/People/ASW (2).webp" alt="People 14">
                 </div>
 
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
-                    <img src="images/Blur/People/ASW (3).webp" data-src="images/People/ASW (3).webp" alt="People 15">
+                    <img src="../images/Blur/People/ASW (3).webp" data-src="../images/People/ASW (3).webp" alt="People 15">
                 </div>
 
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
-                    <img src="images/Blur/People/ASW (4).webp" data-src="images/People/ASW (4).webp" alt="People 16">
+                    <img src="../images/Blur/People/ASW (4).webp" data-src="../images/People/ASW (4).webp" alt="People 16">
                 </div>
 
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
-                    <img src="images/Blur/People/ASW (5).webp" data-src="images/People/ASW (5).webp" alt="People 17">
+                    <img src="../images/Blur/People/ASW (5).webp" data-src="../images/People/ASW (5).webp" alt="People 17">
                 </div>
 
                 <div class="gallery-item" data-category="people" onclick="openModal(this)">
-                    <img src="images/Blur/People/ASW (6).webp" data-src="images/People/ASW (6).webp" alt="People 18">
+                    <img src="../images/Blur/People/ASW (6).webp" data-src="../images/People/ASW (6).webp" alt="People 18">
                 </div>
 
                 <!-- #endregion People Photos -->
 
                 <!-- *? #region Urban Images -->
 
-                <h3 class="album-title" data-category="urban">Berlin, Germany</h3> 
+                <h3 class="album-title" data-category="urban">Берлин, Германия</h3> 
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Berlin (1).webp" data-src="images/Urban/Berlin (1).webp" alt="Urban 1">
+                    <img src="../images/Blur/Urban/Berlin (1).webp" data-src="../images/Urban/Berlin (1).webp" alt="Urban 1">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Berlin (2).webp" data-src="images/Urban/Berlin (2).webp" alt="Urban 1">
+                    <img src="../images/Blur/Urban/Berlin (2).webp" data-src="../images/Urban/Berlin (2).webp" alt="Urban 1">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Berlin (3).webp" data-src="images/Urban/Berlin (3).webp" alt="Urban 1">
+                    <img src="../images/Blur/Urban/Berlin (3).webp" data-src="../images/Urban/Berlin (3).webp" alt="Urban 1">
                 </div>
 
-                <h3 class="album-title" data-category="urban">Bucharest, Romania</h3> 
+                <h3 class="album-title" data-category="urban">Букурещ, Румъния</h3> 
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Bucharest (1).webp" data-src="images/Urban/Bucharest (1).webp" alt="Urban 2">
-                </div>
-
-                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Bucharest (2).webp" data-src="images/Urban/Bucharest (2).webp" alt="Urban 3">
+                    <img src="../images/Blur/Urban/Bucharest (1).webp" data-src="../images/Urban/Bucharest (1).webp" alt="Urban 2">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Bucharest (4).webp" data-src="images/Urban/Bucharest (4).webp" alt="Urban 5">
-                </div>
-
-                <h3 class="album-title" data-category="urban">Budapest, Hungary</h3> 
-
-                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Budapest (1).webp" data-src="images/Urban/Budapest (1).webp" alt="Urban 6">
+                    <img src="../images/Blur/Urban/Bucharest (2).webp" data-src="../images/Urban/Bucharest (2).webp" alt="Urban 3">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Budapest (2).webp" data-src="images/Urban/Budapest (2).webp" alt="Urban 7">
+                    <img src="../images/Blur/Urban/Bucharest (4).webp" data-src="../images/Urban/Bucharest (4).webp" alt="Urban 5">
+                </div>
+
+                <h3 class="album-title" data-category="urban">Будапеща, Унгария</h3> 
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="../images/Blur/Urban/Budapest (1).webp" data-src="../images/Urban/Budapest (1).webp" alt="Urban 6">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Budapest (3).webp" data-src="images/Urban/Budapest (3).webp" alt="Urban 8">
+                    <img src="../images/Blur/Urban/Budapest (2).webp" data-src="../images/Urban/Budapest (2).webp" alt="Urban 7">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Budapest (4).webp" data-src="images/Urban/Budapest (4).webp" alt="Urban 9">
+                    <img src="../images/Blur/Urban/Budapest (3).webp" data-src="../images/Urban/Budapest (3).webp" alt="Urban 8">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Budapest (5).webp" data-src="images/Urban/Budapest (5).webp" alt="Urban 10">
+                    <img src="../images/Blur/Urban/Budapest (4).webp" data-src="../images/Urban/Budapest (4).webp" alt="Urban 9">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Budapest (6).webp" data-src="images/Urban/Budapest (6).webp" alt="Urban 10">
-                </div>
-
-                <h3 class="album-title" data-category="urban">Corvin, Romania</h3> 
-
-                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Corvin (1).webp" data-src="images/Urban/Corvin (1).webp" alt="Urban 11">
+                    <img src="../images/Blur/Urban/Budapest (5).webp" data-src="../images/Urban/Budapest (5).webp" alt="Urban 10">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Corvin (5).webp" data-src="images/Urban/Corvin (5).webp" alt="Urban 15">
+                    <img src="../images/Blur/Urban/Budapest (6).webp" data-src="../images/Urban/Budapest (6).webp" alt="Urban 10">
+                </div>
+
+                <h3 class="album-title" data-category="urban">Корвин, Румъния</h3> 
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="../images/Blur/Urban/Corvin (1).webp" data-src="../images/Urban/Corvin (1).webp" alt="Urban 11">
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="../images/Blur/Urban/Corvin (5).webp" data-src="../images/Urban/Corvin (5).webp" alt="Urban 15">
                 </div>
 
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Corvin (2).webp" data-src="images/Urban/Corvin (2).webp" alt="Urban 12">
+                    <img src="../images/Blur/Urban/Corvin (2).webp" data-src="../images/Urban/Corvin (2).webp" alt="Urban 12">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Corvin (3).webp" data-src="images/Urban/Corvin (3).webp" alt="Urban 13">
+                    <img src="../images/Blur/Urban/Corvin (3).webp" data-src="../images/Urban/Corvin (3).webp" alt="Urban 13">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Corvin (4).webp" data-src="images/Urban/Corvin (4).webp" alt="Urban 14">
+                    <img src="../images/Blur/Urban/Corvin (4).webp" data-src="../images/Urban/Corvin (4).webp" alt="Urban 14">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Corvin (6).webp" data-src="images/Urban/Corvin (6).webp" alt="Urban 11">
+                    <img src="../images/Blur/Urban/Corvin (6).webp" data-src="../images/Urban/Corvin (6).webp" alt="Urban 11">
                 </div>
 
                 
-                <h3 class="album-title" data-category="urban">Kyoto, Japan</h3> 
+                <h3 class="album-title" data-category="urban">Киото, Япония</h3> 
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Kyoto (1).webp" data-src="images/Urban/Kyoto (1).webp" alt="Urban 16">
+                    <img src="../images/Blur/Urban/Kyoto (1).webp" data-src="../images/Urban/Kyoto (1).webp" alt="Urban 16">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Kyoto (2).webp" data-src="images/Urban/Kyoto (2).webp" alt="Urban 17">
+                    <img src="../images/Blur/Urban/Kyoto (2).webp" data-src="../images/Urban/Kyoto (2).webp" alt="Urban 17">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Kyoto (3).webp" data-src="images/Urban/Kyoto (3).webp" alt="Urban 18">
+                    <img src="../images/Blur/Urban/Kyoto (3).webp" data-src="../images/Urban/Kyoto (3).webp" alt="Urban 18">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Kyoto (4).webp" data-src="images/Urban/Kyoto (4).webp" alt="Urban 19">
+                    <img src="../images/Blur/Urban/Kyoto (4).webp" data-src="../images/Urban/Kyoto (4).webp" alt="Urban 19">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Kyoto (5).webp" data-src="images/Urban/Kyoto (5).webp" alt="Urban 20">
+                    <img src="../images/Blur/Urban/Kyoto (5).webp" data-src="../images/Urban/Kyoto (5).webp" alt="Urban 20">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Kyoto (6).webp" data-src="images/Urban/Kyoto (6).webp" alt="Urban 21">
+                    <img src="../images/Blur/Urban/Kyoto (6).webp" data-src="../images/Urban/Kyoto (6).webp" alt="Urban 21">
                 </div>
 
-                <h3 class="album-title" data-category="urban">Mannheim, Germany</h3> 
+                <h3 class="album-title" data-category="urban">Манхайм, Германия</h3> 
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Mannheim (1).webp" data-src="images/Urban/Mannheim (1).webp" alt="Urban 22">
-                </div>
-
-                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Mannheim (2).webp" data-src="images/Urban/Mannheim (2).webp" alt="Urban 23">
+                    <img src="../images/Blur/Urban/Mannheim (1).webp" data-src="../images/Urban/Mannheim (1).webp" alt="Urban 22">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Mannheim (3).webp" data-src="images/Urban/Mannheim (3).webp" alt="Urban 24">
+                    <img src="../images/Blur/Urban/Mannheim (2).webp" data-src="../images/Urban/Mannheim (2).webp" alt="Urban 23">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Mannheim (4).webp" data-src="images/Urban/Mannheim (4).webp" alt="Urban 25">
+                    <img src="../images/Blur/Urban/Mannheim (3).webp" data-src="../images/Urban/Mannheim (3).webp" alt="Urban 24">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Mannheim (5).webp" data-src="images/Urban/Mannheim (5).webp" alt="Urban 26">
+                    <img src="../images/Blur/Urban/Mannheim (4).webp" data-src="../images/Urban/Mannheim (4).webp" alt="Urban 25">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Mannheim (6).webp" data-src="images/Urban/Mannheim (6).webp" alt="Urban 22">
-                </div>
-
-                <h3 class="album-title" data-category="urban">Osaka, Japan</h3> 
-
-                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Osaka (1).webp" data-src="images/Urban/Osaka (1).webp" alt="Urban 27">
+                    <img src="../images/Blur/Urban/Mannheim (5).webp" data-src="../images/Urban/Mannheim (5).webp" alt="Urban 26">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Osaka (2).webp" data-src="images/Urban/Osaka (2).webp" alt="Urban 28">
+                    <img src="../images/Blur/Urban/Mannheim (6).webp" data-src="../images/Urban/Mannheim (6).webp" alt="Urban 22">
+                </div>
+
+                <h3 class="album-title" data-category="urban">Осака, Япония</h3> 
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="../images/Blur/Urban/Osaka (1).webp" data-src="../images/Urban/Osaka (1).webp" alt="Urban 27">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Osaka (3).webp" data-src="images/Urban/Osaka (3).webp" alt="Urban 29">
+                    <img src="../images/Blur/Urban/Osaka (2).webp" data-src="../images/Urban/Osaka (2).webp" alt="Urban 28">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Osaka (4).webp" data-src="images/Urban/Osaka (4).webp" alt="Urban 30">
+                    <img src="../images/Blur/Urban/Osaka (3).webp" data-src="../images/Urban/Osaka (3).webp" alt="Urban 29">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Osaka (5).webp" data-src="images/Urban/Osaka (5).webp" alt="Urban 31">
+                    <img src="../images/Blur/Urban/Osaka (4).webp" data-src="../images/Urban/Osaka (4).webp" alt="Urban 30">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Osaka (6).webp" data-src="images/Urban/Osaka (6).webp" alt="Urban 32">
-                </div>
-
-                <h3 class="album-title" data-category="urban">Rio de Janeiro, Brasil</h3> 
-
-                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Rio (1).webp" data-src="images/Urban/Rio (1).webp" alt="Urban 33">
+                    <img src="../images/Blur/Urban/Osaka (5).webp" data-src="../images/Urban/Osaka (5).webp" alt="Urban 31">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Rio (2).webp" data-src="images/Urban/Rio (2).webp" alt="Urban 34">
+                    <img src="../images/Blur/Urban/Osaka (6).webp" data-src="../images/Urban/Osaka (6).webp" alt="Urban 32">
+                </div>
+
+                <h3 class="album-title" data-category="urban">Рио де Жанейро, Бразилия</h3> 
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="../images/Blur/Urban/Rio (1).webp" data-src="../images/Urban/Rio (1).webp" alt="Urban 33">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Rio (3).webp" data-src="images/Urban/Rio (3).webp" alt="Urban 35">
+                    <img src="../images/Blur/Urban/Rio (2).webp" data-src="../images/Urban/Rio (2).webp" alt="Urban 34">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Rio (4).webp" data-src="images/Urban/Rio (4).webp" alt="Urban 36">
+                    <img src="../images/Blur/Urban/Rio (3).webp" data-src="../images/Urban/Rio (3).webp" alt="Urban 35">
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="../images/Blur/Urban/Rio (4).webp" data-src="../images/Urban/Rio (4).webp" alt="Urban 36">
                 </div>
 
 
 
 
-                <h3 class="album-title" data-category="urban">Rome, Italy</h3> 
+                <h3 class="album-title" data-category="urban">Рим, Италия</h3> 
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Rome (1).webp" data-src="images/Urban/Rome (1).webp" alt="Urban 37">
+                    <img src="../images/Blur/Urban/Rome (1).webp" data-src="../images/Urban/Rome (1).webp" alt="Urban 37">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Rome (2).webp" data-src="images/Urban/Rome (2).webp" alt="Urban 38 ">
+                    <img src="../images/Blur/Urban/Rome (2).webp" data-src="../images/Urban/Rome (2).webp" alt="Urban 38 ">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Rome (3).webp" data-src="images/Urban/Rome (3).webp" alt="Urban 39 ">
+                    <img src="../images/Blur/Urban/Rome (3).webp" data-src="../images/Urban/Rome (3).webp" alt="Urban 39 ">
                 </div>
 
-                <h3 class="album-title" data-category="urban">Sibiu, Romania</h3> 
+                <h3 class="album-title" data-category="urban">Сибиу, Румъния</h3> 
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Sibiu (1).webp" data-src="images/Urban/Sibiu (1).webp" alt="Urban 40">
-                </div>
-
-                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Sibiu (2).webp" data-src="images/Urban/Sibiu (2).webp" alt="Urban 41">
+                    <img src="../images/Blur/Urban/Sibiu (1).webp" data-src="../images/Urban/Sibiu (1).webp" alt="Urban 40">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Sibiu (3).webp" data-src="images/Urban/Sibiu (3).webp" alt="Urban 42">
-                </div>
-
-                <h3 class="album-title" data-category="urban">Vienna, Austria</h3>
-
-                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Vienna (1).webp" data-src="images/Urban/Vienna (1).webp" alt="Urban 43">
+                    <img src="../images/Blur/Urban/Sibiu (2).webp" data-src="../images/Urban/Sibiu (2).webp" alt="Urban 41">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Vienna (2).webp" data-src="images/Urban/Vienna (2).webp" alt="Urban 44">
+                    <img src="../images/Blur/Urban/Sibiu (3).webp" data-src="../images/Urban/Sibiu (3).webp" alt="Urban 42">
+                </div>
+
+                <h3 class="album-title" data-category="urban">Виена, Австрия</h3>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="../images/Blur/Urban/Vienna (1).webp" data-src="../images/Urban/Vienna (1).webp" alt="Urban 43">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Vienna (3).webp" data-src="images/Urban/Vienna (3).webp" alt="Urban 45">
+                    <img src="../images/Blur/Urban/Vienna (2).webp" data-src="../images/Urban/Vienna (2).webp" alt="Urban 44">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Vienna (4).webp" data-src="images/Urban/Vienna (4).webp" alt="Urban 46">
+                    <img src="../images/Blur/Urban/Vienna (3).webp" data-src="../images/Urban/Vienna (3).webp" alt="Urban 45">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Vienna (5).webp" data-src="images/Urban/Vienna (5).webp" alt="Urban 47">
+                    <img src="../images/Blur/Urban/Vienna (4).webp" data-src="../images/Urban/Vienna (4).webp" alt="Urban 46">
                 </div>
 
                 <div class="gallery-item" data-category="urban" onclick="openModal(this)">
-                    <img src="images/Blur/Urban/Vienna (6).webp" data-src="images/Urban/Vienna (6).webp" alt="Urban 48">
+                    <img src="../images/Blur/Urban/Vienna (5).webp" data-src="../images/Urban/Vienna (5).webp" alt="Urban 47">
+                </div>
+
+                <div class="gallery-item" data-category="urban" onclick="openModal(this)">
+                    <img src="../images/Blur/Urban/Vienna (6).webp" data-src="../images/Urban/Vienna (6).webp" alt="Urban 48">
                 </div>
 
                 <!-- #endregion Urban Images -->
 
         </div>
+                
+        </div>
+
+       
     </section>
 
     <!-- Modal for Image Preview -->
@@ -1204,6 +1209,26 @@
             </div>
         </div>
     </div>
+    </section>
+
+    <!-- Modal for Image Preview -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <button class="nav-btn nav-btn-prev" onclick="navigateImage(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="nav-btn nav-btn-next" onclick="navigateImage(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="image-container">
+                <img id="modalImage" src="" alt="">
+                <div class="image-counter">
+                    <span id="currentImageIndex">1</span> / <span id="totalImages">1</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1211,49 +1236,28 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Ideal Shotz</h3>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/ideal_shotz/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/people/Ideal-Shotz/100067024976977/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.tiktok.com/@ideal_shotz" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
-                        <a href="mailto:shotz.ideal@gmail.com"><i class="fas fa-envelope"></i></a>
-                    </div>
+                    <p>Професионална фотография с фокус върху качеството и креативността.</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h4>Бързи връзки</h4>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.html">Начало</a></li>
+                        <li><a href="gallery.html">Галерия</a></li>
+                        <li><a href="contact.html">Контакти</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <div class="contact-info">
-                        <p><i class="fas fa-phone"></i> +359 889 501 250</p>
-                        <p><i class="fas fa-envelope"></i> shotz.ideal@gmail.com</p>
-                        <p><i class="fas fa-location-dot"></i> Sofia, Bulgaria</p>
-                    </div>
+                    <h4>Свържете се с нас</h4>
+                    <p>📧 ideal.shotz.bg@gmail.com</p>
+                    <p>📱 +359 XX XXX XXXX</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Ideal Shotz. All rights reserved.</p>
+                <p>&copy; 2025 Ideal Shotz. Всички права запазени.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js?v=1.0.8"></script>
+    <script src="../script.js?v=1.0.18"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-

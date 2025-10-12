@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | IS Photography</title>
-    <link rel="stylesheet" href="styles.css?v=1.0.1">
+    <title>Контакти | IS Photography</title>
+    <link rel="stylesheet" href="../styles.css?v=1.0.1">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script type="text/javascript"
@@ -23,27 +23,27 @@
     <nav class="navbar">
         <div class="nav-container">
             <ul class="nav-list">
-                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link">Начало</a></li>
+                <li class="nav-item"><a href="index.html#about" class="nav-link">За нас</a></li>
                 <li class="nav-item logo-item">
-                    <a href = "index.html"><img src="images/Logo-04-1.png" alt="Ideal Shotz Logo" class="nav-logo"></a>
+                    <a href="index.html"><img src="../images/Logo-04-1.png" alt="Ideal Shotz Logo" class="nav-logo"></a>
                 </li>
-                <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link active">Contact</a></li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link">Галерия</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link active">Контакти</a></li>
             </ul>
             <!-- Language Switcher -->
             <div class="language-switcher">
                 <div class="lang-toggle" onclick="toggleLanguageMenu()">
-                    <span class="flag">🇬🇧</span>
-                    <span class="lang-text">EN</span>
+                    <span class="flag">🇧🇬</span>
+                    <span class="lang-text">BG</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="lang-menu" id="langMenu">
-                    <a href="contact.html" class="lang-option active">
+                    <a href="../contact.html" class="lang-option">
                         <span class="flag">🇬🇧</span>
                         <span class="lang-name">English</span>
                     </a>
-                    <a href="bg/contact.html" class="lang-option">
+                    <a href="contact.html" class="lang-option active">
                         <span class="flag">🇧🇬</span>
                         <span class="lang-name">Български</span>
                     </a>
@@ -60,7 +60,7 @@
     <!-- Contact Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Get In Touch</h1>
+            <h1>Свържете се с нас</h1>
         </div>
     </section>
 
@@ -69,36 +69,36 @@
         <div class="container">
             <div class="contact-form-centered">
                 <div class="contact-form">
-                    <h2>Send a Message</h2>
+                    <h2>Изпратете съобщение</h2>
                     <form id="contactForm">
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="firstName">First Name *</label>
+                                <label for="firstName">Име *</label>
                                 <input type="text" id="firstName" name="firstName" required>
                             </div>
                             <div class="form-group">
-                                <label for="lastName">Last Name *</label>
+                                <label for="lastName">Фамилия *</label>
                                 <input type="text" id="lastName" name="lastName" required>
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="email">Email *</label>
+                                <label for="email">Имейл *</label>
                                 <input type="email" id="email" name="email" required>
                             </div>
                             <div class="form-group">
-                                <label for="subject">Subject *</label>
+                                <label for="subject">Заглавие *</label>
                                 <input type="text" id="subject" name="subject" required>
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="6" required></textarea>
+                            <label for="message">Съобщение *</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Как можем да Ви помогнем?" required></textarea>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" class="btn btn-primary">Изпратете</button>
                     </form>
                 </div>
             </div>
@@ -120,19 +120,19 @@
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h4>Бърз достъп</h4>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="index.html">Начало</a></li>
+                        <li><a href="gallery.html">Галерия</a></li>
+                        <li><a href="#contact">Контакти</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Contact Info</h4>
+                    <h4>Контакти</h4>
                     <div class="contact-info">
                         <p><i class="fas fa-phone"></i> +359 889 501 250</p>
                         <p><i class="fas fa-envelope"></i> shotz.ideal@gmail.com</p>
-                        <p><i class="fas fa-location-dot"></i> Sofia, Bulgaria</p>
+                        <p><i class="fas fa-location-dot"></i> София, България</p>
                     </div>
                 </div>
             </div>
@@ -142,6 +142,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=1.0.2"></script>
+    <script src="../script.js?v=1.0.2"></script>
 </body>
 </html>

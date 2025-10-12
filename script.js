@@ -200,6 +200,7 @@ function applyFilter(filterValue) {
             
             if (titleCategory === filterValue) {
                 title.style.display = 'block';
+                title.style.setProperty('display', 'block', 'important');
                 title.style.opacity = '0';
                 title.style.transform = 'translateY(20px)';
                 setTimeout(() => {
@@ -217,6 +218,7 @@ function applyFilter(filterValue) {
             
             if (itemCategory === filterValue) {
                 item.style.display = 'block';
+                item.style.setProperty('display', 'block', 'important');
                 // Add entrance animation
                 item.style.opacity = '0';
                 item.style.transform = 'translateY(20px)';
@@ -1213,9 +1215,45 @@ function initLazyLoading() {
     });
 }
 
+// Language Toggle Function
+function toggleLanguageMenu() {
+    const menu = document.getElementById('langMenu');
+    const switcher = document.querySelector('.language-switcher');
+    
+    if (menu && switcher) {
+        menu.classList.toggle('show');
+        switcher.classList.toggle('active');
+    }
+}
+
+// Close language menu when clicking outside
+document.addEventListener('click', function(event) {
+    const switcher = document.querySelector('.language-switcher');
+    const menu = document.getElementById('langMenu');
+    
+    if (switcher && menu && !switcher.contains(event.target)) {
+        menu.classList.remove('show');
+        switcher.classList.remove('active');
+    }
+});
+
+// Close language menu when pressing Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const menu = document.getElementById('langMenu');
+        const switcher = document.querySelector('.language-switcher');
+        
+        if (menu && switcher) {
+            menu.classList.remove('show');
+            switcher.classList.remove('active');
+        }
+    }
+});
+
 // Export functions for global access
 window.openModal = openModal;
 window.closeModal = closeModal;
 window.navigateImage = navigateImage;
 window.filterCategory = filterCategory;
 window.scrollToTop = scrollToTop;
+window.toggleLanguageMenu = toggleLanguageMenu;
