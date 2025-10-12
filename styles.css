@@ -2428,10 +2428,11 @@ p {
     }
     
     .gallery-grid {
-        -webkit-overflow-scrolling: touch;
-        /* Fix iOS-specific column balancing that shifts second column down */
         -webkit-column-fill: auto;
         column-fill: auto;
+        overflow: hidden;
+        transform: translateZ(0);
+        will-change: transform;
     }
 }
 
