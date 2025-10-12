@@ -875,6 +875,11 @@ function initLazyLoading() {
                                     img.classList.remove('lazy-loading');
                                     img.classList.add('lazy-loaded');
                                     
+                                    // Force gallery reflow after image loads (iOS column layout fix)
+                                    if (window.forceGalleryReflow) {
+                                        setTimeout(() => window.forceGalleryReflow(), 50);
+                                    }
+                                    
                                     // Clean up imageLoader reference for memory
                                     setTimeout(() => {
                                         imageLoader.onload = null;
@@ -1161,10 +1166,38 @@ function initLazyLoading() {
         }
     }
 
+    // Force reflow function for iOS column layout issues
+    const forceGalleryReflow = () => {
+        const galleryGrids = document.querySelectorAll('.gallery-grid');
+        galleryGrids.forEach(grid => {
+            // Force reflow by temporarily changing display
+            const originalDisplay = grid.style.display;
+            grid.style.display = 'none';
+            
+            // Trigger reflow
+            grid.offsetHeight; // eslint-disable-line no-unused-expressions
+            
+            // Restore display
+            grid.style.display = originalDisplay || '';
+            
+            // Additional force reflow by reading computed style
+            window.getComputedStyle(grid).columnCount;
+        });
+        
+        console.log('🔄 Forced gallery reflow for column recalculation');
+    };
+
     // Handle dynamic content (when filters change)
     const refreshLazyLoading = () => {
         // Re-observe only visible images when filters change
         observeVisibleImages();
+        
+        // Force reflow after filter change (especially important for iOS)
+        if (isIOS) {
+            setTimeout(() => {
+                forceGalleryReflow();
+            }, 100);
+        }
         
         // iOS-specific: Additional fallback after filter change
         if (isIOS) {
@@ -1190,6 +1223,9 @@ function initLazyLoading() {
                             img.classList.add('lazy-loaded');
                         }
                     });
+                    
+                    // Force reflow after loading images
+                    setTimeout(forceGalleryReflow, 200);
                 }
             }, 1500);
         }
@@ -1198,8 +1234,41 @@ function initLazyLoading() {
     // Make refresh function available globally for filter changes
     window.refreshLazyLoading = refreshLazyLoading;
     
+    // Make reflow function available globally
+    window.forceGalleryReflow = forceGalleryReflow;
+    
     // Optional: Log lazy loading initialization
     console.log(`Lazy loading initialized for ${lazyImages.length} images`);
+    
+    // iOS-specific: Add scroll listener to force reflow periodically
+    if (isIOS) {
+        let scrollReflowTimer;
+        let lastReflowTime = Date.now();
+        
+        const debouncedReflow = () => {
+            clearTimeout(scrollReflowTimer);
+            scrollReflowTimer = setTimeout(() => {
+                // Only reflow if enough time has passed (avoid too frequent reflows)
+                const now = Date.now();
+                if (now - lastReflowTime > 1000) {
+                    forceGalleryReflow();
+                    lastReflowTime = now;
+                }
+            }, 300);
+        };
+        
+        window.addEventListener('scroll', debouncedReflow, { passive: true });
+        
+        // Also reflow on orientation change
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                forceGalleryReflow();
+                lastReflowTime = Date.now();
+            }, 500);
+        });
+        
+        console.log('🍎 iOS: Gallery reflow listeners added');
+    }
     
     // Force load images that are immediately visible (for testing)
     lazyImages.forEach(img => {
