@@ -1222,9 +1222,6 @@ p {
 .gallery-grid {
     columns: 3;
     column-gap: 1rem;
-    -webkit-column-count: 3;
-    -webkit-column-gap: 1rem;
-    column-count: 3;
     position: relative;
     z-index: 2;
 }
@@ -1233,9 +1230,6 @@ p {
     .gallery-grid {
         columns: 2;
         column-gap: 2rem;
-        -webkit-column-count: 2;
-        -webkit-column-gap: 2rem;
-        column-count: 2;
     }
 }
 
@@ -1244,20 +1238,12 @@ p {
     .gallery-grid {
         columns: 2;
         column-gap: 0.8rem;
-        -webkit-column-gap: 0.8rem;
-        -webkit-column-count: 2;
-        column-count: 2;
-        -webkit-column-fill: balance;
-        column-fill: balance;
     }
 
     /* All view should use 1 column on mobile for better overview card display */
     .gallery-grid.gallery-grid--all-view {
         columns: 1;
         column-gap: 0;
-        -webkit-column-gap: 0;
-        -webkit-column-count: 1;
-        column-count: 1;
     }
 }
 
@@ -2343,9 +2329,6 @@ p {
     .gallery-grid {
         columns: 2; /* Default to 2 columns for category views */
         column-gap: 0.5rem;
-        -webkit-column-count: 2;
-        -webkit-column-gap: 0.5rem;
-        column-count: 2;
         display: block; /* Keep using columns */
     }
     
@@ -2353,9 +2336,6 @@ p {
     .gallery-grid.gallery-grid--all-view {
         columns: 1;
         column-gap: 0;
-        -webkit-column-count: 1;
-        -webkit-column-gap: 0;
-        column-count: 1;
     }
     
     .gallery-grid .category-overview-item {
@@ -2445,40 +2425,14 @@ p {
     .gallery-item img {
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
     }
     
     .gallery-grid {
-        -webkit-column-fill: balance;
-        column-fill: balance;
-        -webkit-column-break-inside: avoid;
-        break-inside: avoid;
-        overflow: visible;
-        -webkit-transform: translateZ(0);
+        -webkit-column-fill: auto;
+        column-fill: auto;
+        overflow: hidden;
         transform: translateZ(0);
-        -webkit-perspective: 1000;
-        perspective: 1000;
-    }
-    
-    .gallery-item {
-        -webkit-column-break-inside: avoid;
-        page-break-inside: avoid;
-        break-inside: avoid;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        display: inline-block;
-        width: 100%;
-    }
-    
-    .category-overview-item {
-        -webkit-column-break-inside: avoid;
-        page-break-inside: avoid;
-        break-inside: avoid;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        display: inline-block;
-        width: 100%;
+        will-change: transform;
     }
 }
 
