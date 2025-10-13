@@ -2425,14 +2425,28 @@ p {
     .gallery-item img {
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
+        display: block;
     }
     
     .gallery-grid {
-        -webkit-column-fill: auto;
-        column-fill: auto;
-        overflow: hidden;
-        transform: translateZ(0);
-        will-change: transform;
+        -webkit-column-fill: balance;
+        column-fill: balance;
+        overflow: visible;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    
+    /* Ensure items align properly in columns */
+    .gallery-item {
+        display: block;
+        margin-top: 0;
+        padding-top: 0;
+    }
+    
+    .category-overview-item {
+        display: block;
+        margin-top: 0;
+        padding-top: 0;
     }
 }
 
