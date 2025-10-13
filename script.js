@@ -877,10 +877,7 @@ function initLazyLoading() {
                                     
                                     // Force gallery reflow after image loads (iOS column layout fix)
                                     if (window.forceGalleryReflow) {
-                                        // Immediate reflow
-                                        requestAnimationFrame(() => window.forceGalleryReflow());
-                                        // Second reflow after a short delay
-                                        setTimeout(() => window.forceGalleryReflow(), 100);
+                                        setTimeout(() => window.forceGalleryReflow(), 50);
                                     }
                                     
                                     // Clean up imageLoader reference for memory
@@ -1173,7 +1170,7 @@ function initLazyLoading() {
     const forceGalleryReflow = () => {
         const galleryGrids = document.querySelectorAll('.gallery-grid');
         galleryGrids.forEach(grid => {
-            // Method 1: Force reflow by temporarily changing display
+            // Force reflow by temporarily changing display
             const originalDisplay = grid.style.display;
             grid.style.display = 'none';
             
@@ -1183,22 +1180,8 @@ function initLazyLoading() {
             // Restore display
             grid.style.display = originalDisplay || '';
             
-            // Method 2: Force column recalculation by temporarily changing column count
-            const originalColumns = grid.style.columnCount;
-            grid.style.columnCount = '1';
-            grid.offsetHeight; // Force reflow
-            grid.style.columnCount = originalColumns || '';
-            
-            // Method 3: Read computed styles to force recalculation
-            const computed = window.getComputedStyle(grid);
-            computed.columnCount;
-            computed.columnGap;
-            
-            // Method 4: Force all images in grid to recalculate
-            const images = grid.querySelectorAll('img');
-            images.forEach(img => {
-                img.offsetHeight; // eslint-disable-line no-unused-expressions
-            });
+            // Additional force reflow by reading computed style
+            window.getComputedStyle(grid).columnCount;
         });
         
         console.log('🔄 Forced gallery reflow for column recalculation');
@@ -1284,63 +1267,7 @@ function initLazyLoading() {
             }, 500);
         });
         
-        // iOS: Aggressive reflow on image load events
-        let loadedImageCount = 0;
-        const imageLoadHandler = () => {
-            loadedImageCount++;
-            // Force reflow after every 2-3 images load (especially important for column breaks)
-            if (loadedImageCount % 2 === 0 || loadedImageCount <= 5) {
-                requestAnimationFrame(() => {
-                    forceGalleryReflow();
-                });
-            }
-        };
-        
-        // Listen to all image load events
-        document.addEventListener('load', imageLoadHandler, true);
-        
-        // iOS: Force aggressive initial reflow sequence
-        const aggressiveInitialReflow = () => {
-            // Multiple reflows with delays to catch different rendering stages
-            forceGalleryReflow();
-            
-            setTimeout(() => forceGalleryReflow(), 100);
-            setTimeout(() => forceGalleryReflow(), 300);
-            setTimeout(() => forceGalleryReflow(), 500);
-            setTimeout(() => forceGalleryReflow(), 1000);
-            setTimeout(() => forceGalleryReflow(), 2000);
-        };
-        
-        // Trigger on page load and after filter changes
-        setTimeout(aggressiveInitialReflow, 100);
-        
-        // iOS: Mutation observer to detect when images change and force reflows
-        const galleryGrids = document.querySelectorAll('.gallery-grid');
-        const mutationObserver = new MutationObserver((mutations) => {
-            let shouldReflow = false;
-            mutations.forEach(mutation => {
-                if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
-                    shouldReflow = true;
-                } else if (mutation.type === 'childList') {
-                    shouldReflow = true;
-                }
-            });
-            
-            if (shouldReflow) {
-                requestAnimationFrame(() => forceGalleryReflow());
-            }
-        });
-        
-        galleryGrids.forEach(grid => {
-            mutationObserver.observe(grid, {
-                attributes: true,
-                attributeFilter: ['src', 'style', 'class'],
-                childList: true,
-                subtree: true
-            });
-        });
-        
-        console.log('🍎 iOS: Gallery reflow listeners added with aggressive column fix and mutation observer');
+        console.log('🍎 iOS: Gallery reflow listeners added');
     }
     
     // Force load images that are immediately visible (for testing)
