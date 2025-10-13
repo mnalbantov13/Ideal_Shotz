@@ -2434,12 +2434,6 @@ p {
         transform: translateZ(0);
         will-change: transform;
     }
-    
-    /* Fix iOS column alignment - prevent offset in second column */
-    .gallery-item,
-    .category-overview-item {
-        vertical-align: top;
-    }
 }
 
 .album-title {
