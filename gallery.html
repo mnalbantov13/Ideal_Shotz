@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css?v=1.0.30">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -527,6 +528,25 @@
                 </div>
             </div>
 
+             <h3 class="album-title" data-category="cars">Mercedes G Brabus 700</h3>
+            <div class="gallery-grid" id="gallery-grid">
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="https://res.cloudinary.com/dtezleq3h/image/upload/v1760456284/G_Brabus_700_1.webp" alt="Car 51">
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="https://res.cloudinary.com/dtezleq3h/image/upload/v1760456282/G_Brabus_700_2.webp" alt="Car 52">
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="https://res.cloudinary.com/dtezleq3h/image/upload/v1760456282/G_Brabus_700_4.webp" alt="Car 53">
+                </div>
+
+                <div class="gallery-item" data-category="cars" onclick="openModal(this)">
+                    <img src="https://res.cloudinary.com/dtezleq3h/image/upload/v1760456282/G_Brabus_700_3.webp" alt="Car 54">
+                </div>
+            </div>
+
             <h3 class="album-title" data-category="cars">Mini Cooper S</h3>
             <div class="gallery-grid" id="gallery-grid">
                 <div class="gallery-item" data-category="cars" onclick="openModal(this)">
@@ -607,6 +627,30 @@
                     <img src="images/Blur/Events/Prom (7).webp" data-src="images/Events/Prom (7).webp" alt="Events 13">
                 </div>
             </div>
+
+            <h3 class="album-title" data-category="event">Gumball 3000</h3>
+            <div class="gallery-grid" id="gallery-grid">
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Gumball (1).webp"  alt="Events 14">
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Gumball (3).webp"  alt="Events 16">
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Gumball (4).webp"  alt="Events 17">
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Gumball (5).webp"  alt="Events 17">
+                </div>
+
+                <div class="gallery-item" data-category="event" onclick="openModal(this)">
+                    <img src="images/Events/Gumball (2).webp" alt="Events 15">
+                </div>
+            </div>
+
 
             <h3 class="album-title" data-category="event">BMW Fest 2025</h3>
             <div class="gallery-grid" id="gallery-grid">
@@ -1286,6 +1330,15 @@
     </footer>
 
     <script src="script.js?v=1.0.30"></script>
+    <script>
+        // Parse emojis (including flags) into images on all platforms
+        if (typeof twemoji !== 'undefined') {
+            twemoji.parse(document.body, {
+                folder: 'svg',
+                ext: '.svg'
+            });
+        }
+    </script>
 </body>
 </html>
 
