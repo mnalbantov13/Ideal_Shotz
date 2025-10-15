@@ -145,8 +145,8 @@
 
     <script src="script.js?v=1.0.30"></script>
     <script>
-        // Parse emojis (including flags) into images on all platforms
-        if (typeof twemoji !== 'undefined') {
+        // Parse emojis (including flags) into images on Windows only
+        if (typeof twemoji !== 'undefined' && (navigator.platform.includes('Win') || navigator.userAgent.includes('Windows'))) {
             twemoji.parse(document.body, {
                 folder: 'svg',
                 ext: '.svg'
