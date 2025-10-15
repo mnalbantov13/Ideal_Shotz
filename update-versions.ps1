@@ -11,9 +11,13 @@ $htmlFiles = @(
     "index.html",
     "gallery.html", 
     "contact.html",
+    "prom.html",
+    "prom-register.html",
     "bg\index.html",
     "bg\gallery.html",
-    "bg\contact.html"
+    "bg\contact.html",
+    "bg\prom.html",
+    "bg\prom-register.html"
 )
 
 # Find current version number from any file
