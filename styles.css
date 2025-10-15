@@ -14,6 +14,8 @@
     --overlay: rgba(54, 69, 79, 0.85);
 }
 
+
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -292,15 +294,15 @@ p {
 }
 
 .btn-secondary {
-    border: 2px solid var(--charcoal);
-    color: var(--charcoal);
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
+    background: linear-gradient(135deg, var(--charcoal) 0%, var(--dark-charcoal) 100%);
+    color: white;
+    border-color: var(--charcoal);
+    box-shadow: 0 8px 25px var(--shadow);
+    margin-top: 0.5rem;
 }
 
 .btn-secondary:hover {
-    background: var(--charcoal);
-    color: white;
+    background: linear-gradient(135deg, var(--dark-charcoal) 0%, var(--black) 100%);
     transform: translateY(-3px);
     box-shadow: 0 15px 35px var(--shadow);
 }
@@ -335,7 +337,7 @@ p {
     height: 100%;
     object-fit: cover;
     opacity: 0.8;
-    filter: blur(0.5px);
+    filter: blur(2px);
 }
 
 .hero-overlay {
@@ -348,6 +350,7 @@ p {
         rgba(245, 245, 245, 0.4) 0%, 
         rgba(224, 224, 224, 0.3) 50%,
         rgba(245, 245, 245, 0.4) 100%);
+    opacity: 0.6;
 }
 
 /* Mobile hero overlay - less overlay to show more background */
@@ -836,6 +839,15 @@ p {
     margin-bottom: 1rem;
 }
 
+.featured-work .section-title {
+    display: block;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    transform: none;
+    margin-bottom: 3rem;
+}
+
 .gallery-preview {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -974,27 +986,41 @@ p {
 .page-header {
     padding: 7rem 0 5rem;
     text-align: center;
-    background: linear-gradient(135deg, 
-        rgba(54, 69, 79, 0.95) 0%, 
-        rgba(44, 56, 64, 0.95) 50%,
-        rgba(36, 45, 51, 0.95) 100%);
+    background: black;
     color: white;
     position: relative;
     overflow: hidden;
+    opacity: 0.9;
+}
+
+.contact-header {
+    padding: 10rem 0 8rem;
+    min-height: 60vh;
+}
+
+.contact-header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/Contact_Hero.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+    filter: blur(2.5px);
 }
 
 .gallery-hero {
     padding: 10rem 0 8rem;
-    background: linear-gradient(135deg, 
-        rgba(44, 44, 44, 0.95) 0%, 
-        rgba(63, 63, 63, 0.95) 50%,
-        rgba(24, 24, 24, 0.95) 100%);
+    background: black;
     color: white;
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
-    min-height: 60vh;
+    min-height: 60vh;;
 }
 
 .gallery-hero-background {
@@ -1007,7 +1033,7 @@ p {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.6;
+    opacity: 0.75;
 }
 
 .hero-pattern {
@@ -1730,6 +1756,833 @@ p {
 
 .form-group:last-child {
     margin-bottom: 3rem;
+}
+
+/* ===================================
+   PROM PAGE STYLES
+   =================================== */
+
+/* Prom Hero Section */
+.prom-hero {
+    position: relative;
+    padding: 12rem 0 8rem;
+    text-align: center;
+    overflow: hidden;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+}
+
+.prom-hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.prom-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter:blur(1.5px);
+    
+}
+
+.prom-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.55;
+    background: black;
+    
+    
+}
+
+.prom-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.prom-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    background: none;
+    -webkit-text-fill-color: unset;
+    text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-out;
+    background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.8) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.prom-subtitle {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 0.5rem;
+    position: relative;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.prom-subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+}
+
+.prom-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pricing Section */
+.pricing-section {
+    padding: 6rem 0;
+    background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+    perspective: 1000px;
+}
+
+.pricing-card {
+    background: white;
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.pricing-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.pricing-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.pricing-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--charcoal), var(--dark-charcoal));
+}
+
+.pricing-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.pricing-card:hover::after {
+    left: 100%;
+}
+
+.pricing-card.bronze::before {
+    background: linear-gradient(90deg, #CD7F32, #E89C54, #CD7F32);
+    box-shadow: 0 2px 10px rgba(205, 127, 50, 0.3);
+}
+
+.pricing-card.silver::before {
+    background: linear-gradient(90deg, #C0C0C0, #E8E8E8, #C0C0C0);
+    box-shadow: 0 2px 10px rgba(192, 192, 192, 0.3);
+}
+
+.pricing-card.gold::before {
+    background: linear-gradient(90deg, #FFD700, #FFF200, #FFD700);
+    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.4);
+}
+
+.pricing-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+}
+
+.pricing-card.bronze:hover {
+    box-shadow: 0 25px 70px rgba(205, 127, 50, 0.2);
+}
+
+.pricing-card.silver:hover {
+    box-shadow: 0 25px 70px rgba(192, 192, 192, 0.25);
+}
+
+.pricing-card.gold:hover {
+    box-shadow: 0 25px 70px rgba(255, 215, 0, 0.3);
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.package-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.bronze .package-icon {
+    color: #CD7F32;
+    background: linear-gradient(135deg, #CD7F32, #E89C54);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.silver .package-icon {
+    color: #C0C0C0;
+    background: linear-gradient(135deg, #A8A8A8, #E8E8E8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gold .package-icon {
+    color: #FFD700;
+    background: linear-gradient(135deg, #FFD700, #FFF200);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.package-name {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+    background: none;
+    -webkit-text-fill-color: unset;
+}
+
+.package-price {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin: 1.5rem 0;
+}
+
+.price-euro {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--charcoal);
+}
+
+.price-lev {
+    font-size: 1rem;
+    color: var(--dark-grey);
+}
+
+.price-per {
+    font-size: 0.9rem;
+    color: var(--accent-grey);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pricing-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pricing-features li {
+    padding: 1rem 0;
+    color: var(--dark-grey);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.pricing-features li:hover {
+    padding-left: 0.5rem;
+    color: var(--charcoal);
+}
+
+.pricing-features li:last-child {
+    border-bottom: none;
+}
+
+.pricing-features i {
+    color: #4CAF50;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    background: #e8f5e9;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.btn-package {
+    width: 100%;
+    margin-top: 2.5rem;
+    padding: 1.2rem 2rem;
+    background: linear-gradient(135deg, var(--charcoal), var(--dark-charcoal));
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-package::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-package:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-package:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(54, 69, 79, 0.4);
+}
+
+.bronze .btn-package {
+    background: linear-gradient(135deg, #CD7F32, #B87333);
+}
+
+.bronze .btn-package:hover {
+    box-shadow: 0 10px 30px rgba(205, 127, 50, 0.4);
+}
+
+.silver .btn-package {
+    background: linear-gradient(135deg, #A8A8A8, #8A8A8A);
+}
+
+.silver .btn-package:hover {
+    box-shadow: 0 10px 30px rgba(168, 168, 168, 0.4);
+}
+
+.gold .btn-package {
+    background: linear-gradient(135deg, #FFD700, #FFC700);
+    color: var(--charcoal);
+}
+
+.gold .btn-package:hover {
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+}
+
+/* Prom Gallery Section */
+.prom-gallery-section {
+    padding: 7rem 0;
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.section-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    text-align: center;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+    background: none;
+    -webkit-text-fill-color: unset;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--charcoal), var(--dark-charcoal));
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--dark-grey);
+    font-size: 1.2rem;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+}
+
+.prom-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.prom-gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    aspect-ratio: 4/5;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.prom-gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.prom-gallery-item:hover::before {
+    opacity: 1;
+}
+
+.prom-gallery-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.prom-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.prom-gallery-item:hover img {
+    transform: scale(1.15);
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 8rem 0;
+    background: linear-gradient(135deg, var(--charcoal) 0%, var(--dark-charcoal) 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-content h2 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: white;
+    margin-bottom: 1.5rem;
+    background: none;
+    -webkit-text-fill-color: unset;
+    font-weight: 700;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.cta-content p {
+    font-size: 1.3rem;
+    color: var(--light-grey);
+    margin-bottom: 3rem;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.btn-lg {
+    padding: 1.5rem 4rem;
+    font-size: 1.2rem;
+    background: white;
+    color: var(--charcoal);
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.btn-lg:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    background: var(--light-grey);
+}
+
+/* ===================================
+   PROM REGISTRATION FORM STYLES
+   =================================== */
+
+.prom-register-hero {
+    background: linear-gradient(135deg, var(--charcoal) 0%, var(--dark-charcoal) 100%);
+    padding: 6rem 0 4rem;
+    text-align: center;
+}
+
+.prom-register-hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: white;
+    margin-bottom: 1rem;
+    background: none;
+    -webkit-text-fill-color: unset;
+}
+
+.prom-register-hero p {
+    font-size: 1.2rem;
+    color: var(--medium-grey);
+}
+
+.prom-register-section {
+    padding: 4rem 0 6rem;
+}
+
+.prom-register-form {
+    max-width: 900px;
+}
+
+.prom-register-form h2 {
+    text-align: center;
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+}
+
+.form-intro {
+    text-align: center;
+    color: var(--dark-grey);
+    margin-bottom: 3rem;
+    font-size: 1.05rem;
+}
+
+.form-section {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--charcoal);
+}
+
+.form-section-title {
+    color: var(--charcoal);
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: none;
+    -webkit-text-fill-color: unset;
+}
+
+.form-section-title i {
+    color: var(--charcoal);
+    font-size: 1.2rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--charcoal);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--medium-grey);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--charcoal);
+    box-shadow: 0 0 0 3px rgba(54, 69, 79, 0.1);
+}
+
+.form-group select {
+    cursor: pointer;
+    background-color: white;
+}
+
+.package-summary {
+    margin-top: 2rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 2px solid var(--charcoal);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.package-summary h4 {
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.summary-content p {
+    margin: 0.5rem 0;
+    color: var(--dark-grey);
+    font-size: 1rem;
+}
+
+.summary-content strong {
+    color: var(--charcoal);
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.btn-submit {
+    padding: 1.2rem 3rem;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.btn-secondary {
+    background: var(--medium-grey);
+    color: var(--charcoal);
+    padding: 1.2rem 2.5rem;
+    border-radius: 55px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.btn-secondary:hover {
+    background: var(--dark-grey);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.success-message {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: #e8f5e9;
+    border-radius: 15px;
+    border: 2px solid #4CAF50;
+}
+
+.success-message i {
+    font-size: 4rem;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+}
+
+.success-message h3 {
+    color: #2e7d32;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    background: none;
+    -webkit-text-fill-color: unset;
+}
+
+.success-message p {
+    color: #1b5e20;
+    font-size: 1.1rem;
+}
+
+/* Responsive for Registration Form */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .form-section {
+        padding: 1.5rem 1rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .btn-submit,
+    .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .prom-register-hero {
+        padding: 4rem 0 3rem;
+    }
+}
+
+/* Responsive Design for Prom Page */
+@media (max-width: 768px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .prom-gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+    
+    .prom-hero {
+        padding: 8rem 0 5rem;
+        min-height: 500px;
+    }
+    
+    .prom-title {
+        font-size: 2.5rem;
+    }
+    
+    .prom-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .package-icon {
+        font-size: 3rem;
+    }
+    
+    .btn-lg {
+        padding: 1.2rem 2.5rem;
+        font-size: 1rem;
+    }
+    
+    .cta-section {
+        padding: 5rem 0;
+    }
+    
+    .pricing-card {
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .prom-hero {
+        min-height: 400px;
+    }
+    
+    .pricing-card {
+        border-radius: 16px;
+    }
+    
+    .prom-gallery-item {
+        border-radius: 12px;
+    }
 }
 
 

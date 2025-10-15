@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prom 2026 | Ideal Shotz</title>
+    <link rel="stylesheet" href="styles.css?v=1.0.30">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="prom.html" class="nav-link active">Prom</a></li>
+                <li class="nav-item logo-item">
+                    <a href="index.html"><img src="images/Logo-04-1.png" alt="Ideal Shotz Logo" class="nav-logo"></a>
+                </li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <div class="lang-toggle" onclick="toggleLanguageMenu()">
+                    <span class="flag">🇬🇧</span>
+                    <span class="lang-text">EN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="lang-menu" id="langMenu">
+                    <a href="prom.html" class="lang-option active">
+                        <span class="flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                    </a>
+                    <a href="bg/prom.html" class="lang-option">
+                        <span class="flag">🇧🇬</span>
+                        <span class="lang-name">Български</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Prom Header -->
+    <section class="page-header prom-hero">
+        <div class="prom-hero-background">
+            <img src="images/Prom_Hero.webp" alt="Prom Background" class="prom-hero-img">
+            <div class="prom-hero-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="prom-hero-content">
+                <h1 class="prom-title">Prom Photoshoots</h1>
+                <span class="prom-subtitle">Capture your most special day with professional photos and videos</span>
+                <div class="scroll-arrow">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Packages Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="pricing-grid">
+                
+                <!-- Bronze Package -->
+                <div class="pricing-card bronze">
+                    <div class="pricing-header">
+                        <div class="package-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3 class="package-name">Bronze Package</h3>
+                        <div class="package-price">
+                            <span class="price-euro">€50</span>
+                            <span class="price-lev">(97.79лв)</span>
+                            <span class="price-per">per person</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> <strong>3 photoshoots:</strong> day, night and from the prom</li>
+                            <li><i class="fas fa-check"></i> <strong>Location:</strong> of your choice (outdoor)</li>
+                            <li><i class="fas fa-check"></i> Number of edited photos of your choice</li>
+                            <li><i class="fas fa-check"></i> All shots in digital format</li>
+                        </ul>
+                    </div>
+                    <a href="prom-register.html?package=bronze" class="btn btn-package">Choose Package</a>
+                </div>
+
+                <!-- Silver Package -->
+                <div class="pricing-card silver">
+                    <div class="pricing-header">
+                        <div class="package-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="package-name">Silver Package</h3>
+                        <div class="package-price">
+                            <span class="price-euro">€75</span>
+                            <span class="price-lev">(146.69лв)</span>
+                            <span class="price-per">per person</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> <strong>Everything from Bronze package</strong></li>
+                            <li><i class="fas fa-check"></i> Album creation with 2 pages per person</li>
+                            <li><i class="fas fa-check"></i> Free copies for class teacher and principal</li>
+                            <li><i class="fas fa-check"></i> Option to provide contact details (phone, Instagram, Facebook)</li>
+                            <li><i class="fas fa-check"></i> Option for personal quote in the album</li>
+                        </ul>
+                    </div>
+                    <a href="prom-register.html?package=silver" class="btn btn-package">Choose Package</a>
+                </div>
+
+                <!-- Gold Package -->
+                <div class="pricing-card gold">
+                    <div class="pricing-header">
+                        <div class="package-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3 class="package-name">Gold Package</h3>
+                        <div class="package-price">
+                            <span class="price-euro">€100</span>
+                            <span class="price-lev">(195.58лв)</span>
+                            <span class="price-per">per person</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> <strong>Everything from Silver package</strong></li>
+                            <li><i class="fas fa-check"></i> Video recording with messages for the class</li>
+                            <li><i class="fas fa-check"></i> Option to record video from the graduation/prom</li>
+                            <li><i class="fas fa-check"></i> QR code integration to videos in the album</li>
+                        </ul>
+                    </div>
+                    <a href="prom-register.html?package=gold" class="btn btn-package">Choose Package</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Prom Gallery Section -->
+    <section class="prom-gallery-section">
+        <div class="container">
+            <h2 class="section-title">Our Work from Proms</h2>
+            <p class="section-subtitle">Get inspired by our previous projects</p>
+            
+            <div class="prom-gallery-grid">
+                <!-- Prom images from People category -->
+                <div class="prom-gallery-item">
+                    <img src="images/.webp">
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ideal Shotz</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/ideal_shotz/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/people/Ideal-Shotz/100067024976977/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.tiktok.com/@ideal_shotz" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                        <a href="mailto:shotz.ideal@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="prom.html">Prom 2026</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +359 889 501 250</p>
+                        <p><i class="fas fa-envelope"></i> shotz.ideal@gmail.com</p>
+                        <p><i class="fas fa-location-dot"></i> Sofia, Bulgaria</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ideal Shotz. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for fullscreen image view -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-nav">
+            <button class="modal-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="modal-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <script src="script.js?v=1.0.30"></script>
+    <script>
+        // Modal functionality for prom gallery
+        const promGalleryItems = document.querySelectorAll('.prom-gallery-item img');
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = document.querySelector('.modal-close');
+        const prevBtn = document.querySelector('.modal-prev');
+        const nextBtn = document.querySelector('.modal-next');
+        let currentImageIndex = 0;
+
+        promGalleryItems.forEach((img, index) => {
+            img.addEventListener('click', function() {
+                modal.style.display = 'flex';
+                modalImg.src = this.dataset.src || this.src;
+                currentImageIndex = index;
+            });
+        });
+
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        prevBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            currentImageIndex = (currentImageIndex - 1 + promGalleryItems.length) % promGalleryItems.length;
+            const img = promGalleryItems[currentImageIndex];
+            modalImg.src = img.dataset.src || img.src;
+        });
+
+        nextBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            currentImageIndex = (currentImageIndex + 1) % promGalleryItems.length;
+            const img = promGalleryItems[currentImageIndex];
+            modalImg.src = img.dataset.src || img.src;
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (modal.style.display === 'flex') {
+                if (e.key === 'Escape') {
+                    modal.style.display = 'none';
+                } else if (e.key === 'ArrowLeft') {
+                    prevBtn.click();
+                } else if (e.key === 'ArrowRight') {
+                    nextBtn.click();
+                }
+            }
+        });
+    </script>
+    <script>
+        // Parse emojis (including flags) into images on Windows only
+        if (typeof twemoji !== 'undefined' && (navigator.platform.includes('Win') || navigator.userAgent.includes('Windows'))) {
+            twemoji.parse(document.body, {
+                folder: 'svg',
+                ext: '.svg'
+            });
+        }
+    </script>
+</body>
+</html>

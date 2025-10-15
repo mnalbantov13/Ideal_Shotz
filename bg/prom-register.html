@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация за Бал 2026 | Ideal Shotz</title>
+    <link rel="stylesheet" href="../styles.css?v=1.0.30">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "ypLtPGxmSdgzAI-mK",
+        });
+    })();
+    </script>
+    <style>
+        body {
+            font-family: "Source Sans 3", sans-serif;
+            font-optical-sizing: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="index.html" class="nav-link">Начало</a></li>
+                <li class="nav-item"><a href="prom.html" class="nav-link">Бал 2026</a></li>
+                <li class="nav-item logo-item">
+                    <a href="index.html"><img src="../images/Logo-04-1.png" alt="Ideal Shotz Logo" class="nav-logo"></a>
+                </li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link">Галерия</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Контакти</a></li>
+            </ul>
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <div class="lang-toggle" onclick="toggleLanguageMenu()">
+                    <span class="flag">🇧🇬</span>
+                    <span class="lang-text">BG</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="lang-menu" id="langMenu">
+                    <a href="../prom-register.html" class="lang-option">
+                        <span class="flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                    </a>
+                    <a href="prom-register.html" class="lang-option active">
+                        <span class="flag">🇧🇬</span>
+                        <span class="lang-name">Български</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Registration Header -->
+    <section class="page-header prom-register-hero">
+        <div class="container">
+            <h1>Регистрация за Бал 2026</h1>
+            <p>Попълнете формата по-долу и ние ще се свържем с вас</p>
+        </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section class="contact-section prom-register-section">
+        <div class="container">
+            <div class="contact-form-centered">
+                <div class="contact-form prom-register-form">
+                    <h2>Форма за регистрация</h2>
+                    <p class="form-intro">Моля, попълнете всички задължителни полета, за да завършите регистрацията си</p>
+                    
+                    <form id="promRegisterForm">
+                        <!-- Personal Information -->
+                        <div class="form-section">
+                            <h3 class="form-section-title"><i class="fas fa-user"></i> Лична информация</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">Име *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Фамилия *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Имейл *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Телефонен номер *</label>
+                                    <input type="tel" id="phone" name="phone" required placeholder="+359...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- School Information -->
+                        <div class="form-section">
+                            <h3 class="form-section-title"><i class="fas fa-graduation-cap"></i> Информация за училището</h3>
+                            
+                            <div class="form-group">
+                                <label for="schoolName">Име на училището *</label>
+                                <input type="text" id="schoolName" name="schoolName" required placeholder="Например: СУ 'Христо Ботев'">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="graduationYear">Година на завършване *</label>
+                                    <select id="graduationYear" name="graduationYear" required>
+                                        <option value="">Изберете година</option>
+                                        <option value="2025">2025</option>
+                                        <option value="2026">2026</option>
+                                        <option value="2027">2027</option>
+                                        <option value="2028">2028</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="studentCount">Брой завършващи ученици *</label>
+                                    <input type="number" id="studentCount" name="studentCount" required min="1" placeholder="Например: 25">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Package Selection -->
+                        <div class="form-section">
+                            <h3 class="form-section-title"><i class="fas fa-box"></i> Избор на пакет</h3>
+                            
+                            <div class="form-group">
+                                <label for="package">Изберете пакет *</label>
+                                <select id="package" name="package" required>
+                                    <option value="">Изберете пакет</option>
+                                    <option value="bronze">Bronze пакет - 50€ (97.79лв) на човек</option>
+                                    <option value="silver">Silver пакет - 75€ (146.69лв) на човек</option>
+                                    <option value="gold">Gold пакет - 100€ (195.58лв) на човек</option>
+                                </select>
+                            </div>
+
+                            <div class="package-summary" id="packageSummary" style="display: none;">
+                                <h4>Обобщение на избрания пакет:</h4>
+                                <div class="summary-content">
+                                    <p><strong>Пакет:</strong> <span id="summaryPackage">-</span></p>
+                                    <p><strong>Цена на човек:</strong> <span id="summaryPrice">-</span></p>
+                                    <p><strong>Обща цена:</strong> <span id="summaryTotal">-</span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Additional Information -->
+                        <div class="form-section">
+                            <h3 class="form-section-title"><i class="fas fa-info-circle"></i> Допълнителна информация</h3>
+                            
+                            <div class="form-group">
+                                <label for="additionalInfo">Допълнителни бележки или специални искания</label>
+                                <textarea id="additionalInfo" name="additionalInfo" rows="5" placeholder="Споделете всякакви допълнителни детайли или специални искания тук..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-submit">
+                                <i class="fas fa-paper-plane"></i> Изпратете регистрацията
+                            </button>
+                            <a href="prom.html" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Назад към пакетите
+                            </a>
+                        </div>
+                    </form>
+
+                    <div id="successMessage" class="success-message" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Благодарим за регистрацията!</h3>
+                        <p>Вашата регистрация беше изпратена успешно. Ще се свържем с вас скоро.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ideal Shotz</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/ideal_shotz/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/people/Ideal-Shotz/100067024976977/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.tiktok.com/@ideal_shotz" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                        <a href="mailto:shotz.ideal@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Бърз достъп</h4>
+                    <ul>
+                        <li><a href="index.html">Начало</a></li>
+                        <li><a href="prom.html">Бал 2026</a></li>
+                        <li><a href="gallery.html">Галерия</a></li>
+                        <li><a href="contact.html">Контакти</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакти</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +359 889 501 250</p>
+                        <p><i class="fas fa-envelope"></i> shotz.ideal@gmail.com</p>
+                        <p><i class="fas fa-location-dot"></i> София, България</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ideal Shotz. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js?v=1.0.30"></script>
+    <script>
+        // Get package from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedPackage = urlParams.get('package');
+        
+        if (selectedPackage) {
+            document.getElementById('package').value = selectedPackage;
+            updatePackageSummary();
+        }
+
+        // Package prices
+        const packagePrices = {
+            'bronze': { name: 'Bronze пакет', priceEur: 50, priceBgn: 97.79 },
+            'silver': { name: 'Silver пакет', priceEur: 75, priceBgn: 146.69 },
+            'gold': { name: 'Gold пакет', priceEur: 100, priceBgn: 195.58 }
+        };
+
+        // Update package summary when package or student count changes
+        document.getElementById('package').addEventListener('change', updatePackageSummary);
+        document.getElementById('studentCount').addEventListener('input', updatePackageSummary);
+
+        function updatePackageSummary() {
+            const packageSelect = document.getElementById('package');
+            const studentCount = parseInt(document.getElementById('studentCount').value) || 0;
+            const summaryDiv = document.getElementById('packageSummary');
+            
+            if (packageSelect.value && studentCount > 0) {
+                const pkg = packagePrices[packageSelect.value];
+                const totalEur = pkg.priceEur * studentCount;
+                const totalBgn = pkg.priceBgn * studentCount;
+                
+                document.getElementById('summaryPackage').textContent = pkg.name;
+                document.getElementById('summaryPrice').textContent = `${pkg.priceEur}€ (${pkg.priceBgn}лв)`;
+                document.getElementById('summaryTotal').textContent = `${totalEur}€ (${totalBgn.toFixed(2)}лв) за ${studentCount} ученици`;
+                
+                summaryDiv.style.display = 'block';
+            } else {
+                summaryDiv.style.display = 'none';
+            }
+        }
+
+        // Form submission
+        document.getElementById('promRegisterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                schoolName: document.getElementById('schoolName').value,
+                graduationYear: document.getElementById('graduationYear').value,
+                studentCount: document.getElementById('studentCount').value,
+                package: document.getElementById('package').options[document.getElementById('package').selectedIndex].text,
+                additionalInfo: document.getElementById('additionalInfo').value || 'Няма',
+                totalPrice: document.getElementById('summaryTotal') ? document.getElementById('summaryTotal').textContent : '-'
+            };
+
+            // Send email using EmailJS
+            emailjs.send('service_qvg7h7c', 'template_bnt6xyk', {
+                to_name: 'Ideal Shotz Team',
+                from_name: formData.firstName + ' ' + formData.lastName,
+                message: `
+РЕГИСТРАЦИЯ ЗА БАЛ 2026
+
+ЛИЧНА ИНФОРМАЦИЯ:
+Име: ${formData.firstName} ${formData.lastName}
+Имейл: ${formData.email}
+Телефон: ${formData.phone}
+
+УЧИЛИЩЕ:
+Име на училището: ${formData.schoolName}
+Година на завършване: ${formData.graduationYear}
+Брой ученици: ${formData.studentCount}
+
+ИЗБРАН ПАКЕТ:
+${formData.package}
+Обща цена: ${formData.totalPrice}
+
+ДОПЪЛНИТЕЛНА ИНФОРМАЦИЯ:
+${formData.additionalInfo}
+                `,
+                reply_to: formData.email,
+                subject: 'Нова регистрация за Бал 2026 - ' + formData.schoolName
+            }).then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                document.getElementById('promRegisterForm').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+                document.querySelector('.form-intro').style.display = 'none';
+                
+                // Scroll to success message
+                document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, function(error) {
+                console.log('FAILED...', error);
+                alert('Възникна грешка при изпращането на формата. Моля, опитайте отново или се свържете с нас директно.');
+            });
+        });
+
+        // Parse emojis (including flags) into images on Windows only
+        if (typeof twemoji !== 'undefined' && (navigator.platform.includes('Win') || navigator.userAgent.includes('Windows'))) {
+            twemoji.parse(document.body, {
+                folder: 'svg',
+                ext: '.svg'
+            });
+        }
+    </script>
+</body>
+</html>

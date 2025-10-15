@@ -1,0 +1,51 @@
+/* Google Sans Font Face Declarations */
+
+@font-face {
+    font-family: 'Google Sans';
+    src: url('GoogleSans-Regular.woff2') format('woff2'),
+         url('GoogleSans-Regular.woff') format('woff'),
+         url('GoogleSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Google Sans';
+    src: url('GoogleSans-Medium.woff2') format('woff2'),
+         url('GoogleSans-Medium.woff') format('woff'),
+         url('GoogleSans-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Google Sans';
+    src: url('GoogleSans-Bold.woff2') format('woff2'),
+         url('GoogleSans-Bold.woff') format('woff'),
+         url('GoogleSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Google Sans';
+    src: url('GoogleSans-Light.woff2') format('woff2'),
+         url('GoogleSans-Light.woff') format('woff'),
+         url('GoogleSans-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Google Sans';
+    src: url('GoogleSans-SemiBold.woff2') format('woff2'),
+         url('GoogleSans-SemiBold.woff') format('woff'),
+         url('GoogleSans-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
