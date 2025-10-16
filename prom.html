@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prom | Ideal Shotz</title>
-    <link rel="stylesheet" href="styles.css?v=1.0.35">
+    <link rel="stylesheet" href="styles.css?v=1.0.36">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
@@ -51,7 +51,7 @@
     <!-- Prom Header -->
     <section class="page-header prom-hero">
         <div class="prom-hero-background">
-            <img src="images/Prom_Hero.webp" alt="Prom Background" class="prom-hero-img">
+            <img src="images/Prom_Hero.webp" alt="Prom Background" class="prom-hero-img" loading="eager">
             <div class="prom-hero-overlay"></div>
         </div>
         <div class="container">
@@ -155,23 +155,41 @@
             
             <div class="prom-gallery-grid">
                 <!-- Prom images from People category -->
-                <div class="gallery-item prom-gallery-item" onclick="openModal(this)">
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading="lazy">
                     <img src="images/Prom/Prom (1).webp">
                 </div>
-                <div class="gallery-item prom-gallery-item" onclick="openModal(this)">
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading="lazy">
                     <img src="images/Prom/Prom (2).webp">
                 </div>
-                <div class="gallery-item prom-gallery-item" onclick="openModal(this)">
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading="lazy">
                     <img src="images/Prom/Prom (3).webp">
                 </div>
-                <div class="gallery-item prom-gallery-item" onclick="openModal(this)">
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading="lazy">
                     <img src="images/Prom/Prom (4).webp">
                 </div>
-                <div class="gallery-item prom-gallery-item" onclick="openModal(this)">
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading="lazy">
                     <img src="images/Prom/Prom (5).webp">
                 </div>
-                <div class="gallery-item prom-gallery-item" onclick="openModal(this)">
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading='lazy'>
                     <img src="images/Prom/Prom (6).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading='lazy'>
+                    <img src="images/Prom/Prom (7).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading='lazy'>
+                    <img src="images/Prom/Prom (8).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading='lazy'>
+                    <img src="images/Prom/Prom (9).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading='lazy'>
+                    <img src="images/Prom/Prom (10).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading='lazy'>
+                    <img src="images/Prom/Prom (11).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading='lazy'>
+                    <img src="images/Prom/Prom (12).webp">
                 </div>
             </div>
         </div>
@@ -237,7 +255,7 @@
         </div>
     </div>
 
-    <script src="script.js?v=1.0.35"></script>
+    <script src="script.js?v=1.0.36"></script>
     <script>
         // Parse emojis (including flags) into images on Windows only
         if (typeof twemoji !== 'undefined' && (navigator.platform.includes('Win') || navigator.userAgent.includes('Windows'))) {

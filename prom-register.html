@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prom Registration | Ideal Shotz</title>
-    <link rel="stylesheet" href="styles.css?v=1.0.35">
+    <link rel="stylesheet" href="styles.css?v=1.0.36">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
@@ -220,7 +220,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=1.0.35"></script>
+    <script src="script.js?v=1.0.36"></script>
     <script>
         // Get package from URL parameter
         const urlParams = new URLSearchParams(window.location.search);
@@ -274,37 +274,25 @@
                 schoolName: document.getElementById('schoolName').value,
                 graduationYear: document.getElementById('graduationYear').value,
                 studentCount: document.getElementById('studentCount').value,
-                package: document.getElementById('package').options[document.getElementById('package').selectedIndex].text,
-                additionalInfo: document.getElementById('additionalInfo').value || 'None',
-                totalPrice: document.getElementById('summaryTotal') ? document.getElementById('summaryTotal').textContent : '-'
+                packageName: document.getElementById('package').options[document.getElementById('package').selectedIndex].text,
+                pricePerPerson: document.getElementById('summaryPrice') ? document.getElementById('summaryPrice').textContent : '-',
+                totalPrice: document.getElementById('summaryTotal') ? document.getElementById('summaryTotal').textContent : '-',
+                additionalInfo: document.getElementById('additionalInfo').value || 'No additional information provided'
             };
 
-            // Send email using EmailJS
-            emailjs.send('service_qvg7h7c', 'template_bnt6xyk', {
-                to_name: 'Ideal Shotz Team',
-                from_name: formData.firstName + ' ' + formData.lastName,
-                message: `
-PROM REGISTRATION
-
-PERSONAL INFORMATION:
-Name: ${formData.firstName} ${formData.lastName}
-Email: ${formData.email}
-Phone: ${formData.phone}
-
-SCHOOL:
-School Name: ${formData.schoolName}
-Graduation Year: ${formData.graduationYear}
-Number of Students: ${formData.studentCount}
-
-SELECTED PACKAGE:
-${formData.package}
-Total Price: ${formData.totalPrice}
-
-ADDITIONAL INFORMATION:
-${formData.additionalInfo}
-                `,
-                reply_to: formData.email,
-                subject: 'New Prom Registration - ' + formData.schoolName
+            // Send email using EmailJS with template variables
+            emailjs.send('service_2l2impe', 'template_prom_reg', {
+                first_name: formData.firstName,
+                last_name: formData.lastName,
+                email: formData.email,
+                phone: formData.phone,
+                school_name: formData.schoolName,
+                graduation_year: formData.graduationYear,
+                student_count: formData.studentCount,
+                package_name: formData.packageName,
+                price_per_person: formData.pricePerPerson,
+                total_price: formData.totalPrice,
+                additional_info: formData.additionalInfo
             }).then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
                 document.getElementById('promRegisterForm').style.display = 'none';
@@ -314,8 +302,13 @@ ${formData.additionalInfo}
                 // Scroll to success message
                 document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, function(error) {
-                console.log('FAILED...', error);
-                alert('An error occurred while submitting the form. Please try again or contact us directly.');
+                console.error('FAILED...', error);
+                console.error('Error details:', {
+                    status: error.status,
+                    text: error.text,
+                    message: error.message
+                });
+                alert('An error occurred while submitting the form. Please try again or contact us directly.\n\nError: ' + (error.text || error.message || JSON.stringify(error)));
             });
         });
 
