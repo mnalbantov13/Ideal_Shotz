@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Регистрация за Бал 2026 | Ideal Shotz</title>
-    <link rel="stylesheet" href="../styles.css?v=1.0.34">
+    <title>Регистрация за бал | Ideal Shotz</title>
+    <link rel="stylesheet" href="../styles.css?v=1.0.35">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
         <div class="nav-container">
             <ul class="nav-list">
                 <li class="nav-item"><a href="index.html" class="nav-link">Начало</a></li>
-                <li class="nav-item"><a href="prom.html" class="nav-link">Бал 2026</a></li>
+                <li class="nav-item"><a href="prom.html" class="nav-link">Балове</a></li>
                 <li class="nav-item logo-item">
                     <a href="index.html"><img src="../images/Logo-04-1.png" alt="Ideal Shotz Logo" class="nav-logo"></a>
                 </li>
@@ -69,7 +69,7 @@
     <!-- Registration Header -->
     <section class="page-header prom-register-hero">
         <div class="container">
-            <h1>Регистрация за Бал 2026</h1>
+            <h1>Регистрация за бал</h1>
             <p>Попълнете формата по-долу и ние ще се свържем с вас</p>
         </div>
     </section>
@@ -208,7 +208,7 @@
                     <h4>Бърз достъп</h4>
                     <ul>
                         <li><a href="index.html">Начало</a></li>
-                        <li><a href="prom.html">Бал 2026</a></li>
+                        <li><a href="prom.html">Балове</a></li>
                         <li><a href="gallery.html">Галерия</a></li>
                         <li><a href="contact.html">Контакти</a></li>
                     </ul>
@@ -228,7 +228,7 @@
         </div>
     </footer>
 
-    <script src="../script.js?v=1.0.34"></script>
+    <script src="../script.js?v=1.0.35"></script>
     <script>
         // Get package from URL parameter
         const urlParams = new URLSearchParams(window.location.search);
@@ -292,7 +292,7 @@
                 to_name: 'Ideal Shotz Team',
                 from_name: formData.firstName + ' ' + formData.lastName,
                 message: `
-РЕГИСТРАЦИЯ ЗА БАЛ 2026
+РЕГИСТРАЦИЯ ЗА БАЛ
 
 ЛИЧНА ИНФОРМАЦИЯ:
 Име: ${formData.firstName} ${formData.lastName}
@@ -312,7 +312,7 @@ ${formData.package}
 ${formData.additionalInfo}
                 `,
                 reply_to: formData.email,
-                subject: 'Нова регистрация за Бал 2026 - ' + formData.schoolName
+                subject: 'Нова регистрация за бал - ' + formData.schoolName
             }).then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
                 document.getElementById('promRegisterForm').style.display = 'none';

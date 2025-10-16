@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бал 2026 | Ideal Shotz</title>
-    <link rel="stylesheet" href="../styles.css?v=1.0.34">
+    <title>Балове | Ideal Shotz</title>
+    <link rel="stylesheet" href="../styles.css?v=1.0.35">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
@@ -93,7 +93,7 @@
                     </div>
                     <div class="pricing-features">
                         <ul>
-                            <li><i class="fas fa-check"></i> <strong>3 фотосесии:</strong> дневна, нощна и от бала</li>
+                            <li><i class="fas fa-check"></i> <strong>3&nbsp;фотосесии:</strong> дневна, нощна и от бала</li>
                             <li><i class="fas fa-check"></i> <strong>Място:</strong> по избор (на открито)</li>
                             <li><i class="fas fa-check"></i> Брой обработени снимки по ваш избор</li>
                             <li><i class="fas fa-check"></i> Всички кадри в дигитален формат</li>
@@ -163,8 +163,23 @@
             
             <div class="prom-gallery-grid">
                 <!-- Prom images from People category -->
-                <div class="prom-gallery-item">
-                    <img src="/images/.webp">
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)">
+                    <img src="../images/Prom/Prom (1).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)">
+                    <img src="../images/Prom/Prom (2).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)">
+                    <img src="../images/Prom/Prom (3).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)">
+                    <img src="../images/Prom/Prom (4).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)">
+                    <img src="../images/Prom/Prom (5).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)">
+                    <img src="../images/Prom/Prom (6).webp">
                 </div>
             </div>
         </div>
@@ -192,7 +207,7 @@
                     <h4>Бърз достъп</h4>
                     <ul>
                         <li><a href="index.html">Начало</a></li>
-                        <li><a href="prom.html">Бал 2026</a></li>
+                        <li><a href="prom.html">Балове</a></li>
                         <li><a href="gallery.html">Галерия</a></li>
                         <li><a href="contact.html">Контакти</a></li>
                     </ul>
@@ -212,72 +227,26 @@
         </div>
     </footer>
 
-    <!-- Modal for fullscreen image view -->
+    <!-- Modal for Image Preview -->
     <div id="imageModal" class="modal">
-        <span class="modal-close">&times;</span>
-        <img class="modal-content" id="modalImage">
-        <div class="modal-nav">
-            <button class="modal-prev"><i class="fas fa-chevron-left"></i></button>
-            <button class="modal-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <button class="nav-btn nav-btn-prev" onclick="navigateImage(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="nav-btn nav-btn-next" onclick="navigateImage(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="image-container">
+                <img id="modalImage" src="" alt="">
+                <div class="image-counter">
+                    <span id="currentImageNumber">1</span> / <span id="totalImages">1</span>
+                </div>
+            </div>
         </div>
     </div>
 
-    <script src="../script.js?v=1.0.34"></script>
-    <script>
-        // Modal functionality for prom gallery
-        const promGalleryItems = document.querySelectorAll('.prom-gallery-item img');
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        const closeBtn = document.querySelector('.modal-close');
-        const prevBtn = document.querySelector('.modal-prev');
-        const nextBtn = document.querySelector('.modal-next');
-        let currentImageIndex = 0;
-
-        promGalleryItems.forEach((img, index) => {
-            img.addEventListener('click', function() {
-                modal.style.display = 'flex';
-                modalImg.src = this.dataset.src || this.src;
-                currentImageIndex = index;
-            });
-        });
-
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-
-        prevBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            currentImageIndex = (currentImageIndex - 1 + promGalleryItems.length) % promGalleryItems.length;
-            const img = promGalleryItems[currentImageIndex];
-            modalImg.src = img.dataset.src || img.src;
-        });
-
-        nextBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            currentImageIndex = (currentImageIndex + 1) % promGalleryItems.length;
-            const img = promGalleryItems[currentImageIndex];
-            modalImg.src = img.dataset.src || img.src;
-        });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (modal.style.display === 'flex') {
-                if (e.key === 'Escape') {
-                    modal.style.display = 'none';
-                } else if (e.key === 'ArrowLeft') {
-                    prevBtn.click();
-                } else if (e.key === 'ArrowRight') {
-                    nextBtn.click();
-                }
-            }
-        });
-    </script>
+    <script src="../script.js?v=1.0.35"></script>
     <script>
         // Parse emojis (including flags) into images on Windows only
         if (typeof twemoji !== 'undefined' && (navigator.platform.includes('Win') || navigator.userAgent.includes('Windows'))) {

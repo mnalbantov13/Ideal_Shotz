@@ -287,17 +287,25 @@ function openModal(element) {
         galleryItem = element.closest('.gallery-item');
     }
     
-    // Get current filter to determine which images to show
-    const activeFilter = document.querySelector('.filter-btn.active');
-    const currentFilter = activeFilter ? activeFilter.getAttribute('data-filter') : 'all';
+    // Check if we're on the prom page (items have prom-gallery-item class)
+    const isPromPage = galleryItem && galleryItem.classList.contains('prom-gallery-item');
     
-    // Get all visible images in current category
-    if (currentFilter === 'all') {
-        // Show category overview items instead of individual images
-        currentImages = Array.from(document.querySelectorAll('.category-overview-item[data-category="overview"]'));
+    if (isPromPage) {
+        // For prom page, get all prom gallery items
+        currentImages = Array.from(document.querySelectorAll('.gallery-item.prom-gallery-item'));
     } else {
-        // Get all gallery items for the current category (regardless of display state)
-        currentImages = Array.from(document.querySelectorAll(`.gallery-item[data-category="${currentFilter}"]`));
+        // Get current filter to determine which images to show
+        const activeFilter = document.querySelector('.filter-btn.active');
+        const currentFilter = activeFilter ? activeFilter.getAttribute('data-filter') : 'all';
+        
+        // Get all visible images in current category
+        if (currentFilter === 'all') {
+            // Show category overview items instead of individual images
+            currentImages = Array.from(document.querySelectorAll('.category-overview-item[data-category="overview"]'));
+        } else {
+            // Get all gallery items for the current category (regardless of display state)
+            currentImages = Array.from(document.querySelectorAll(`.gallery-item[data-category="${currentFilter}"]`));
+        }
     }
     
     // Find current image index

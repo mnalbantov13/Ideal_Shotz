@@ -2209,6 +2209,7 @@ p {
     cursor: pointer;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-bottom: 0;
 }
 
 .prom-gallery-item::before {
@@ -2578,6 +2579,23 @@ p {
     
     .pricing-card {
         border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-package {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .prom-gallery-grid {
+        gap: 1rem;
     }
     
     .prom-gallery-item {
@@ -3142,6 +3160,10 @@ p {
         margin-bottom: 1rem;
         width: 100%;
     }
+    
+    .prom-gallery-item {
+        margin-bottom: 0 !important;
+    }
 }
 
 /* Extra small screens */
@@ -3203,6 +3225,10 @@ p {
     .gallery-item {
         margin-bottom: 0.8rem;
         width: 100%;
+    }
+    
+    .prom-gallery-item {
+        margin-bottom: 0 !important;
     }
 }
 

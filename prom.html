@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prom 2026 | Ideal Shotz</title>
-    <link rel="stylesheet" href="styles.css?v=1.0.34">
+    <title>Prom | Ideal Shotz</title>
+    <link rel="stylesheet" href="styles.css?v=1.0.35">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
@@ -85,7 +85,7 @@
                     </div>
                     <div class="pricing-features">
                         <ul>
-                            <li><i class="fas fa-check"></i> <strong>3 photoshoots:</strong> day, night and from the prom</li>
+                            <li><i class="fas fa-check"></i> <strong>3&nbsp;photoshoots:</strong> day, night and from the prom</li>
                             <li><i class="fas fa-check"></i> <strong>Location:</strong> of your choice (outdoor)</li>
                             <li><i class="fas fa-check"></i> Number of edited photos of your choice</li>
                             <li><i class="fas fa-check"></i> All shots in digital format</li>
@@ -155,10 +155,24 @@
             
             <div class="prom-gallery-grid">
                 <!-- Prom images from People category -->
-                <div class="prom-gallery-item">
-                    <img src="images/.webp">
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)">
+                    <img src="images/Prom/Prom (1).webp">
                 </div>
-                
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)">
+                    <img src="images/Prom/Prom (2).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)">
+                    <img src="images/Prom/Prom (3).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)">
+                    <img src="images/Prom/Prom (4).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)">
+                    <img src="images/Prom/Prom (5).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)">
+                    <img src="images/Prom/Prom (6).webp">
+                </div>
             </div>
         </div>
     </section>
@@ -184,7 +198,7 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="prom.html">Prom 2026</a></li>
+                        <li><a href="prom.html">Prom</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
@@ -204,72 +218,26 @@
         </div>
     </footer>
 
-    <!-- Modal for fullscreen image view -->
+    <!-- Modal for Image Preview -->
     <div id="imageModal" class="modal">
-        <span class="modal-close">&times;</span>
-        <img class="modal-content" id="modalImage">
-        <div class="modal-nav">
-            <button class="modal-prev"><i class="fas fa-chevron-left"></i></button>
-            <button class="modal-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <button class="nav-btn nav-btn-prev" onclick="navigateImage(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="nav-btn nav-btn-next" onclick="navigateImage(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="image-container">
+                <img id="modalImage" src="" alt="">
+                <div class="image-counter">
+                    <span id="currentImageNumber">1</span> / <span id="totalImages">1</span>
+                </div>
+            </div>
         </div>
     </div>
 
-    <script src="script.js?v=1.0.34"></script>
-    <script>
-        // Modal functionality for prom gallery
-        const promGalleryItems = document.querySelectorAll('.prom-gallery-item img');
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        const closeBtn = document.querySelector('.modal-close');
-        const prevBtn = document.querySelector('.modal-prev');
-        const nextBtn = document.querySelector('.modal-next');
-        let currentImageIndex = 0;
-
-        promGalleryItems.forEach((img, index) => {
-            img.addEventListener('click', function() {
-                modal.style.display = 'flex';
-                modalImg.src = this.dataset.src || this.src;
-                currentImageIndex = index;
-            });
-        });
-
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-
-        prevBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            currentImageIndex = (currentImageIndex - 1 + promGalleryItems.length) % promGalleryItems.length;
-            const img = promGalleryItems[currentImageIndex];
-            modalImg.src = img.dataset.src || img.src;
-        });
-
-        nextBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            currentImageIndex = (currentImageIndex + 1) % promGalleryItems.length;
-            const img = promGalleryItems[currentImageIndex];
-            modalImg.src = img.dataset.src || img.src;
-        });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (modal.style.display === 'flex') {
-                if (e.key === 'Escape') {
-                    modal.style.display = 'none';
-                } else if (e.key === 'ArrowLeft') {
-                    prevBtn.click();
-                } else if (e.key === 'ArrowRight') {
-                    nextBtn.click();
-                }
-            }
-        });
-    </script>
+    <script src="script.js?v=1.0.35"></script>
     <script>
         // Parse emojis (including flags) into images on Windows only
         if (typeof twemoji !== 'undefined' && (navigator.platform.includes('Win') || navigator.userAgent.includes('Windows'))) {
