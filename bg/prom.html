@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Балове | Ideal Shotz</title>
-    <link rel="stylesheet" href="../styles.css?v=1.0.37">
+    <link rel="stylesheet" href="../styles.css?v=1.0.38">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
@@ -162,7 +162,12 @@
             <h2 class="section-title">Нашата работа от балове</h2>
             <p class="section-subtitle">Вдъхновете се от нашите предишни проекти</p>
             
-            <div class="prom-gallery-grid">
+            <div class="prom-gallery-toggle">
+                <button id="promBtnBg" class="filter-btn active" onclick="showPromGalleryBg()">Балове</button>
+                <button id="albumsBtnBg" class="filter-btn" onclick="showAlbumsGalleryBg()">Албуми</button>
+            </div>
+            
+            <div id="promGalleryBg" class="prom-gallery-grid">
                 <!-- Prom images from People category -->
                 <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading="lazy">
                     <img src="../images/Prom/Prom (1).webp">
@@ -199,6 +204,44 @@
                 </div>
                 <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading="lazy">
                     <img src="../images/Prom/Prom (12).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading='lazy'>
+                    <img src="../images/Prom/Albums (1).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading='lazy'>
+                    <img src="../images/Prom/Albums (2).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading='lazy'>
+                    <img src="../images/Prom/Albums (3).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading='lazy'>
+                    <img src="../images/Prom/Albums (4).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading='lazy'>
+                    <img src="../images/Prom/Albums (5).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading='lazy'>
+                    <img src="../images/Prom/Albums (6).webp">
+                </div>
+            </div>
+            <div id="albumsGalleryBg" class="prom-gallery-grid" style="display:none;">
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading='lazy'>
+                    <img src="../images/Prom/Albums (1).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading='lazy'>
+                    <img src="../images/Prom/Albums (2).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading='lazy'>
+                    <img src="../images/Prom/Albums (3).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading='lazy'>
+                    <img src="../images/Prom/Albums (4).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading='lazy'>
+                    <img src="../images/Prom/Albums (5).webp">
+                </div>
+                <div class="gallery-item prom-gallery-item" onclick="openModal(this)" loading='lazy'>
+                    <img src="../images/Prom/Albums (6).webp">
                 </div>
             </div>
         </div>
@@ -261,7 +304,21 @@
         </div>
     </div>
 
-    <script src="../script.js?v=1.0.37"></script>
+    <script src="../script.js?v=1.0.38"></script>
+    <script>
+    function showPromGalleryBg() {
+        document.getElementById('promGalleryBg').style.display = 'grid';
+        document.getElementById('albumsGalleryBg').style.display = 'none';
+        document.getElementById('promBtnBg').classList.add('active');
+        document.getElementById('albumsBtnBg').classList.remove('active');
+    }
+    function showAlbumsGalleryBg() {
+        document.getElementById('promGalleryBg').style.display = 'none';
+        document.getElementById('albumsGalleryBg').style.display = 'grid';
+        document.getElementById('albumsBtnBg').classList.add('active');
+        document.getElementById('promBtnBg').classList.remove('active');
+    }
+    </script>
     <script>
         // Parse emojis (including flags) into images on Windows only
         if (typeof twemoji !== 'undefined' && (navigator.platform.includes('Win') || navigator.userAgent.includes('Windows'))) {

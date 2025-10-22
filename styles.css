@@ -264,6 +264,19 @@ p {
     font-size: 0.85rem;
 }
 
+/* Prom gallery toggle layout — uses .filter-btn for visuals */
+.prom-gallery-toggle {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1.5rem 0 2rem;
+}
+.prom-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
 .btn::before {
     content: '';
     position: absolute;
@@ -730,7 +743,7 @@ p {
 
 .about-visual {
     order: 1;
-    margin-left:4rem;
+    margin-left:6vw;
 }
 
 .about-text {
@@ -1286,10 +1299,12 @@ p {
         columns: 1;
         column-gap: 0;
     }
-}
-.about-visual{
+    .about-visual{
     margin-left: 0;
 }
+
+}
+
 
 .gallery-grid .gallery-item {
     border-radius: 20px;
