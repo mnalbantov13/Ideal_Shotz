@@ -68,12 +68,12 @@ h2::after {
     content: '';
     position: absolute;
     bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--charcoal), transparent);
-    border-radius: 2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgb(199, 184, 184);
+    border-radius: 50px;
+    transform: none;
 }
 
 h3 { font-size: 1.8rem; }
@@ -682,29 +682,41 @@ p {
 /* About Section */
 .about {
     padding: 10rem 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,248,248,0.95) 100%);
+    background: white;
     position: relative;
+    overflow: visible;
+}
+
+.about .container {
+    position: relative;
+    background: linear-gradient(135deg, var(--dark-charcoal) 0%, #000000 100%);
+    padding: 0.5rem 2rem;
+    margin-left: calc(-50vw + 50%);
+    width: calc(100% + 50vw - 50%);
+    border-radius: 0 50px 50px 0;
     overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.35), 0 1.5px 6px 0 rgba(0,0,0,0.18);
 }
 
 .about::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: 
-        radial-gradient(circle at 25% 25%, rgba(54, 69, 79, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, rgba(54, 69, 79, 0.02) 0%, transparent 50%);
+        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
     animation: float 20s ease-in-out infinite;
     z-index: 0;
+    pointer-events: none;
 }
 
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    gap: 0rem;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
@@ -718,6 +730,7 @@ p {
 
 .about-visual {
     order: 1;
+    margin-left:4rem;
 }
 
 .about-text {
@@ -730,13 +743,15 @@ p {
     font-size: 3rem;
     position: relative;
     text-align: left;
-    color: var(--black);
+    color: white;
+    background: none;
+    -webkit-text-fill-color: white;
 }
 
 .about-text p {
     font-size: 1.2rem;
     margin-bottom: 3rem;
-    color: var(--black);
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.8;
     text-align: left;
 }
@@ -828,8 +843,8 @@ p {
 
 /* Featured Work */
 .featured-work {
-    padding: 10rem 0;
-    background: linear-gradient(135deg, #ffffff 0%, rgba(248, 248, 248, 0.8) 100%);
+    padding: 3rem 0 2.5rem 0;
+    background: white;
     position: relative;
     text-align: center;
 }
@@ -1271,6 +1286,9 @@ p {
         columns: 1;
         column-gap: 0;
     }
+}
+.about-visual{
+    margin-left: 0;
 }
 
 .gallery-grid .gallery-item {
@@ -2606,7 +2624,7 @@ p {
 
 /* Footer */
 .footer {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+    background: linear-gradient(135deg, var(--dark-charcoal) 0%, #000000 100%);
     color: white;
     padding: 6rem 0 2rem;
     position: relative;
