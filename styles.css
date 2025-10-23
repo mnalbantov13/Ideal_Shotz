@@ -3531,3 +3531,61 @@ p {
         border-radius: 0 0 8px 8px;
     }
 }
+
+/* FAQ styles (simple, reusable) */
+.faq-section {
+    padding: 4rem 0 6rem;
+    background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+    color: var(--charcoal);
+}
+.faq-section .section-title { color: var(--dark-charcoal); }
+.faq-section p { color: var(--dark-charcoal); }
+.faq-item { margin-bottom: 1rem; }
+.faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: rgba(255,255,255,0.95);
+    border: 1px solid var(--medium-grey);
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--dark-charcoal);
+}
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.36s cubic-bezier(0.2,0.8,0.2,1), padding 0.25s ease, opacity 0.2s ease;
+    padding: 0 0.75rem;
+    opacity: 0;
+    box-sizing: border-box;
+    white-space: normal;
+    word-wrap: break-word;
+}
+.faq-answer { position: relative; }
+.faq-item.open .faq-answer { max-height: 2000px; padding: 0.75rem 0.75rem 1.5rem 1.5rem; opacity: 1; background: #fff; border-radius: 4px; overflow: visible; }
+.faq-item.open .faq-answer::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem; /* inside the padding area */
+    top: 0.25rem; /* extend above slightly */
+    bottom: -0.75rem; /* extend below so the line is longer */
+    width: 2.5px; /* a touch thicker for visibility */
+    background: var(--charcoal);
+    border-radius: 2px;
+}
+/* Simple readable paragraph inside answer */
+.faq-answer p { margin: 0; color: var(--dark-charcoal); line-height: 1.6; font-weight: 400; }
+.faq-toggle-icon { min-width: 28px; height: 28px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; background: linear-gradient(135deg,var(--charcoal),var(--dark-charcoal)); color:#fff; font-weight:700; }
+
+/* Small emoji used in FAQ headings/subsections */
+.faq-emoji {
+    font-size: 1.2rem; /* smaller than text */
+    line-height: 1;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+.faq-emoji img.emoji { width: 0.95em; height: 0.95em; }

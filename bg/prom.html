@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Балове | Ideal Shotz</title>
-    <link rel="stylesheet" href="../styles.css?v=1.0.41">
+    <link rel="stylesheet" href="../styles.css?v=1.0.42">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
@@ -72,6 +72,8 @@
             </div>
         </div>
     </section>
+
+
 
     <!-- Pricing Packages Section -->
     <section class="pricing-section">
@@ -229,6 +231,117 @@
         </div>
     </section>
 
+        <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title"><span class="faq-emoji">❖</span> Често задавани въпроси (FAQ)</h2>
+            <p class="section-subtitle"><span class="faq-emoji">📸</span> Относно пакетите и съдържанието</p>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                    <span>Има ли минимална продължителност за фотосесията?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Продължителността на фотосесията зависи от естествената светлина и вашите желания. Снимките продължават, докато условията позволяват или докато сте удовлетворени от резултата.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                    <span>Какво означава „обработени снимки по ваш избор“ — аз ли избирам кои кадри да бъдат обработени?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Да, вие лично избирате кои снимки желаете да бъдат обработени. Няма ограничение в броя на избраните кадри.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                    <span>В какъв формат ще получа снимките? (JPEG, RAW, резолюция)</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Снимките се заснемат в RAW формат с максимална резолюция, след което се обработват и се предоставят в JPEG формат с високо качество.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                    <span>Възможно ли е да се добавят допълнителни услуги?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Да, при желание могат да бъдат добавени допълнителни услуги срещу допълнително заплащане, в зависимост от наличността и възможностите към момента.</p>
+                </div>
+            </div>
+
+            <p class="section-subtitle" style="margin-top:1.5rem;"><span class="faq-emoji">💰</span> Относно плащане, резервации и условия</p>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                    <span>Каква е политиката при анулиране — възстановява ли се платеното капаро?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Капарото не се възстановява при отказ от нашите услуги.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                    <span>Изисква ли се депозит при резервиране?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Да, при сключване на договора се заплаща депозит в размер на 20% от общата сума.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                    <span>Кога и как се заплаща остатъкът от сумата?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Остатъкът се заплаща по предварителна договорка, обикновено 2–3 месеца преди бала.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                    <span>Какво се случва при лоши метеорологични условия (дъжд, вятър, сняг)?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Ако времето не позволява провеждане на фотосесията, тя се отлага за първия възможен ден, съобразен с графика на фотографа и на класа.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                    <span>Предлагате ли отстъпки при групови или масови поръчки?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Да, при масови поръчки е възможно договаряне на отстъпка в зависимост от броя участници и обема на услугата.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                    <span>Мога ли да прегледам договора преди плащане на капарото?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Разбира се. Преди заплащане на капарото ще получите пълен договор, съдържащ всички условия и подробности относно услугата.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
 
     <!-- Footer -->
     <footer class="footer">
@@ -286,7 +399,59 @@
         </div>
     </div>
 
-    <script src="../script.js?v=1.0.41"></script>
+    <script src="../script.js?v=1.0.42"></script>
+    <script>
+    function toggleFaq(btn) {
+        var item = btn.closest('.faq-item');
+        if (!item) return;
+        var wasOpen = item.classList.contains('open');
+
+        // close other open items (and ensure their inline styles are reset after transition)
+        document.querySelectorAll('.faq-section .faq-item.open').forEach(function(s){
+            if (s !== item) {
+                s.classList.remove('open');
+                var q = s.querySelector('.faq-question'); if (q) q.setAttribute('aria-expanded','false');
+                var ic = s.querySelector('.faq-toggle-icon'); if (ic) ic.textContent = '+';
+                var a = s.querySelector('.faq-answer');
+                if (a) {
+                    a.style.maxHeight = '0';
+                    // remove explicit display after transition ends
+                    setTimeout(function(){ try{ a.style.display = ''; }catch(e){} }, 380);
+                }
+            }
+        });
+
+        var answer = item.querySelector('.faq-answer');
+        var icon = btn.querySelector('.faq-toggle-icon');
+
+        if (wasOpen) {
+            item.classList.remove('open');
+            btn.setAttribute('aria-expanded','false');
+            if (icon) icon.textContent = '+';
+            if (answer) {
+                answer.style.maxHeight = '0';
+                setTimeout(function(){ try{ answer.style.display = ''; }catch(e){} }, 380);
+            }
+        } else {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded','true');
+            if (icon) icon.textContent = '−';
+            if (answer) {
+                // ensure element is visible so scrollHeight can be measured
+                answer.style.display = 'block';
+                // small delay to allow layout to settle, then set maxHeight for transition
+                requestAnimationFrame(function(){
+                    try {
+                        var h = answer.scrollHeight || 0;
+                        answer.style.maxHeight = h + 'px';
+                    } catch (e) {
+                        answer.style.maxHeight = '400px';
+                    }
+                });
+            }
+        }
+    }
+    </script>
     <script>
     function showPromGalleryBg() {
         document.getElementById('promGalleryBg').style.display = 'grid';
