@@ -940,6 +940,15 @@ p {
     filter: brightness(1.05) contrast(1.05);
 }
 
+/* Remove hover effects for carousel items in the infinite loop on the home page */
+.infinite-carousel .gallery-item:hover,
+.infinite-carousel .gallery-item:hover img,
+.infinite-carousel .gallery-item:hover::before {
+    transform: none !important;
+    box-shadow: none !important;
+}
+.infinite-carousel .gallery-item { cursor: default; }
+
 .gallery-item {
     position: relative;
     overflow: hidden;
@@ -2150,6 +2159,7 @@ p {
 .btn-package:hover::before {
     width: 300px;
     height: 300px;
+    left: 50%; /* ensure the radial overlay stays centered instead of sliding from the side */
 }
 
 .btn-package:hover {
