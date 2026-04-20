@@ -183,6 +183,24 @@ const GALLERY_DATA = [
     cover: 'images/Album/Events.webp',
     albums: [
       {
+        title: 'START Summit',
+        images: [
+          { src: 'images/Events/StartS (1).webp', alt: 'START Summit 1' },
+          { src: 'images/Events/StartS (2).webp', alt: 'START Summit 2' },
+          { src: 'images/Events/StartS (3).webp', alt: 'START Summit 3' },
+          { src: 'images/Events/StartS (4).webp', alt: 'START Summit 4' },
+        ]
+      },
+      {
+        title: 'START Hack',
+        images: [
+          { src: 'images/Events/StartH (1).webp', alt: 'START Hack 1' },
+          { src: 'images/Events/StartH (2).webp', alt: 'START Hack 2' },
+          { src: 'images/Events/StartH (3).webp', alt: 'START Hack 3' },
+          { src: 'images/Events/StartH (4).webp', alt: 'START Hack 4' },
+        ]
+      },
+      {
         title: 'Born2Ride Fest 2025',
         images: [
           { src: 'images/Blur/Events/B2R (1).webp', fullSrc: 'images/Events/B2R (1).webp', alt: 'Born2Ride 1' },
