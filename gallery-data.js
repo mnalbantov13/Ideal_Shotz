@@ -2,6 +2,7 @@ const GALLERY_DATA = [
   {
     id: 'aerial',
     label: 'Aerial',
+    labelBG: 'Въздушни',
     cover: 'images/Album/Aerial.webp',
     images: [
       { src: 'images/Blur/Aerial/Aerial (1).webp',  fullSrc: 'images/Aerial/Aerial (1).webp',  alt: 'Aerial 1' },
@@ -26,6 +27,7 @@ const GALLERY_DATA = [
   {
     id: 'astro',
     label: 'Astro',
+    labelBG: 'Астро',
     cover: 'images/Album/Astro.webp',
     images: [
       { src: 'images/Blur/Astro/Astro (1).webp', fullSrc: 'images/Astro/Astro (1).webp', alt: 'Astro 1' },
@@ -37,6 +39,7 @@ const GALLERY_DATA = [
   {
     id: 'bandw',
     label: 'B&W',
+    labelBG: 'Черно-бели',
     cover: 'images/Album/BandW.webp',
     images: [
       { src: 'images/Blur/BandW/BandW (1).webp', fullSrc: 'images/BandW/BandW (1).webp', alt: 'BandW 1' },
@@ -50,6 +53,7 @@ const GALLERY_DATA = [
   {
     id: 'cars',
     label: 'Cars',
+    labelBG: 'Коли',
     cover: 'images/Album/Car.webp',
     albums: [
       {
@@ -180,6 +184,7 @@ const GALLERY_DATA = [
   {
     id: 'event',
     label: 'Events',
+    labelBG: 'Събития',
     cover: 'images/Album/Events.webp',
     albums: [
       {
@@ -213,6 +218,7 @@ const GALLERY_DATA = [
       },
       {
         title: 'Prom 2024',
+        titleBG: 'Балове 2024',
         images: [
           { src: 'images/Blur/Events/Prom (1).webp', fullSrc: 'images/Events/Prom (1).webp', alt: 'Prom 1' },
           { src: 'images/Blur/Events/Prom (2).webp', fullSrc: 'images/Events/Prom (2).webp', alt: 'Prom 2' },
@@ -246,6 +252,7 @@ const GALLERY_DATA = [
       },
       {
         title: 'Baptism',
+        titleBG: 'Кръщене',
         images: [
           { src: 'images/Blur/Events/Baptism (1).webp', fullSrc: 'images/Events/Baptism (1).webp', alt: 'Baptism 1' },
           { src: 'images/Blur/Events/Baptism (2).webp', fullSrc: 'images/Events/Baptism (2).webp', alt: 'Baptism 2' },
@@ -255,6 +262,7 @@ const GALLERY_DATA = [
       },
       {
         title: 'Serres',
+        titleBG: 'Серес',
         images: [
           { src: 'images/Blur/Events/Serres (1).webp', fullSrc: 'images/Events/Serres (1).webp', alt: 'Serres 1' },
           { src: 'images/Blur/Events/Serres (2).webp', fullSrc: 'images/Events/Serres (2).webp', alt: 'Serres 2' },
@@ -276,10 +284,12 @@ const GALLERY_DATA = [
   {
     id: 'nature',
     label: 'Nature',
+    labelBG: 'Природа',
     cover: 'images/Album/Nature.webp',
     albums: [
       {
         title: 'Transfagarasan, Romania',
+        titleBG: 'Трансфагарашан, Румъния',
         images: [
           { src: 'images/Blur/Nature/Fag (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Fag_1.webp', alt: 'Transfagarasan 1' },
           { src: 'images/Blur/Nature/Fag (3).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Fag_3.webp', alt: 'Transfagarasan 3' },
@@ -288,6 +298,7 @@ const GALLERY_DATA = [
       },
       {
         title: 'North America',
+        titleBG: 'Северна Америка',
         images: [
           { src: 'images/Blur/Nature/NA (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_1.webp', alt: 'North America 1' },
           { src: 'images/Blur/Nature/NA (2).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/NA_2.webp', alt: 'North America 2' },
@@ -302,6 +313,7 @@ const GALLERY_DATA = [
       },
       {
         title: 'Bulgaria',
+        titleBG: 'България',
         images: [
           { src: 'images/Blur/Nature/BG (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BG_1.webp', alt: 'Bulgaria 1' },
           { src: 'images/Blur/Nature/BG (3).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BG_3.webp', alt: 'Bulgaria 3' },
@@ -311,6 +323,7 @@ const GALLERY_DATA = [
       },
       {
         title: 'South America',
+        titleBG: 'Южна Америка',
         images: [
           { src: 'images/Blur/Nature/SA (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/SA_1.webp', alt: 'South America 1' },
           { src: 'images/Blur/Nature/SA (2).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/SA_2.webp', alt: 'South America 2' },
@@ -323,6 +336,7 @@ const GALLERY_DATA = [
       },
       {
         title: 'Transalpina, Romania',
+        titleBG: 'Трансалпина, Румъния',
         images: [
           { src: 'images/Blur/Nature/Alpina (2).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Alpina_2.webp', alt: 'Transalpina 2' },
           { src: 'images/Blur/Nature/Alpina (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Alpina_1.webp', alt: 'Transalpina 1' },
@@ -332,6 +346,7 @@ const GALLERY_DATA = [
       },
       {
         title: 'Germany',
+        titleBG: 'Германия',
         images: [
           { src: 'images/Blur/Nature/DE (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/DE_1.webp', alt: 'Germany 1' },
           { src: 'images/Blur/Nature/DE (2).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/DE_2.webp', alt: 'Germany 2' },
@@ -343,6 +358,7 @@ const GALLERY_DATA = [
   {
     id: 'night',
     label: 'Night',
+    labelBG: 'Нощни',
     cover: 'images/Album/Night.webp',
     images: [
       { src: 'images/Blur/Night/Night (1).webp',  fullSrc: 'images/Night/Night (1).webp',  alt: 'Night 1' },
@@ -362,10 +378,12 @@ const GALLERY_DATA = [
   {
     id: 'people',
     label: 'People',
+    labelBG: 'Хора',
     cover: 'images/Album/People.webp',
     albums: [
       {
         title: 'Iva',
+        titleBG: 'Ива',
         images: [
           { src: 'images/Blur/People/Iva (1).webp', fullSrc: 'images/People/Iva (1).webp', alt: 'Iva 1' },
           { src: 'images/Blur/People/Iva (2).webp', fullSrc: 'images/People/Iva (2).webp', alt: 'Iva 2' },
@@ -377,6 +395,7 @@ const GALLERY_DATA = [
       },
       {
         title: 'Lusi',
+        titleBG: 'Люси',
         images: [
           { src: 'images/Blur/People/Lusi (1).webp', fullSrc: 'images/People/Lusi (1).webp', alt: 'Lusi 1' },
           { src: 'images/Blur/People/Lusi (2).webp', fullSrc: 'images/People/Lusi (2).webp', alt: 'Lusi 2' },
@@ -402,10 +421,12 @@ const GALLERY_DATA = [
   {
     id: 'urban',
     label: 'Urban',
+    labelBG: 'Градски',
     cover: 'images/Album/Urban.webp',
     albums: [
       {
         title: 'Berlin, Germany',
+        titleBG: 'Берлин, Германия',
         images: [
           { src: 'images/Blur/Urban/Berlin (1).webp', fullSrc: 'images/Urban/Berlin (1).webp', alt: 'Berlin 1' },
           { src: 'images/Blur/Urban/Berlin (2).webp', fullSrc: 'images/Urban/Berlin (2).webp', alt: 'Berlin 2' },
@@ -414,6 +435,7 @@ const GALLERY_DATA = [
       },
       {
         title: 'Bucharest, Romania',
+        titleBG: 'Букурещ, Румъния',
         images: [
           { src: 'images/Blur/Urban/Bucharest (1).webp', fullSrc: 'images/Urban/Bucharest (1).webp', alt: 'Bucharest 1' },
           { src: 'images/Blur/Urban/Bucharest (2).webp', fullSrc: 'images/Urban/Bucharest (2).webp', alt: 'Bucharest 2' },
@@ -422,6 +444,7 @@ const GALLERY_DATA = [
       },
       {
         title: 'Budapest, Hungary',
+        titleBG: 'Будапеща, Унгария',
         images: [
           { src: 'images/Blur/Urban/Budapest (1).webp', fullSrc: 'images/Urban/Budapest (1).webp', alt: 'Budapest 1' },
           { src: 'images/Blur/Urban/Budapest (2).webp', fullSrc: 'images/Urban/Budapest (2).webp', alt: 'Budapest 2' },
@@ -433,6 +456,7 @@ const GALLERY_DATA = [
       },
       {
         title: 'Corvin, Romania',
+        titleBG: 'Корвин, Румъния',
         images: [
           { src: 'images/Blur/Urban/Corvin (1).webp', fullSrc: 'images/Urban/Corvin (1).webp', alt: 'Corvin 1' },
           { src: 'images/Blur/Urban/Corvin (5).webp', fullSrc: 'images/Urban/Corvin (5).webp', alt: 'Corvin 5' },
@@ -444,6 +468,7 @@ const GALLERY_DATA = [
       },
       {
         title: 'Kyoto, Japan',
+        titleBG: 'Киото, Япония',
         images: [
           { src: 'images/Blur/Urban/Kyoto (1).webp', fullSrc: 'images/Urban/Kyoto (1).webp', alt: 'Kyoto 1' },
           { src: 'images/Blur/Urban/Kyoto (2).webp', fullSrc: 'images/Urban/Kyoto (2).webp', alt: 'Kyoto 2' },
@@ -455,6 +480,7 @@ const GALLERY_DATA = [
       },
       {
         title: 'Mannheim, Germany',
+        titleBG: 'Манхайм, Германия',
         images: [
           { src: 'images/Blur/Urban/Mannheim (1).webp', fullSrc: 'images/Urban/Mannheim (1).webp', alt: 'Mannheim 1' },
           { src: 'images/Blur/Urban/Mannheim (2).webp', fullSrc: 'images/Urban/Mannheim (2).webp', alt: 'Mannheim 2' },
@@ -466,6 +492,7 @@ const GALLERY_DATA = [
       },
       {
         title: 'Osaka, Japan',
+        titleBG: 'Осака, Япония',
         images: [
           { src: 'images/Blur/Urban/Osaka (1).webp', fullSrc: 'images/Urban/Osaka (1).webp', alt: 'Osaka 1' },
           { src: 'images/Blur/Urban/Osaka (2).webp', fullSrc: 'images/Urban/Osaka (2).webp', alt: 'Osaka 2' },
@@ -477,6 +504,7 @@ const GALLERY_DATA = [
       },
       {
         title: 'Rio de Janeiro, Brasil',
+        titleBG: 'Рио де Жанейро, Бразилия',
         images: [
           { src: 'images/Blur/Urban/Rio (1).webp', fullSrc: 'images/Urban/Rio (1).webp', alt: 'Rio 1' },
           { src: 'images/Blur/Urban/Rio (2).webp', fullSrc: 'images/Urban/Rio (2).webp', alt: 'Rio 2' },
@@ -486,6 +514,7 @@ const GALLERY_DATA = [
       },
       {
         title: 'Rome, Italy',
+        titleBG: 'Рим, Италия',
         images: [
           { src: 'images/Blur/Urban/Rome (1).webp', fullSrc: 'images/Urban/Rome (1).webp', alt: 'Rome 1' },
           { src: 'images/Blur/Urban/Rome (2).webp', fullSrc: 'images/Urban/Rome (2).webp', alt: 'Rome 2' },
@@ -494,6 +523,7 @@ const GALLERY_DATA = [
       },
       {
         title: 'Sibiu, Romania',
+        titleBG: 'Сибиу, Румъния',
         images: [
           { src: 'images/Blur/Urban/Sibiu (1).webp', fullSrc: 'images/Urban/Sibiu (1).webp', alt: 'Sibiu 1' },
           { src: 'images/Blur/Urban/Sibiu (2).webp', fullSrc: 'images/Urban/Sibiu (2).webp', alt: 'Sibiu 2' },
@@ -502,6 +532,7 @@ const GALLERY_DATA = [
       },
       {
         title: 'Vienna, Austria',
+        titleBG: 'Виена, Австрия',
         images: [
           { src: 'images/Blur/Urban/Vienna (1).webp', fullSrc: 'images/Urban/Vienna (1).webp', alt: 'Vienna 1' },
           { src: 'images/Blur/Urban/Vienna (2).webp', fullSrc: 'images/Urban/Vienna (2).webp', alt: 'Vienna 2' },

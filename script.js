@@ -61,6 +61,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+function resolveSrc(src) {
+  const base = window.IMAGE_BASE || '';
+  return (!base || src.startsWith('http') || src.startsWith('//')) ? src : base + src;
+}
+
+function resolveLabel(cat) {
+  return (window.LANG === 'bg' && cat.labelBG) ? cat.labelBG : cat.label;
+}
+
+function resolveTitle(album) {
+  return (window.LANG === 'bg' && album.titleBG) ? album.titleBG : album.title;
+}
+
 function renderGallery() {
   const container = document.getElementById('gallery-container');
   if (!container) return;
@@ -69,9 +82,9 @@ function renderGallery() {
     <div class="gallery-grid gallery-grid--all-view" id="overview-grid">
       ${GALLERY_DATA.map(cat => `
         <div class="category-overview-item" data-category="overview" onclick="filterCategory('${cat.id}')">
-          <img src="${cat.cover}" alt="${cat.label} Category" loading="lazy">
+          <img src="${resolveSrc(cat.cover)}" alt="${resolveLabel(cat)} Category" loading="lazy">
           <div class="category-overlay">
-            <div class="category-content"><h3>${cat.label}</h3></div>
+            <div class="category-content"><h3>${resolveLabel(cat)}</h3></div>
           </div>
         </div>
       `).join('')}
@@ -85,7 +98,7 @@ function renderGallery() {
         </div>`;
     } else {
       return cat.albums.map(album => `
-        <h3 class="album-title" data-category="${cat.id}">${album.title}</h3>
+        <h3 class="album-title" data-category="${cat.id}">${resolveTitle(album)}</h3>
         <div class="gallery-grid">
           ${album.images.map(img => itemHTML(img, cat.id)).join('')}
         </div>
@@ -97,10 +110,10 @@ function renderGallery() {
 }
 
 function itemHTML(img, category) {
-  const fullSrcAttr = img.fullSrc ? `data-src="${img.fullSrc}"` : '';
+  const fullSrcAttr = img.fullSrc ? `data-src="${resolveSrc(img.fullSrc)}"` : '';
   return `
     <div class="gallery-item" data-category="${category}" onclick="openModal(this)">
-      <img src="${img.src}" ${fullSrcAttr} alt="${img.alt}" loading="lazy">
+      <img src="${resolveSrc(img.src)}" ${fullSrcAttr} alt="${img.alt}" loading="lazy">
     </div>`;
 }
 
