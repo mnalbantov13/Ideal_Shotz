@@ -73,8 +73,11 @@ foreach ($file in $htmlFiles) {
         # Update CSS version
         $content = $content -replace 'styles\.css\?v=[\d\.]+', "styles.css?v=$newVersion"
         
-        # Update JS version  
+        # Update JS version
         $content = $content -replace 'script\.js\?v=[\d\.]+', "script.js?v=$newVersion"
+
+        # Update gallery data version
+        $content = $content -replace 'gallery-data\.js\?v=[\d\.]+', "gallery-data.js?v=$newVersion"
         
         # Write back to file
         $content | Set-Content $filePath -NoNewline
