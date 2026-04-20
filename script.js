@@ -7,7 +7,8 @@ window.addEventListener('load', function() {
 
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
-    
+    renderGallery();
+
     // Initialize all functionality
     initNavigation();
     initGalleryFilter();
@@ -59,6 +60,49 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 50);
     }
 });
+
+function renderGallery() {
+  const container = document.getElementById('gallery-container');
+  if (!container) return;
+
+  const overviewHTML = `
+    <div class="gallery-grid gallery-grid--all-view" id="overview-grid">
+      ${GALLERY_DATA.map(cat => `
+        <div class="category-overview-item" data-category="overview" onclick="filterCategory('${cat.id}')">
+          <img src="${cat.cover}" alt="${cat.label} Category" loading="lazy">
+          <div class="category-overlay">
+            <div class="category-content"><h3>${cat.label}</h3></div>
+          </div>
+        </div>
+      `).join('')}
+    </div>`;
+
+  const gridsHTML = GALLERY_DATA.map(cat => {
+    if (cat.images) {
+      return `
+        <div class="gallery-grid">
+          ${cat.images.map(img => itemHTML(img, cat.id)).join('')}
+        </div>`;
+    } else {
+      return cat.albums.map(album => `
+        <h3 class="album-title" data-category="${cat.id}">${album.title}</h3>
+        <div class="gallery-grid">
+          ${album.images.map(img => itemHTML(img, cat.id)).join('')}
+        </div>
+      `).join('');
+    }
+  }).join('');
+
+  container.innerHTML = overviewHTML + gridsHTML;
+}
+
+function itemHTML(img, category) {
+  const fullSrcAttr = img.fullSrc ? `data-src="${img.fullSrc}"` : '';
+  return `
+    <div class="gallery-item" data-category="${category}" onclick="openModal(this)">
+      <img src="${img.src}" ${fullSrcAttr} alt="${img.alt}" loading="lazy">
+    </div>`;
+}
 
 // Navigation functionality
 function initNavigation() {
@@ -159,7 +203,7 @@ function applyFilter(filterValue) {
     const galleryItems = document.querySelectorAll('.gallery-item');
     const overviewItems = document.querySelectorAll('.category-overview-item');
     const albumTitles = document.querySelectorAll('.album-title');
-    const galleryGrid = document.querySelector('.gallery-grid');
+    const galleryGrid = document.getElementById('overview-grid');
 
     if (filterValue === 'all') {
         // Add special class for 'All' view
