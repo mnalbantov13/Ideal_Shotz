@@ -1300,6 +1300,10 @@ p {
         column-gap: 0.8rem;
     }
 
+    .gallery-grid .col-span-mobile {
+        column-span: all;
+    }
+
     /* All view should use 1 column on mobile for better overview card display */
     .gallery-grid.gallery-grid--all-view {
         columns: 1;

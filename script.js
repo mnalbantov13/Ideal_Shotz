@@ -97,12 +97,16 @@ function renderGallery() {
           ${cat.images.map(img => itemHTML(img, cat.id)).join('')}
         </div>`;
     } else {
-      return cat.albums.map(album => `
+      return cat.albums.map(album => {
+        const isMobile = window.innerWidth <= 768;
+        const images = (isMobile && album.mobileImages) ? album.mobileImages : album.images;
+        return `
         <h3 class="album-title" data-category="${cat.id}">${resolveTitle(album)}</h3>
         <div class="gallery-grid">
-          ${album.images.map(img => itemHTML(img, cat.id)).join('')}
+          ${images.map(img => itemHTML(img, cat.id)).join('')}
         </div>
-      `).join('');
+      `;
+      }).join('');
     }
   }).join('');
 
@@ -111,8 +115,9 @@ function renderGallery() {
 
 function itemHTML(img, category) {
   const fullSrcAttr = img.fullSrc ? `data-src="${resolveSrc(img.fullSrc)}"` : '';
+  const spanClass = img.span ? ' col-span-mobile' : '';
   return `
-    <div class="gallery-item" data-category="${category}" onclick="openModal(this)">
+    <div class="gallery-item${spanClass}" data-category="${category}" onclick="openModal(this)">
       <img src="${resolveSrc(img.src)}" ${fullSrcAttr} alt="${img.alt}" loading="lazy">
     </div>`;
 }

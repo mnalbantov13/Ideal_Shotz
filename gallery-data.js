@@ -192,10 +192,10 @@ const GALLERY_DATA = [
         images: [
           { src: 'images/Blur/Events/ACR (1).webp', fullSrc: 'images/Events/ACR (1).webp', alt: 'Anantara Concorso Roma 1' },
           { src: 'images/Blur/Events/ACR (2).webp', fullSrc: 'images/Events/ACR (2).webp', alt: 'Anantara Concorso Roma 2' },
-          { src: 'images/Blur/Events/ACR (4).webp', fullSrc: 'images/Events/ACR (4).webp', alt: 'Anantara Concorso Roma 4' },
           { src: 'images/Blur/Events/ACR (3).webp', fullSrc: 'images/Events/ACR (3).webp', alt: 'Anantara Concorso Roma 3' },
+          { src: 'images/Blur/Events/ACR (4).webp', fullSrc: 'images/Events/ACR (4).webp', alt: 'Anantara Concorso Roma 4' },
           { src: 'images/Blur/Events/ACR (5).webp', fullSrc: 'images/Events/ACR (5).webp', alt: 'Anantara Concorso Roma 5' },
-          { src: 'images/Blur/Events/ACR (6).webp', fullSrc: 'images/Events/ACR (6).webp', alt: 'Anantara Concorso Roma 6' },
+          { src: 'images/Blur/Events/ACR (6).webp', fullSrc: 'images/Events/ACR (6).webp', alt: 'Anantara Concorso Roma 6', span: true },
         ]
       },
       {
@@ -238,6 +238,15 @@ const GALLERY_DATA = [
           { src: 'images/Blur/Events/Prom (5).webp', fullSrc: 'images/Events/Prom (5).webp', alt: 'Prom 5' },
           { src: 'images/Blur/Events/Prom (6).webp', fullSrc: 'images/Events/Prom (6).webp', alt: 'Prom 6' },
           { src: 'images/Blur/Events/Prom (7).webp', fullSrc: 'images/Events/Prom (7).webp', alt: 'Prom 7' },
+        ],
+        mobileImages: [
+          { src: 'images/Blur/Events/Prom (1).webp', fullSrc: 'images/Events/Prom (1).webp', alt: 'Prom 1' },
+          { src: 'images/Blur/Events/Prom (2).webp', fullSrc: 'images/Events/Prom (2).webp', alt: 'Prom 2' },
+          { src: 'images/Blur/Events/Prom (4).webp', fullSrc: 'images/Events/Prom (4).webp', alt: 'Prom 4' },
+          { src: 'images/Blur/Events/Prom (6).webp', fullSrc: 'images/Events/Prom (6).webp', alt: 'Prom 6' },
+          { src: 'images/Blur/Events/Prom (7).webp', fullSrc: 'images/Events/Prom (7).webp', alt: 'Prom 7' },
+          { src: 'images/Blur/Events/Prom (5).webp', fullSrc: 'images/Events/Prom (5).webp', alt: 'Prom 5' },
+          { src: 'images/Blur/Events/Prom (3).webp', fullSrc: 'images/Events/Prom (3).webp', alt: 'Prom 3' },
         ]
       },
       {
@@ -248,6 +257,13 @@ const GALLERY_DATA = [
           { src: 'images/Blur/Events/Gumball (4).webp', fullSrc: 'images/Events/Gumball (4).webp', alt: 'Gumball 4' },
           { src: 'images/Blur/Events/Gumball (5).webp', fullSrc: 'images/Events/Gumball (5).webp', alt: 'Gumball 5' },
           { src: 'images/Blur/Events/Gumball (2).webp', fullSrc: 'images/Events/Gumball (2).webp', alt: 'Gumball 2' },
+        ],
+        mobileImages: [
+          { src: 'images/Blur/Events/Gumball (1).webp', fullSrc: 'images/Events/Gumball (1).webp', alt: 'Gumball 1' },
+          { src: 'images/Blur/Events/Gumball (3).webp', fullSrc: 'images/Events/Gumball (3).webp', alt: 'Gumball 3' },
+          { src: 'images/Blur/Events/Gumball (4).webp', fullSrc: 'images/Events/Gumball (4).webp', alt: 'Gumball 4' },
+          { src: 'images/Blur/Events/Gumball (2).webp', fullSrc: 'images/Events/Gumball (2).webp', alt: 'Gumball 2' },
+          { src: 'images/Blur/Events/Gumball (5).webp', fullSrc: 'images/Events/Gumball (5).webp', alt: 'Gumball 5', span: true },
         ]
       },
       {
