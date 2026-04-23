@@ -59,124 +59,124 @@ const GALLERY_DATA = [
       {
         title: 'Audi RS6',
         images: [
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_RS6_1.webp', alt: 'Audi RS6 1' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_RS6_2.webp', alt: 'Audi RS6 2' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_RS6_3.webp', alt: 'Audi RS6 3' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_RS6_4.webp', alt: 'Audi RS6 4' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_RS6_5.webp', alt: 'Audi RS6 5' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_RS6_6.webp', alt: 'Audi RS6 6' },
+          { src: 'images/Blur/Cars/Audi RS6 (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_RS6_1.webp', alt: 'Audi RS6 1' },
+          { src: 'images/Blur/Cars/Audi RS6 (2).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_RS6_2.webp', alt: 'Audi RS6 2' },
+          { src: 'images/Blur/Cars/Audi RS6 (3).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_RS6_3.webp', alt: 'Audi RS6 3' },
+          { src: 'images/Blur/Cars/Audi RS6 (4).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_RS6_4.webp', alt: 'Audi RS6 4' },
+          { src: 'images/Blur/Cars/Audi RS6 (5).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_RS6_5.webp', alt: 'Audi RS6 5' },
+          { src: 'images/Blur/Cars/Audi RS6 (6).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_RS6_6.webp', alt: 'Audi RS6 6' },
         ]
       },
       {
         title: 'Mclaren 720S',
         images: [
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mclaren_1.webp', alt: 'Mclaren 720S 1' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mclaren_2.webp', alt: 'Mclaren 720S 2' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mclaren_3.webp', alt: 'Mclaren 720S 3' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mclaren_4.webp', alt: 'Mclaren 720S 4' },
+          { src: 'images/Blur/Cars/Mclaren (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mclaren_1.webp', alt: 'Mclaren 720S 1' },
+          { src: 'images/Blur/Cars/Mclaren (2).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mclaren_2.webp', alt: 'Mclaren 720S 2' },
+          { src: 'images/Blur/Cars/Mclaren (3).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mclaren_3.webp', alt: 'Mclaren 720S 3' },
+          { src: 'images/Blur/Cars/Mclaren (4).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mclaren_4.webp', alt: 'Mclaren 720S 4' },
         ]
       },
       {
         title: 'Audi SQ8',
         images: [
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_SQ8_1.webp', alt: 'Audi SQ8 1' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_SQ8_2.webp', alt: 'Audi SQ8 2' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_SQ8_3.webp', alt: 'Audi SQ8 3' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_SQ8_4.webp', alt: 'Audi SQ8 4' },
+          { src: 'images/Blur/Cars/Audi SQ8 (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_SQ8_1.webp', alt: 'Audi SQ8 1' },
+          { src: 'images/Blur/Cars/Audi SQ8 (2).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_SQ8_2.webp', alt: 'Audi SQ8 2' },
+          { src: 'images/Blur/Cars/Audi SQ8 (3).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_SQ8_3.webp', alt: 'Audi SQ8 3' },
+          { src: 'images/Blur/Cars/Audi SQ8 (4).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_SQ8_4.webp', alt: 'Audi SQ8 4' },
         ]
       },
       {
         title: 'BMW 640D',
         images: [
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_640D_1.webp', alt: 'BMW 640D 1' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_640D_2.webp', alt: 'BMW 640D 2' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_640D_3.webp', alt: 'BMW 640D 3' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_640D_4.webp', alt: 'BMW 640D 4' },
+          { src: 'images/Blur/Cars/BMW 640D (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_640D_1.webp', alt: 'BMW 640D 1' },
+          { src: 'images/Blur/Cars/BMW 640D (2).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_640D_2.webp', alt: 'BMW 640D 2' },
+          { src: 'images/Blur/Cars/BMW 640D (3).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_640D_3.webp', alt: 'BMW 640D 3' },
+          { src: 'images/Blur/Cars/BMW 640D (4).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_640D_4.webp', alt: 'BMW 640D 4' },
         ]
       },
       {
         title: 'BMW 325xi',
         images: [
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_325xi_1.webp', alt: 'BMW 325xi 1' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_325xi_2.webp', alt: 'BMW 325xi 2' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_325xi_3.webp', alt: 'BMW 325xi 3' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_325xi_4.webp', alt: 'BMW 325xi 4' },
+          { src: 'images/Blur/Cars/BMW 325xi (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_325xi_1.webp', alt: 'BMW 325xi 1' },
+          { src: 'images/Blur/Cars/BMW 325xi (2).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_325xi_2.webp', alt: 'BMW 325xi 2' },
+          { src: 'images/Blur/Cars/BMW 325xi (3).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_325xi_3.webp', alt: 'BMW 325xi 3' },
+          { src: 'images/Blur/Cars/BMW 325xi (4).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_325xi_4.webp', alt: 'BMW 325xi 4' },
         ]
       },
       {
         title: 'BMW 328i',
         images: [
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/E46_1.webp', alt: 'BMW 328i 1' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/E46_2.webp', alt: 'BMW 328i 2' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/E46_3.webp', alt: 'BMW 328i 3' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/E46_4.webp', alt: 'BMW 328i 4' },
+          { src: 'images/Blur/Cars/E46 (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/E46_1.webp', alt: 'BMW 328i 1' },
+          { src: 'images/Blur/Cars/E46 (2).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/E46_2.webp', alt: 'BMW 328i 2' },
+          { src: 'images/Blur/Cars/E46 (3).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/E46_3.webp', alt: 'BMW 328i 3' },
+          { src: 'images/Blur/Cars/E46 (4).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/E46_4.webp', alt: 'BMW 328i 4' },
         ]
       },
       {
         title: 'BMW 335i',
         images: [
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_335i_1.webp', alt: 'BMW 335i 1' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_335i_2.webp', alt: 'BMW 335i 2' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_335i_3.webp', alt: 'BMW 335i 3' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_335i_4.webp', alt: 'BMW 335i 4' },
+          { src: 'images/Blur/Cars/BMW 335i (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_335i_1.webp', alt: 'BMW 335i 1' },
+          { src: 'images/Blur/Cars/BMW 335i (2).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_335i_2.webp', alt: 'BMW 335i 2' },
+          { src: 'images/Blur/Cars/BMW 335i (3).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_335i_3.webp', alt: 'BMW 335i 3' },
+          { src: 'images/Blur/Cars/BMW 335i (4).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_335i_4.webp', alt: 'BMW 335i 4' },
         ]
       },
       {
         title: 'BMW M8',
         images: [
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_M8_1.webp', alt: 'BMW M8 1' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_M8_2.webp', alt: 'BMW M8 2' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_M8_3.webp', alt: 'BMW M8 3' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_M8_4.webp', alt: 'BMW M8 4' },
+          { src: 'images/Blur/Cars/BMW M8 (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_M8_1.webp', alt: 'BMW M8 1' },
+          { src: 'images/Blur/Cars/BMW M8 (2).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_M8_2.webp', alt: 'BMW M8 2' },
+          { src: 'images/Blur/Cars/BMW M8 (3).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_M8_3.webp', alt: 'BMW M8 3' },
+          { src: 'images/Blur/Cars/BMW M8 (4).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_M8_4.webp', alt: 'BMW M8 4' },
         ]
       },
       {
         title: 'BMW X5',
         images: [
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_X5_1.webp', alt: 'BMW X5 1' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_X5_2.webp', alt: 'BMW X5 2' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_X5_3.webp', alt: 'BMW X5 3' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_X5_4.webp', alt: 'BMW X5 4' },
+          { src: 'images/Blur/Cars/BMW X5 (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_X5_1.webp', alt: 'BMW X5 1' },
+          { src: 'images/Blur/Cars/BMW X5 (2).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_X5_2.webp', alt: 'BMW X5 2' },
+          { src: 'images/Blur/Cars/BMW X5 (3).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_X5_3.webp', alt: 'BMW X5 3' },
+          { src: 'images/Blur/Cars/BMW X5 (4).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/BMW_X5_4.webp', alt: 'BMW X5 4' },
         ]
       },
       {
         title: 'Mercedes C63S',
         images: [
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_C63S_1.webp', alt: 'Mercedes C63S 1' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_C63S_2.webp', alt: 'Mercedes C63S 2' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_C63S_3.webp', alt: 'Mercedes C63S 3' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_C63S_4.webp', alt: 'Mercedes C63S 4' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_C63S_5.webp', alt: 'Mercedes C63S 5' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_C63S_6.webp', alt: 'Mercedes C63S 6' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_C63S_7.webp', alt: 'Mercedes C63S 7' },
+          { src: 'images/Blur/Cars/Mercedes C63S (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_C63S_1.webp', alt: 'Mercedes C63S 1' },
+          { src: 'images/Blur/Cars/Mercedes C63S (2).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_C63S_2.webp', alt: 'Mercedes C63S 2' },
+          { src: 'images/Blur/Cars/Mercedes C63S (3).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_C63S_3.webp', alt: 'Mercedes C63S 3' },
+          { src: 'images/Blur/Cars/Mercedes C63S (4).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_C63S_4.webp', alt: 'Mercedes C63S 4' },
+          { src: 'images/Blur/Cars/Mercedes C63S (5).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_C63S_5.webp', alt: 'Mercedes C63S 5' },
+          { src: 'images/Blur/Cars/Mercedes C63S (6).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_C63S_6.webp', alt: 'Mercedes C63S 6' },
+          { src: 'images/Blur/Cars/Mercedes C63S (7).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_C63S_7.webp', alt: 'Mercedes C63S 7' },
         ]
       },
       {
         title: 'Mercedes E63S',
         images: [
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_E63S_3.webp', alt: 'Mercedes E63S 1' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_E63S_1.webp', alt: 'Mercedes E63S 2' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_E63S_2.webp', alt: 'Mercedes E63S 3' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_E63S_4.webp', alt: 'Mercedes E63S 4' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_E63S_5.webp', alt: 'Mercedes E63S 5' },
+          { src: 'images/Blur/Cars/Mercedes E63S (3).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_E63S_3.webp', alt: 'Mercedes E63S 1' },
+          { src: 'images/Blur/Cars/Mercedes E63S (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_E63S_1.webp', alt: 'Mercedes E63S 2' },
+          { src: 'images/Blur/Cars/Mercedes E63S (2).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_E63S_2.webp', alt: 'Mercedes E63S 3' },
+          { src: 'images/Blur/Cars/Mercedes E63S (4).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_E63S_4.webp', alt: 'Mercedes E63S 4' },
+          { src: 'images/Blur/Cars/Mercedes E63S (5).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mercedes_E63S_5.webp', alt: 'Mercedes E63S 5' },
         ]
       },
       {
         title: 'Mercedes G Brabus 700',
         images: [
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/v1760456284/G_Brabus_700_1.webp', alt: 'G Brabus 700 1' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/v1760456282/G_Brabus_700_2.webp', alt: 'G Brabus 700 2' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/v1760456282/G_Brabus_700_4.webp', alt: 'G Brabus 700 3' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/v1760456282/G_Brabus_700_3.webp', alt: 'G Brabus 700 4' },
+          { src: 'images/Blur/Cars/G Brabus 700 (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/v1760456284/G_Brabus_700_1.webp', alt: 'G Brabus 700 1' },
+          { src: 'images/Blur/Cars/G Brabus 700 (2).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/v1760456282/G_Brabus_700_2.webp', alt: 'G Brabus 700 2' },
+          { src: 'images/Blur/Cars/G Brabus 700 (4).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/v1760456282/G_Brabus_700_4.webp', alt: 'G Brabus 700 3' },
+          { src: 'images/Blur/Cars/G Brabus 700 (3).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/v1760456282/G_Brabus_700_3.webp', alt: 'G Brabus 700 4' },
         ]
       },
       {
         title: 'Mini Cooper S',
         images: [
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mini_Cooper_S_1.webp', alt: 'Mini Cooper S 1' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mini_Cooper_S_2.webp', alt: 'Mini Cooper S 2' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mini_Cooper_S_3.webp', alt: 'Mini Cooper S 3' },
-          { src: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mini_Cooper_S_4.webp', alt: 'Mini Cooper S 4' },
+          { src: 'images/Blur/Cars/Mini Cooper S (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mini_Cooper_S_1.webp', alt: 'Mini Cooper S 1' },
+          { src: 'images/Blur/Cars/Mini Cooper S (2).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mini_Cooper_S_2.webp', alt: 'Mini Cooper S 2' },
+          { src: 'images/Blur/Cars/Mini Cooper S (3).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mini_Cooper_S_3.webp', alt: 'Mini Cooper S 3' },
+          { src: 'images/Blur/Cars/Mini Cooper S (4).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mini_Cooper_S_4.webp', alt: 'Mini Cooper S 4' },
         ]
       },
     ]
@@ -188,21 +188,32 @@ const GALLERY_DATA = [
     cover: 'images/Album/Events.webp',
     albums: [
       {
+        title: 'Anantara Concorso Roma',
+        images: [
+          { src: 'images/Blur/Events/ACR (1).webp', fullSrc: 'images/Events/ACR (1).webp', alt: 'Anantara Concorso Roma 1' },
+          { src: 'images/Blur/Events/ACR (2).webp', fullSrc: 'images/Events/ACR (2).webp', alt: 'Anantara Concorso Roma 2' },
+          { src: 'images/Blur/Events/ACR (4).webp', fullSrc: 'images/Events/ACR (4).webp', alt: 'Anantara Concorso Roma 4' },
+          { src: 'images/Blur/Events/ACR (3).webp', fullSrc: 'images/Events/ACR (3).webp', alt: 'Anantara Concorso Roma 3' },
+          { src: 'images/Blur/Events/ACR (5).webp', fullSrc: 'images/Events/ACR (5).webp', alt: 'Anantara Concorso Roma 5' },
+          { src: 'images/Blur/Events/ACR (6).webp', fullSrc: 'images/Events/ACR (6).webp', alt: 'Anantara Concorso Roma 6' },
+        ]
+      },
+      {
         title: 'START Summit',
         images: [
-          { src: 'images/Events/StartS (1).webp', alt: 'START Summit 1' },
-          { src: 'images/Events/StartS (2).webp', alt: 'START Summit 2' },
-          { src: 'images/Events/StartS (3).webp', alt: 'START Summit 3' },
-          { src: 'images/Events/StartS (4).webp', alt: 'START Summit 4' },
+          { src: 'images/Blur/Events/StartS (1).webp', fullSrc: 'images/Events/StartS (1).webp', alt: 'START Summit 1' },
+          { src: 'images/Blur/Events/StartS (2).webp', fullSrc: 'images/Events/StartS (2).webp', alt: 'START Summit 2' },
+          { src: 'images/Blur/Events/StartS (3).webp', fullSrc: 'images/Events/StartS (3).webp', alt: 'START Summit 3' },
+          { src: 'images/Blur/Events/StartS (4).webp', fullSrc: 'images/Events/StartS (4).webp', alt: 'START Summit 4' },
         ]
       },
       {
         title: 'START Hack',
         images: [
-          { src: 'images/Events/StartH (1).webp', alt: 'START Hack 1' },
-          { src: 'images/Events/StartH (2).webp', alt: 'START Hack 2' },
-          { src: 'images/Events/StartH (3).webp', alt: 'START Hack 3' },
-          { src: 'images/Events/StartH (4).webp', alt: 'START Hack 4' },
+          { src: 'images/Blur/Events/StartH (1).webp', fullSrc: 'images/Events/StartH (1).webp', alt: 'START Hack 1' },
+          { src: 'images/Blur/Events/StartH (2).webp', fullSrc: 'images/Events/StartH (2).webp', alt: 'START Hack 2' },
+          { src: 'images/Blur/Events/StartH (3).webp', fullSrc: 'images/Events/StartH (3).webp', alt: 'START Hack 3' },
+          { src: 'images/Blur/Events/StartH (4).webp', fullSrc: 'images/Events/StartH (4).webp', alt: 'START Hack 4' },
         ]
       },
       {
@@ -232,11 +243,11 @@ const GALLERY_DATA = [
       {
         title: 'Gumball 3000',
         images: [
-          { src: 'images/Events/Gumball (1).webp', alt: 'Gumball 1' },
-          { src: 'images/Events/Gumball (3).webp', alt: 'Gumball 3' },
-          { src: 'images/Events/Gumball (4).webp', alt: 'Gumball 4' },
-          { src: 'images/Events/Gumball (5).webp', alt: 'Gumball 5' },
-          { src: 'images/Events/Gumball (2).webp', alt: 'Gumball 2' },
+          { src: 'images/Blur/Events/Gumball (1).webp', fullSrc: 'images/Events/Gumball (1).webp', alt: 'Gumball 1' },
+          { src: 'images/Blur/Events/Gumball (3).webp', fullSrc: 'images/Events/Gumball (3).webp', alt: 'Gumball 3' },
+          { src: 'images/Blur/Events/Gumball (4).webp', fullSrc: 'images/Events/Gumball (4).webp', alt: 'Gumball 4' },
+          { src: 'images/Blur/Events/Gumball (5).webp', fullSrc: 'images/Events/Gumball (5).webp', alt: 'Gumball 5' },
+          { src: 'images/Blur/Events/Gumball (2).webp', fullSrc: 'images/Events/Gumball (2).webp', alt: 'Gumball 2' },
         ]
       },
       {
