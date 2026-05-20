@@ -188,6 +188,31 @@ const GALLERY_DATA = [
     cover: 'images/Album/Events.webp',
     albums: [
       {
+        title: 'Gonco Fest',
+        images: [
+          { src: 'images/Blur/Events/gonco (3).webp', fullSrc: 'images/Events/gonco (3).webp', alt: 'Gonco 3' },
+          { src: 'images/Blur/Events/gonco (1).webp', fullSrc: 'images/Events/gonco (1).webp', alt: 'Gonco 1' },
+          { src: 'images/Blur/Events/gonco (8).webp', fullSrc: 'images/Events/gonco (8).webp', alt: 'Gonco 8' },
+          { src: 'images/Blur/Events/gonco (5).webp', fullSrc: 'images/Events/gonco (5).webp', alt: 'Gonco 5' },
+          { src: 'images/Blur/Events/gonco (2).webp', fullSrc: 'images/Events/gonco (2).webp', alt: 'Gonco 2' },
+          { src: 'images/Blur/Events/gonco (7).webp', fullSrc: 'images/Events/gonco (7).webp', alt: 'Gonco 7' },
+          { src: 'images/Blur/Events/gonco (6).webp', fullSrc: 'images/Events/gonco (6).webp', alt: 'Gonco 6' },
+          { src: 'images/Blur/Events/gonco (9).webp', fullSrc: 'images/Events/gonco (9).webp', alt: 'Gonco 9' },
+          { src: 'images/Blur/Events/gonco (4).webp', fullSrc: 'images/Events/gonco (4).webp', alt: 'Gonco 4' },
+        ],
+        mobileImages: [
+          { src: 'images/Blur/Events/gonco (5).webp', fullSrc: 'images/Events/gonco (5).webp', alt: 'Gonco 5' },
+          { src: 'images/Blur/Events/gonco (1).webp', fullSrc: 'images/Events/gonco (1).webp', alt: 'Gonco 1' },
+          { src: 'images/Blur/Events/gonco (3).webp', fullSrc: 'images/Events/gonco (3).webp', alt: 'Gonco 3' },
+          { src: 'images/Blur/Events/gonco (8).webp', fullSrc: 'images/Events/gonco (8).webp', alt: 'Gonco 8' },
+          { src: 'images/Blur/Events/gonco (6).webp', fullSrc: 'images/Events/gonco (6).webp', alt: 'Gonco 6' },
+          { src: 'images/Blur/Events/gonco (2).webp', fullSrc: 'images/Events/gonco (2).webp', alt: 'Gonco 2' },
+          { src: 'images/Blur/Events/gonco (9).webp', fullSrc: 'images/Events/gonco (9).webp', alt: 'Gonco 9' },
+          { src: 'images/Blur/Events/gonco (4).webp', fullSrc: 'images/Events/gonco (4).webp', alt: 'Gonco 4' },
+          { src: 'images/Blur/Events/gonco (7).webp', fullSrc: 'images/Events/gonco (7).webp', alt: 'Gonco 7' },
+        ]
+      },
+      {
         title: 'Anantara Concorso Roma',
         images: [
           { src: 'images/Blur/Events/ACR (1).webp', fullSrc: 'images/Events/ACR (1).webp', alt: 'Anantara Concorso Roma 1' },
