@@ -77,6 +77,16 @@ const GALLERY_DATA = [
         ]
       },
       {
+        title: 'BMW M5 E60 Zender ',
+        images: [
+          { src: 'images/Blur/Cars/BMW M5 E60 (4).webp', fullSrc: 'images/Cars/BMW M5 E60 (4).webp', alt: 'BMW M5 E60 4' },
+          { src: 'images/Blur/Cars/BMW M5 E60 (1).webp', fullSrc: 'images/Cars/BMW M5 E60 (1).webp', alt: 'BMW M5 E60 1' },
+          { src: 'images/Blur/Cars/BMW M5 E60 (3).webp', fullSrc: 'images/Cars/BMW M5 E60 (3).webp', alt: 'BMW M5 E60 3' },
+          { src: 'images/Blur/Cars/BMW M5 E60 (2).webp', fullSrc: 'images/Cars/BMW M5 E60 (2).webp', alt: 'BMW M5 E60 2' }
+          ,
+        ]
+      },
+      {
         title: 'Audi SQ8',
         images: [
           { src: 'images/Blur/Cars/Audi SQ8 (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Audi_SQ8_1.webp', alt: 'Audi SQ8 1' },
@@ -210,6 +220,24 @@ const GALLERY_DATA = [
           { src: 'images/Blur/Events/gonco (9).webp', fullSrc: 'images/Events/gonco (9).webp', alt: 'Gonco 9' },
           { src: 'images/Blur/Events/gonco (4).webp', fullSrc: 'images/Events/gonco (4).webp', alt: 'Gonco 4' },
           { src: 'images/Blur/Events/gonco (7).webp', fullSrc: 'images/Events/gonco (7).webp', alt: 'Gonco 7' },
+        ]
+      },
+      {
+        title: 'Webit',
+        images: [
+          { src: 'images/Blur/Events/Webit (1).webp', fullSrc: 'images/Events/Webit (1).webp', alt: 'Webit 1' },
+          { src: 'images/Blur/Events/Webit (2).webp', fullSrc: 'images/Events/Webit (2).webp', alt: 'Webit 2' },
+          { src: 'images/Blur/Events/Webit (3).webp', fullSrc: 'images/Events/Webit (3).webp', alt: 'Webit 3' },
+          { src: 'images/Blur/Events/Webit (4).webp', fullSrc: 'images/Events/Webit (4).webp', alt: 'Webit 4' },
+        ]
+      },
+      {
+        title: 'BMW Fest 2026',
+        images: [
+          { src: 'images/Blur/Events/BMW26 (1).webp', fullSrc: 'images/Events/BMW26 (1).webp', alt: 'BMW Fest 2026 1' },
+          { src: 'images/Blur/Events/BMW26 (2).webp', fullSrc: 'images/Events/BMW26 (2).webp', alt: 'BMW Fest 2026 2' },
+          { src: 'images/Blur/Events/BMW26 (3).webp', fullSrc: 'images/Events/BMW26 (3).webp', alt: 'BMW Fest 2026 3' },
+          { src: 'images/Blur/Events/BMW26 (4).webp', fullSrc: 'images/Events/BMW26 (4).webp', alt: 'BMW Fest 2026 4' },
         ]
       },
       {
