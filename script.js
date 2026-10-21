@@ -128,9 +128,12 @@ function itemHTML(img, category) {
     ? `data-src="${resolveSrc(thumbSrc(img.fullSrc))}" data-full="${resolveSrc(img.fullSrc)}"`
     : '';
   const spanClass = img.span ? ' col-span-mobile' : '';
+  // Width/height (from image-sizes.js) let the browser reserve the tile's space before it loads
+  const size = (window.IMAGE_SIZES || {})[img.src];
+  const sizeAttrs = size ? `width="${size[0]}" height="${size[1]}"` : '';
   return `
     <div class="gallery-item${spanClass}" data-category="${category}" onclick="openModal(this)">
-      <img src="${resolveSrc(img.src)}" ${fullSrcAttr} alt="${img.alt}" loading="lazy">
+      <img src="${resolveSrc(img.src)}" ${fullSrcAttr} ${sizeAttrs} alt="${img.alt}" loading="lazy">
     </div>`;
 }
 

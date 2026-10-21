@@ -78,6 +78,9 @@ foreach ($file in $htmlFiles) {
 
         # Update gallery data version
         $content = $content -replace 'gallery-data\.js\?v=[\d\.]+', "gallery-data.js?v=$newVersion"
+
+        # Update image sizes version
+        $content = $content -replace 'image-sizes\.js\?v=[\d\.]+', "image-sizes.js?v=$newVersion"
         
         # Write back to file
         $content | Set-Content $filePath -NoNewline
