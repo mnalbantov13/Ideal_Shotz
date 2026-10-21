@@ -149,24 +149,35 @@ function initNavigation() {
     const navList = document.querySelector('.nav-list');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Mobile menu toggle; the page behind doesn't scroll while the full-screen menu is open
+    // Mobile menu: a drawer from the left with a dimmed backdrop beside it.
+    // The page behind doesn't scroll while it's open.
+    const backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    document.body.appendChild(backdrop);
+
+    const setMenuOpen = open => {
+        if (!hamburger || !navList) return;
+        hamburger.classList.toggle('active', open);
+        navList.classList.toggle('active', open);
+        backdrop.classList.toggle('active', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+    };
+
     if (hamburger) {
         hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            if (navList) navList.classList.toggle('active');
-            document.body.style.overflow = hamburger.classList.contains('active') ? 'hidden' : '';
+            setMenuOpen(!hamburger.classList.contains('active'));
         });
     }
 
-    // Close mobile menu when clicking on links
+    // Close the menu when a link, the backdrop or Escape is used
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            if (navList && navList.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navList.classList.remove('active');
-                document.body.style.overflow = '';
-            }
+            if (navList && navList.classList.contains('active')) setMenuOpen(false);
         });
+    });
+    backdrop.addEventListener('click', () => setMenuOpen(false));
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && navList && navList.classList.contains('active')) setMenuOpen(false);
     });
 
     // Navbar background on scroll

@@ -4644,3 +4644,125 @@ p {
         border-radius: 0;
     }
 }
+
+/* --- Mobile menu: a drawer that glides in from the left; the links follow one after another --- */
+.nav-backdrop {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-list,
+    .nav-list.active {
+        left: 0;
+        width: min(84vw, 340px);
+        padding: 2.25rem 0 2rem;
+        align-items: flex-start;
+        gap: 0.1rem;
+        text-align: left;
+        border-top: 0;
+        animation: none;
+    }
+
+    /* Closed: parked off-screen; hidden once the slide-out has finished */
+    .nav-list {
+        transform: translateX(-100%);
+        visibility: hidden;
+        box-shadow: none;
+        transition:
+            transform 0.45s cubic-bezier(0.32, 0.72, 0, 1),
+            box-shadow 0.45s ease,
+            visibility 0s linear 0.45s;
+    }
+
+    .nav-list.active {
+        transform: none;
+        visibility: visible;
+        box-shadow: 12px 0 40px rgba(0, 0, 0, 0.12);
+        transition:
+            transform 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+            box-shadow 0.5s ease,
+            visibility 0s;
+    }
+
+    .nav-list .nav-item {
+        width: 100%;
+        justify-content: flex-start;
+        opacity: 0;
+        transform: translateX(-12px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-list.active .nav-item {
+        opacity: 1;
+        transform: none;
+        transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+
+    /* Stagger in reading order (the logo, 3rd in the markup, is shown last) */
+    .nav-list.active .nav-item:nth-child(1) { transition-delay: 0.12s; }
+    .nav-list.active .nav-item:nth-child(2) { transition-delay: 0.17s; }
+    .nav-list.active .nav-item:nth-child(4) { transition-delay: 0.22s; }
+    .nav-list.active .nav-item:nth-child(5) { transition-delay: 0.27s; }
+    .nav-list.active .nav-item:nth-child(3) { transition-delay: 0.34s; }
+
+    .nav-list .nav-link {
+        padding: 0.7rem 2rem;
+        font-size: 1.75rem;
+        font-weight: 300;
+        letter-spacing: -0.01em;
+    }
+
+    .nav-list .nav-link.active {
+        font-weight: 500;
+    }
+
+    /* Current page: a short line under the link */
+    .nav-list .nav-link::before {
+        left: 2rem;
+        bottom: 0.45rem;
+    }
+
+    .nav-list .nav-link:hover::before,
+    .nav-list .nav-link.active::before {
+        width: 1.5rem;
+    }
+
+    .logo-item {
+        padding: 0 2rem;
+    }
+
+    .logo-item .nav-logo {
+        height: 2.75rem;
+    }
+
+    /* Dims the page beside the drawer; tapping it closes the menu (script.js) */
+    .nav-backdrop {
+        display: block;
+        position: fixed;
+        top: 85px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 999;
+        background: rgba(10, 10, 10, 0.35);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+    }
+
+    .nav-backdrop.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+@media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+    .nav-list,
+    .nav-list.active,
+    .nav-list .nav-item,
+    .nav-list.active .nav-item,
+    .nav-backdrop {
+        transition-duration: 0.01ms !important;
+        transition-delay: 0s !important;
+    }
+}
