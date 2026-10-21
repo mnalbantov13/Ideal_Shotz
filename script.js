@@ -148,11 +148,12 @@ function initNavigation() {
     const navList = document.querySelector('.nav-list');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Mobile menu toggle
+    // Mobile menu toggle; the page behind doesn't scroll while the full-screen menu is open
     if (hamburger) {
         hamburger.addEventListener('click', function() {
             hamburger.classList.toggle('active');
             if (navList) navList.classList.toggle('active');
+            document.body.style.overflow = hamburger.classList.contains('active') ? 'hidden' : '';
         });
     }
 
@@ -162,6 +163,7 @@ function initNavigation() {
             if (navList && navList.classList.contains('active')) {
                 hamburger.classList.remove('active');
                 navList.classList.remove('active');
+                document.body.style.overflow = '';
             }
         });
     });

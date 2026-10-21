@@ -3908,3 +3908,266 @@ p {
     margin-right: 0.5rem;
 }
 .faq-emoji img.emoji { width: 0.95em; height: 0.95em; }
+
+/* ===================================
+   VISUAL REFRESH
+   Sharp photos, shorter headers, compact footer, solid mobile menu.
+   Kept together at the end so it overrides the older rules above.
+   =================================== */
+
+/* --- Photos are shown sharp; a gradient darkens only what sits behind text --- */
+.hero-bg-image,
+.hero-background .hero-bg-image {
+    opacity: 1;
+    filter: none;
+}
+
+.hero-overlay {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.2) 45%, rgba(0, 0, 0, 0.55) 100%);
+    opacity: 1;
+}
+
+.hero-content h1 {
+    color: var(--white);
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+}
+
+.page-header {
+    opacity: 1;
+}
+
+.contact-header-background {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.5) 100%), url('images/Contact_Hero.webp');
+    opacity: 1;
+    filter: none;
+}
+
+.gallery-hero-background {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.45) 100%), url('images/Nature/NA (9).webp');
+    opacity: 1;
+}
+
+.gallery-title-line.highlight,
+.prom-title {
+    background: none;
+    color: var(--white);
+    -webkit-text-fill-color: var(--white);
+}
+
+.prom-hero-img {
+    filter: none;
+}
+
+.prom-hero-overlay {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.6) 100%);
+    opacity: 1;
+}
+
+/* --- Gallery category covers: the photo first, the name on a soft gradient at the bottom --- */
+.gallery-grid.gallery-grid--all-view {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    columns: auto;
+}
+
+.gallery-grid--all-view .category-overview-item {
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 0 !important;
+}
+
+.category-overview-item img,
+.category-overview-item:hover img {
+    filter: none;
+}
+
+.category-overlay,
+.category-overview-item:hover .category-overlay {
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 1.25rem 1.4rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.6) 100%);
+    backdrop-filter: none;
+}
+
+.category-content {
+    text-align: left;
+}
+
+.category-overview-item:hover .category-content {
+    transform: none;
+}
+
+.category-content h3 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Shorter gallery and contact headers, so the content starts sooner --- */
+.gallery-hero,
+.contact-header {
+    min-height: 45vh;
+    padding: 8rem 0 4rem;
+}
+
+/* --- Footer --- */
+.footer-section h3,
+.footer-section h4 {
+    background: none;
+    color: var(--white);
+    -webkit-text-fill-color: var(--white);
+}
+
+/* --- Menu icon turns into a close (×) icon while the menu is open --- */
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+    /* Gallery covers: two per row; the first one wide so the nine categories fill even rows */
+    .gallery-grid.gallery-grid--all-view {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+    }
+
+    .gallery-grid--all-view .category-overview-item {
+        aspect-ratio: 4 / 5;
+        border-radius: 14px;
+    }
+
+    .gallery-grid--all-view .category-overview-item:first-child {
+        grid-column: span 2;
+        aspect-ratio: 16 / 10;
+    }
+
+    .category-overlay,
+    .category-overview-item:hover .category-overlay {
+        padding: 0.85rem 1rem;
+    }
+
+    .category-content h3 {
+        font-size: 1.15rem;
+    }
+
+    .gallery-grid--all-view .category-overview-item:first-child .category-content h3 {
+        font-size: 1.5rem;
+    }
+
+    /* Headers */
+    .gallery-hero,
+    .contact-header {
+        min-height: 0;
+        padding: 7rem 0 2.5rem;
+    }
+
+    .gallery-hero .scroll-arrow,
+    .contact-header .scroll-arrow {
+        display: none;
+    }
+
+    .gallery-title {
+        font-size: 2.75rem;
+        margin-bottom: 1.25rem;
+    }
+
+    /* Less empty space between the header, the content and the footer */
+    .gallery-section {
+        padding-bottom: 4rem;
+    }
+
+    .contact-section {
+        padding: 2rem 0 4rem;
+    }
+
+    /* Compact footer: brand and social, tappable contacts, copyright. The menu already has the page links */
+    .footer {
+        padding: 3rem 0 1.5rem;
+    }
+
+    .footer-content {
+        gap: 1.75rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .footer-content > .footer-section:nth-child(2),
+    .footer-section h4 {
+        display: none;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1.25rem;
+        font-size: 1.5rem;
+    }
+
+    .contact-info {
+        gap: 0.35rem;
+        align-items: center;
+    }
+
+    .contact-info p {
+        justify-content: center;
+        margin: 0;
+        padding: 0.25rem;
+    }
+
+    .footer-bottom {
+        padding-top: 1.5rem;
+        font-size: 0.85rem;
+    }
+
+    /* Solid full-screen menu with large tap targets */
+    .nav-list {
+        top: 85px;
+        height: calc(100vh - 85px);
+        height: calc(100dvh - 85px);
+        justify-content: flex-start;
+        gap: 0.25rem;
+        padding: 2rem 0;
+        overflow-y: auto;
+        background: var(--white);
+        backdrop-filter: none;
+        border-top: 1px solid var(--medium-grey);
+        box-shadow: none;
+    }
+
+    .nav-list .nav-link {
+        display: block;
+        padding: 0.9rem 2rem;
+        font-size: 1.25rem;
+        letter-spacing: 0.02em;
+        text-transform: none;
+        color: var(--charcoal);
+    }
+
+    .nav-list .nav-link:hover,
+    .nav-list .nav-link.active {
+        transform: none;
+    }
+
+    .nav-list .nav-link::before {
+        left: 2rem;
+    }
+
+    .nav-list .nav-link:hover::before,
+    .nav-list .nav-link.active::before {
+        width: calc(100% - 4rem);
+    }
+
+    .logo-item {
+        order: 5;
+        margin-top: auto;
+    }
+}
