@@ -4516,3 +4516,131 @@ p {
         margin-bottom: 0;
     }
 }
+
+/* --- Photo viewer: near-black, the photo as large as the screen allows --- */
+.modal {
+    background: #0a0a0a;
+    backdrop-filter: none;
+}
+
+.modal-content {
+    position: absolute;
+    inset: 0;
+    width: auto;
+    max-width: none;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    animation: none;
+}
+
+.image-container {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    padding: 4rem 5.5rem;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+#modalImage {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 4px;
+    box-shadow: none;
+}
+
+.image-counter {
+    position: absolute;
+    top: 1.15rem;
+    left: 1.25rem;
+    padding: 0;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    background: none;
+    backdrop-filter: none;
+    font-variant-numeric: tabular-nums;
+}
+
+.close-btn {
+    top: 0.6rem;
+    right: 0.6rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.9rem;
+    line-height: 1;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: none;
+}
+
+.close-btn:hover {
+    transform: none;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-btn {
+    width: 3rem;
+    height: 3rem;
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: none;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%);
+}
+
+/* Shown once per visit on touch screens (script.js) */
+.swipe-hint {
+    position: absolute;
+    left: 50%;
+    bottom: 1.25rem;
+    transform: translateX(-50%);
+    padding: 0.45rem 0.9rem;
+    font-size: 0.85rem;
+    color: var(--white);
+    white-space: nowrap;
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.swipe-hint.is-hidden {
+    opacity: 0;
+}
+
+@media (max-width: 768px) {
+    /* Edge to edge on phones, leaving room for the counter and close button */
+    .image-container {
+        padding: 3.5rem 0;
+    }
+
+    #modalImage {
+        border-radius: 0;
+    }
+}
+
+/* Touch screens browse by swiping, so the arrow buttons are hidden there */
+@media (hover: none) and (pointer: coarse) {
+    .nav-btn {
+        display: none !important;
+    }
+}
+
+/* Stand-in for the next photo while it slides in (script.js) */
+.viewer-incoming {
+    position: fixed;
+    z-index: 1;
+    max-width: none;
+    max-height: none;
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .viewer-incoming {
+        border-radius: 0;
+    }
+}

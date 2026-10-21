@@ -414,12 +414,36 @@ function openModal(element) {
     
     // Initialize touch handling for swipe gestures
     initModalTouchHandling(modalImg);
-    
+
     // Update navigation buttons
     updateNavigationButtons();
+    showSwipeHint();
 }
 
-function displayCurrentImage() {
+// The first time the viewer opens on a touch screen in a visit, briefly show how to browse
+function showSwipeHint() {
+    if (currentImages.length < 2 || !window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+    try {
+        if (sessionStorage.getItem('swipeHintShown')) return;
+        sessionStorage.setItem('swipeHintShown', '1');
+    } catch (e) {
+        // Storage unavailable (e.g. private mode): show the hint anyway
+    }
+
+    const content = document.querySelector('#imageModal .modal-content');
+    let hint = content.querySelector('.swipe-hint');
+    if (!hint) {
+        hint = document.createElement('div');
+        hint.className = 'swipe-hint';
+        hint.textContent = document.documentElement.lang === 'bg' ? 'Плъзнете за следващата снимка' : 'Swipe for the next photo';
+        content.appendChild(hint);
+    }
+    hint.classList.remove('is-hidden');
+    setTimeout(() => hint.classList.add('is-hidden'), 2500);
+}
+
+// `preferredSrc` lets a finished slide keep showing the exact photo that slid in
+function displayCurrentImage(preferredSrc) {
     const modalImg = document.getElementById('modalImage');
     const currentImageNumber = document.getElementById('currentImageNumber');
     const totalImages = document.getElementById('totalImages');
@@ -429,8 +453,9 @@ function displayCurrentImage() {
         const img = currentItem.querySelector('img');
         
         if (img) {
-            // Show the grid image instantly, then swap in the full-size file once it has loaded
-            modalImg.src = img.src;
+            // Show the grid image instantly (its thumbnail if the grid still shows the blurred
+            // placeholder), then swap in the full-size file once it has loaded
+            modalImg.src = preferredSrc || img.getAttribute('data-src') || img.src;
             modalImg.alt = img.alt;
             const fullSrc = img.getAttribute('data-full');
             if (fullSrc) {
@@ -442,6 +467,14 @@ function displayCurrentImage() {
                 };
                 fullLoader.src = fullSrc;
             }
+
+            // Start loading the neighbouring full-size photos so swiping feels instant
+            [1, -1].forEach(step => {
+                const neighbour = currentImages[(currentImageIndex + step + currentImages.length) % currentImages.length];
+                const neighbourImg = neighbour && neighbour.querySelector('img');
+                const neighbourFull = neighbourImg && neighbourImg.getAttribute('data-full');
+                if (neighbourFull) new Image().src = neighbourFull;
+            });
 
             // Update counter with explicit DOM updates
             if (currentImageNumber && totalImages) {
@@ -456,40 +489,98 @@ function displayCurrentImage() {
     }
 }
 
-function navigateImage(direction) {
-    if (currentImages.length <= 1 || isNavigating) return;
-    
-    // Lock navigation to prevent multiple rapid calls
-    isNavigating = true;
-    
-    currentImageIndex += direction;
-    
-    // Loop around if needed
-    if (currentImageIndex >= currentImages.length) {
-        currentImageIndex = 0;
-    } else if (currentImageIndex < 0) {
-        currentImageIndex = currentImages.length - 1;
+const SLIDE_MS = 280;
+const SLIDE_EASE = 'cubic-bezier(0.22, 0.61, 0.36, 1)';
+
+// The sharpest version of an item's photo that is already loaded, so it can slide in
+// without a blank frame. Returns null when neither the full size nor the thumbnail is ready.
+function loadedPhoto(item) {
+    const img = item && item.querySelector('img');
+    if (!img) return null;
+    const candidates = [img.getAttribute('data-full'), img.getAttribute('data-src') || img.src];
+    for (const src of candidates) {
+        if (!src) continue;
+        const probe = new Image();
+        probe.src = src;
+        if (probe.complete && probe.naturalWidth) {
+            return { src, width: probe.naturalWidth, height: probe.naturalHeight };
+        }
     }
-    
-    displayCurrentImage();
-    updateNavigationButtons();
-    
-    // Additional counter update for mobile reliability
-    setTimeout(() => {
-        forceCounterUpdate();
-        // Release navigation lock after update
-        isNavigating = false;
-    }, 150);
+    return null;
 }
 
-function forceCounterUpdate() {
-    const currentImageNumber = document.getElementById('currentImageNumber');
-    const totalImages = document.getElementById('totalImages');
-    
-    if (currentImageNumber && totalImages && currentImages.length > 0) {
-        currentImageNumber.innerHTML = String(currentImageIndex + 1);
-        totalImages.innerHTML = String(currentImages.length);
+function resetImagePosition(modalImg, animate) {
+    modalImg.style.transition = animate ? `transform 220ms ${SLIDE_EASE}, opacity 220ms ease` : 'none';
+    modalImg.style.transform = 'none';
+    modalImg.style.opacity = '1';
+}
+
+// Go to the previous (-1) or next (+1) photo. The current photo slides out while the next one
+// slides in from the other side. `fromOffset` is how far a swipe has already dragged the photo.
+function navigateImage(direction, fromOffset = 0) {
+    if (currentImages.length <= 1 || isNavigating) return;
+
+    const modalImg = document.getElementById('modalImage');
+    const nextIndex = (currentImageIndex + direction + currentImages.length) % currentImages.length;
+    const photo = loadedPhoto(currentImages[nextIndex]);
+
+    // Not loaded yet, or the visitor prefers reduced motion: switch instantly
+    if (!photo || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        currentImageIndex = nextIndex;
+        resetImagePosition(modalImg, false);
+        displayCurrentImage();
+        updateNavigationButtons();
+        return;
     }
+
+    isNavigating = true;
+    const distance = window.innerWidth + 24; // a small dark gap between the two photos while sliding
+
+    // Place a stand-in for the next photo exactly where it will end up, sized like the real one,
+    // then start it off-screen on the side it comes from
+    const container = modalImg.parentElement;
+    const box = container.getBoundingClientRect();
+    const style = getComputedStyle(container);
+    const areaLeft = box.left + parseFloat(style.paddingLeft);
+    const areaTop = box.top + parseFloat(style.paddingTop);
+    const areaWidth = box.width - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+    const areaHeight = box.height - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom);
+    const scale = Math.min(1, areaWidth / photo.width, areaHeight / photo.height);
+    const width = photo.width * scale;
+    const height = photo.height * scale;
+
+    const incoming = document.createElement('img');
+    incoming.className = 'viewer-incoming';
+    incoming.src = photo.src;
+    incoming.alt = '';
+    Object.assign(incoming.style, {
+        left: `${areaLeft + (areaWidth - width) / 2}px`,
+        top: `${areaTop + (areaHeight - height) / 2}px`,
+        width: `${width}px`,
+        height: `${height}px`,
+        transform: `translateX(${direction * distance + fromOffset}px)`
+    });
+    container.appendChild(incoming);
+    incoming.getBoundingClientRect(); // apply the start position before animating
+
+    const slide = `transform ${SLIDE_MS}ms ${SLIDE_EASE}`;
+    modalImg.style.transition = slide;
+    modalImg.style.transform = `translateX(${-direction * distance}px)`;
+    incoming.style.transition = slide;
+    incoming.style.transform = 'translateX(0)';
+
+    setTimeout(() => {
+        currentImageIndex = nextIndex;
+        resetImagePosition(modalImg, false);
+        displayCurrentImage(photo.src);
+        updateNavigationButtons();
+        // Remove the stand-in once the real photo is decoded, so there's no blank frame
+        const finish = () => {
+            incoming.remove();
+            isNavigating = false;
+        };
+        (modalImg.decode ? modalImg.decode() : Promise.resolve()).then(finish, finish);
+    }, SLIDE_MS);
 }
 
 function updateNavigationButtons() {
@@ -515,7 +606,10 @@ function closeModal() {
     const modal = document.getElementById('imageModal');
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
-    
+
+    // A swipe-down close leaves the photo moved and faded; reset it for the next open
+    resetImagePosition(document.getElementById('modalImage'), false);
+
     // Reset variables
     currentImages = [];
     currentImageIndex = 0;
@@ -524,89 +618,81 @@ function closeModal() {
 
 // Initialize touch handling for swipe gestures
 function initModalTouchHandling(modalImg) {
-    let startY = 0;
+    // Attach the gesture listeners only once, not on every open
+    if (modalImg.dataset.touchReady) return;
+    modalImg.dataset.touchReady = 'true';
+
     let startX = 0;
+    let startY = 0;
     let startTime = 0;
-    let isDragging = false;
-    let hasTriggeredNavigation = false; // Prevent multiple navigation triggers
-    
+    let tracking = false;
+    let axis = null; // 'x' while swiping between photos, 'y' while pulling down to close
+
     modalImg.addEventListener('touchstart', function(e) {
-        if (isNavigating) return; // Don't start new gesture if navigating
-        
-        startY = e.touches[0].clientY;
+        // Ignore new gestures mid-slide, and leave pinch-zoom to the browser
+        if (isNavigating || e.touches.length > 1) return;
         startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
         startTime = Date.now();
-        isDragging = true;
-        hasTriggeredNavigation = false;
+        axis = null;
+        tracking = true;
         modalImg.style.transition = 'none';
-    });
-    
+    }, { passive: true });
+
     modalImg.addEventListener('touchmove', function(e) {
-        if (!isDragging) return;
-        
-        const currentY = e.touches[0].clientY;
-        const currentX = e.touches[0].clientX;
-        const deltaY = currentY - startY;
-        const deltaX = currentX - startX;
-        
-        // Determine if this is primarily a vertical or horizontal swipe
-        const isVerticalSwipe = Math.abs(deltaY) > Math.abs(deltaX);
-        
-        if (isVerticalSwipe && deltaY > 0) {
-            // Vertical swipe down - close gesture
-            const opacity = Math.max(0.3, 1 - (deltaY / 300));
-            const scale = Math.max(0.8, 1 - (deltaY / 600));
-            
+        if (!tracking) return;
+        if (e.touches.length > 1) {
+            tracking = false;
+            resetImagePosition(modalImg, true);
+            return;
+        }
+
+        const deltaX = e.touches[0].clientX - startX;
+        const deltaY = e.touches[0].clientY - startY;
+
+        // Decide once, after a few pixels, whether this is a sideways swipe or a pull down
+        if (!axis) {
+            if (Math.abs(deltaX) < 8 && Math.abs(deltaY) < 8) return;
+            axis = Math.abs(deltaX) > Math.abs(deltaY) ? 'x' : 'y';
+        }
+
+        if (axis === 'x') {
+            // The photo follows the finger exactly
+            modalImg.style.transform = `translateX(${deltaX}px)`;
+        } else if (deltaY > 0) {
+            // Pull down to close: the photo shrinks and fades as it follows the finger
+            const scale = Math.max(0.8, 1 - deltaY / 600);
             modalImg.style.transform = `translateY(${deltaY}px) scale(${scale})`;
-            modalImg.style.opacity = opacity;
-        } else if (!isVerticalSwipe && Math.abs(deltaX) > 50) {
-            // Horizontal swipe - navigation gesture
-            const opacity = Math.max(0.5, 1 - (Math.abs(deltaX) / 400));
-            modalImg.style.opacity = opacity;
-            modalImg.style.transform = `translateX(${deltaX * 0.3}px)`;
+            modalImg.style.opacity = Math.max(0.3, 1 - deltaY / 300);
+        }
+    }, { passive: true });
+
+    modalImg.addEventListener('touchend', function(e) {
+        if (!tracking) return;
+        tracking = false;
+
+        const deltaX = e.changedTouches[0].clientX - startX;
+        const deltaY = e.changedTouches[0].clientY - startY;
+        const elapsed = Math.max(1, Date.now() - startTime);
+
+        if (axis === 'x') {
+            // A fifth of the screen, or a quick flick, moves to the next photo; otherwise spring back
+            const speed = Math.abs(deltaX) / elapsed;
+            if (currentImages.length > 1 && (Math.abs(deltaX) > window.innerWidth * 0.2 || (Math.abs(deltaX) > 30 && speed > 0.4))) {
+                navigateImage(deltaX < 0 ? 1 : -1, deltaX); // swipe left = next photo
+            } else {
+                resetImagePosition(modalImg, true);
+            }
+        } else if (axis === 'y' && (deltaY > 100 || (deltaY > 50 && deltaY / elapsed > 0.3))) {
+            closeModal();
+        } else {
+            resetImagePosition(modalImg, true);
         }
     });
-    
-    modalImg.addEventListener('touchend', function(e) {
-        if (!isDragging || isNavigating) return;
-        
-        const endY = e.changedTouches[0].clientY;
-        const endX = e.changedTouches[0].clientX;
-        const deltaY = endY - startY;
-        const deltaX = endX - startX;
-        const deltaTime = Date.now() - startTime;
-        
-        isDragging = false;
-        modalImg.style.transition = 'all 0.1s ease';
-        
-        // Determine gesture type
-        const isVerticalSwipe = Math.abs(deltaY) > Math.abs(deltaX);
-        const velocity = isVerticalSwipe ? deltaY / deltaTime : deltaX / deltaTime;
-        
-        if (isVerticalSwipe && (deltaY > 100 || (deltaY > 50 && velocity > 0.3))) {
-            // Close on swipe down
-            closeModal();
-        } else if (!isVerticalSwipe && Math.abs(deltaX) > 100 && !hasTriggeredNavigation) {
-            // Navigate on horizontal swipe (increased threshold to 100px)
-            hasTriggeredNavigation = true; // Prevent multiple triggers
-            
-            if (deltaX > 0) {
-                navigateImage(-1); // Swipe right = previous image
-            } else {
-                navigateImage(1);  // Swipe left = next image
-            }
-            // Reset position after navigation and ensure counter is updated
-            setTimeout(() => {
-                modalImg.style.transform = 'translateX(0)';
-                modalImg.style.opacity = '1';
-                // Force counter update after navigation
-                updateNavigationButtons();
-            }, 10);
-        } else {
-            // Reset position if gesture wasn't strong enough
-            modalImg.style.transform = 'translateY(0) scale(1) translateX(0)';
-            modalImg.style.opacity = '1';
-        }
+
+    modalImg.addEventListener('touchcancel', function() {
+        tracking = false;
+        resetImagePosition(modalImg, true);
     });
 }
 
@@ -615,7 +701,9 @@ window.addEventListener('click', function(event) {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
     
-    if (event.target === modal) {
+    // Tapping the dark area around the photo closes the viewer
+    if (event.target === modal ||
+        (modal && modal.contains(event.target) && event.target.matches('.modal-content, .image-container'))) {
         closeModal();
     }
     // Close when clicking on the image itself
