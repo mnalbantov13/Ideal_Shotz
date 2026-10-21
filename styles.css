@@ -2340,70 +2340,349 @@ p {
 /* ===================================
    PROM REGISTRATION FORM STYLES
    =================================== */
-
 .prom-register-hero {
     background: linear-gradient(135deg, var(--charcoal) 0%, var(--dark-charcoal) 100%);
-    padding: 6rem 0 4rem;
+    padding: 8rem 0 3.5rem;
     text-align: center;
 }
 
-.prom-register-hero h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
+.page-header.prom-register-hero h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
     color: white;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     background: none;
     -webkit-text-fill-color: unset;
 }
 
-.prom-register-hero p {
-    font-size: 1.2rem;
+.page-header.prom-register-hero p {
+    max-width: 32rem;
+    margin: 0 auto;
+    font-size: 1.05rem;
     color: var(--medium-grey);
 }
 
 .prom-register-section {
-    padding: 4rem 0 6rem;
+    --reg-muted: #5f6b73;
+    --reg-line: #d6dbdf;
+    --reg-tint: #f4f5f6;
+    padding: 3rem 1rem 5rem;
 }
 
-.prom-register-form {
-    max-width: 900px;
+.reg-wrap {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 3rem;
+    background: var(--white);
+    border: 1px solid var(--reg-line);
+    border-radius: 20px;
 }
 
-.prom-register-form h2 {
-    text-align: center;
+.reg-wrap [hidden] {
+    display: none !important;
+}
+
+.reg-form {
+    display: grid;
+    gap: 2.25rem;
+}
+
+/* Sections: fieldsets separated by a hairline; the legend floats so the border stays unbroken */
+.reg-section {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.reg-section + .reg-section {
+    padding-top: 2.25rem;
+    border-top: 1px solid var(--reg-line);
+}
+
+.reg-heading {
+    float: left;
+    width: 100%;
+    margin: 0 0 1.25rem;
+    padding: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
     color: var(--charcoal);
-    margin-bottom: 0.5rem;
 }
 
-.form-intro {
-    text-align: center;
-    color: var(--dark-grey);
-    margin-bottom: 3rem;
-    font-size: 1.05rem;
+.reg-fields {
+    clear: both;
+    display: grid;
+    gap: 1.25rem;
 }
 
-.form-section {
-    background: #f8f9fa;
-    padding: 2rem;
-    border-radius: 12px;
-    margin-bottom: 2rem;
-    border-left: 4px solid var(--charcoal);
+.reg-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 }
 
-.form-section-title {
+.reg-field {
+    display: grid;
+    gap: 0.4rem;
+    min-width: 0;
+}
+
+.reg-field label {
+    font-size: 0.9375rem;
+    font-weight: 500;
     color: var(--charcoal);
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
+}
+
+.reg-optional {
+    font-weight: 400;
+    color: var(--reg-muted);
+}
+
+/* 16px text keeps iOS Safari from zooming in when a field is tapped */
+.reg-field input,
+.reg-field select,
+.reg-field textarea {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.75rem 0.9rem;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--black);
+    background-color: var(--white);
+    border: 1px solid var(--reg-line);
+    border-radius: 10px;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.reg-field select {
+    padding-right: 2.5rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%2336454f' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.95rem center;
+    cursor: pointer;
+}
+
+.reg-field textarea {
+    min-height: 7rem;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+.reg-field ::placeholder {
+    color: #98a2a8;
+}
+
+.reg-field input:focus,
+.reg-field select:focus,
+.reg-field textarea:focus {
+    outline: none;
+    border-color: var(--charcoal);
+    box-shadow: 0 0 0 3px rgba(54, 69, 79, 0.15);
+}
+
+/* Package choice: radio tiles carrying the same tier colours as the prom page */
+.reg-packages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.75rem;
+}
+
+.reg-package {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+    padding: 1.25rem 0.5rem 1rem;
+    text-align: center;
+    background: var(--white);
+    border: 1px solid var(--reg-line);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.reg-package::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--tier);
+}
+
+.reg-package--bronze { --tier: #CD7F32; }
+.reg-package--silver { --tier: #C0C0C0; }
+.reg-package--gold { --tier: #FFD700; }
+
+.reg-package input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.reg-package-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--charcoal);
+}
+
+.reg-package-price {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    font-variant-numeric: tabular-nums;
+}
+
+.reg-package-bgn {
+    font-size: 0.8125rem;
+    color: var(--reg-muted);
+}
+
+.reg-package:hover {
+    border-color: #aab3b9;
+}
+
+.reg-package:has(input:checked) {
+    background: var(--reg-tint);
+    border-color: var(--charcoal);
+    box-shadow: 0 0 0 1px var(--charcoal);
+}
+
+.reg-package:has(input:checked)::after {
+    content: '';
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    background: var(--charcoal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' viewBox='0 0 10 8'%3E%3Cpath d='M1 4l2.6 2.6L9 1.2' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 0.65rem no-repeat;
+}
+
+.reg-package:has(input:focus-visible) {
+    box-shadow: 0 0 0 3px rgba(54, 69, 79, 0.3);
+}
+
+.reg-hint {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--reg-muted);
+}
+
+.reg-hint a,
+.reg-success a {
+    color: var(--charcoal);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.reg-total {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1rem;
+    color: var(--charcoal);
+    background: var(--reg-tint);
+    border-radius: 10px;
+}
+
+.reg-total-amount {
+    text-align: right;
+}
+
+.reg-total strong {
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.reg-total small {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--reg-muted);
+}
+
+.reg-submit {
+    width: 100%;
+    min-height: 3.25rem;
+    font: inherit;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--charcoal);
+    border: 0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.reg-submit:hover {
+    background: var(--dark-charcoal);
+}
+
+.reg-submit:focus-visible {
+    outline: 3px solid rgba(54, 69, 79, 0.35);
+    outline-offset: 3px;
+}
+
+.reg-submit:disabled {
+    opacity: 0.6;
+    cursor: progress;
+}
+
+.reg-success {
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+.reg-success h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: var(--charcoal);
     background: none;
     -webkit-text-fill-color: unset;
 }
 
-.form-section-title i {
-    color: var(--charcoal);
-    font-size: 1.2rem;
+.reg-success p {
+    margin-bottom: 1.5rem;
+    color: var(--reg-muted);
 }
+
+@media (max-width: 600px) {
+    .prom-register-hero {
+        padding: 7rem 1.25rem 2.5rem;
+    }
+
+    /* On phones the form sits directly on the page, full width */
+    .prom-register-section {
+        padding: 0;
+        background: var(--white);
+    }
+
+    .reg-wrap {
+        padding: 2rem 1.25rem 3rem;
+        border: 0;
+        border-radius: 0;
+    }
+
+    .reg-packages {
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .reg-row {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 .form-row {
     display: grid;
@@ -2443,15 +2722,6 @@ p {
     background-color: white;
 }
 
-.package-summary {
-    margin-top: 2rem;
-    background: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    border: 2px solid var(--charcoal);
-    animation: fadeIn 0.3s ease;
-}
-
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -2461,38 +2731,6 @@ p {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.package-summary h4 {
-    color: var(--charcoal);
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-
-.summary-content p {
-    margin: 0.5rem 0;
-    color: var(--dark-grey);
-    font-size: 1rem;
-}
-
-.summary-content strong {
-    color: var(--charcoal);
-}
-
-.form-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 3rem;
-    flex-wrap: wrap;
-}
-
-.btn-submit {
-    padding: 1.2rem 3rem;
-    font-size: 1.1rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
 }
 
 .btn-secondary {
@@ -2514,33 +2752,6 @@ p {
     transform: translateY(-2px);
 }
 
-.success-message {
-    text-align: center;
-    padding: 3rem 2rem;
-    background: #e8f5e9;
-    border-radius: 15px;
-    border: 2px solid #4CAF50;
-}
-
-.success-message i {
-    font-size: 4rem;
-    color: #4CAF50;
-    margin-bottom: 1rem;
-}
-
-.success-message h3 {
-    color: #2e7d32;
-    margin-bottom: 1rem;
-    font-size: 1.8rem;
-    background: none;
-    -webkit-text-fill-color: unset;
-}
-
-.success-message p {
-    color: #1b5e20;
-    font-size: 1.1rem;
-}
-
 /* Responsive for Registration Form */
 @media (max-width: 768px) {
     .form-row {
@@ -2548,23 +2759,11 @@ p {
         gap: 1rem;
     }
     
-    .form-section {
-        padding: 1.5rem 1rem;
-    }
-    
-    .form-actions {
-        flex-direction: column;
-    }
-    
-    .btn-submit,
     .btn-secondary {
         width: 100%;
         justify-content: center;
     }
     
-    .prom-register-hero {
-        padding: 4rem 0 3rem;
-    }
 }
 
 /* Responsive Design for Prom Page */

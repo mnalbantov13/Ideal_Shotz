@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prom Registration | Ideal Shotz</title>
-    <link rel="stylesheet" href="styles.css?v=1.0.55">
+    <link rel="stylesheet" href="styles.css?v=1.0.56">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script type="text/javascript"
@@ -69,125 +69,114 @@
     <!-- Registration Header -->
     <section class="page-header prom-register-hero">
         <div class="container">
-            <h1>Prom Registration</h1>
+            <h1>Prom registration</h1>
             <p>Fill out the form below and we'll get in touch with you</p>
         </div>
     </section>
 
-    <!-- Registration Form Section -->
-    <section class="contact-section prom-register-section">
-        <div class="container">
-            <div class="contact-form-centered">
-                <div class="contact-form prom-register-form">
-                    <h2>Registration Form</h2>
-                    <p class="form-intro">Please fill in all required fields to complete your registration</p>
-                    
-                    <form id="promRegisterForm">
-                        <!-- Personal Information -->
-                        <div class="form-section">
-                            <h3 class="form-section-title"><i class="fas fa-user"></i> Personal Information</h3>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="firstName">First Name *</label>
-                                    <input type="text" id="firstName" name="firstName" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="lastName">Last Name *</label>
-                                    <input type="text" id="lastName" name="lastName" required>
-                                </div>
+    <!-- Registration Form -->
+    <section class="prom-register-section">
+        <div class="reg-wrap">
+            <form id="promRegisterForm" class="reg-form">
+                <fieldset class="reg-section">
+                    <legend class="reg-heading">Your details</legend>
+                    <div class="reg-fields">
+                        <div class="reg-row">
+                            <div class="reg-field">
+                                <label for="firstName">First name</label>
+                                <input type="text" id="firstName" name="firstName" autocomplete="given-name" required>
                             </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="email">Email *</label>
-                                    <input type="email" id="email" name="email" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">Phone Number *</label>
-                                    <input type="tel" id="phone" name="phone" required placeholder="+359...">
-                                </div>
+                            <div class="reg-field">
+                                <label for="lastName">Last name</label>
+                                <input type="text" id="lastName" name="lastName" autocomplete="family-name" required>
                             </div>
                         </div>
-
-                        <!-- School Information -->
-                        <div class="form-section">
-                            <h3 class="form-section-title"><i class="fas fa-graduation-cap"></i> School Information</h3>
-                            
-                            <div class="form-group">
-                                <label for="schoolName">School Name *</label>
-                                <input type="text" id="schoolName" name="schoolName" required placeholder="E.g.: High School 'Hristo Botev'">
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="graduationYear">Graduation Year *</label>
-                                    <select id="graduationYear" name="graduationYear" required>
-                                        <option value="">Select year</option>
-                                        <option value="2026">2026</option>
-                                        <option value="2027">2027</option>
-                                        <option value="2028">2028</option>
-                                        <option value="2026">2029</option>
-                                        <option value="2026">2030</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="studentCount">Number of Graduating Students *</label>
-                                    <input type="number" id="studentCount" name="studentCount" required min="1" placeholder="E.g.: 25">
-                                </div>
-                            </div>
+                        <div class="reg-field">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" autocomplete="email" required>
                         </div>
+                        <div class="reg-field">
+                            <label for="phone">Phone number</label>
+                            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+359" required>
+                        </div>
+                    </div>
+                </fieldset>
 
-                        <!-- Package Selection -->
-                        <div class="form-section">
-                            <h3 class="form-section-title"><i class="fas fa-box"></i> Package Selection</h3>
-                            
-                            <div class="form-group">
-                                <label for="package">Select Package *</label>
-                                <select id="package" name="package" required>
-                                    <option value="">Select package</option>
-                                    <option value="bronze">Bronze Package - €50 (97.79лв) per person</option>
-                                    <option value="silver">Silver Package - €75 (146.69лв) per person</option>
-                                    <option value="gold">Gold Package - €100 (195.58лв) per person</option>
+                <fieldset class="reg-section">
+                    <legend class="reg-heading">School</legend>
+                    <div class="reg-fields">
+                        <div class="reg-field">
+                            <label for="schoolName">School name</label>
+                            <input type="text" id="schoolName" name="schoolName" placeholder="E.g. High School 'Hristo Botev'" required>
+                        </div>
+                        <div class="reg-row">
+                            <div class="reg-field">
+                                <label for="graduationYear">Graduation year</label>
+                                <select id="graduationYear" name="graduationYear" required>
+                                    <option value="">Select year</option>
+                                    <option value="2026">2026</option>
+                                    <option value="2027">2027</option>
+                                    <option value="2028">2028</option>
+                                    <option value="2029">2029</option>
+                                    <option value="2030">2030</option>
                                 </select>
                             </div>
-
-                            <div class="package-summary" id="packageSummary" style="display: none;">
-                                <h4>Selected Package Summary:</h4>
-                                <div class="summary-content">
-                                    <p><strong>Package:</strong> <span id="summaryPackage">-</span></p>
-                                    <p><strong>Price per person:</strong> <span id="summaryPrice">-</span></p>
-                                    <p><strong>Total price:</strong> <span id="summaryTotal">-</span></p>
-                                </div>
+                            <div class="reg-field">
+                                <label for="studentCount">Graduating students</label>
+                                <input type="number" id="studentCount" name="studentCount" inputmode="numeric" min="1" placeholder="E.g. 25" required>
                             </div>
                         </div>
+                    </div>
+                </fieldset>
 
-                        <!-- Additional Information -->
-                        <div class="form-section">
-                            <h3 class="form-section-title"><i class="fas fa-info-circle"></i> Additional Information</h3>
-                            
-                            <div class="form-group">
-                                <label for="additionalInfo">Additional notes or special requests</label>
-                                <textarea id="additionalInfo" name="additionalInfo" rows="5" placeholder="Share any additional details or special requests here..."></textarea>
-                            </div>
+                <fieldset class="reg-section">
+                    <legend class="reg-heading">Package</legend>
+                    <div class="reg-fields">
+                        <div class="reg-packages">
+                            <label class="reg-package reg-package--bronze">
+                                <input type="radio" name="package" value="bronze" required>
+                                <span class="reg-package-name">Bronze</span>
+                                <span class="reg-package-price">€50</span>
+                                <span class="reg-package-bgn">97.79лв</span>
+                            </label>
+                            <label class="reg-package reg-package--silver">
+                                <input type="radio" name="package" value="silver" required>
+                                <span class="reg-package-name">Silver</span>
+                                <span class="reg-package-price">€75</span>
+                                <span class="reg-package-bgn">146.69лв</span>
+                            </label>
+                            <label class="reg-package reg-package--gold">
+                                <input type="radio" name="package" value="gold" required>
+                                <span class="reg-package-name">Gold</span>
+                                <span class="reg-package-price">€100</span>
+                                <span class="reg-package-bgn">195.58лв</span>
+                            </label>
                         </div>
-                        
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-primary btn-submit">
-                                <i class="fas fa-paper-plane"></i> Submit Registration
-                            </button>
-                            <a href="prom.html" class="btn btn-secondary">
-                                <i class="fas fa-arrow-left"></i> Back to Packages
-                            </a>
+                        <p class="reg-hint">Prices are per person. <a href="prom.html">See what each package includes</a></p>
+                        <div class="reg-total" id="packageSummary" hidden>
+                            <span id="summaryLabel"></span>
+                            <span class="reg-total-amount">
+                                <strong id="summaryTotal"></strong>
+                                <small id="summaryTotalBgn"></small>
+                            </span>
                         </div>
-                    </form>
+                    </div>
+                </fieldset>
 
-                    <div id="successMessage" class="success-message" style="display: none;">
-                        <i class="fas fa-check-circle"></i>
-                        <h3>Thank you for registering!</h3>
-                        <p>Your registration has been successfully submitted. We'll be in touch with you soon.</p>
+                <div class="reg-section">
+                    <div class="reg-field">
+                        <label for="additionalInfo">Notes or special requests <span class="reg-optional">(optional)</span></label>
+                        <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Anything we should know about your class or the day"></textarea>
                     </div>
                 </div>
+
+                <button type="submit" class="reg-submit">Send registration</button>
+            </form>
+
+            <div id="successMessage" class="reg-success" hidden>
+                <h2>Thank you for registering!</h2>
+                <p>Your registration has been sent. We'll be in touch with you soon.</p>
+                <a href="prom.html">Back to packages</a>
             </div>
         </div>
     </section>
@@ -229,94 +218,86 @@
         </div>
     </footer>
 
-    <script src="script.js?v=1.0.55"></script>
+    <script src="script.js?v=1.0.56"></script>
     <script>
-        // Get package from URL parameter
-        const urlParams = new URLSearchParams(window.location.search);
-        const selectedPackage = urlParams.get('package');
-        
-        if (selectedPackage) {
-            document.getElementById('package').value = selectedPackage;
-            updatePackageSummary();
-        }
-
-        // Package prices
+        // Package prices; `label` is the package name sent in the email
         const packagePrices = {
-            'bronze': { name: 'Bronze Package', priceEur: 50, priceBgn: 97.79 },
-            'silver': { name: 'Silver Package', priceEur: 75, priceBgn: 146.69 },
-            'gold': { name: 'Gold Package', priceEur: 100, priceBgn: 195.58 }
+            bronze: { label: 'Bronze Package - €50 (97.79лв) per person', priceEur: 50, priceBgn: 97.79 },
+            silver: { label: 'Silver Package - €75 (146.69лв) per person', priceEur: 75, priceBgn: 146.69 },
+            gold: { label: 'Gold Package - €100 (195.58лв) per person', priceEur: 100, priceBgn: 195.58 }
         };
 
-        // Update package summary when package or student count changes
-        document.getElementById('package').addEventListener('change', updatePackageSummary);
-        document.getElementById('studentCount').addEventListener('input', updatePackageSummary);
+        const form = document.getElementById('promRegisterForm');
+        const studentCountInput = document.getElementById('studentCount');
+        const submitButton = form.querySelector('.reg-submit');
 
+        function formatEur(eur) {
+            return `€${eur}`;
+        }
+
+        function getSelectedPackage() {
+            const checked = form.querySelector('input[name="package"]:checked');
+            return checked ? packagePrices[checked.value] : null;
+        }
+
+        // Show the class total once a package and the number of students are known
         function updatePackageSummary() {
-            const packageSelect = document.getElementById('package');
-            const studentCount = parseInt(document.getElementById('studentCount').value) || 0;
-            const summaryDiv = document.getElementById('packageSummary');
-            
-            if (packageSelect.value && studentCount > 0) {
-                const pkg = packagePrices[packageSelect.value];
-                const totalEur = pkg.priceEur * studentCount;
-                const totalBgn = pkg.priceBgn * studentCount;
-                
-                document.getElementById('summaryPackage').textContent = pkg.name;
-                document.getElementById('summaryPrice').textContent = `€${pkg.priceEur} (${pkg.priceBgn}лв)`;
-                document.getElementById('summaryTotal').textContent = `€${totalEur} (${totalBgn.toFixed(2)}лв) for ${studentCount} students`;
-                
-                summaryDiv.style.display = 'block';
+            const pkg = getSelectedPackage();
+            const count = parseInt(studentCountInput.value) || 0;
+            const summary = document.getElementById('packageSummary');
+
+            if (pkg && count > 0) {
+                document.getElementById('summaryLabel').textContent = `Total for ${count} students`;
+                document.getElementById('summaryTotal').textContent = formatEur(pkg.priceEur * count);
+                document.getElementById('summaryTotalBgn').textContent = `${(pkg.priceBgn * count).toFixed(2)}лв`;
+                summary.hidden = false;
             } else {
-                summaryDiv.style.display = 'none';
+                summary.hidden = true;
             }
         }
 
+        form.querySelectorAll('input[name="package"]').forEach(input => input.addEventListener('change', updatePackageSummary));
+        studentCountInput.addEventListener('input', updatePackageSummary);
+
+        // Preselect the package chosen on the prom page (prom-register.html?package=silver)
+        const packageFromUrl = new URLSearchParams(window.location.search).get('package');
+        if (Object.prototype.hasOwnProperty.call(packagePrices, packageFromUrl)) {
+            form.querySelector(`input[name="package"][value="${packageFromUrl}"]`).checked = true;
+        }
+
         // Form submission
-        document.getElementById('promRegisterForm').addEventListener('submit', function(e) {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const formData = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                schoolName: document.getElementById('schoolName').value,
-                graduationYear: document.getElementById('graduationYear').value,
-                studentCount: document.getElementById('studentCount').value,
-                packageName: document.getElementById('package').options[document.getElementById('package').selectedIndex].text,
-                pricePerPerson: document.getElementById('summaryPrice') ? document.getElementById('summaryPrice').textContent : '-',
-                totalPrice: document.getElementById('summaryTotal') ? document.getElementById('summaryTotal').textContent : '-',
-                additionalInfo: document.getElementById('additionalInfo').value || 'No additional information provided'
-            };
+
+            const pkg = getSelectedPackage();
+            const count = parseInt(studentCountInput.value) || 0;
+
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending…';
 
             // Send email using EmailJS with template variables
             emailjs.send('service_2l2impe', 'template_prom_reg', {
-                first_name: formData.firstName,
-                last_name: formData.lastName,
-                email: formData.email,
-                phone: formData.phone,
-                school_name: formData.schoolName,
-                graduation_year: formData.graduationYear,
-                student_count: formData.studentCount,
-                package_name: formData.packageName,
-                price_per_person: formData.pricePerPerson,
-                total_price: formData.totalPrice,
-                additional_info: formData.additionalInfo
+                first_name: document.getElementById('firstName').value,
+                last_name: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                school_name: document.getElementById('schoolName').value,
+                graduation_year: document.getElementById('graduationYear').value,
+                student_count: studentCountInput.value,
+                package_name: pkg.label,
+                price_per_person: `${formatEur(pkg.priceEur)} (${pkg.priceBgn}лв)`,
+                total_price: `${formatEur(pkg.priceEur * count)} (${(pkg.priceBgn * count).toFixed(2)}лв) for ${count} students`,
+                additional_info: document.getElementById('additionalInfo').value || 'No additional information provided'
             }).then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
-                document.getElementById('promRegisterForm').style.display = 'none';
-                document.getElementById('successMessage').style.display = 'block';
-                document.querySelector('.form-intro').style.display = 'none';
-                
-                // Scroll to success message
-                document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                form.hidden = true;
+                const success = document.getElementById('successMessage');
+                success.hidden = false;
+                success.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, function(error) {
                 console.error('FAILED...', error);
-                console.error('Error details:', {
-                    status: error.status,
-                    text: error.text,
-                    message: error.message
-                });
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send registration';
                 alert('An error occurred while submitting the form. Please try again or contact us directly.\n\nError: ' + (error.text || error.message || JSON.stringify(error)));
             });
         });

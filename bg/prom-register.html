@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация за бал | Ideal Shotz</title>
-    <link rel="stylesheet" href="../styles.css?v=1.0.55">
+    <link rel="stylesheet" href="../styles.css?v=1.0.56">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
@@ -82,120 +82,109 @@
         </div>
     </section>
 
-    <!-- Registration Form Section -->
-    <section class="contact-section prom-register-section">
-        <div class="container">
-            <div class="contact-form-centered">
-                <div class="contact-form prom-register-form">
-                    <h2>Форма за регистрация</h2>
-                    <p class="form-intro">Моля, попълнете всички задължителни полета, за да завършите регистрацията си</p>
-                    
-                    <form id="promRegisterForm">
-                        <!-- Personal Information -->
-                        <div class="form-section">
-                            <h3 class="form-section-title"><i class="fas fa-user"></i> Лична информация</h3>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="firstName">Име *</label>
-                                    <input type="text" id="firstName" name="firstName" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="lastName">Фамилия *</label>
-                                    <input type="text" id="lastName" name="lastName" required>
-                                </div>
+    <!-- Registration Form -->
+    <section class="prom-register-section">
+        <div class="reg-wrap">
+            <form id="promRegisterForm" class="reg-form">
+                <fieldset class="reg-section">
+                    <legend class="reg-heading">Лична информация</legend>
+                    <div class="reg-fields">
+                        <div class="reg-row">
+                            <div class="reg-field">
+                                <label for="firstName">Име</label>
+                                <input type="text" id="firstName" name="firstName" autocomplete="given-name" required>
                             </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="email">Имейл *</label>
-                                    <input type="email" id="email" name="email" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">Телефонен номер *</label>
-                                    <input type="tel" id="phone" name="phone" required placeholder="+359...">
-                                </div>
+                            <div class="reg-field">
+                                <label for="lastName">Фамилия</label>
+                                <input type="text" id="lastName" name="lastName" autocomplete="family-name" required>
                             </div>
                         </div>
-
-                        <!-- School Information -->
-                        <div class="form-section">
-                            <h3 class="form-section-title"><i class="fas fa-graduation-cap"></i> Информация за училището</h3>
-                            
-                            <div class="form-group">
-                                <label for="schoolName">Име на училището *</label>
-                                <input type="text" id="schoolName" name="schoolName" required placeholder="Например: СУ 'Христо Ботев'">
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="graduationYear">Година на завършване *</label>
-                                    <select id="graduationYear" name="graduationYear" required>
-                                        <option value="">Изберете година</option>
-                                        <option value="2026">2026</option>
-                                        <option value="2027">2027</option>
-                                        <option value="2028">2028</option>
-                                        <option value="2028">2029</option>
-                                        <option value="2028">2030</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="studentCount">Брой завършващи ученици *</label>
-                                    <input type="number" id="studentCount" name="studentCount" required min="1" placeholder="Например: 25">
-                                </div>
-                            </div>
+                        <div class="reg-field">
+                            <label for="email">Имейл</label>
+                            <input type="email" id="email" name="email" autocomplete="email" required>
                         </div>
+                        <div class="reg-field">
+                            <label for="phone">Телефонен номер</label>
+                            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+359" required>
+                        </div>
+                    </div>
+                </fieldset>
 
-                        <!-- Package Selection -->
-                        <div class="form-section">
-                            <h3 class="form-section-title"><i class="fas fa-box"></i> Избор на пакет</h3>
-                            
-                            <div class="form-group">
-                                <label for="package">Изберете пакет *</label>
-                                <select id="package" name="package" required>
-                                    <option value="">Изберете пакет</option>
-                                    <option value="bronze">Bronze пакет - 50€ (97.79лв) на човек</option>
-                                    <option value="silver">Silver пакет - 75€ (146.69лв) на човек</option>
-                                    <option value="gold">Gold пакет - 100€ (195.58лв) на човек</option>
+                <fieldset class="reg-section">
+                    <legend class="reg-heading">Училище</legend>
+                    <div class="reg-fields">
+                        <div class="reg-field">
+                            <label for="schoolName">Име на училището</label>
+                            <input type="text" id="schoolName" name="schoolName" placeholder="Например: СУ 'Христо Ботев'" required>
+                        </div>
+                        <div class="reg-row">
+                            <div class="reg-field">
+                                <label for="graduationYear">Година на завършване</label>
+                                <select id="graduationYear" name="graduationYear" required>
+                                    <option value="">Изберете</option>
+                                    <option value="2026">2026</option>
+                                    <option value="2027">2027</option>
+                                    <option value="2028">2028</option>
+                                    <option value="2029">2029</option>
+                                    <option value="2030">2030</option>
                                 </select>
                             </div>
-
-                            <div class="package-summary" id="packageSummary" style="display: none;">
-                                <h4>Обобщение на избрания пакет:</h4>
-                                <div class="summary-content">
-                                    <p><strong>Пакет:</strong> <span id="summaryPackage">-</span></p>
-                                    <p><strong>Цена на човек:</strong> <span id="summaryPrice">-</span></p>
-                                    <p><strong>Обща цена:</strong> <span id="summaryTotal">-</span></p>
-                                </div>
+                            <div class="reg-field">
+                                <label for="studentCount">Брой ученици</label>
+                                <input type="number" id="studentCount" name="studentCount" inputmode="numeric" min="1" placeholder="Например: 25" required>
                             </div>
                         </div>
+                    </div>
+                </fieldset>
 
-                        <!-- Additional Information -->
-                        <div class="form-section">
-                            <h3 class="form-section-title"><i class="fas fa-info-circle"></i> Допълнителна информация</h3>
-                            
-                            <div class="form-group">
-                                <label for="additionalInfo">Допълнителни бележки или специални искания</label>
-                                <textarea id="additionalInfo" name="additionalInfo" rows="5" placeholder="Споделете всякакви допълнителни детайли или специални искания тук..."></textarea>
-                            </div>
+                <fieldset class="reg-section">
+                    <legend class="reg-heading">Пакет</legend>
+                    <div class="reg-fields">
+                        <div class="reg-packages">
+                            <label class="reg-package reg-package--bronze">
+                                <input type="radio" name="package" value="bronze" required>
+                                <span class="reg-package-name">Bronze</span>
+                                <span class="reg-package-price">50€</span>
+                                <span class="reg-package-bgn">97.79лв</span>
+                            </label>
+                            <label class="reg-package reg-package--silver">
+                                <input type="radio" name="package" value="silver" required>
+                                <span class="reg-package-name">Silver</span>
+                                <span class="reg-package-price">75€</span>
+                                <span class="reg-package-bgn">146.69лв</span>
+                            </label>
+                            <label class="reg-package reg-package--gold">
+                                <input type="radio" name="package" value="gold" required>
+                                <span class="reg-package-name">Gold</span>
+                                <span class="reg-package-price">100€</span>
+                                <span class="reg-package-bgn">195.58лв</span>
+                            </label>
                         </div>
-                        
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-primary btn-submit">
-                                <i class="fas fa-paper-plane"></i> Изпратете регистрацията
-                            </button>
-                            <a href="prom.html" class="btn btn-secondary">
-                                <i class="fas fa-arrow-left"></i> Назад към пакетите
-                            </a>
+                        <p class="reg-hint">Цените са на човек. <a href="prom.html">Вижте какво включва всеки пакет</a></p>
+                        <div class="reg-total" id="packageSummary" hidden>
+                            <span id="summaryLabel"></span>
+                            <span class="reg-total-amount">
+                                <strong id="summaryTotal"></strong>
+                                <small id="summaryTotalBgn"></small>
+                            </span>
                         </div>
-                    </form>
+                    </div>
+                </fieldset>
 
-                    <div id="successMessage" class="success-message" style="display: none;">
-                        <i class="fas fa-check-circle"></i>
-                        <h3>Благодарим за регистрацията!</h3>
-                        <p>Вашата регистрация беше изпратена успешно. Ще се свържем с вас скоро.</p>
+                <div class="reg-section">
+                    <div class="reg-field">
+                        <label for="additionalInfo">Бележки или специални искания <span class="reg-optional">(по желание)</span></label>
+                        <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Всичко, което трябва да знаем за класа или деня"></textarea>
                     </div>
                 </div>
+
+                <button type="submit" class="reg-submit">Изпратете регистрацията</button>
+            </form>
+
+            <div id="successMessage" class="reg-success" hidden>
+                <h2>Благодарим за регистрацията!</h2>
+                <p>Вашата регистрация беше изпратена успешно. Ще се свържем с вас скоро.</p>
+                <a href="prom.html">Назад към пакетите</a>
             </div>
         </div>
     </section>
@@ -237,89 +226,86 @@
         </div>
     </footer>
 
-    <script src="../script.js?v=1.0.55"></script>
+    <script src="../script.js?v=1.0.56"></script>
     <script>
-        // Get package from URL parameter
-        const urlParams = new URLSearchParams(window.location.search);
-        const selectedPackage = urlParams.get('package');
-        
-        if (selectedPackage) {
-            document.getElementById('package').value = selectedPackage;
-            updatePackageSummary();
-        }
-
-        // Package prices
+        // Package prices; `label` is the package name sent in the email
         const packagePrices = {
-            'bronze': { name: 'Bronze пакет', priceEur: 50, priceBgn: 97.79 },
-            'silver': { name: 'Silver пакет', priceEur: 75, priceBgn: 146.69 },
-            'gold': { name: 'Gold пакет', priceEur: 100, priceBgn: 195.58 }
+            bronze: { label: 'Bronze пакет - 50€ (97.79лв) на човек', priceEur: 50, priceBgn: 97.79 },
+            silver: { label: 'Silver пакет - 75€ (146.69лв) на човек', priceEur: 75, priceBgn: 146.69 },
+            gold: { label: 'Gold пакет - 100€ (195.58лв) на човек', priceEur: 100, priceBgn: 195.58 }
         };
 
-        // Update package summary when package or student count changes
-        document.getElementById('package').addEventListener('change', updatePackageSummary);
-        document.getElementById('studentCount').addEventListener('input', updatePackageSummary);
+        const form = document.getElementById('promRegisterForm');
+        const studentCountInput = document.getElementById('studentCount');
+        const submitButton = form.querySelector('.reg-submit');
 
+        function formatEur(eur) {
+            return `${eur}€`;
+        }
+
+        function getSelectedPackage() {
+            const checked = form.querySelector('input[name="package"]:checked');
+            return checked ? packagePrices[checked.value] : null;
+        }
+
+        // Show the class total once a package and the number of students are known
         function updatePackageSummary() {
-            const packageSelect = document.getElementById('package');
-            const studentCount = parseInt(document.getElementById('studentCount').value) || 0;
-            const summaryDiv = document.getElementById('packageSummary');
-            
-            if (packageSelect.value && studentCount > 0) {
-                const pkg = packagePrices[packageSelect.value];
-                const totalEur = pkg.priceEur * studentCount;
-                const totalBgn = pkg.priceBgn * studentCount;
-                
-                document.getElementById('summaryPackage').textContent = pkg.name;
-                document.getElementById('summaryPrice').textContent = `${pkg.priceEur}€ (${pkg.priceBgn}лв)`;
-                document.getElementById('summaryTotal').textContent = `${totalEur}€ (${totalBgn.toFixed(2)}лв) за ${studentCount} ученици`;
-                
-                summaryDiv.style.display = 'block';
+            const pkg = getSelectedPackage();
+            const count = parseInt(studentCountInput.value) || 0;
+            const summary = document.getElementById('packageSummary');
+
+            if (pkg && count > 0) {
+                document.getElementById('summaryLabel').textContent = `Общо за ${count} ученици`;
+                document.getElementById('summaryTotal').textContent = formatEur(pkg.priceEur * count);
+                document.getElementById('summaryTotalBgn').textContent = `${(pkg.priceBgn * count).toFixed(2)}лв`;
+                summary.hidden = false;
             } else {
-                summaryDiv.style.display = 'none';
+                summary.hidden = true;
             }
         }
 
+        form.querySelectorAll('input[name="package"]').forEach(input => input.addEventListener('change', updatePackageSummary));
+        studentCountInput.addEventListener('input', updatePackageSummary);
+
+        // Preselect the package chosen on the prom page (prom-register.html?package=silver)
+        const packageFromUrl = new URLSearchParams(window.location.search).get('package');
+        if (Object.prototype.hasOwnProperty.call(packagePrices, packageFromUrl)) {
+            form.querySelector(`input[name="package"][value="${packageFromUrl}"]`).checked = true;
+        }
+
         // Form submission
-        document.getElementById('promRegisterForm').addEventListener('submit', function(e) {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const formData = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                schoolName: document.getElementById('schoolName').value,
-                graduationYear: document.getElementById('graduationYear').value,
-                studentCount: document.getElementById('studentCount').value,
-                packageName: document.getElementById('package').options[document.getElementById('package').selectedIndex].text,
-                pricePerPerson: document.getElementById('summaryPrice') ? document.getElementById('summaryPrice').textContent : '-',
-                totalPrice: document.getElementById('summaryTotal') ? document.getElementById('summaryTotal').textContent : '-',
-                additionalInfo: document.getElementById('additionalInfo').value || 'Няма допълнителна информация'
-            };
+
+            const pkg = getSelectedPackage();
+            const count = parseInt(studentCountInput.value) || 0;
+
+            submitButton.disabled = true;
+            submitButton.textContent = 'Изпращане…';
 
             // Send email using EmailJS with template variables
             emailjs.send('service_qvg7h7c', 'template_prom_reg', {
-                first_name: formData.firstName,
-                last_name: formData.lastName,
-                email: formData.email,
-                phone: formData.phone,
-                school_name: formData.schoolName,
-                graduation_year: formData.graduationYear,
-                student_count: formData.studentCount,
-                package_name: formData.packageName,
-                price_per_person: formData.pricePerPerson,
-                total_price: formData.totalPrice,
-                additional_info: formData.additionalInfo
+                first_name: document.getElementById('firstName').value,
+                last_name: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                school_name: document.getElementById('schoolName').value,
+                graduation_year: document.getElementById('graduationYear').value,
+                student_count: studentCountInput.value,
+                package_name: pkg.label,
+                price_per_person: `${formatEur(pkg.priceEur)} (${pkg.priceBgn}лв)`,
+                total_price: `${formatEur(pkg.priceEur * count)} (${(pkg.priceBgn * count).toFixed(2)}лв) за ${count} ученици`,
+                additional_info: document.getElementById('additionalInfo').value || 'Няма допълнителна информация'
             }).then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
-                document.getElementById('promRegisterForm').style.display = 'none';
-                document.getElementById('successMessage').style.display = 'block';
-                document.querySelector('.form-intro').style.display = 'none';
-                
-                // Scroll to success message
-                document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                form.hidden = true;
+                const success = document.getElementById('successMessage');
+                success.hidden = false;
+                success.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, function(error) {
-                console.log('FAILED...', error);
+                console.error('FAILED...', error);
+                submitButton.disabled = false;
+                submitButton.textContent = 'Изпратете регистрацията';
                 alert('Възникна грешка при изпращането на формата. Моля, опитайте отново или се свържете с нас директно.');
             });
         });
