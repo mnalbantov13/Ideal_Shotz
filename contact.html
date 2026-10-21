@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | IS Photography</title>
-    <link rel="stylesheet" href="styles.css?v=1.0.54">
+    <link rel="stylesheet" href="styles.css?v=1.0.55">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
@@ -159,14 +158,16 @@
         </div>
     </footer>
 
-    <script src="script.js?v=1.0.54"></script>
+    <script src="script.js?v=1.0.55"></script>
     <script>
-        // Parse emojis (including flags) into images on Windows only
-        if (typeof twemoji !== 'undefined' && (navigator.platform.includes('Win') || navigator.userAgent.includes('Windows'))) {
-            twemoji.parse(document.body, {
-                folder: 'svg',
-                ext: '.svg'
-            });
+        // Windows can't show flag emojis, so swap them for Twemoji images there.
+        // Loaded only on Windows, after the page has rendered, so it never blocks the page.
+        if (navigator.platform.includes('Win') || navigator.userAgent.includes('Windows')) {
+            const twemojiScript = document.createElement('script');
+            twemojiScript.src = 'https://cdn.jsdelivr.net/npm/@twemoji/api@15.1.0/dist/twemoji.min.js';
+            twemojiScript.crossOrigin = 'anonymous';
+            twemojiScript.onload = () => twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
+            document.head.appendChild(twemojiScript);
         }
     </script>
 </body>

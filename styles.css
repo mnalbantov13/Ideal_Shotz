@@ -961,11 +961,9 @@ p {
     width: 100%;
     margin-bottom: 1rem;
     break-inside: avoid;
-    /* iOS Safari fixes */
     -webkit-column-break-inside: avoid;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    will-change: transform;
+    /* Keeps rounded corners clipping zoomed images in Safari, without forcing a GPU layer per tile */
+    isolation: isolate;
 }
 
 .gallery-item img {
@@ -974,12 +972,6 @@ p {
     object-fit: contain;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: block;
-    will-change: transform;
-    transform: translateZ(0);
-    /* iOS Safari fixes */
-    -webkit-transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
     image-rendering: -webkit-optimize-contrast;
 }
 
@@ -3342,15 +3334,6 @@ p {
 .fade-in-right.visible {
     opacity: 1;
     transform: translateX(0);
-}
-
-/* Basic iOS Safari Performance Optimizations */
-@supports (-webkit-touch-callout: none) {
-    /* Minimal iOS-specific optimizations */
-    .gallery-item img {
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-    }
 }
 
 .album-title {
