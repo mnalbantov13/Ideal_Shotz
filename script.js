@@ -294,8 +294,11 @@ function applyFilter(filterValue) {
             const itemCategory = item.getAttribute('data-category');
             
             if (itemCategory === filterValue) {
-                item.style.display = 'block';
-                item.style.setProperty('display', 'block', 'important');
+                // inline-block, not block: Safari carries a block's bottom margin over to the
+                // top of the next column, leaving a gap there. Spanning items must stay
+                // block-level for column-span to work.
+                const shownDisplay = item.classList.contains('col-span-mobile') ? 'block' : 'inline-block';
+                item.style.setProperty('display', shownDisplay, 'important');
                 // Add entrance animation
                 item.style.opacity = '0';
                 item.style.transform = 'translateY(20px)';
