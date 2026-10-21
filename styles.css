@@ -4212,3 +4212,233 @@ p {
         width: auto;
     }
 }
+
+/* --- Prom packages: compact cards; name and price on one row; features read as sentences --- */
+.pricing-section {
+    padding: 4rem 0 5rem;
+}
+
+.pricing-grid {
+    gap: 1.5rem;
+    margin-top: 0;
+    perspective: none;
+}
+
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 2rem 1.75rem 1.75rem;
+    border: 1px solid #e3e6e9;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.pricing-card::before {
+    height: 5px;
+    box-shadow: none;
+}
+
+.pricing-card::after {
+    content: none;
+}
+
+.pricing-card:hover,
+.pricing-card.bronze:hover,
+.pricing-card.silver:hover,
+.pricing-card.gold:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.09);
+}
+
+.popular-badge {
+    align-self: flex-start;
+    margin-bottom: 0.9rem;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    background: #eceff1;
+    border-radius: 999px;
+}
+
+/* Header grid:  [icon] Bronze ...... €50
+                        per person   97.79лв */
+.pricing-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+        "icon name euro"
+        "icon per lev";
+    column-gap: 0.85rem;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid #eef0f2;
+}
+
+.package-icon {
+    grid-area: icon;
+    margin: 0;
+    font-size: 2rem;
+    animation: none;
+    filter: none;
+}
+
+.package-name {
+    grid-area: name;
+    margin: 0;
+    font-size: 1.4rem;
+    line-height: 1.2;
+}
+
+.package-price {
+    display: contents;
+}
+
+.price-euro {
+    grid-area: euro;
+    font-size: 1.9rem;
+    line-height: 1.1;
+    text-align: right;
+}
+
+.price-lev {
+    grid-area: lev;
+    font-size: 0.85rem;
+    text-align: right;
+}
+
+.price-per {
+    grid-area: per;
+    font-size: 0.85rem;
+    color: var(--reg-muted);
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.pricing-features {
+    flex: 1;
+}
+
+/* Block (not flex) so the bold lead-in and the rest of the sentence wrap together */
+.pricing-features li,
+.pricing-features li:hover {
+    display: block;
+    position: relative;
+    padding: 0.45rem 0 0.45rem 2rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #4a555c;
+    border-bottom: 0;
+}
+
+.pricing-features i {
+    position: absolute;
+    top: 0.65rem;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    font-size: 0.7rem;
+}
+
+.pricing-features strong {
+    font-weight: 600;
+    color: var(--charcoal);
+}
+
+/* One clear button style for every package; the tier colour stays on the card's top bar */
+.btn-package,
+.bronze .btn-package,
+.silver .btn-package,
+.gold .btn-package {
+    width: 100%;
+    max-width: none;
+    margin-top: 1.5rem;
+    padding: 0.95rem 1.5rem;
+    font-size: 1rem;
+    color: var(--white);
+    text-transform: none;
+    letter-spacing: 0;
+    background: var(--charcoal);
+    border-radius: 12px;
+}
+
+.btn-package::before {
+    content: none;
+}
+
+.btn-package:hover,
+.bronze .btn-package:hover,
+.silver .btn-package:hover,
+.gold .btn-package:hover {
+    background: var(--dark-charcoal);
+    transform: none;
+    box-shadow: none;
+}
+
+/* Prom / Albums toggle matches the gallery filter */
+.prom-gallery-toggle .filter-btn,
+.prom-gallery-toggle .filter-btn:hover,
+.prom-gallery-toggle .filter-btn.active {
+    border: 1px solid #dcdfe2;
+    box-shadow: none;
+    transform: none;
+    backdrop-filter: none;
+}
+
+.prom-gallery-toggle .filter-btn.active {
+    border-color: #2c2c2c;
+}
+
+@media (hover: none) {
+    .prom-gallery-toggle .filter-btn:hover:not(.active) {
+        background: rgba(255, 255, 255, 0.9);
+        color: #666;
+        border-color: #dcdfe2;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Shorter prom header so the packages start sooner */
+    .prom-hero {
+        min-height: 0;
+        padding: 7.5rem 0 3rem;
+    }
+
+    .prom-hero .scroll-arrow,
+    .prom-subtitle::after {
+        display: none;
+    }
+
+    .prom-title {
+        margin-bottom: 0.75rem;
+        font-size: 2.4rem;
+    }
+
+    .prom-subtitle {
+        font-size: 1.05rem;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.92);
+        text-transform: none;
+        letter-spacing: 0;
+    }
+
+    .pricing-section {
+        padding: 2rem 0 3rem;
+    }
+
+    .pricing-card {
+        padding: 1.5rem 1.25rem 1.25rem;
+    }
+
+    .prom-gallery-section {
+        padding: 3rem 0;
+    }
+
+    .prom-gallery-section .section-title {
+        font-size: 2rem;
+    }
+}
