@@ -12,6 +12,9 @@
     --black: #1a1a1a;
     --shadow: rgba(54, 69, 79, 0.2);
     --overlay: rgba(54, 69, 79, 0.85);
+    --reg-muted: #5f6b73;
+    --reg-line: #d6dbdf;
+    --reg-tint: #f4f5f6;
 }
 
 
@@ -2476,9 +2479,6 @@ p {
 }
 
 .prom-register-section {
-    --reg-muted: #5f6b73;
-    --reg-line: #d6dbdf;
-    --reg-tint: #f4f5f6;
     padding: 3rem 1rem 5rem;
 }
 
@@ -2754,6 +2754,16 @@ p {
 .reg-success {
     padding: 1.5rem 0;
     text-align: center;
+}
+
+/* Form headings: plain text, without the site-wide h2 gradient and underline */
+.reg-wrap h2 {
+    background: none;
+    -webkit-text-fill-color: unset;
+}
+
+.reg-wrap h2::after {
+    content: none;
 }
 
 .reg-success h2 {
@@ -4169,5 +4179,36 @@ p {
     .logo-item {
         order: 5;
         margin-top: auto;
+    }
+}
+
+/* --- Contact page: same form style as the prom registration --- */
+.contact-section .reg-wrap {
+    position: relative;
+    z-index: 2;
+    width: calc(100% - 2rem);
+}
+
+.quick-contact {
+    max-width: 40rem;
+}
+
+@media (max-width: 600px) {
+    /* On phones the form sits directly on the page, full width, like the registration form */
+    .contact-section {
+        padding: 1.5rem 0 0;
+        background: var(--white);
+    }
+
+    .contact-section::before {
+        display: none;
+    }
+
+    .quick-contact {
+        margin-bottom: 0.5rem;
+    }
+
+    .contact-section .reg-wrap {
+        width: auto;
     }
 }

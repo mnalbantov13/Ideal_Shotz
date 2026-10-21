@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | IS Photography</title>
-    <link rel="stylesheet" href="styles.css?v=1.0.58">
+    <link rel="stylesheet" href="styles.css?v=1.0.59">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script type="text/javascript"
@@ -89,41 +89,40 @@
                 <a class="quick-contact-link" href="mailto:shotz.ideal@gmail.com"><i class="fas fa-envelope"></i><span>Email</span><small>shotz.ideal@gmail.com</small></a>
                 <a class="quick-contact-link" href="https://www.instagram.com/ideal_shotz/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i><span>Instagram</span><small>@ideal_shotz</small></a>
             </div>
-            <div class="contact-form-centered">
-                <div class="contact-form">
-                    <h2>Send a Message</h2>
-                    <form id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">First Name *</label>
-                                <input type="text" id="firstName" name="firstName" required>
+        </div>
+
+        <div class="reg-wrap">
+            <form id="contactForm" class="reg-form">
+                <div class="reg-section">
+                    <h2 class="reg-heading">Send a message</h2>
+                    <div class="reg-fields">
+                        <div class="reg-row">
+                            <div class="reg-field">
+                                <label for="firstName">First name</label>
+                                <input type="text" id="firstName" name="firstName" autocomplete="given-name" required>
                             </div>
-                            <div class="form-group">
-                                <label for="lastName">Last Name *</label>
-                                <input type="text" id="lastName" name="lastName" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">Subject *</label>
-                                <input type="text" id="subject" name="subject" required>
+                            <div class="reg-field">
+                                <label for="lastName">Last name</label>
+                                <input type="text" id="lastName" name="lastName" autocomplete="family-name" required>
                             </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="6" required></textarea>
+                        <div class="reg-field">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" autocomplete="email" required>
                         </div>
-                        
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
+                        <div class="reg-field">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="reg-field">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" placeholder="How can we help?" required></textarea>
+                        </div>
+                    </div>
                 </div>
-            </div>
+
+                <button type="submit" class="reg-submit">Send message</button>
+            </form>
         </div>
     </section>
 
@@ -165,7 +164,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=1.0.58"></script>
+    <script src="script.js?v=1.0.59"></script>
     <script>
         // Windows can't show flag emojis, so swap them for Twemoji images there.
         // Loaded only on Windows, after the page has rendered, so it never blocks the page.
