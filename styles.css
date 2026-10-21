@@ -1214,10 +1214,10 @@ p {
 
 
 .gallery-section {
-    padding: 5rem 0 10rem;
+    padding: 2rem 0 10rem;
     background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
     position: relative;
-    scroll-margin-top: 25px;
+    scroll-margin-top: calc(85px - 2rem); /* navbar height minus top padding: filter row lands under the navbar */
 }
 
 .filter-tabs {
@@ -1270,6 +1270,68 @@ p {
     border-color: #2c2c2c;
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(44, 44, 44, 0.3);
+}
+
+/* Gallery filter: one swipeable row that stays pinned under the fixed navbar (85px) */
+.gallery-section .filter-tabs {
+    position: sticky;
+    top: 85px;
+    z-index: 5;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin: 0 -20px 2.5rem;
+    padding: 0.75rem 20px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    background: rgba(248, 248, 248, 0.94);
+}
+
+.gallery-section .filter-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-tabs .filter-btn {
+    flex: none;
+    min-width: 0;
+    padding: 0.55rem 1.15rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    border: 1px solid #dcdfe2;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+/* Centred when every category fits; starts at the left edge and scrolls when they don't */
+.filter-tabs .filter-btn:first-child {
+    margin-left: auto;
+}
+
+.filter-tabs .filter-btn:last-child {
+    margin-right: auto;
+}
+
+.filter-tabs .filter-btn:hover,
+.filter-tabs .filter-btn.active {
+    transform: none;
+    box-shadow: none;
+}
+
+/* On touch screens :hover sticks after a tap, so only the active category is dark */
+@media (hover: none) {
+    .filter-tabs .filter-btn:hover:not(.active) {
+        background: rgba(255, 255, 255, 0.9);
+        color: #666;
+        border-color: #dcdfe2;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-section .filter-tabs {
+        margin: 0 -15px 1.5rem;
+        padding: 0.6rem 15px;
+    }
 }
 
 .gallery-grid {
@@ -1613,6 +1675,58 @@ p {
     background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,248,248,0.9) 100%);
     position: relative;
     overflow: hidden;
+}
+
+.quick-contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.quick-contact-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    min-height: 6rem;
+    padding: 1.1rem 0.75rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--charcoal);
+    background: var(--white);
+    border: 1px solid #d6dbdf;
+    border-radius: 12px;
+    transition: border-color 0.15s ease;
+}
+
+.quick-contact-link:hover {
+    border-color: var(--charcoal);
+}
+
+.quick-contact-link:focus-visible {
+    outline: 3px solid rgba(54, 69, 79, 0.35);
+    outline-offset: 2px;
+}
+
+.quick-contact-link i {
+    margin-bottom: 0.25rem;
+    font-size: 1.15rem;
+}
+
+.quick-contact-link span {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.quick-contact-link small {
+    font-size: 0.8rem;
+    color: #5f6b73;
+    overflow-wrap: anywhere;
 }
 
 .contact-section::before {
@@ -2968,6 +3082,19 @@ p {
     width: 20px;
     text-align: center;
     color: #fff;
+}
+
+.contact-info a {
+    display: inline-block;
+    padding: 0.15rem 0;
+    color: inherit;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 .footer-bottom {

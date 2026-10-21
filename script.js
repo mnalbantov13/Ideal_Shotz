@@ -9,6 +9,11 @@ window.addEventListener('load', function() {
 document.addEventListener('DOMContentLoaded', function() {
     renderGallery();
 
+    // Keep the footer copyright year current
+    document.querySelectorAll('.footer-year').forEach(el => {
+        el.textContent = new Date().getFullYear();
+    });
+
     // Initialize all functionality
     initNavigation();
     initGalleryFilter();
@@ -224,6 +229,7 @@ function initGalleryFilter() {
             filterBtns.forEach(b => b.classList.remove('active'));
             // Add active class to clicked button
             this.classList.add('active');
+            revealActiveFilter();
 
             const filterValue = this.getAttribute('data-filter');
             applyFilter(filterValue);
@@ -315,6 +321,14 @@ function applyFilter(filterValue) {
     }
 }
 
+// Scroll the swipeable filter row sideways so the active category is in view
+function revealActiveFilter() {
+    const active = document.querySelector('.filter-tabs .filter-btn.active');
+    if (!active) return;
+    const row = active.parentElement;
+    row.scrollTo({ left: active.offsetLeft - (row.clientWidth - active.offsetWidth) / 2, behavior: 'smooth' });
+}
+
 // Filter to specific category (called from overview cards)
 function filterCategory(category) {
     // Scroll to gallery section top when filtering
@@ -335,7 +349,8 @@ function filterCategory(category) {
             btn.classList.add('active');
         }
     });
-    
+    revealActiveFilter();
+
     // Apply the filter
     applyFilter(category);
 }
@@ -786,6 +801,8 @@ function initScrollEffects() {
 
     // Observe elements with fade-in class
     document.querySelectorAll('.service-card, .gallery-item, .contact-item').forEach(el => {
+        // Carousel tiles slide in sideways, which the observer doesn't reliably notice, so they'd stay invisible
+        if (el.closest('.infinite-carousel')) return;
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'all 0.6s ease';

@@ -68,12 +68,12 @@ const GALLERY_DATA = [
         ]
       },
       {
-        title: 'Mclaren 720S',
+        title: 'McLaren 720S',
         images: [
-          { src: 'images/Blur/Cars/Mclaren (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mclaren_1.webp', alt: 'Mclaren 720S 1' },
-          { src: 'images/Blur/Cars/Mclaren (2).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mclaren_2.webp', alt: 'Mclaren 720S 2' },
-          { src: 'images/Blur/Cars/Mclaren (3).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mclaren_3.webp', alt: 'Mclaren 720S 3' },
-          { src: 'images/Blur/Cars/Mclaren (4).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mclaren_4.webp', alt: 'Mclaren 720S 4' },
+          { src: 'images/Blur/Cars/Mclaren (1).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mclaren_1.webp', alt: 'McLaren 720S 1' },
+          { src: 'images/Blur/Cars/Mclaren (2).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mclaren_2.webp', alt: 'McLaren 720S 2' },
+          { src: 'images/Blur/Cars/Mclaren (3).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mclaren_3.webp', alt: 'McLaren 720S 3' },
+          { src: 'images/Blur/Cars/Mclaren (4).webp', fullSrc: 'https://res.cloudinary.com/dtezleq3h/image/upload/w_auto,f_auto/v1760027584/Mclaren_4.webp', alt: 'McLaren 720S 4' },
         ]
       },
       {
