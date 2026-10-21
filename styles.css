@@ -4766,3 +4766,130 @@ p {
         transition-delay: 0s !important;
     }
 }
+
+/* --- Polish: sentence case instead of ALL CAPS (the small desktop nav keeps its capitals) --- */
+.btn,
+.filter-btn,
+.gallery-subtitle,
+.prom-subtitle,
+.hero-scroll-indicator {
+    text-transform: none;
+    letter-spacing: 0.01em;
+}
+
+.btn {
+    font-size: 0.95rem;
+}
+
+.filter-tabs .filter-btn {
+    font-size: 0.85rem;
+}
+
+.gallery-subtitle {
+    font-size: 1.05rem;
+    font-weight: 400;
+}
+
+@media (min-width: 769px) {
+    .prom-subtitle {
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
+}
+
+/* --- Home header: one clear main button; "Get in touch" becomes a quiet text link --- */
+.hero-buttons {
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.hero-buttons .btn-secondary,
+.hero-buttons .btn-secondary:hover {
+    min-width: 0;
+    margin-top: 0;
+    padding: 0.5rem 0.25rem;
+    color: var(--white);
+    background: none;
+    border: 0;
+    box-shadow: none;
+    transform: none;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+}
+
+.hero-buttons .btn-secondary:hover {
+    text-decoration-thickness: 2px;
+}
+
+.hero-buttons .btn-secondary::before,
+.hero-buttons .btn-secondary i {
+    display: none;
+}
+
+/* --- Home header: editorial layout. The photo leads; the headline and actions sit bottom-left
+       over a soft gradient, with one white button and a quiet "Get in touch" link --- */
+.hero {
+    justify-content: flex-end;
+    align-items: stretch;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 0 0 3rem;
+    text-align: left;
+}
+
+.hero-overlay {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.15) 55%, rgba(0, 0, 0, 0.72) 100%);
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.hero-content h1 {
+    margin-bottom: 1.75rem;
+    font-size: 2.6rem;
+    text-align: left;
+}
+
+.hero-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 0;
+}
+
+.hero-buttons .btn {
+    width: auto;
+    min-width: 0;
+}
+
+.hero-buttons .btn-primary,
+.hero-buttons .btn-primary:hover {
+    margin-top: 0;
+    padding: 0.85rem 1.5rem;
+    color: var(--charcoal);
+    background: var(--white);
+    border-color: var(--white);
+    box-shadow: none;
+}
+
+.hero-buttons .btn-primary:hover {
+    background: #eef0f2;
+    transform: none;
+}
+
+@media (min-width: 769px) {
+    .hero {
+        padding-bottom: 5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 4.5rem;
+    }
+}
