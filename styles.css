@@ -4442,3 +4442,77 @@ p {
         font-size: 2rem;
     }
 }
+
+/* --- About: the panel slides in from the left edge (desktop layout unchanged) --- */
+/* The story is three paragraphs now; on desktop they keep the old spacing (line breaks, no gaps) */
+.about-text p {
+    margin-bottom: 0;
+}
+
+.about-text p:last-child {
+    margin-bottom: 3rem;
+}
+
+/* Added by script.js only when motion is allowed, so the panel is never hidden without it */
+.about .container.about-slide {
+    transform: translateX(-102%);
+    transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.about .container.about-slide.is-visible {
+    transform: none;
+}
+
+@media (max-width: 768px) {
+    .about {
+        padding: 3rem 0;
+    }
+
+    /* Stop short of the right edge so the panel reads as sliding in from the left */
+    .about .container {
+        width: calc(100% - 1.75rem);
+        margin-left: 0;
+        padding: 2.25rem 1.5rem 2.5rem;
+        border-radius: 0 32px 32px 0;
+    }
+
+    .about-content {
+        gap: 1.5rem;
+        text-align: left;
+    }
+
+    .about-image-grid {
+        height: auto;
+        max-width: none;
+        margin: 0;
+    }
+
+    .about-image {
+        max-width: 84px;
+        margin: 0;
+    }
+
+    .about-image img {
+        height: auto;
+    }
+
+    .about-text h2,
+    .about-text p {
+        text-align: left;
+    }
+
+    .about-text h2 {
+        margin-bottom: 1.75rem;
+        font-size: 2.25rem;
+    }
+
+    .about-text p {
+        margin-bottom: 1rem;
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+
+    .about-text p:last-child {
+        margin-bottom: 0;
+    }
+}

@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     initScrollEffects();
     initHeroImageRotation();
+    initAboutSlideIn();
     initLazyLoading(); // Initialize lazy loading
     
     // Initialize gallery to show only overview cards
@@ -810,6 +811,25 @@ function initScrollEffects() {
         el.style.transition = 'all 0.6s ease';
         observer.observe(el);
     });
+}
+
+// About panel slides in from the left edge the first time it scrolls into view.
+// Skipped when the visitor prefers reduced motion; then the panel simply stays in place.
+function initAboutSlideIn() {
+    const section = document.querySelector('.about');
+    const panel = section && section.querySelector('.container');
+    if (!panel || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    panel.classList.add('about-slide');
+    // Watch the section, not the panel: the panel starts off-screen, so it would never intersect
+    const observer = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+            panel.classList.add('is-visible');
+            observer.disconnect();
+        }
+    }, { threshold: 0.2 });
+    observer.observe(section);
 }
 
 // Hero image rotation
