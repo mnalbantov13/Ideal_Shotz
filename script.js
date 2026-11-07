@@ -160,6 +160,9 @@ function initNavigation() {
         hamburger.classList.toggle('active', open);
         navList.classList.toggle('active', open);
         backdrop.classList.toggle('active', open);
+        // The floating bar goes back to full width while the menu is open, so the drawer attaches to it
+        const bar = document.querySelector('.navbar');
+        if (bar) bar.classList.toggle('menu-open', open);
         document.body.style.overflow = open ? 'hidden' : '';
     };
 
@@ -180,17 +183,22 @@ function initNavigation() {
         if (event.key === 'Escape' && navList && navList.classList.contains('active')) setMenuOpen(false);
     });
 
-    // Navbar background on scroll
+    // Navbar: full width at the top of the page, a floating rounded bar once you scroll (styles.css)
     const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.boxShadow = 'none';
+    if (navbar) {
+        // Phones: the logo lives in the menu drawer, so put a copy in the middle of the bar too
+        const logoLink = navbar.querySelector('.logo-item a');
+        const container = navbar.querySelector('.nav-container');
+        if (logoLink && container && !container.querySelector('.nav-brand')) {
+            const brand = logoLink.cloneNode(true);
+            brand.className = 'nav-brand';
+            container.appendChild(brand);
         }
-    });
+
+        const updateNavbar = () => navbar.classList.toggle('scrolled', window.scrollY > 24);
+        window.addEventListener('scroll', updateNavbar, { passive: true });
+        updateNavbar();
+    }
 
     // Handle active nav link based on scroll position
     window.addEventListener('scroll', function() {
