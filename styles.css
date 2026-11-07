@@ -5124,3 +5124,225 @@ body:has(.navbar.scrolled) .gallery-section .filter-tabs {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* --- Phone menu: the floating bar opens up into a card (script.js toggles .menu-open and sets --menu-h) --- */
+.nav-extras {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    /* Height of the bar row: the icons stay centred in it while the card grows below */
+    .navbar {
+        --bar-pad: 1.5rem;
+        --bar-pad-x: 1.5rem;
+    }
+
+    .navbar.scrolled,
+    .navbar.menu-open {
+        --bar-pad: 0.3rem;
+        --bar-pad-x: 0.4rem;
+    }
+
+    .navbar .nav-container {
+        flex-wrap: wrap;
+        padding: var(--bar-pad) var(--bar-pad-x);
+    }
+
+    .navbar .hamburger {
+        order: 1;
+    }
+
+    .navbar .language-switcher,
+    .navbar .nav-brand {
+        top: calc(var(--bar-pad) + 18px);
+        transition: top 0.55s var(--pill-ease), right 0.55s var(--pill-ease);
+    }
+
+    /* The card */
+    .navbar.menu-open {
+        top: 10px;
+        left: 12px;
+        right: 12px;
+        border-color: rgba(0, 0, 0, 0.06);
+        border-radius: 28px;
+        background: rgba(250, 250, 250, 0.95);
+        backdrop-filter: blur(20px) saturate(1.4);
+        -webkit-backdrop-filter: blur(20px) saturate(1.4);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22), 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    .navbar.menu-open .language-switcher {
+        right: 6px;
+    }
+
+    .navbar.menu-open .nav-brand .nav-logo {
+        height: 2rem;
+    }
+
+    .navbar.menu-open .bar {
+        width: 20px;
+    }
+
+    /* The menu: a second row inside the card that folds open */
+    .navbar .nav-list,
+    .navbar .nav-list.active {
+        order: 2;
+        position: static;
+        flex: 0 0 100%;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+        width: 100%;
+        max-width: none;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        text-align: left;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        transform: none;
+        animation: none;
+    }
+
+    .navbar .nav-list {
+        max-height: 0;
+        visibility: hidden;
+        transition: max-height 0.45s var(--pill-ease), visibility 0s linear 0.45s;
+    }
+
+    .navbar .nav-list.active {
+        max-height: min(var(--menu-h, 70vh), calc(100dvh - 90px));
+        overflow-y: auto;
+        visibility: visible;
+        transition: max-height 0.6s var(--pill-ease), visibility 0s;
+    }
+
+    /* The logo is already in the bar */
+    .navbar .nav-list .logo-item {
+        display: none;
+    }
+
+    .navbar .nav-list .nav-item {
+        width: 100%;
+        margin: 0;
+        padding: 0 0.6rem;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .navbar .nav-list.active .nav-item {
+        opacity: 1;
+        transform: none;
+        transition: opacity 0.4s ease, transform 0.55s var(--pill-ease);
+    }
+
+    .navbar .nav-list.active .nav-item:nth-child(1) { transition-delay: 0.1s; }
+    .navbar .nav-list.active .nav-item:nth-child(2) { transition-delay: 0.14s; }
+    .navbar .nav-list.active .nav-item:nth-child(4) { transition-delay: 0.18s; }
+    .navbar .nav-list.active .nav-item:nth-child(5) { transition-delay: 0.22s; }
+    .navbar .nav-list.active .nav-item.nav-extras { transition-delay: 0.28s; }
+
+    .navbar .nav-list .nav-link {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.95rem 0.6rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.07);
+        font-size: 1.4rem;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        color: var(--charcoal);
+    }
+
+    .navbar .nav-list .nav-link.active {
+        font-weight: 500;
+    }
+
+    .navbar .nav-list .nav-link::before {
+        display: none;
+    }
+
+    .navbar .nav-list .nav-link::after {
+        content: '\2192';
+        font-size: 1.15rem;
+        font-weight: 400;
+        opacity: 0.3;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .navbar .nav-list .nav-link.active::after,
+    .navbar .nav-list .nav-link:active::after {
+        opacity: 0.9;
+        transform: translateX(3px);
+    }
+
+    /* Socials and phone along the bottom of the card */
+    .navbar .nav-list .nav-extras {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin: 0 0.6rem;
+        padding: 1rem 0.6rem 0.9rem;
+        width: auto;
+        border-top: 1px solid rgba(0, 0, 0, 0.07);
+    }
+
+    .nav-social {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .nav-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        color: var(--charcoal);
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-social a:active {
+        background: var(--charcoal);
+        color: #fff;
+    }
+
+    .nav-phone {
+        color: var(--reg-muted);
+        font-size: 0.9rem;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    /* The page behind dims and softly blurs */
+    .nav-backdrop {
+        top: 0;
+        background: rgba(10, 10, 10, 0.3);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+    }
+}
+
+@media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+    .navbar .nav-list,
+    .navbar .nav-list.active,
+    .navbar .nav-list .nav-item,
+    .navbar .nav-list.active .nav-item,
+    .navbar .language-switcher,
+    .navbar .nav-brand {
+        transition-duration: 0.01ms !important;
+        transition-delay: 0s !important;
+    }
+}

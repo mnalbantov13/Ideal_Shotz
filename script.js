@@ -155,8 +155,25 @@ function initNavigation() {
     backdrop.className = 'nav-backdrop';
     document.body.appendChild(backdrop);
 
+    // Phones: socials and the phone number at the bottom of the open menu (hidden on desktop)
+    if (navList && !navList.querySelector('.nav-extras')) {
+        const extras = document.createElement('li');
+        extras.className = 'nav-item nav-extras';
+        extras.innerHTML = `
+            <div class="nav-social">
+                <a href="https://www.instagram.com/ideal_shotz/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/people/Ideal-Shotz/100067024976977/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@ideal_shotz" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="mailto:shotz.ideal@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <a class="nav-phone" href="tel:+359879947120">+359 879 947 120</a>`;
+        navList.appendChild(extras);
+    }
+
     const setMenuOpen = open => {
         if (!hamburger || !navList) return;
+        // The card opens to exactly the height of the menu, so the animation has no dead time
+        if (open) navList.style.setProperty('--menu-h', navList.scrollHeight + 'px');
         hamburger.classList.toggle('active', open);
         navList.classList.toggle('active', open);
         backdrop.classList.toggle('active', open);
