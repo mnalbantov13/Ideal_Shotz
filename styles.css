@@ -5346,3 +5346,125 @@ body:has(.navbar.scrolled) .gallery-section .filter-tabs {
         transition-delay: 0s !important;
     }
 }
+
+/* --- Gallery filter: a floating pill that matches the navbar (instead of a full-width strip) --- */
+.gallery-section .filter-tabs {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 2.5rem;
+    padding: 5px;
+    gap: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 999px;
+    background: rgba(250, 250, 250, 0.86);
+    backdrop-filter: blur(18px) saturate(1.4);
+    -webkit-backdrop-filter: blur(18px) saturate(1.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Categories are quiet text; the chosen one is a dark pill */
+.gallery-section .filter-tabs .filter-btn {
+    padding: 0.5rem 1rem;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    color: var(--dark-grey);
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.gallery-section .filter-tabs .filter-btn::before {
+    display: none;
+}
+
+.gallery-section .filter-tabs .filter-btn:hover {
+    background: rgba(54, 69, 79, 0.08);
+    color: var(--charcoal);
+}
+
+.gallery-section .filter-tabs .filter-btn.active,
+.gallery-section .filter-tabs .filter-btn.active:hover {
+    background: #1f1f1f;
+    color: #fff;
+}
+
+/* Sits just under the floating navbar once it sticks */
+body:has(.navbar.scrolled) .gallery-section .filter-tabs {
+    top: 74px;
+}
+
+@media (hover: none) {
+    .gallery-section .filter-tabs .filter-btn:hover:not(.active) {
+        background: transparent;
+        color: var(--dark-grey);
+    }
+}
+
+/* Phones: the same width as the navbar above it; the categories swipe inside the pill */
+@media (max-width: 768px) {
+    .gallery-section .filter-tabs {
+        width: auto;
+        max-width: none;
+        margin: 0 calc(50% - 50vw + 20px) 1.75rem;
+        padding: 4px;
+    }
+
+    .gallery-section .filter-tabs .filter-btn {
+        padding: 0.5rem 0.95rem;
+    }
+
+    body:has(.navbar.scrolled) .gallery-section .filter-tabs {
+        top: 66px;
+    }
+}
+
+/* Sliding highlight: one dark pill that glides to the chosen category (script.js places it) */
+.filter-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    border-radius: 999px;
+    background: #1f1f1f;
+    pointer-events: none;
+    transition:
+        transform 0.45s cubic-bezier(0.32, 0.72, 0, 1),
+        width 0.45s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.filter-indicator.no-anim {
+    transition: none;
+}
+
+.gallery-section .filter-tabs.has-indicator .filter-btn {
+    position: relative;
+    z-index: 1;
+    transition: background-color 0.3s ease, color 0.35s ease;
+}
+
+.gallery-section .filter-tabs.has-indicator .filter-btn.active,
+.gallery-section .filter-tabs.has-indicator .filter-btn.active:hover {
+    background: transparent;
+    color: #fff;
+}
+
+/* The new category turns white as the pill arrives under it, not before */
+.gallery-section .filter-tabs.has-indicator .filter-btn.active {
+    transition: background-color 0.3s ease, color 0.25s ease 0.15s;
+}
+
+/* A little more lift once the row is pinned under the navbar */
+.gallery-section .filter-tabs {
+    transition: box-shadow 0.35s ease, background-color 0.35s ease;
+}
+
+.gallery-section .filter-tabs.is-stuck {
+    background: rgba(250, 250, 250, 0.92);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14), 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .filter-indicator {
+        transition: none;
+    }
+}

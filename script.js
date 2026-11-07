@@ -274,6 +274,8 @@ function initGalleryFilter() {
             applyFilter(filterValue);
         });
     });
+
+    initFilterIndicator();
 }
 
 // Apply filter function
@@ -366,6 +368,50 @@ function revealActiveFilter() {
     if (!active) return;
     const row = active.parentElement;
     row.scrollTo({ left: active.offsetLeft - (row.clientWidth - active.offsetWidth) / 2, behavior: 'smooth' });
+    placeFilterIndicator(true);
+}
+
+// Gallery filter: a dark pill that slides to the chosen category, and a deeper shadow once the row sticks
+function initFilterIndicator() {
+    const row = document.querySelector('.gallery-section .filter-tabs');
+    if (!row || row.querySelector('.filter-indicator')) return;
+
+    const indicator = document.createElement('span');
+    indicator.className = 'filter-indicator';
+    indicator.setAttribute('aria-hidden', 'true');
+    row.prepend(indicator);
+    row.classList.add('has-indicator');
+
+    placeFilterIndicator(false);
+    window.addEventListener('resize', () => placeFilterIndicator(false));
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => placeFilterIndicator(false));
+
+    const updateStuck = () => {
+        const stickyTop = parseFloat(getComputedStyle(row).top) || 0;
+        row.classList.toggle('is-stuck', window.scrollY > 0 && row.getBoundingClientRect().top <= stickyTop + 1);
+    };
+    window.addEventListener('scroll', updateStuck, { passive: true });
+    updateStuck();
+}
+
+function placeFilterIndicator(animate) {
+    const row = document.querySelector('.gallery-section .filter-tabs');
+    const indicator = row && row.querySelector('.filter-indicator');
+    const active = row && row.querySelector('.filter-btn.active');
+    if (!indicator || !active) return;
+    indicator.classList.toggle('no-anim', !animate);
+    // Sub-pixel exact, measured inside the (sideways-scrolling) row
+    const r = row.getBoundingClientRect();
+    const a = active.getBoundingClientRect();
+    const x = a.left - r.left - row.clientLeft + row.scrollLeft;
+    const y = a.top - r.top - row.clientTop;
+    indicator.style.width = a.width + 'px';
+    indicator.style.height = a.height + 'px';
+    indicator.style.transform = `translate(${x}px, ${y}px)`;
+    if (!animate) {
+        void indicator.offsetWidth; // apply the jump before turning the animation back on
+        indicator.classList.remove('no-anim');
+    }
 }
 
 // Filter to specific category (called from overview cards)
